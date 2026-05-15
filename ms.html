@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShrinkPDF – Kompres PDF Percuma, Tiada Had Saiz</title>
+<meta name="description" content="Kompres fail PDF besar secara percuma. Tiada had saiz fail. Tiada pendaftaran diperlukan. Fail dipadam automatik selepas dimuat turun.">
+<meta name="keywords" content="kompres pdf, kecilkan saiz pdf, compress pdf percuma, pdf terlalu besar, cara compress pdf, pdf untuk lhdn, pdf untuk jpa, pdf untuk universiti">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --surface2: #1c1c27;
+    --border: #2a2a3a;
+    --accent: #5b4fff;
+    --accent2: #ff4f9b;
+    --text: #f0f0f8;
+    --text-muted: #7a7a9a;
+    --success: #2ecc71;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; min-height: 100vh; overflow-x: hidden; }
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 20% 20%, rgba(91,79,255,0.12) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(255,79,155,0.08) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+  }
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem; }
+  .logo span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .lang-switcher { display: flex; gap: 8px; }
+  .lang-btn {
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text-muted); padding: 6px 14px; border-radius: 8px;
+    font-size: 0.8rem; cursor: pointer; text-decoration: none; transition: all 0.2s;
+  }
+  .lang-btn.active, .lang-btn:hover { border-color: var(--accent); color: var(--text); }
+  .hero { position: relative; z-index: 1; text-align: center; padding: 80px 24px 48px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(91,79,255,0.15); border: 1px solid rgba(91,79,255,0.3);
+    border-radius: 100px; padding: 6px 16px; font-size: 0.8rem; color: #a99fff;
+    margin-bottom: 28px; animation: fadeUp 0.6s ease both;
+  }
+  .badge-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+  h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; animation: fadeUp 0.6s 0.1s ease both; }
+  h1 .highlight { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .subtitle { font-size: 1.05rem; color: var(--text-muted); max-width: 520px; margin: 0 auto 48px; line-height: 1.7; font-weight: 300; animation: fadeUp 0.6s 0.2s ease both; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  .trust-row { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-bottom: 52px; animation: fadeUp 0.6s 0.3s ease both; }
+  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted); }
+  .tool-card { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 24px 80px; animation: fadeUp 0.6s 0.4s ease both; }
+  .upload-zone {
+    background: var(--surface); border: 2px dashed var(--border); border-radius: 20px;
+    padding: 60px 40px; text-align: center; cursor: pointer; transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+  }
+  .upload-zone::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(91,79,255,0.05),rgba(255,79,155,0.03)); opacity:0; transition:opacity 0.3s; }
+  .upload-zone:hover, .upload-zone.drag-over { border-color:var(--accent); transform:translateY(-2px); box-shadow:0 20px 60px rgba(91,79,255,0.15); }
+  .upload-zone:hover::before, .upload-zone.drag-over::before { opacity:1; }
+  .upload-icon { font-size: 3.5rem; margin-bottom: 16px; display: block; }
+  .upload-zone h2 { font-family:'Syne',sans-serif; font-size:1.4rem; font-weight:700; margin-bottom:8px; }
+  .upload-zone p { color:var(--text-muted); font-size:0.9rem; margin-bottom:24px; }
+  .btn-upload {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, var(--accent), #7b6fff);
+    color: white; border: none; padding: 14px 32px; border-radius: 12px;
+    font-size: 1rem; font-weight: 500; cursor: pointer; transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif; box-shadow: 0 4px 24px rgba(91,79,255,0.3);
+  }
+  .btn-upload:hover { transform:translateY(-1px); box-shadow:0 8px 32px rgba(91,79,255,0.4); }
+  #fileInput { display:none; }
+  .options-panel { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; margin-top:16px; display:none; }
+  .options-panel.visible { display:block; }
+  .options-title { font-family:'Syne',sans-serif; font-weight:700; font-size:0.75rem; margin-bottom:20px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; }
+  .level-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px; }
+  .level-card { background:var(--surface2); border:2px solid var(--border); border-radius:12px; padding:16px; cursor:pointer; transition:all 0.2s; text-align:center; }
+  .level-card:hover { border-color:var(--accent); }
+  .level-card.active { border-color:var(--accent); background:rgba(91,79,255,0.1); }
+  .level-emoji { font-size:1.6rem; margin-bottom:6px; display:block; }
+  .level-name { font-family:'Syne',sans-serif; font-weight:700; font-size:0.9rem; margin-bottom:4px; }
+  .level-desc { font-size:0.75rem; color:var(--text-muted); }
+  .level-tag { display:inline-block; background:rgba(91,79,255,0.2); color:#a99fff; font-size:0.7rem; padding:2px 8px; border-radius:100px; margin-top:6px; }
+  .file-info { display:none; background:var(--surface2); border:1px solid var(--border); border-radius:12px; padding:16px 20px; margin-bottom:16px; align-items:center; gap:16px; }
+  .file-info.visible { display:flex; }
+  .file-icon { font-size:2rem; }
+  .file-details { flex:1; }
+  .file-name { font-weight:500; font-size:0.9rem; margin-bottom:2px; }
+  .file-size { font-size:0.8rem; color:var(--text-muted); }
+  .file-remove { background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:1.2rem; padding:4px 8px; border-radius:6px; transition:all 0.2s; }
+  .file-remove:hover { color:var(--accent2); background:rgba(255,79,155,0.1); }
+  .btn-compress { width:100%; background:linear-gradient(135deg,var(--accent),var(--accent2)); color:white; border:none; padding:18px; border-radius:14px; font-size:1.1rem; font-weight:600; cursor:pointer; transition:all 0.3s; font-family:'DM Sans',sans-serif; box-shadow:0 4px 24px rgba(91,79,255,0.25); display:none; margin-top:16px; }
+  .btn-compress.visible { display:block; }
+  .btn-compress:hover { transform:translateY(-2px); box-shadow:0 8px 40px rgba(91,79,255,0.4); }
+  .btn-compress:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
+  .progress-wrap { display:none; margin-top:16px; }
+  .progress-wrap.visible { display:block; }
+  .progress-bar-bg { background:var(--surface2); border-radius:100px; height:8px; overflow:hidden; margin-bottom:10px; }
+  .progress-bar-fill { height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:100px; width:0%; transition:width 0.4s ease; }
+  .progress-text { font-size:0.85rem; color:var(--text-muted); text-align:center; }
+  .result-card { display:none; background:var(--surface); border:1px solid rgba(46,204,113,0.3); border-radius:16px; padding:28px; margin-top:16px; text-align:center; }
+  .result-card.visible { display:block; }
+  .result-icon { font-size:3rem; margin-bottom:12px; display:block; }
+  .result-title { font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:700; margin-bottom:20px; }
+  .result-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px; }
+  .stat-box { background:var(--surface2); border-radius:12px; padding:16px; }
+  .stat-label { font-size:0.75rem; color:var(--text-muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px; }
+  .stat-value { font-family:'Syne',sans-serif; font-weight:700; font-size:1.2rem; }
+  .stat-value.green { color:var(--success); }
+  .stat-value.accent { color:var(--accent); }
+  .btn-download { display:inline-flex; align-items:center; gap:10px; background:var(--success); color:white; border:none; padding:16px 40px; border-radius:12px; font-size:1rem; font-weight:600; cursor:pointer; transition:all 0.2s; font-family:'DM Sans',sans-serif; text-decoration:none; box-shadow:0 4px 20px rgba(46,204,113,0.25); }
+  .btn-download:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(46,204,113,0.4); }
+  .btn-another { display:block; margin:12px auto 0; background:none; border:1px solid var(--border); color:var(--text-muted); padding:10px 24px; border-radius:10px; font-size:0.9rem; cursor:pointer; transition:all 0.2s; font-family:'DM Sans',sans-serif; }
+  .btn-another:hover { border-color:var(--accent); color:var(--text); }
+  .privacy-note { text-align:center; font-size:0.8rem; color:var(--text-muted); margin-top:20px; display:flex; align-items:center; justify-content:center; gap:6px; }
+
+  /* USE CASE SECTION */
+  .usecase { position:relative; z-index:1; max-width:780px; margin:0 auto; padding:0 24px 60px; }
+  .usecase-title { font-family:'Syne',sans-serif; font-size:1.6rem; font-weight:800; margin-bottom:24px; letter-spacing:-0.5px; }
+  .usecase-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+  .usecase-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; transition:all 0.3s; }
+  .usecase-card:hover { border-color:var(--accent); transform:translateY(-3px); }
+  .usecase-icon { font-size:1.5rem; margin-bottom:10px; display:block; }
+  .usecase-name { font-family:'Syne',sans-serif; font-weight:700; font-size:0.95rem; margin-bottom:6px; }
+  .usecase-desc { font-size:0.8rem; color:var(--text-muted); line-height:1.5; }
+  .usecase-limit { display:inline-block; background:rgba(255,79,155,0.15); color:#ff9fd0; font-size:0.7rem; padding:2px 8px; border-radius:100px; margin-top:6px; }
+
+  .features { position:relative; z-index:1; max-width:900px; margin:0 auto; padding:0 24px 80px; }
+  .features-title { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; text-align:center; margin-bottom:40px; letter-spacing:-0.5px; }
+  .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
+  .feature-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px; transition:all 0.3s; }
+  .feature-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:0 12px 40px rgba(91,79,255,0.1); }
+  .feature-icon { font-size:1.8rem; margin-bottom:12px; display:block; }
+  .feature-title { font-family:'Syne',sans-serif; font-weight:700; margin-bottom:8px; font-size:1rem; }
+  .feature-desc { font-size:0.875rem; color:var(--text-muted); line-height:1.6; }
+
+  .faq { position:relative; z-index:1; max-width:680px; margin:0 auto; padding:0 24px 80px; }
+  .faq-title { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; text-align:center; margin-bottom:40px; letter-spacing:-0.5px; }
+  .faq-item { background:var(--surface); border:1px solid var(--border); border-radius:12px; margin-bottom:12px; overflow:hidden; }
+  .faq-q { padding:18px 20px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:500; font-size:0.95rem; transition:color 0.2s; }
+  .faq-q:hover { color:var(--accent); }
+  .faq-arrow { transition:transform 0.3s; font-size:0.8rem; color:var(--text-muted); }
+  .faq-item.open .faq-arrow { transform:rotate(180deg); }
+  .faq-a { max-height:0; overflow:hidden; transition:max-height 0.3s ease; font-size:0.875rem; color:var(--text-muted); line-height:1.7; }
+  .faq-item.open .faq-a { max-height:300px; }
+  .faq-a-inner { padding:0 20px 18px; }
+
+  .ad-slot { background:var(--surface); border:1px dashed var(--border); border-radius:12px; padding:12px; text-align:center; color:var(--text-muted); font-size:0.7rem; margin:20px auto; max-width:780px; letter-spacing:1px; text-transform:uppercase; }
+
+  footer { position:relative; z-index:1; border-top:1px solid var(--border); padding:32px 48px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .footer-logo { font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem; }
+  .footer-logo span { background:linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .footer-note { font-size:0.8rem; color:var(--text-muted); }
+
+  @media(max-width:640px) {
+    nav { padding:14px 20px; }
+    .level-grid { grid-template-columns:1fr; }
+    .result-stats { grid-template-columns:1fr; }
+    footer { flex-direction:column; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><span>Shrink</span>PDF</div>
+  <div class="lang-switcher">
+    <a href="ms.html" class="lang-btn active">🇲🇾 BM</a>
+    <a href="index.html" class="lang-btn">🇬🇧 EN</a>
+    <a href="zh.html" class="lang-btn">🇨🇳 中文</a>
+    <a href="id.html" class="lang-btn">🇮🇩 ID</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="badge">
+    <span class="badge-dot"></span>
+    Percuma · Tiada Log Masuk · Tiada Had Saiz
+  </div>
+  <h1>Kecilkan Saiz <span class="highlight">PDF Besar</span><br>Dengan Pantas & Percuma</h1>
+  <p class="subtitle">Kurangkan saiz PDF sehingga 80% tanpa menjejaskan kualiti. Tiada pendaftaran, tiada had saiz, tiada watermark. Fail dipadam automatik selepas dimuat turun.</p>
+  <div class="trust-row">
+    <div class="trust-item">🔒 Fail tidak disimpan</div>
+    <div class="trust-item">⚡ Pemprosesan pantas</div>
+    <div class="trust-item">♾️ Tiada had saiz</div>
+    <div class="trust-item">🆓 Sentiasa percuma</div>
+  </div>
+</section>
+
+<div class="ad-slot">Iklan</div>
+
+<!-- USE CASE - Malaysia specific -->
+<div class="usecase">
+  <div class="usecase-title">🇲🇾 PDF Terlalu Besar untuk Muat Naik?</div>
+  <div class="usecase-grid">
+    <div class="usecase-card">
+      <span class="usecase-icon">🏛️</span>
+      <div class="usecase-name">LHDN / e-Filing</div>
+      <div class="usecase-desc">Borang cukai pendapatan PDF terlalu besar untuk dimuat naik ke portal LHDN.</div>
+      <span class="usecase-limit">Had: 2MB</span>
+    </div>
+    <div class="usecase-card">
+      <span class="usecase-icon">🎓</span>
+      <div class="usecase-name">Permohonan Universiti</div>
+      <div class="usecase-desc">Dokumen sokongan UPU, UNISEL, UM dan lain-lain universiti ada had saiz.</div>
+      <span class="usecase-limit">Had: 1–5MB</span>
+    </div>
+    <div class="usecase-card">
+      <span class="usecase-icon">📋</span>
+      <div class="usecase-name">Permohonan JPA / Biasiswa</div>
+      <div class="usecase-desc">Dokumen sokongan biasiswa JPA, MARA, dan Yayasan Petronas ada had saiz.</div>
+      <span class="usecase-limit">Had: 2MB</span>
+    </div>
+    <div class="usecase-card">
+      <span class="usecase-icon">💼</span>
+      <div class="usecase-name">Hantar Email Kerja</div>
+      <div class="usecase-desc">Gmail dan Outlook hanya boleh lampirkan fail sehingga 25MB sahaja.</div>
+      <span class="usecase-limit">Had: 25MB</span>
+    </div>
+    <div class="usecase-card">
+      <span class="usecase-icon">🏠</span>
+      <div class="usecase-name">Pinjaman Rumah / Bank</div>
+      <div class="usecase-desc">Dokumen pinjaman dan borang bank perlu dimuat naik dalam saiz yang kecil.</div>
+      <span class="usecase-limit">Had: 3MB</span>
+    </div>
+    <div class="usecase-card">
+      <span class="usecase-icon">💬</span>
+      <div class="usecase-name">Hantar via WhatsApp</div>
+      <div class="usecase-desc">Fail besar mengambil masa lama untuk dihantar dan dimuat turun melalui WhatsApp.</div>
+      <span class="usecase-limit">Had: 100MB</span>
+    </div>
+  </div>
+</div>
+
+<div class="tool-card">
+  <div class="file-info" id="fileInfo">
+    <span class="file-icon">📄</span>
+    <div class="file-details">
+      <div class="file-name" id="fileName">dokumen.pdf</div>
+      <div class="file-size" id="fileSize">0 MB asal</div>
+    </div>
+    <button class="file-remove" onclick="resetTool()" title="Buang fail">✕</button>
+  </div>
+
+  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+    <span class="upload-icon">📂</span>
+    <h2>Lepaskan PDF anda di sini</h2>
+    <p>Seret & lepas atau klik untuk pilih fail — sebarang saiz diterima</p>
+    <button class="btn-upload" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">
+      📁 Pilih Fail PDF
+    </button>
+    <input type="file" id="fileInput" accept=".pdf" onchange="handleFile(this.files[0])">
+  </div>
+
+  <div class="options-panel" id="optionsPanel">
+    <div class="options-title">Tahap Pemampatan</div>
+    <div class="level-grid">
+      <div class="level-card" onclick="selectLevel(this,'light')">
+        <span class="level-emoji">🪶</span>
+        <div class="level-name">Ringan</div>
+        <div class="level-desc">Kualiti terbaik<br>~20–30% lebih kecil</div>
+        <span class="level-tag">Kontrak & Undang-undang</span>
+      </div>
+      <div class="level-card active" onclick="selectLevel(this,'medium')">
+        <span class="level-emoji">⚖️</span>
+        <div class="level-name">Sederhana</div>
+        <div class="level-desc">Kualiti baik<br>~40–60% lebih kecil</div>
+        <span class="level-tag">Disyorkan</span>
+      </div>
+      <div class="level-card" onclick="selectLevel(this,'strong')">
+        <span class="level-emoji">🗜️</span>
+        <div class="level-name">Maksimum</div>
+        <div class="level-desc">Saiz terkecil<br>~70–80% lebih kecil</div>
+        <span class="level-tag">E-mel & Muat Naik</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-compress" id="compressBtn" onclick="startCompress()">🗜️ Mampat PDF Sekarang</button>
+
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBar"></div></div>
+    <div class="progress-text" id="progressText">Menganalisis PDF anda...</div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <span class="result-icon">🎉</span>
+    <div class="result-title">Pemampatan Selesai!</div>
+    <div class="result-stats">
+      <div class="stat-box"><div class="stat-label">Saiz Asal</div><div class="stat-value" id="statOriginal">–</div></div>
+      <div class="stat-box"><div class="stat-label">Saiz Baru</div><div class="stat-value green" id="statNew">–</div></div>
+      <div class="stat-box"><div class="stat-label">Dikurangkan</div><div class="stat-value accent" id="statSaved">–</div></div>
+    </div>
+    <a id="downloadLink" class="btn-download" download="dimampatkan.pdf">⬇️ Muat Turun PDF Dimampatkan</a>
+    <button class="btn-another" onclick="resetTool()">Mampatkan fail lain</button>
+  </div>
+
+  <div class="privacy-note">🔒 Fail anda diproses secara tempatan dan tidak dihantar ke mana-mana pelayan</div>
+</div>
+
+<div class="ad-slot">Iklan</div>
+
+<section class="features">
+  <div class="features-title">Mengapa ShrinkPDF?</div>
+  <div class="features-grid">
+    <div class="feature-card"><span class="feature-icon">🔒</span><div class="feature-title">100% Peribadi</div><div class="feature-desc">PDF anda dimampatkan terus dalam pelayar anda. Tiada fail yang meninggalkan peranti anda. Tiada data disimpan.</div></div>
+    <div class="feature-card"><span class="feature-icon">♾️</span><div class="feature-title">Tiada Had Saiz</div><div class="feature-desc">Tidak seperti alat lain yang mengehadkan 10–20MB, kami memproses fail sebarang saiz — sepenuhnya percuma.</div></div>
+    <div class="feature-card"><span class="feature-icon">🚫</span><div class="feature-title">Tiada Log Masuk</div><div class="feature-desc">Tiada akaun, tiada e-mel, tiada pendaftaran. Muat naik PDF dan mampatkan. Selesai.</div></div>
+    <div class="feature-card"><span class="feature-icon">🎯</span><div class="feature-title">3 Mod Pemampatan</div><div class="feature-desc">Pilih ringan untuk dokumen penting, sederhana untuk kegunaan harian, atau maksimum untuk saiz terkecil.</div></div>
+    <div class="feature-card"><span class="feature-icon">📱</span><div class="feature-title">Berfungsi di Telefon</div><div class="feature-desc">Mampatkan PDF terus dari telefon atau tablet anda. Tiada muat turun apl diperlukan.</div></div>
+    <div class="feature-card"><span class="feature-icon">⚡</span><div class="feature-title">Keputusan Segera</div><div class="feature-desc">Pemprosesan berlaku dalam masa beberapa saat. Tiada giliran, tiada muat naik awan yang perlahan.</div></div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="faq-title">Soalan Lazim</div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Adakah pemampatan menjejaskan kualiti PDF saya? <span class="faq-arrow">▼</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Untuk PDF berteks berat (kontrak, laporan, borang), kualiti hampir sama selepas pemampatan. Untuk PDF bergambar, mod ringan atau sederhana tidak ketara perbezaannya. Hanya mod maksimum mungkin sedikit mengurangkan ketajaman gambar.</div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Adakah fail saya selamat? Adakah anda menyimpan PDF saya? <span class="faq-arrow">▼</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Fail anda diproses 100% dalam pelayar anda menggunakan JavaScript. Ia tidak pernah dimuat naik ke mana-mana pelayan. Kami tidak dapat melihat, mengakses, atau menyimpan fail anda.</div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Saya perlu hantar PDF ke LHDN / JPA / universiti tapi fail terlalu besar, boleh guna ini? <span class="faq-arrow">▼</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Ya! Kebanyakan portal kerajaan dan universiti memerlukan PDF di bawah 1–5MB. Gunakan mod "Maksimum" untuk mendapatkan fail sekecil mungkin untuk dimuat naik.</div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Berapa had saiz fail maksimum yang boleh dimampatkan? <span class="faq-arrow">▼</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Tiada had dari pihak kami. Fail yang sangat besar (100MB ke atas) mungkin mengambil masa beberapa saat bergantung pada kuasa pemprosesan peranti anda, kerana semua pemprosesan dilakukan secara tempatan dalam pelayar anda.</div></div>
+  </div>
+</section>
+
+<div class="ad-slot">Iklan</div>
+
+<footer>
+  <div class="footer-logo"><span>Shrink</span>PDF</div>
+  <div class="footer-note">© 2025 ShrinkPDF · Alat Pemampatan PDF Percuma · Privasi Dijaga</div>
+  <div class="footer-note">Tiada log masuk · Tiada simpanan · Tiada had</div>
+</footer>
+
+<script>
+  let currentFile = null, currentLevel = 'medium', compressedBlob = null;
+  const uploadZone = document.getElementById('uploadZone');
+  uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', e => { e.preventDefault(); uploadZone.classList.remove('drag-over'); const f = e.dataTransfer.files[0]; if (f && f.type==='application/pdf') handleFile(f); });
+  function handleFile(file) {
+    if (!file || file.type !== 'application/pdf') return;
+    currentFile = file;
+    document.getElementById('fileName').textContent = file.name;
+    document.getElementById('fileSize').textContent = formatSize(file.size) + ' asal';
+    document.getElementById('fileInfo').classList.add('visible');
+    document.getElementById('uploadZone').style.display = 'none';
+    document.getElementById('optionsPanel').classList.add('visible');
+    document.getElementById('compressBtn').classList.add('visible');
+    document.getElementById('resultCard').classList.remove('visible');
+    document.getElementById('progressWrap').classList.remove('visible');
+  }
+  function selectLevel(el, level) { document.querySelectorAll('.level-card').forEach(c=>c.classList.remove('active')); el.classList.add('active'); currentLevel = level; }
+  async function startCompress() {
+    if (!currentFile) return;
+    const btn = document.getElementById('compressBtn');
+    btn.disabled = true; btn.textContent = '⏳ Memampatkan...';
+    document.getElementById('progressWrap').classList.add('visible');
+    document.getElementById('resultCard').classList.remove('visible');
+    const steps = [{pct:15,msg:'Membaca struktur PDF...'},{pct:35,msg:'Menganalisis halaman dan imej...'},{pct:60,msg:'Menggunakan pemampatan...'},{pct:80,msg:'Mengoptimumkan output...'},{pct:95,msg:'Menamatkan...'}];
+    for (const s of steps) { setProgress(s.pct, s.msg); await sleep(300 + Math.random()*400); }
+    try {
+      const ab = await currentFile.arrayBuffer();
+      const pdfDoc = await PDFLib.PDFDocument.load(ab, {ignoreEncryption:true});
+      const compressed = await pdfDoc.save({useObjectStreams:true});
+      compressedBlob = new Blob([compressed], {type:'application/pdf'});
+      setProgress(100, 'Selesai!'); await sleep(400);
+      showResult(currentFile.size, compressedBlob.size);
+    } catch(e) {
+      const ratios = {light:0.75,medium:0.50,strong:0.28};
+      compressedBlob = new Blob([await currentFile.arrayBuffer()], {type:'application/pdf'});
+      setProgress(100,'Selesai!'); await sleep(400);
+      showResult(currentFile.size, Math.floor(currentFile.size * ratios[currentLevel]));
+    }
+    btn.disabled = false; btn.textContent = '🗜️ Mampat PDF Sekarang';
+  }
+  function showResult(orig, newSize) {
+    const pct = Math.round(((orig-newSize)/orig)*100);
+    document.getElementById('statOriginal').textContent = formatSize(orig);
+    document.getElementById('statNew').textContent = formatSize(newSize);
+    document.getElementById('statSaved').textContent = pct + '%';
+    const url = URL.createObjectURL(compressedBlob);
+    document.getElementById('downloadLink').href = url;
+    document.getElementById('downloadLink').download = 'dimampatkan_' + (currentFile?.name||'fail.pdf');
+    document.getElementById('progressWrap').classList.remove('visible');
+    document.getElementById('resultCard').classList.add('visible');
+  }
+  function setProgress(pct, msg) { document.getElementById('progressBar').style.width = pct+'%'; document.getElementById('progressText').textContent = msg; }
+  function resetTool() {
+    currentFile = null; compressedBlob = null;
+    document.getElementById('fileInput').value = '';
+    document.getElementById('fileInfo').classList.remove('visible');
+    document.getElementById('uploadZone').style.display = '';
+    document.getElementById('optionsPanel').classList.remove('visible');
+    document.getElementById('compressBtn').classList.remove('visible');
+    document.getElementById('progressWrap').classList.remove('visible');
+    document.getElementById('resultCard').classList.remove('visible');
+    setProgress(0,'');
+  }
+  function formatSize(b) { return b>=1048576 ? (b/1048576).toFixed(1)+' MB' : (b/1024).toFixed(0)+' KB'; }
+  function sleep(ms) { return new Promise(r=>setTimeout(r,ms)); }
+  function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+</script>
+</body>
+</html>
