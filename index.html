@@ -88,6 +88,8 @@
     font-weight: 800;
     font-size: 1.4rem;
     letter-spacing: -0.5px;
+    text-decoration: none;
+    color: var(--text);
   }
 
   .logo span {
@@ -110,6 +112,34 @@
   }
 
   .nav-links a:hover { color: var(--text); }
+
+  /* Tool nav buttons */
+  .nav-tools-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-tool-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-tool-btn:hover,
+  .nav-tool-btn.active {
+    border-color: var(--accent);
+    color: var(--text);
+    background: rgba(91,79,255,0.08);
+  }
 
   .lang-switcher { display: flex; gap: 8px; }
   .lang-btn {
@@ -701,6 +731,7 @@
   @media (max-width: 640px) {
     nav { padding: 14px 20px; }
     .nav-links { display: none; }
+    .nav-tools-row { display: none; }
     .level-grid { grid-template-columns: 1fr; }
     .result-stats { grid-template-columns: 1fr; }
     footer { flex-direction: column; text-align: center; }
@@ -711,7 +742,16 @@
 
 <!-- NAV -->
 <nav>
-  <div class="logo"><span>Shrink</span>PDF</div>
+  <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
+  <div class="nav-tools-row">
+    <a href="index.html" class="nav-tool-btn active">🗜️ Compress</a>
+    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
+    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
+    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
+    <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
+    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
+    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
+  </div>
   <div class="lang-switcher">
     <a href="ms.html" class="lang-btn">🇲🇾 BM</a>
     <a href="index.html" class="lang-btn active">🇬🇧 EN</a>

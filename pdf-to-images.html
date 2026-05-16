@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF to Images Free – Convert PDF Pages to JPG/PNG | ShrinkPDF</title>
+<meta name="description" content="Convert PDF pages to JPG or PNG images. Choose resolution, download all pages as a ZIP. Free, no login, processed locally in your browser.">
+<link rel="canonical" href="https://shrinkpdf.pages.dev/pdf-to-images.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- PDF.js for rendering, JSZip for bundling downloads -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+  :root{--bg:#0a0a0f;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--accent:#5b4fff;--accent2:#ff4f9b;--text:#f0f0f8;--text-muted:#7a7a9a;--success:#2ecc71}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+  body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,.12) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(255,79,155,.08) 0%,transparent 50%);pointer-events:none;z-index:0}
+  nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+  .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.5px;text-decoration:none;color:var(--text)}
+  .logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .nav-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .nav-tool-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:8px;font-size:.8rem;cursor:pointer;text-decoration:none;transition:all .2s}
+  .nav-tool-btn:hover,.nav-tool-btn.active{border-color:var(--accent);color:var(--text)}
+  .lang-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:8px;font-size:.8rem;text-decoration:none}
+  .lang-btn.active{border-color:var(--accent);color:var(--text)}
+  @media(max-width:640px){nav{padding:14px 20px;flex-wrap:wrap;gap:10px}.nav-tools{display:none}}
+  .hero{position:relative;z-index:1;text-align:center;padding:60px 24px 36px}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(91,79,255,.15);border:1px solid rgba(91,79,255,.3);border-radius:100px;padding:6px 16px;font-size:.8rem;color:#a99fff;margin-bottom:24px}
+  .badge-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+  h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:16px}
+  h1 .highlight{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .subtitle{font-size:1.05rem;color:var(--text-muted);max-width:500px;margin:0 auto 36px;line-height:1.7;font-weight:300}
+  .trust-row{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+  .trust-item{font-size:.85rem;color:var(--text-muted)}
+  .ad-slot{max-width:900px;margin:0 auto 12px;background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:20px;text-align:center;color:var(--text-muted);font-size:.75rem}
+  .tool-card{position:relative;z-index:1;max-width:760px;margin:0 auto 32px;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:32px}
+  .upload-zone{border:2px dashed var(--border);border-radius:16px;padding:48px 24px;text-align:center;cursor:pointer;transition:all .3s}
+  .upload-zone:hover,.upload-zone.drag-over{border-color:var(--accent);background:rgba(91,79,255,.05)}
+  .upload-icon{font-size:2.5rem;display:block;margin-bottom:12px}
+  .upload-zone h2{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:8px}
+  .upload-zone p{color:var(--text-muted);font-size:.9rem;margin-bottom:20px}
+  .btn-upload{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 24px;border-radius:10px;cursor:pointer;font-size:.9rem;font-family:'DM Sans',sans-serif;transition:all .2s}
+  .btn-upload:hover{border-color:var(--accent)}
+  input[type=file]{display:none}
+  .file-info{display:none;align-items:center;gap:12px;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:20px}
+  .file-info.visible{display:flex}
+  .file-name{font-size:.9rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:300px}
+  .file-meta{font-size:.75rem;color:var(--text-muted)}
+  .file-pages{font-size:.8rem;color:var(--accent);margin-left:auto;white-space:nowrap}
+  .file-remove{background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1rem;padding:4px 8px}
+  .file-remove:hover{color:var(--accent2)}
+  .options-panel{display:none;margin-bottom:4px}
+  .options-panel.visible{display:block}
+  .options-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:14px}
+
+  .format-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+  .format-card{background:var(--surface2);border:2px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all .2s;text-align:center}
+  .format-card.active{border-color:var(--accent);background:rgba(91,79,255,.08)}
+  .format-card:hover{border-color:var(--accent)}
+  .format-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:4px}
+  .format-desc{font-size:.78rem;color:var(--text-muted)}
+
+  .dpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+  .dpi-card{background:var(--surface2);border:2px solid var(--border);border-radius:12px;padding:12px 8px;cursor:pointer;transition:all .2s;text-align:center}
+  .dpi-card.active{border-color:var(--accent);background:rgba(91,79,255,.08)}
+  .dpi-card:hover{border-color:var(--accent)}
+  .dpi-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;margin-bottom:2px}
+  .dpi-desc{font-size:.75rem;color:var(--text-muted)}
+
+  .btn-action{display:block;width:100%;padding:16px;margin-top:8px;background:linear-gradient(135deg,var(--accent),#7c6fff);color:white;border:none;border-radius:14px;font-size:1.05rem;font-family:'Syne',sans-serif;font-weight:700;cursor:pointer;transition:all .3s;box-shadow:0 4px 24px rgba(91,79,255,.3)}
+  .btn-action:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 40px rgba(91,79,255,.4)}
+  .btn-action:disabled{opacity:.6;cursor:not-allowed;transform:none}
+  .progress-wrap{margin-top:20px;display:none}
+  .progress-wrap.visible{display:block}
+  .progress-bar-bg{background:var(--surface2);border-radius:100px;height:8px;overflow:hidden;margin-bottom:10px}
+  .progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:100px;transition:width .4s ease;width:0%}
+  .progress-text{font-size:.85rem;color:var(--text-muted);text-align:center}
+
+  /* PREVIEW GRID */
+  .preview-section{display:none;margin-top:24px}
+  .preview-section.visible{display:block}
+  .preview-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .preview-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem}
+  .btn-download-all{background:var(--success);color:white;border:none;padding:10px 20px;border-radius:10px;cursor:pointer;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;transition:all .2s}
+  .btn-download-all:hover{transform:translateY(-1px)}
+  .preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+  .preview-item{background:var(--surface2);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .2s}
+  .preview-item:hover{border-color:var(--accent)}
+  .preview-img{width:100%;aspect-ratio:3/4;object-fit:contain;background:#fff;display:block}
+  .preview-footer{padding:8px;display:flex;align-items:center;justify-content:space-between}
+  .preview-label{font-size:.75rem;color:var(--text-muted)}
+  .preview-dl{color:var(--accent);text-decoration:none;font-size:.8rem;font-weight:600}
+  .preview-dl:hover{color:var(--accent2)}
+
+  .btn-another{display:block;width:fit-content;background:none;border:1px solid var(--border);color:var(--text-muted);padding:10px 24px;border-radius:10px;cursor:pointer;font-size:.9rem;font-family:'DM Sans',sans-serif;transition:all .2s;margin:20px auto 0}
+  .btn-another:hover{border-color:var(--accent);color:var(--text)}
+  .privacy-note{text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:16px}
+  footer{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:32px 48px;border-top:1px solid var(--border);margin-top:60px}
+  .footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem}
+  .footer-logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .footer-note{font-size:.8rem;color:var(--text-muted)}
+  @media(max-width:640px){footer{flex-direction:column;text-align:center;gap:12px;padding:24px 20px}.tool-card{padding:20px}.format-row,.dpi-row{grid-template-columns:1fr 1fr}}
+  .tools-section{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 24px 80px}
+  .tools-section h2{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;text-align:center;margin-bottom:8px}
+  .tools-section p{text-align:center;color:var(--text-muted);font-size:.9rem;margin-bottom:32px}
+  .tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  .tool-link{text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;display:block;transition:all .3s}
+  .tool-link:hover{border-color:var(--accent);transform:translateY(-3px)}
+  .tool-link-icon{font-size:1.5rem;margin-bottom:8px}
+  .tool-link-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:4px}
+  .tool-link-desc{font-size:.78rem;color:var(--text-muted)}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
+  <div class="nav-tools">
+    <a href="index.html" class="nav-tool-btn">🗜️ Compress</a>
+    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
+    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
+    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
+    <a href="pdf-to-images.html" class="nav-tool-btn active">🖼️ PDF→IMG</a>
+    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
+    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
+  </div>
+  <a href="index.html" class="lang-btn active">🇬🇧 EN</a>
+</nav>
+
+<section class="hero">
+  <div class="badge"><span class="badge-dot"></span> Free · No Login · No File Size Limit</div>
+  <h1>PDF to <span class="highlight">Images</span><br>Every Page</h1>
+  <p class="subtitle">Convert each PDF page into a high-quality JPG or PNG image. Download individually or as a ZIP. Free and 100% local.</p>
+  <div class="trust-row">
+    <div class="trust-item">🔒 Files never stored</div>
+    <div class="trust-item">⚡ Fast conversion</div>
+    <div class="trust-item">♾️ No file size limit</div>
+    <div class="trust-item">🆓 Always free</div>
+  </div>
+</section>
+
+<div class="ad-slot">Advertisement</div>
+
+<div class="tool-card">
+  <div class="file-info" id="fileInfo">
+    <span style="font-size:1.4rem">📄</span>
+    <div style="min-width:0;flex:1">
+      <div class="file-name" id="fileName">document.pdf</div>
+      <div class="file-meta" id="fileSize"></div>
+    </div>
+    <span class="file-pages" id="filePages"></span>
+    <button class="file-remove" onclick="resetTool()">✕</button>
+  </div>
+
+  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+    <span class="upload-icon">📂</span>
+    <h2>Drop your PDF here</h2>
+    <p>Drag & drop or click to browse</p>
+    <button class="btn-upload" onclick="event.stopPropagation();document.getElementById('fileInput').click()">📁 Choose PDF File</button>
+    <input type="file" id="fileInput" accept=".pdf" onchange="handleFile(this.files[0])">
+  </div>
+
+  <div class="options-panel" id="optionsPanel">
+    <div class="options-title">Output Format</div>
+    <div class="format-row">
+      <div class="format-card active" id="fmtJPG" onclick="selectFormat('jpg')">
+        <div class="format-name">JPG</div>
+        <div class="format-desc">Smaller files, great for photos</div>
+      </div>
+      <div class="format-card" id="fmtPNG" onclick="selectFormat('png')">
+        <div class="format-name">PNG</div>
+        <div class="format-desc">Lossless, best for text</div>
+      </div>
+    </div>
+
+    <div class="options-title">Resolution</div>
+    <div class="dpi-row">
+      <div class="dpi-card" id="dpi72" onclick="selectDpi(1.0)">
+        <div class="dpi-name">72 DPI</div>
+        <div class="dpi-desc">Screen</div>
+      </div>
+      <div class="dpi-card active" id="dpi150" onclick="selectDpi(2.0)">
+        <div class="dpi-name">150 DPI</div>
+        <div class="dpi-desc">Standard</div>
+      </div>
+      <div class="dpi-card" id="dpi300" onclick="selectDpi(3.0)">
+        <div class="dpi-name">300 DPI</div>
+        <div class="dpi-desc">High quality</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-action" id="convertBtn" style="display:none" onclick="startConvert()">🖼️ Convert to Images</button>
+
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBar"></div></div>
+    <div class="progress-text" id="progressText">Converting...</div>
+  </div>
+
+  <div class="preview-section" id="previewSection">
+    <div class="preview-header">
+      <div class="preview-title" id="previewTitle">Pages converted</div>
+      <button class="btn-download-all" id="downloadAllBtn" onclick="downloadAll()">⬇️ Download All (ZIP)</button>
+    </div>
+    <div class="preview-grid" id="previewGrid"></div>
+    <button class="btn-another" onclick="resetTool()">Convert another file</button>
+  </div>
+
+  <div class="privacy-note">🔒 Your file is processed locally and never sent to any server</div>
+</div>
+
+<div class="ad-slot">Advertisement</div>
+
+<section class="tools-section">
+  <h2>More PDF Tools</h2>
+  <p>Everything you need to work with PDFs — all free, all in your browser</p>
+  <div class="tools-grid">
+    <a href="index.html" class="tool-link"><div class="tool-link-icon">🗜️</div><div class="tool-link-name">Compress PDF</div><div class="tool-link-desc">Reduce file size up to 80%</div></a>
+    <a href="merge.html" class="tool-link"><div class="tool-link-icon">🔗</div><div class="tool-link-name">Merge PDF</div><div class="tool-link-desc">Combine multiple PDFs into one</div></a>
+    <a href="split.html" class="tool-link"><div class="tool-link-icon">✂️</div><div class="tool-link-name">Split PDF</div><div class="tool-link-desc">Extract pages or split by range</div></a>
+    <a href="rotate.html" class="tool-link"><div class="tool-link-icon">🔄</div><div class="tool-link-name">Rotate PDF</div><div class="tool-link-desc">Rotate pages 90°/180°/270°</div></a>
+    <a href="images-to-pdf.html" class="tool-link"><div class="tool-link-icon">📷</div><div class="tool-link-name">Images to PDF</div><div class="tool-link-desc">Combine images into one PDF</div></a>
+    <a href="reorder.html" class="tool-link"><div class="tool-link-icon">📋</div><div class="tool-link-name">Reorder Pages</div><div class="tool-link-desc">Drag & drop to rearrange</div></a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span>Shrink</span>PDF</div>
+  <div class="footer-note">© 2026 ShrinkPDF · <a href="privacy.html" style="color:var(--text-muted);text-decoration:none;">Privacy Policy</a> · <a href="about.html" style="color:var(--text-muted);text-decoration:none;">About</a></div>
+  <div class="footer-note">No login · No storage · No limits</div>
+</footer>
+
+<script>
+  // Set PDF.js worker
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  let currentFile = null;
+  let outputFormat = 'jpg';
+  let dpiScale = 2.0;
+  let renderedImages = []; // {dataUrl, name}
+
+  const uploadZone = document.getElementById('uploadZone');
+  uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', e => {
+    e.preventDefault(); uploadZone.classList.remove('drag-over');
+    const f = e.dataTransfer.files[0];
+    if (f && f.type === 'application/pdf') handleFile(f);
+  });
+
+  async function handleFile(file) {
+    if (!file || file.type !== 'application/pdf') return;
+    currentFile = file;
+    let pages = '?';
+    try {
+      const buf = await file.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+      pages = pdf.numPages;
+    } catch(e) {}
+    document.getElementById('fileName').textContent = file.name;
+    document.getElementById('fileSize').textContent = formatSize(file.size);
+    document.getElementById('filePages').textContent = pages + ' pages';
+    document.getElementById('fileInfo').classList.add('visible');
+    document.getElementById('uploadZone').style.display = 'none';
+    document.getElementById('optionsPanel').classList.add('visible');
+    document.getElementById('convertBtn').style.display = 'block';
+  }
+
+  function selectFormat(fmt) {
+    outputFormat = fmt;
+    document.getElementById('fmtJPG').classList.toggle('active', fmt === 'jpg');
+    document.getElementById('fmtPNG').classList.toggle('active', fmt === 'png');
+  }
+
+  function selectDpi(scale) {
+    dpiScale = scale;
+    const map = {1.0: 'dpi72', 2.0: 'dpi150', 3.0: 'dpi300'};
+    Object.values(map).forEach(id => document.getElementById(id).classList.remove('active'));
+    document.getElementById(map[scale]).classList.add('active');
+  }
+
+  async function startConvert() {
+    if (!currentFile) return;
+    const btn = document.getElementById('convertBtn');
+    btn.disabled = true; btn.textContent = '⏳ Converting...';
+    document.getElementById('progressWrap').classList.add('visible');
+    document.getElementById('previewSection').classList.remove('visible');
+    renderedImages = [];
+
+    try {
+      const buf = await currentFile.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+      const numPages = pdf.numPages;
+      const grid = document.getElementById('previewGrid');
+      grid.innerHTML = '';
+
+      const baseName = currentFile.name.replace(/\.pdf$/i, '');
+      const mimeType = outputFormat === 'png' ? 'image/png' : 'image/jpeg';
+      const ext = outputFormat;
+      const quality = outputFormat === 'jpg' ? 0.92 : undefined;
+
+      for (let i = 1; i <= numPages; i++) {
+        setProgress(Math.round((i / numPages) * 90), `Rendering page ${i} of ${numPages}...`);
+        const page = await pdf.getPage(i);
+        const viewport = page.getViewport({ scale: dpiScale });
+        const canvas = document.createElement('canvas');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        const ctx = canvas.getContext('2d');
+        if (outputFormat === 'jpg') { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, canvas.width, canvas.height); }
+        await page.render({ canvasContext: ctx, viewport }).promise;
+        const dataUrl = canvas.toDataURL(mimeType, quality);
+        const name = `${baseName}_page_${i}.${ext}`;
+        renderedImages.push({ dataUrl, name });
+
+        const item = document.createElement('div');
+        item.className = 'preview-item';
+        item.innerHTML = `
+          <img class="preview-img" src="${dataUrl}" alt="Page ${i}">
+          <div class="preview-footer">
+            <span class="preview-label">Page ${i}</span>
+            <a class="preview-dl" href="${dataUrl}" download="${name}">⬇️</a>
+          </div>
+        `;
+        grid.appendChild(item);
+      }
+
+      setProgress(100, 'Done!');
+      await sleep(300);
+      document.getElementById('progressWrap').classList.remove('visible');
+      document.getElementById('previewTitle').textContent = `${numPages} page${numPages > 1 ? 's' : ''} converted to ${ext.toUpperCase()}`;
+      document.getElementById('previewSection').classList.add('visible');
+    } catch(e) { alert('Error: ' + e.message); }
+    btn.disabled = false; btn.textContent = '🖼️ Convert to Images';
+  }
+
+  async function downloadAll() {
+    if (!renderedImages.length) return;
+    const btn = document.getElementById('downloadAllBtn');
+    btn.textContent = '⏳ Zipping...'; btn.disabled = true;
+    const zip = new JSZip();
+    renderedImages.forEach(img => {
+      const base64 = img.dataUrl.split(',')[1];
+      zip.file(img.name, base64, { base64: true });
+    });
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = (currentFile.name.replace(/\.pdf$/i, '') || 'pages') + '_images.zip';
+    a.click();
+    btn.textContent = '⬇️ Download All (ZIP)'; btn.disabled = false;
+  }
+
+  function setProgress(pct, msg) {
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressText').textContent = msg;
+  }
+  function resetTool() {
+    currentFile = null; renderedImages = [];
+    document.getElementById('fileInput').value = '';
+    document.getElementById('fileInfo').classList.remove('visible');
+    document.getElementById('uploadZone').style.display = '';
+    document.getElementById('optionsPanel').classList.remove('visible');
+    document.getElementById('convertBtn').style.display = 'none';
+    document.getElementById('progressWrap').classList.remove('visible');
+    document.getElementById('previewSection').classList.remove('visible');
+    document.getElementById('previewGrid').innerHTML = '';
+  }
+  function formatSize(b) { return b >= 1048576 ? (b/1048576).toFixed(1)+' MB' : (b/1024).toFixed(0)+' KB'; }
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+</script>
+</body>
+</html>
