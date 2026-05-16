@@ -2,148 +2,148 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Main pages -->
-  <url><loc>https://shrinkpdf.pages.dev/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/ms.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/zh.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/id.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/privacy.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://shrinkpdf.fyi/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://shrinkpdf.fyi/ms.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://shrinkpdf.fyi/zh.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://shrinkpdf.fyi/id.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://shrinkpdf.fyi/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shrinkpdf.fyi/privacy.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
 
   <!-- Tool pages -->
-  <url><loc>https://shrinkpdf.pages.dev/merge.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/split.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/rotate.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/pdf-to-images.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/images-to-pdf.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/reorder.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://shrinkpdf.fyi/merge.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://shrinkpdf.fyi/split.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://shrinkpdf.fyi/rotate.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://shrinkpdf.fyi/pdf-to-images.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://shrinkpdf.fyi/images-to-pdf.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://shrinkpdf.fyi/reorder.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
   <!-- English blog articles -->
-  <url><loc>https://shrinkpdf.pages.dev/en-01-below1mb.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/en-02-email.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/en-03-quality.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/en-04-nolimit.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/en-05-largefile.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/en-06-malaysia.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/en-07-toolarge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/en-08-scanned.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/en-09-mobile.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/en-10-whylarge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/en-11-comparison.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/en-12-university.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/en-01-below1mb.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/en-02-email.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/en-03-quality.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/en-04-nolimit.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/en-05-largefile.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/en-06-malaysia.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/en-07-toolarge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/en-08-scanned.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/en-09-mobile.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/en-10-whylarge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/en-11-comparison.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/en-12-university.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Malay blog articles -->
-  <url><loc>https://shrinkpdf.pages.dev/ms-01-lhdn.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/ms-02-email.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/ms-03-universiti.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/ms-04-jpa.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/ms-05-whatsapp.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/ms-06-telefon.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/ms-07-kualiti.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/ms-08-tips.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/ms-09-bank.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.pages.dev/ms-10-scan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/ms-01-lhdn.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/ms-02-email.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/ms-03-universiti.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/ms-04-jpa.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/ms-05-whatsapp.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/ms-06-telefon.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/ms-07-kualiti.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/ms-08-tips.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/ms-09-bank.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/ms-10-scan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
 
   <!-- Chinese blog articles -->
   <url>
-    <loc>https://shrinkpdf.pages.dev/zh-01-below1mb.html</loc>
+    <loc>https://shrinkpdf.fyi/zh-01-below1mb.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/zh-02-email.html</loc>
+    <loc>https://shrinkpdf.fyi/zh-02-email.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/zh-03-quality.html</loc>
+    <loc>https://shrinkpdf.fyi/zh-03-quality.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/zh-04-nolimit.html</loc>
+    <loc>https://shrinkpdf.fyi/zh-04-nolimit.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/zh-05-scan.html</loc>
+    <loc>https://shrinkpdf.fyi/zh-05-scan.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/zh-06-mobile.html</loc>
+    <loc>https://shrinkpdf.fyi/zh-06-mobile.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/zh-07-toolarge.html</loc>
+    <loc>https://shrinkpdf.fyi/zh-07-toolarge.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/zh-08-lhdn.html</loc>
+    <loc>https://shrinkpdf.fyi/zh-08-lhdn.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/zh-09-university.html</loc>
+    <loc>https://shrinkpdf.fyi/zh-09-university.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/zh-10-comparison.html</loc>
+    <loc>https://shrinkpdf.fyi/zh-10-comparison.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Indonesian blog articles -->
   <url>
-    <loc>https://shrinkpdf.pages.dev/id-01-below1mb.html</loc>
+    <loc>https://shrinkpdf.fyi/id-01-below1mb.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/id-02-email.html</loc>
+    <loc>https://shrinkpdf.fyi/id-02-email.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/id-03-quality.html</loc>
+    <loc>https://shrinkpdf.fyi/id-03-quality.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/id-04-nolimit.html</loc>
+    <loc>https://shrinkpdf.fyi/id-04-nolimit.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/id-05-scan.html</loc>
+    <loc>https://shrinkpdf.fyi/id-05-scan.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/id-06-mobile.html</loc>
+    <loc>https://shrinkpdf.fyi/id-06-mobile.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/id-07-toolarge.html</loc>
+    <loc>https://shrinkpdf.fyi/id-07-toolarge.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/id-08-sijil.html</loc>
+    <loc>https://shrinkpdf.fyi/id-08-sijil.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/id-09-whatsapp.html</loc>
+    <loc>https://shrinkpdf.fyi/id-09-whatsapp.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://shrinkpdf.pages.dev/id-10-comparison.html</loc>
+    <loc>https://shrinkpdf.fyi/id-10-comparison.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
