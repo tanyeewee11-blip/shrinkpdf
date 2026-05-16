@@ -25,6 +25,7 @@
   .nav-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
   .nav-tool-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:8px;font-size:.8rem;cursor:pointer;text-decoration:none;transition:all .2s}
   .nav-tool-btn:hover,.nav-tool-btn.active{border-color:var(--accent);color:var(--text)}
+  .lang-switcher{display:flex;gap:8px;}
   .lang-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:8px;font-size:.8rem;text-decoration:none;transition:all .2s}
   .lang-btn.active{border-color:var(--accent);color:var(--text)}
   @media(max-width:640px){nav{padding:14px 20px;flex-wrap:wrap;gap:10px}.nav-tools{display:none}}
@@ -125,7 +126,12 @@
     <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
     <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
   </div>
-  <div style="display:flex;gap:6px;align-items:center"><a href="ms.html" class="lang-btn">🇲🇾 BM</a><a href="index.html" class="lang-btn active">🇬🇧 EN</a><a href="zh.html" class="lang-btn">🇨🇳 中文</a><a href="id.html" class="lang-btn">🇮🇩 ID</a></div>
+  <div class="lang-switcher">
+    <a href="ms.html" class="lang-btn">🇲🇾 BM</a>
+    <a href="index.html" class="lang-btn active">🇬🇧 EN</a>
+    <a href="zh.html" class="lang-btn">🇨🇳 中文</a>
+    <a href="id.html" class="lang-btn">🇮🇩 ID</a>
+  </div>
 </nav>
 
 <section class="hero">
