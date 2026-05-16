@@ -64,6 +64,39 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
 @media(max-width:640px){nav{padding:13px 18px;}.wrap{padding:36px 18px 60px;}}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will ShrinkPDF crash with a 100MB file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It should not. Modern browsers handle large files well. Chrome or Edge work best for very large files as they have better JavaScript performance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does compressing a 100MB PDF take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typically 15-45 seconds depending on your device processor speed. It is your CPU doing the work, not our servers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there anything ShrinkPDF cannot compress well?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Already-compressed PDFs will not reduce much further. Very text-heavy PDFs are already quite small and may not compress significantly."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav>
