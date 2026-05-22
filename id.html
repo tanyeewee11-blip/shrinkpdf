@@ -25,7 +25,10 @@
 <meta name="twitter:title" content="ShrinkPDF – Kompres PDF Gratis">
 <meta name="twitter:description" content="Kompres file PDF besar secara gratis. Tanpa batas ukuran file. Tanpa registrasi.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 <style>
@@ -192,7 +195,73 @@
   .nav-tools-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
   .nav-tool-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--text-muted); padding: 6px 12px; border-radius: 8px; font-size: 0.78rem; cursor: pointer; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
   .nav-tool-btn:hover, .nav-tool-btn.active { border-color: var(--accent); color: var(--text); background: rgba(91,79,255,0.08); }
-  @media (max-width: 640px) { .nav-tools-row { display: none; } }
+   }
+
+  /* Hamburger button */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .hamburger:hover { background: var(--surface2); }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile drawer */
+  .mobile-drawer {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,15,0.97);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 20px;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 99;
+    backdrop-filter: blur(20px);
+  }
+  .mobile-drawer.open { display: flex; }
+  .mobile-drawer .nav-tool-btn {
+    display: block;
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+  .mobile-drawer .lang-row {
+    display: flex;
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; position: relative; }
+    .nav-links { display: none; }
+    .nav-tools-row { display: none; }
+    .lang-switcher { display: none; }
+    .hamburger { display: flex; }
+    .level-grid { grid-template-columns: 1fr; }
+    .result-stats { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+  }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 
@@ -240,6 +309,24 @@
     <a href="index.html" class="lang-btn">🇬🇧 EN</a>
     <a href="zh.html" class="lang-btn">🇨🇳 中文</a>
     <a href="id.html" class="lang-btn active">🇮🇩 ID</a>
+  </div>
+  <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" class="nav-tool-btn active">🗜️ Compress</a>
+    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
+    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
+    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
+    <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
+    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
+    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
+    <div class="lang-row">
+      <a href="ms.html" class="lang-btn">🇲🇾 BM</a>
+      <a href="index.html" class="lang-btn">🇬🇧 EN</a>
+      <a href="zh.html" class="lang-btn">🇨🇳 中文</a>
+      <a href="id.html" class="lang-btn active">🇮🇩 ID</a>
+    </div>
   </div>
 </nav>
 
@@ -319,7 +406,7 @@
     <button class="btn-upload" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">
       📁 Pilih File PDF
     </button>
-    <input type="file" id="fileInput" accept=".pdf" onchange="handleFile(this.files[0])">
+    <input type="file" id="fileInput" accept=".pdf,application/pdf" onchange="handleFile(this.files[0])">
   </div>
 
   <div class="options-panel" id="optionsPanel">
@@ -561,6 +648,23 @@
   }
   function formatSize(b) { return b>=1048576 ? (b/1048576).toFixed(1)+' MB' : (b/1024).toFixed(0)+' KB'; }
   function sleep(ms) { return new Promise(r=>setTimeout(r,ms)); }
+
+  function toggleDrawer() {
+    const btn = document.getElementById('hamburgerBtn');
+    const drawer = document.getElementById('mobileDrawer');
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+  }
+  // Close drawer when clicking outside
+  document.addEventListener('click', function(e) {
+    const btn = document.getElementById('hamburgerBtn');
+    const drawer = document.getElementById('mobileDrawer');
+    if (btn && drawer && !btn.contains(e.target) && !drawer.contains(e.target)) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+    }
+  });
+
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 </script>
 </body>
