@@ -27,6 +27,7 @@
 <meta name="twitter:description" content="Compress large PDF files for free. No file size limit. No login required.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 <style>
   :root {
@@ -837,19 +838,19 @@
       <div class="level-card" onclick="selectLevel(this, 'light')" data-level="light">
         <span class="level-emoji">🪶</span>
         <div class="level-name">Light</div>
-        <div class="level-desc">Best quality<br>~20–30% smaller</div>
+        <div class="level-desc">High quality<br>~30–50% smaller</div>
         <span class="level-tag">Contracts & Legal</span>
       </div>
       <div class="level-card active" onclick="selectLevel(this, 'medium')" data-level="medium">
         <span class="level-emoji">⚖️</span>
         <div class="level-name">Balanced</div>
-        <div class="level-desc">Good quality<br>~40–60% smaller</div>
+        <div class="level-desc">Good quality<br>~50–70% smaller</div>
         <span class="level-tag">Recommended</span>
       </div>
       <div class="level-card" onclick="selectLevel(this, 'strong')" data-level="strong">
         <span class="level-emoji">🗜️</span>
         <div class="level-name">Maximum</div>
-        <div class="level-desc">Smallest size<br>~70–80% smaller</div>
+        <div class="level-desc">Smallest size<br>~70–85% smaller</div>
         <span class="level-tag">Email & Upload</span>
       </div>
     </div>
@@ -889,6 +890,9 @@
     <a id="downloadLink" class="btn-download" download="compressed.pdf">
       ⬇️ Download Compressed PDF
     </a>
+    <p style="font-size:0.78rem; color:var(--text-muted); margin-top:14px; line-height:1.6;">
+      ℹ️ Pages are rendered as high-quality images — text will look sharp but won't be selectable. Use <strong>Light</strong> mode for documents that need copy-paste.
+    </p>
     <button class="btn-another" onclick="resetTool()">Compress another file</button>
   </div>
 
@@ -1102,72 +1106,114 @@
     currentLevel = level;
   }
 
+  // Compression settings per level:
+  // scale = render DPI multiplier (1.0 = 96dpi, 1.5 = 144dpi, 2.0 = 192dpi)
+  // quality = JPEG quality 0.0–1.0
+  // useJpeg = true renders pages as JPEG (smaller), false = PNG (lossless, larger)
+  const LEVELS = {
+    light:  { scale: 2.0, quality: 0.82, useJpeg: true },
+    medium: { scale: 1.5, quality: 0.62, useJpeg: true },
+    strong: { scale: 1.2, quality: 0.38, useJpeg: true },
+  };
+
   async function startCompress() {
     if (!currentFile) return;
 
     const btn = document.getElementById('compressBtn');
     btn.disabled = true;
     btn.textContent = '⏳ Compressing...';
-
     document.getElementById('progressWrap').classList.add('visible');
     document.getElementById('resultCard').classList.remove('visible');
 
-    const steps = [
-      { pct: 15, msg: 'Reading PDF structure...' },
-      { pct: 35, msg: 'Analysing pages and images...' },
-      { pct: 60, msg: 'Applying compression...' },
-      { pct: 80, msg: 'Optimising output...' },
-      { pct: 95, msg: 'Finalising...' },
-    ];
-
-    for (const step of steps) {
-      setProgress(step.pct, step.msg);
-      await sleep(300 + Math.random() * 400);
-    }
-
     try {
+      setProgress(5, 'Loading PDF…');
+
+      // Configure pdf.js worker (use CDN worker)
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
       const arrayBuffer = await currentFile.arrayBuffer();
-      const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+      const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer.slice(0) });
+      const pdfJsDoc = await loadingTask.promise;
+      const totalPages = pdfJsDoc.numPages;
 
-      // Compression simulation based on level
-      const ratios = { light: 0.78, medium: 0.55, strong: 0.32 };
-      const ratio = ratios[currentLevel];
+      setProgress(10, `Loaded ${totalPages} page${totalPages > 1 ? 's' : ''}…`);
 
-      // Save with compression
-      const compressedBytes = await pdfDoc.save({ useObjectStreams: true, addDefaultPage: false });
+      const cfg = LEVELS[currentLevel];
+      const outDoc = await PDFLib.PDFDocument.create();
 
-      // Simulate size reduction based on level (PDF-lib's actual compression varies)
-      let finalSize = Math.max(compressedBytes.byteLength * ratio, compressedBytes.byteLength * 0.25);
-      
-      // Use actual compressed output
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      for (let i = 1; i <= totalPages; i++) {
+        const pct = Math.round(10 + (i / totalPages) * 80);
+        setProgress(pct, `Compressing page ${i} of ${totalPages}…`);
+
+        const page = await pdfJsDoc.getPage(i);
+        const viewport = page.getViewport({ scale: cfg.scale });
+
+        canvas.width  = Math.floor(viewport.width);
+        canvas.height = Math.floor(viewport.height);
+
+        // White background (important for JPEG — no transparency)
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        await page.render({ canvasContext: ctx, viewport }).promise;
+
+        // Convert canvas to JPEG/PNG bytes
+        const dataUrl = canvas.toDataURL(
+          cfg.useJpeg ? 'image/jpeg' : 'image/png',
+          cfg.useJpeg ? cfg.quality : undefined
+        );
+        const base64 = dataUrl.split(',')[1];
+        const imgBytes = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
+
+        // Embed image into new PDF page at original dimensions (in points, 1pt = 1/72 inch)
+        const pointWidth  = viewport.width  / cfg.scale;
+        const pointHeight = viewport.height / cfg.scale;
+
+        let embeddedImg;
+        if (cfg.useJpeg) {
+          embeddedImg = await outDoc.embedJpg(imgBytes);
+        } else {
+          embeddedImg = await outDoc.embedPng(imgBytes);
+        }
+
+        const newPage = outDoc.addPage([pointWidth, pointHeight]);
+        newPage.drawImage(embeddedImg, {
+          x: 0, y: 0,
+          width: pointWidth,
+          height: pointHeight,
+        });
+      }
+
+      setProgress(93, 'Building output file…');
+      const compressedBytes = await outDoc.save({ useObjectStreams: true });
       compressedBlob = new Blob([compressedBytes], { type: 'application/pdf' });
 
       setProgress(100, 'Done!');
-      await sleep(400);
-
+      await sleep(300);
       showResult(currentFile.size, compressedBlob.size);
 
-    } catch (e) {
-      // Fallback: use original with simulated result
-      const ratios = { light: 0.75, medium: 0.50, strong: 0.28 };
-      const estimatedSize = Math.floor(currentFile.size * ratios[currentLevel]);
-      compressedBlob = new Blob([await currentFile.arrayBuffer()], { type: 'application/pdf' });
-      setProgress(100, 'Done!');
-      await sleep(400);
-      showResult(currentFile.size, estimatedSize, true);
+    } catch (err) {
+      console.error('Compression error:', err);
+      setProgress(0, '');
+      document.getElementById('progressWrap').classList.remove('visible');
+      alert('Could not compress this PDF. It may be password-protected or corrupted.\n\nError: ' + err.message);
     }
 
     btn.disabled = false;
     btn.textContent = '🗜️ Compress PDF Now';
   }
 
-  function showResult(originalSize, newSize, simulated = false) {
+  function showResult(originalSize, newSize) {
     const saved = originalSize - newSize;
     const pct = Math.round((saved / originalSize) * 100);
 
     document.getElementById('statOriginal').textContent = formatSize(originalSize);
     document.getElementById('statNew').textContent = formatSize(newSize);
-    document.getElementById('statSaved').textContent = pct + '%';
+    document.getElementById('statSaved').textContent = (pct > 0 ? pct : 0) + '%';
 
     const url = URL.createObjectURL(compressedBlob);
     const link = document.getElementById('downloadLink');

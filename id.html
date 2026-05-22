@@ -26,6 +26,7 @@
 <meta name="twitter:description" content="Kompres file PDF besar secara gratis. Tanpa batas ukuran file. Tanpa registrasi.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 <style>
   :root {
@@ -485,26 +486,53 @@
     document.getElementById('progressWrap').classList.remove('visible');
   }
   function selectLevel(el, level) { document.querySelectorAll('.level-card').forEach(c=>c.classList.remove('active')); el.classList.add('active'); currentLevel = level; }
+  const LEVELS = {
+    light:  { scale: 2.0, quality: 0.82, useJpeg: true },
+    medium: { scale: 1.5, quality: 0.62, useJpeg: true },
+    strong: { scale: 1.2, quality: 0.38, useJpeg: true },
+  };
   async function startCompress() {
     if (!currentFile) return;
     const btn = document.getElementById('compressBtn');
     btn.disabled = true; btn.textContent = '⏳ Mengompres...';
     document.getElementById('progressWrap').classList.add('visible');
     document.getElementById('resultCard').classList.remove('visible');
-    const steps = [{pct:15,msg:'Membaca struktur PDF...'},{pct:35,msg:'Menganalisis halaman dan gambar...'},{pct:60,msg:'Menerapkan kompresi...'},{pct:80,msg:'Mengoptimalkan output...'},{pct:95,msg:'Menyelesaikan...'}];
-    for (const s of steps) { setProgress(s.pct, s.msg); await sleep(300 + Math.random()*400); }
     try {
-      const ab = await currentFile.arrayBuffer();
-      const pdfDoc = await PDFLib.PDFDocument.load(ab, {ignoreEncryption:true});
-      const compressed = await pdfDoc.save({useObjectStreams:true});
-      compressedBlob = new Blob([compressed], {type:'application/pdf'});
-      setProgress(100, 'Selesai!'); await sleep(400);
+      setProgress(5, 'Memuat PDF…');
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      const arrayBuffer = await currentFile.arrayBuffer();
+      const pdfJsDoc = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
+      const totalPages = pdfJsDoc.numPages;
+      setProgress(10, `Dimuat ${totalPages} halaman…`);
+      const cfg = LEVELS[currentLevel];
+      const outDoc = await PDFLib.PDFDocument.create();
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      for (let i = 1; i <= totalPages; i++) {
+        setProgress(Math.round(10 + (i / totalPages) * 80), `Mengompres halaman ${i} dari ${totalPages}…`);
+        const page = await pdfJsDoc.getPage(i);
+        const viewport = page.getViewport({ scale: cfg.scale });
+        canvas.width = Math.floor(viewport.width);
+        canvas.height = Math.floor(viewport.height);
+        ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        await page.render({ canvasContext: ctx, viewport }).promise;
+        const dataUrl = canvas.toDataURL(cfg.useJpeg ? 'image/jpeg' : 'image/png', cfg.useJpeg ? cfg.quality : undefined);
+        const imgBytes = Uint8Array.from(atob(dataUrl.split(',')[1]), c => c.charCodeAt(0));
+        const pw = viewport.width / cfg.scale, ph = viewport.height / cfg.scale;
+        const emb = cfg.useJpeg ? await outDoc.embedJpg(imgBytes) : await outDoc.embedPng(imgBytes);
+        const np = outDoc.addPage([pw, ph]);
+        np.drawImage(emb, { x: 0, y: 0, width: pw, height: ph });
+      }
+      setProgress(93, 'Membuat file output…');
+      const compressedBytes = await outDoc.save({ useObjectStreams: true });
+      compressedBlob = new Blob([compressedBytes], { type: 'application/pdf' });
+      setProgress(100, 'Selesai!'); await sleep(300);
       showResult(currentFile.size, compressedBlob.size);
-    } catch(e) {
-      const ratios = {light:0.75,medium:0.50,strong:0.28};
-      compressedBlob = new Blob([await currentFile.arrayBuffer()], {type:'application/pdf'});
-      setProgress(100,'Selesai!'); await sleep(400);
-      showResult(currentFile.size, Math.floor(currentFile.size * ratios[currentLevel]));
+    } catch(err) {
+      console.error(err);
+      setProgress(0, '');
+      document.getElementById('progressWrap').classList.remove('visible');
+      alert('Tidak dapat mengompres PDF ini. Mungkin dilindungi kata sandi.\n\nError: ' + err.message);
     }
     btn.disabled = false; btn.textContent = '🗜️ Kompres PDF Sekarang';
   }
