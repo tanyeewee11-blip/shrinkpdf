@@ -75,6 +75,15 @@
   .related-link span { color:var(--text-muted); font-size:0.85rem; }
   footer { border-top:1px solid var(--border); padding:24px 48px; text-align:center; color:var(--text-muted); font-size:0.85rem; }
   @media(max-width:640px) { nav{padding:14px 20px;} .container{padding:40px 20px 60px;} }
+
+  #read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+  .toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;}
+  .toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .toc-title::before{content:'📋';font-size:1rem;}
+  .toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+  .toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+  .toc li a:hover{color:var(--ac);}
+  .toc li a.active{color:var(--ac);font-weight:500;}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 
@@ -148,6 +157,7 @@
 </script>
 </head>
 <body>
+<div id="read-progress"></div>
 <nav>
   <a href="ms.html" class="logo"><span>Shrink</span>PDF</a>
   <a href="ms.html" class="nav-back">← Kembali ke Alat</a>
@@ -164,8 +174,17 @@
   <h1>PDF Terlalu Besar Untuk Muat Naik ke LHDN? Ini Caranya (2026)</h1>
 
   <p class="intro">Ramai rakyat Malaysia menghadapi masalah yang sama setiap musim cukai — fail PDF terlalu besar untuk dimuat naik ke portal e-Filing LHDN. Artikel ini akan tunjukkan cara selesaikan masalah ini dalam masa kurang dari 1 minit, secara percuma.</p>
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc-title">In this article</div>
+  <ol>
+    <li><a href="#mengapa-portal-lhdn-ada-had-saiz-fail">Mengapa Portal LHDN Ada Had Saiz Fail?</a></li>
+    <li><a href="#kenapa-pdf-anda-terlalu-besar">Kenapa PDF Anda Terlalu Besar?</a></li>
+    <li><a href="#cara-compress-pdf-untuk-lhdn-langkah-demi-langkah">Cara Compress PDF Untuk LHDN (Langkah Demi Langkah)</a></li>
+    <li><a href="#tips-tambahan-untuk-muat-naik-lhdn">Tips Tambahan Untuk Muat Naik LHDN</a></li>
+  </ol>
+</nav>
 
-  <h2>Mengapa Portal LHDN Ada Had Saiz Fail?</h2>
+  <h2 id="mengapa-portal-lhdn-ada-had-saiz-fail">Mengapa Portal LHDN Ada Had Saiz Fail?</h2>
   <p>Portal e-Filing LHDN menetapkan had saiz fail antara <strong>1MB hingga 2MB</strong> sahaja bagi setiap dokumen sokongan yang dimuat naik. Had ini wujud kerana sistem kerajaan perlu menyimpan jutaan rekod setiap tahun, dan fail yang besar akan memperlahankan sistem mereka.</p>
 
   <div class="highlight-box warning">
@@ -177,7 +196,7 @@
     </ul>
   </div>
 
-  <h2>Kenapa PDF Anda Terlalu Besar?</h2>
+  <h2 id="kenapa-pdf-anda-terlalu-besar">Kenapa PDF Anda Terlalu Besar?</h2>
   <p>PDF biasanya besar kerana beberapa sebab:</p>
   <ul>
     <li><strong>Discan dengan kualiti tinggi</strong> — Mesin scan biasanya menghasilkan gambar 300DPI atau lebih, menjadikan fail sangat besar</li>
@@ -186,7 +205,7 @@
     <li><strong>Metadata yang tidak diperlukan</strong> — Data tersembunyi dalam fail PDF</li>
   </ul>
 
-  <h2>Cara Compress PDF Untuk LHDN (Langkah Demi Langkah)</h2>
+  <h2 id="cara-compress-pdf-untuk-lhdn-langkah-demi-langkah">Cara Compress PDF Untuk LHDN (Langkah Demi Langkah)</h2>
 
   <div class="step">
     <div class="step-num">1</div>
@@ -234,7 +253,7 @@
     <a href="ms.html" class="btn-cta">🗜️ Compress PDF Saya Sekarang</a>
   </div>
 
-  <h2>Tips Tambahan Untuk Muat Naik LHDN</h2>
+  <h2 id="tips-tambahan-untuk-muat-naik-lhdn">Tips Tambahan Untuk Muat Naik LHDN</h2>
   <ul>
     <li>Jika PDF masih besar selepas compress, cuba <strong>compress sekali lagi</strong> dengan tahap "Maksimum"</li>
     <li>Untuk dokumen scan, pastikan scan dalam <strong>hitam putih</strong> (bukan warna) — fail akan lebih kecil</li>
@@ -267,5 +286,30 @@
 </div>
 
 <footer>© 2026 ShrinkPDF · Alat Pemampatan PDF Percuma · Privasi Dijaga</footer>
+<script>
+  (function(){
+    var bar = document.getElementById('read-progress');
+    if(!bar) return;
+    window.addEventListener('scroll', function(){
+      var s = document.documentElement;
+      var pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+      bar.style.width = Math.min(pct, 100) + '%';
+    }, {passive: true});
+
+    // TOC active link highlight
+    var tocLinks = document.querySelectorAll('.toc a');
+    var headings = Array.from(document.querySelectorAll('.wrap h2[id]'));
+    if(tocLinks.length && headings.length){
+      window.addEventListener('scroll', function(){
+        var scrollY = window.scrollY + 120;
+        var current = headings[0];
+        headings.forEach(function(h){ if(h.offsetTop <= scrollY) current = h; });
+        tocLinks.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+        });
+      }, {passive: true});
+    }
+  })();
+</script>
 </body>
 </html>

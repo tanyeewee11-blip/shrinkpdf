@@ -72,6 +72,15 @@ li{margin-bottom:9px;color:#d0d0e8;}
 .rl span{color:var(--tm);font-size:0.82rem;}
 footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:var(--tm);font-size:0.82rem;}
 @media(max-width:640px){nav{padding:13px 18px;}.wrap{padding:36px 18px 60px;}}
+
+  #read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+  .toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;}
+  .toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .toc-title::before{content:'📋';font-size:1rem;}
+  .toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+  .toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+  .toc li a:hover{color:var(--ac);}
+  .toc li a.active{color:var(--ac);font-weight:500;}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 
@@ -161,6 +170,7 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
 </script>
 </head>
 <body>
+<div id="read-progress"></div>
 <nav>
   <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
   <a href="index.html" class="back">&larr; Back to Tool</a>
@@ -169,22 +179,33 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
   <div class="meta"><span class="tag">Informational</span><span class="tag">PDF Basics</span><span class="tag">How-To</span><span class="rt">&#9201; 5 min read</span></div>
   <h1>Why is My PDF So Large? (And How to Fix It Free) — 2026</h1>
   <p class="intro">If you have ever been surprised by how large your PDF file is, you are not alone. A simple 5-page text document should not be 20MB — but sometimes it is. Here is why PDFs get so large and exactly how to fix it.</p>
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc-title">In this article</div>
+  <ol>
+    <li><a href="#the-5-main-reasons-pdfs-are-so-large">The 5 Main Reasons PDFs Are So Large</a></li>
+    <li><a href="#1-high-resolution-images-or-scans">1. High-Resolution Images or Scans</a></li>
+    <li><a href="#2-uncompressed-image-data">2. Uncompressed Image Data</a></li>
+    <li><a href="#3-embedded-fonts">3. Embedded Fonts</a></li>
+    <li><a href="#4-hidden-metadata">4. Hidden Metadata</a></li>
+    <li><a href="#5-multiple-layers-or-previous-versions">5. Multiple Layers or Previous Versions</a></li>
+  </ol>
+</nav>
   
-<h2>The 5 Main Reasons PDFs Are So Large</h2>
+<h2 id="the-5-main-reasons-pdfs-are-so-large">The 5 Main Reasons PDFs Are So Large</h2>
 
-<h2>1. High-Resolution Images or Scans</h2>
+<h2 id="1-high-resolution-images-or-scans">1. High-Resolution Images or Scans</h2>
 <p>This is the number one reason. When you scan a document at 300 DPI or insert high-resolution photos into a PDF, each image can be 1-5MB. A 10-page scanned document can easily reach 30-50MB.</p>
 
-<h2>2. Uncompressed Image Data</h2>
+<h2 id="2-uncompressed-image-data">2. Uncompressed Image Data</h2>
 <p>PDF files can contain images stored in completely uncompressed format. These take far more space than JPEG-compressed versions of the same image — sometimes 5-10 times more.</p>
 
-<h2>3. Embedded Fonts</h2>
+<h2 id="3-embedded-fonts">3. Embedded Fonts</h2>
 <p>PDFs embed the font files used in the document. If a document uses many different fonts, or includes entire font files instead of just the characters actually used, this adds significant megabytes to the file size.</p>
 
-<h2>4. Hidden Metadata</h2>
+<h2 id="4-hidden-metadata">4. Hidden Metadata</h2>
 <p>PDFs store metadata including revision history, author information, edit history, comments, and annotations. Older documents or files exported from design software may have significant metadata bloat that is invisible but still takes up space.</p>
 
-<h2>5. Multiple Layers or Previous Versions</h2>
+<h2 id="5-multiple-layers-or-previous-versions">5. Multiple Layers or Previous Versions</h2>
 <p>PDFs created from vector design tools like Illustrator or InDesign may contain multiple layers, hidden elements, or previous document versions that are not visible when you open the file but still consume space.</p>
 
 <div class="box good"><div class="bt">The Quick Fix for All of These</div>
@@ -203,5 +224,30 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
   </div>
 </div>
 <footer>&copy; 2026 ShrinkPDF &middot; Free PDF Compression Tool &middot; Privacy First</footer>
+<script>
+  (function(){
+    var bar = document.getElementById('read-progress');
+    if(!bar) return;
+    window.addEventListener('scroll', function(){
+      var s = document.documentElement;
+      var pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+      bar.style.width = Math.min(pct, 100) + '%';
+    }, {passive: true});
+
+    // TOC active link highlight
+    var tocLinks = document.querySelectorAll('.toc a');
+    var headings = Array.from(document.querySelectorAll('.wrap h2[id]'));
+    if(tocLinks.length && headings.length){
+      window.addEventListener('scroll', function(){
+        var scrollY = window.scrollY + 120;
+        var current = headings[0];
+        headings.forEach(function(h){ if(h.offsetTop <= scrollY) current = h; });
+        tocLinks.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+        });
+      }, {passive: true});
+    }
+  })();
+</script>
 </body>
 </html>

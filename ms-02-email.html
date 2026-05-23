@@ -75,6 +75,15 @@ li{margin-bottom:9px;color:#d0d0e8;}
 .rl span{color:var(--tm);font-size:0.82rem;}
 footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:var(--tm);font-size:0.82rem;}
 @media(max-width:640px){nav{padding:13px 18px;}.wrap{padding:36px 18px 60px;}}
+
+  #read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+  .toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;}
+  .toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .toc-title::before{content:'📋';font-size:1rem;}
+  .toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+  .toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+  .toc li a:hover{color:var(--ac);}
+  .toc li a.active{color:var(--ac);font-weight:500;}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 
@@ -148,6 +157,7 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
 </script>
 </head>
 <body>
+<div id="read-progress"></div>
 <nav>
   <a href="ms.html" class="logo"><span>Shrink</span>PDF</a>
   <a href="ms.html" class="back">&larr; Kembali ke Alat</a>
@@ -156,15 +166,24 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
   <div class="meta"><span class="tag">Email</span><span class="tag">Malaysia</span><span class="tag">Panduan</span><span class="rt">&#9201; 4 minit bacaan</span></div>
   <h1>Cara Compress PDF Yang Terlalu Besar Untuk Hantar Email (2026)</h1>
   <p class="intro">Fail PDF terlalu besar untuk dihantar melalui Gmail atau Outlook? Ini masalah sangat biasa. Artikel ini tunjukkan cara selesaikan dalam masa kurang dari 1 minit, percuma dan tanpa install apa-apa.</p>
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc-title">In this article</div>
+  <ol>
+    <li><a href="#had-saiz-lampiran-email">Had Saiz Lampiran Email</a></li>
+    <li><a href="#langkah-langkah-compress-pdf-untuk-email">Langkah-Langkah Compress PDF Untuk Email</a></li>
+    <li><a href="#alternatif-jika-pdf-masih-terlalu-besar">Alternatif Jika PDF Masih Terlalu Besar</a></li>
+    <li><a href="#tips-tambahan">Tips Tambahan</a></li>
+  </ol>
+</nav>
   
-<h2>Had Saiz Lampiran Email</h2>
+<h2 id="had-saiz-lampiran-email">Had Saiz Lampiran Email</h2>
 <div class="box warn"><div class="bt">Had Saiz Mengikut Platform</div>
 <ul><li><strong>Gmail:</strong> Maksimum 25MB per email</li>
 <li><strong>Outlook.com:</strong> Maksimum 20MB per email</li>
 <li><strong>Yahoo Mail:</strong> Maksimum 25MB per email</li>
 <li><strong>Email syarikat / pejabat:</strong> Selalunya hanya 5-10MB</li></ul></div>
 
-<h2>Langkah-Langkah Compress PDF Untuk Email</h2>
+<h2 id="langkah-langkah-compress-pdf-untuk-email">Langkah-Langkah Compress PDF Untuk Email</h2>
 <div class="step"><div class="sn">1</div><div class="sc"><h3>Buka ShrinkPDF.com</h3>
 <p>Layari ShrinkPDF.com dari mana-mana peranti. Tiada apl perlu dipasang, tiada pendaftaran.</p></div></div>
 <div class="step"><div class="sn">2</div><div class="sc"><h3>Muat Naik PDF Anda</h3>
@@ -176,7 +195,7 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
 <div class="step"><div class="sn">5</div><div class="sc"><h3>Lampirkan dalam Email</h3>
 <p>Lampirkan fail PDF baru dalam email anda. Saiz lebih kecil bermakna penghantaran lebih laju!</p></div></div>
 
-<h2>Alternatif Jika PDF Masih Terlalu Besar</h2>
+<h2 id="alternatif-jika-pdf-masih-terlalu-besar">Alternatif Jika PDF Masih Terlalu Besar</h2>
 <ul>
 <li>Guna <strong>Google Drive</strong> - muat naik dan kongsi pautan sahaja</li>
 <li>Guna <strong>WeTransfer.com</strong> - hantar fail besar percuma sehingga 2GB</li>
@@ -184,7 +203,7 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
 <li>Pisahkan PDF kepada beberapa bahagian dan hantar berasingan</li>
 </ul>
 
-<h2>Tips Tambahan</h2>
+<h2 id="tips-tambahan">Tips Tambahan</h2>
 <div class="box good"><div class="bt">Tips Pro</div>
 <ul><li>Untuk dokumen penting seperti kontrak, guna tahap Ringan untuk kekalkan kualiti maksimum</li>
 <li>PDF yang hanya mengandungi teks biasanya compress dengan sangat baik - boleh jadi 80% lebih kecil</li>
@@ -203,5 +222,30 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
   </div>
 </div>
 <footer>&copy; 2026 ShrinkPDF &middot; Alat Pemampatan PDF Percuma &middot; Privasi Dijaga</footer>
+<script>
+  (function(){
+    var bar = document.getElementById('read-progress');
+    if(!bar) return;
+    window.addEventListener('scroll', function(){
+      var s = document.documentElement;
+      var pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+      bar.style.width = Math.min(pct, 100) + '%';
+    }, {passive: true});
+
+    // TOC active link highlight
+    var tocLinks = document.querySelectorAll('.toc a');
+    var headings = Array.from(document.querySelectorAll('.wrap h2[id]'));
+    if(tocLinks.length && headings.length){
+      window.addEventListener('scroll', function(){
+        var scrollY = window.scrollY + 120;
+        var current = headings[0];
+        headings.forEach(function(h){ if(h.offsetTop <= scrollY) current = h; });
+        tocLinks.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+        });
+      }, {passive: true});
+    }
+  })();
+</script>
 </body>
 </html>

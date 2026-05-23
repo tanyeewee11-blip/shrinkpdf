@@ -73,6 +73,15 @@ ul,ol{margin:14px 0 20px 22px;}li{margin-bottom:9px;color:#d0d0e8;}
 .rl span{color:var(--tm);font-size:0.82rem;}
 footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:var(--tm);font-size:0.82rem;}
 @media(max-width:640px){nav{padding:13px 18px;}.wrap{padding:36px 18px 60px;}}
+
+  #read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+  .toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;}
+  .toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .toc-title::before{content:'📋';font-size:1rem;}
+  .toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+  .toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+  .toc li a:hover{color:var(--ac);}
+  .toc li a.active{color:var(--ac);font-weight:500;}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 
@@ -162,6 +171,7 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
 </script>
 </head>
 <body>
+<div id="read-progress"></div>
 <nav>
   <a href="zh.html" class="logo"><span>Shrink</span>PDF</a>
   <a href="zh.html" class="back">&larr; 返回工具页</a>
@@ -170,14 +180,22 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
   <div class="meta"><span class="tag">扫描PDF</span><span class="tag">操作教程</span><span class="tag">免费</span><span class="rt">&#9201; 5分钟阅读</span></div>
   <h1>如何压缩扫描版PDF文件（不损失清晰度）2026</h1>
 <p class="intro">扫描PDF通常比普通PDF大5-10倍，因为每一页都是以高分辨率图片形式存储的。本文介绍最有效的免费压缩方法。</p>
-<h2>为什么扫描PDF这么大？</h2>
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc-title">In this article</div>
+  <ol>
+    <li><a href="#为什么扫描pdf这么大">为什么扫描PDF这么大？</a></li>
+    <li><a href="#压缩扫描pdf的步骤">压缩扫描PDF的步骤</a></li>
+    <li><a href="#最佳扫描设置建议">最佳扫描设置建议</a></li>
+  </ol>
+</nav>
+<h2 id="为什么扫描pdf这么大">为什么扫描PDF这么大？</h2>
 <p>扫描文档时，每一页都会被转换成高分辨率图片，通常在300 DPI或更高。一张A4彩色页面以300 DPI扫描后可达1-3MB，一份10页文件就可能超过20-30MB。</p>
-<h2>压缩扫描PDF的步骤</h2>
+<h2 id="压缩扫描pdf的步骤">压缩扫描PDF的步骤</h2>
 <div class="step"><div class="sn">1</div><div class="sc"><h3>上传到ShrinkPDF</h3><p>访问ShrinkPDF并上传您的扫描PDF文件，无大小限制。</p></div></div>
 <div class="step"><div class="sn">2</div><div class="sc"><h3>选择最大压缩</h3><p>扫描PDF使用最大压缩效果最佳，可以在不影响文字可读性的前提下大幅减小文件大小。</p></div></div>
 <div class="step"><div class="sn">3</div><div class="sc"><h3>下载并检查清晰度</h3><p>打开压缩后的文件，放大检查文字是否清晰可读，特别是小字体部分。</p></div></div>
 <div class="step"><div class="sn">4</div><div class="sc"><h3>如需更好效果，重新扫描</h3><p>如果质量不满意，可以用150 DPI黑白模式重新扫描，从源头减小文件大小。</p></div></div>
-<h2>最佳扫描设置建议</h2>
+<h2 id="最佳扫描设置建议">最佳扫描设置建议</h2>
 <div class="box good"><div class="bt">推荐扫描参数</div>
 <ul>
 <li><strong>分辨率：</strong>文字文件用150 DPI，照片用300 DPI</li>
@@ -200,5 +218,30 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
   </div>
 </div>
 <footer>&copy; 2026 ShrinkPDF &middot; 免费PDF压缩工具 · 隐私优先</footer>
+<script>
+  (function(){
+    var bar = document.getElementById('read-progress');
+    if(!bar) return;
+    window.addEventListener('scroll', function(){
+      var s = document.documentElement;
+      var pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+      bar.style.width = Math.min(pct, 100) + '%';
+    }, {passive: true});
+
+    // TOC active link highlight
+    var tocLinks = document.querySelectorAll('.toc a');
+    var headings = Array.from(document.querySelectorAll('.wrap h2[id]'));
+    if(tocLinks.length && headings.length){
+      window.addEventListener('scroll', function(){
+        var scrollY = window.scrollY + 120;
+        var current = headings[0];
+        headings.forEach(function(h){ if(h.offsetTop <= scrollY) current = h; });
+        tocLinks.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+        });
+      }, {passive: true});
+    }
+  })();
+</script>
 </body>
 </html>

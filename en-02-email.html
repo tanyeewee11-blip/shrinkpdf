@@ -75,6 +75,15 @@ li{margin-bottom:9px;color:#d0d0e8;}
 .rl span{color:var(--tm);font-size:0.82rem;}
 footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:var(--tm);font-size:0.82rem;}
 @media(max-width:640px){nav{padding:13px 18px;}.wrap{padding:36px 18px 60px;}}
+
+  #read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+  .toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;}
+  .toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .toc-title::before{content:'📋';font-size:1rem;}
+  .toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+  .toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+  .toc li a:hover{color:var(--ac);}
+  .toc li a.active{color:var(--ac);font-weight:500;}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 
@@ -171,6 +180,7 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
 </script>
 </head>
 <body>
+<div id="read-progress"></div>
 <nav>
   <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
   <a href="index.html" class="back">&larr; Back to Tool</a>
@@ -179,15 +189,23 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
   <div class="meta"><span class="tag">Email</span><span class="tag">Gmail</span><span class="tag">Outlook</span><span class="tag">How-To</span><span class="rt">&#9201; 4 min read</span></div>
   <h1>How to Compress PDF for Email Attachment — Gmail and Outlook (2026)</h1>
   <p class="intro">Email platforms have strict file size limits for attachments. If your PDF is too large to send via Gmail or Outlook, compressing it first is the fastest solution and it takes less than a minute.</p>
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc-title">In this article</div>
+  <ol>
+    <li><a href="#email-attachment-size-limits">Email Attachment Size Limits</a></li>
+    <li><a href="#how-to-compress-pdf-for-email">How to Compress PDF for Email</a></li>
+    <li><a href="#what-if-the-file-is-still-too-large">What if the File is Still Too Large?</a></li>
+  </ol>
+</nav>
   
-<h2>Email Attachment Size Limits</h2>
+<h2 id="email-attachment-size-limits">Email Attachment Size Limits</h2>
 <div class="box warn"><div class="bt">Attachment Limits by Platform</div>
 <ul><li><strong>Gmail:</strong> 25MB per email</li>
 <li><strong>Outlook.com:</strong> 20MB per email</li>
 <li><strong>Yahoo Mail:</strong> 25MB per email</li>
 <li><strong>Corporate email servers:</strong> Often as low as 5-10MB</li></ul></div>
 
-<h2>How to Compress PDF for Email</h2>
+<h2 id="how-to-compress-pdf-for-email">How to Compress PDF for Email</h2>
 <div class="step"><div class="sn">1</div><div class="sc"><h3>Open ShrinkPDF.com</h3>
 <p>Visit ShrinkPDF.com in your browser. Works on Mac, Windows, iPhone, and Android.</p></div></div>
 <div class="step"><div class="sn">2</div><div class="sc"><h3>Upload Your PDF</h3>
@@ -199,7 +217,7 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
 <div class="step"><div class="sn">5</div><div class="sc"><h3>Attach to Your Email</h3>
 <p>Attach the newly compressed PDF to your email as usual. Smaller file means faster sending.</p></div></div>
 
-<h2>What if the File is Still Too Large?</h2>
+<h2 id="what-if-the-file-is-still-too-large">What if the File is Still Too Large?</h2>
 <ul>
 <li>Use <strong>Google Drive or OneDrive</strong> — upload the file and share a link instead</li>
 <li>Try <strong>WeTransfer.com</strong> — free for files up to 2GB</li>
@@ -220,5 +238,30 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
   </div>
 </div>
 <footer>&copy; 2026 ShrinkPDF &middot; Free PDF Compression Tool &middot; Privacy First</footer>
+<script>
+  (function(){
+    var bar = document.getElementById('read-progress');
+    if(!bar) return;
+    window.addEventListener('scroll', function(){
+      var s = document.documentElement;
+      var pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+      bar.style.width = Math.min(pct, 100) + '%';
+    }, {passive: true});
+
+    // TOC active link highlight
+    var tocLinks = document.querySelectorAll('.toc a');
+    var headings = Array.from(document.querySelectorAll('.wrap h2[id]'));
+    if(tocLinks.length && headings.length){
+      window.addEventListener('scroll', function(){
+        var scrollY = window.scrollY + 120;
+        var current = headings[0];
+        headings.forEach(function(h){ if(h.offsetTop <= scrollY) current = h; });
+        tocLinks.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+        });
+      }, {passive: true});
+    }
+  })();
+</script>
 </body>
 </html>
