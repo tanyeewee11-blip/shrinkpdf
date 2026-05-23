@@ -12,7 +12,11 @@
 <meta property="og:url" content="https://shrinkpdf.fyi/pdf-to-images.html">
 <meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
 <!-- PDF.js for rendering, JSZip for bundling downloads -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -142,6 +146,17 @@
   .related-tool span { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
   @media (max-width: 640px) { .info-grid { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr; } }
 
+
+  .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; border-radius:8px; }
+  .hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; transition:all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity:0; }
+  .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+  .mobile-drawer { display:none; position:absolute; top:100%; left:0; right:0; background:rgba(10,10,15,0.97); border-bottom:1px solid var(--border); padding:16px 20px; flex-direction:column; gap:8px; z-index:99; backdrop-filter:blur(20px); }
+  .mobile-drawer.open { display:flex; }
+  .mobile-drawer .nav-tool-btn { display:block; text-align:left; padding:10px 14px; font-size:0.9rem; }
+  .mobile-drawer .lang-row { display:flex; gap:8px; padding-top:8px; border-top:1px solid var(--border); margin-top:4px; }
+  @media (max-width:640px) { .hamburger { display:flex; } .nav-tools { display:none; } .lang-switcher { display:none; } }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 
@@ -263,6 +278,24 @@
     <a href="index.html" class="lang-btn active">🇬🇧 EN</a>
     <a href="zh.html" class="lang-btn">🇨🇳 中文</a>
     <a href="id.html" class="lang-btn">🇮🇩 ID</a>
+  </div>
+  <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" class="nav-tool-btn">🗜️ Compress</a>
+    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
+    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
+    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
+    <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
+    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
+    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
+    <div class="lang-row">
+      <a href="ms.html" class="lang-btn">🇲🇾 BM</a>
+      <a href="index.html" class="lang-btn active">🇬🇧 EN</a>
+      <a href="zh.html" class="lang-btn">🇨🇳 中文</a>
+      <a href="id.html" class="lang-btn">🇮🇩 ID</a>
+    </div>
   </div>
 </nav>
 

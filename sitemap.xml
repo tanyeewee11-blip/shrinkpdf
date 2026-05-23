@@ -147,4 +147,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://shrinkpdf.fyi/index.html</loc>
+    <priority>1.0</priority>
+  </url>
 </urlset>
