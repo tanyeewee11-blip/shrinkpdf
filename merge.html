@@ -147,9 +147,111 @@
   .tool-link-icon { font-size: 1.5rem; margin-bottom: 8px; }
   .tool-link-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--text); margin-bottom: 4px; }
   .tool-link-desc { font-size: 0.78rem; color: var(--text-muted); }
+
+  .tool-info-section { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+  .info-block { margin-bottom: 56px; }
+  .info-block h2 { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.5px; }
+  .info-intro { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .info-card { display: flex; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; align-items: flex-start; }
+  .info-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .info-card strong { display: block; font-size: 0.92rem; margin-bottom: 4px; color: var(--text); }
+  .info-card p { font-size: 0.84rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+  .steps-list { display: flex; flex-direction: column; gap: 14px; }
+  .step-item { display: flex; gap: 16px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+  .step-num { background: linear-gradient(135deg, var(--ac), var(--ac2)); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+  .step-item strong { display: block; font-size: 0.92rem; margin-bottom: 4px; }
+  .step-item p { font-size: 0.84rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+  .faq-list { display: flex; flex-direction: column; gap: 10px; }
+  .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; }
+  .faq-q { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; color: var(--text); }
+  .faq-a { font-size: 0.84rem; color: var(--text-muted); line-height: 1.6; }
+  .related-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .related-tool { display: flex; flex-direction: column; gap: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; text-decoration: none; transition: border-color 0.2s; }
+  .related-tool:hover { border-color: var(--ac); }
+  .related-tool strong { font-size: 0.88rem; color: var(--text); }
+  .related-tool span { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+  @media (max-width: 640px) { .info-grid { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr; } }
+
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Merge PDF Files Online for Free",
+  "description": "Combine multiple PDF files into one document instantly in your browser.",
+  "totalTime": "PT2M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "ShrinkPDF",
+    "url": "https://shrinkpdf.fyi"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Upload Your PDF Files",
+      "text": "Click Choose PDF Files or drag and drop. You can add multiple files at once \u2014 no size limit.",
+      "url": "https://shrinkpdf.fyi/merge.html#step1"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Drag to Reorder",
+      "text": "Drag the files into the order you want them to appear in the merged document.",
+      "url": "https://shrinkpdf.fyi/merge.html#step2"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Click Merge PDFs",
+      "text": "Hit Merge PDFs and wait a few seconds while your files are combined in the browser.",
+      "url": "https://shrinkpdf.fyi/merge.html#step3"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Download the Result",
+      "text": "Download your single merged PDF, ready to share or upload anywhere.",
+      "url": "https://shrinkpdf.fyi/merge.html#step4"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a limit to how many PDFs I can merge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. You can merge as many PDF files as you need. There is no file count limit or file size limit on ShrinkPDF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my files uploaded to a server when I merge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All merging happens entirely in your browser. Your files never leave your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I reorder the PDFs before merging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. After uploading, drag the files into the order you want before clicking Merge."
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -244,6 +346,50 @@
 </div>
 
 
+
+<section class="tool-info-section">
+
+  <div class="info-block">
+    <h2>Who Uses the Merge PDF Tool?</h2>
+    <p class="info-intro">From students to professionals, here are the most common reasons people need to merge PDF.</p>
+    <div class="info-grid">
+    <div class="info-card"><div class="info-icon">📑</div><div><strong>Combine Reports</strong><p>Merge monthly reports, financial statements, or research chapters into a single PDF for easy sharing.</p></div></div>
+    <div class="info-card"><div class="info-icon">📋</div><div><strong>Job Applications</strong><p>Combine your resume, cover letter, and certificates into one file before submitting.</p></div></div>
+    <div class="info-card"><div class="info-icon">🏫</div><div><strong>University Submissions</strong><p>Merge transcripts, supporting documents, and ID scans required by university portals.</p></div></div>
+    <div class="info-card"><div class="info-icon">📂</div><div><strong>Client Deliverables</strong><p>Bundle multiple project files, invoices, or proposals into a single professional document.</p></div></div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h2>How to Merge PDF — Step by Step</h2>
+    <div class="steps-list">
+    <div class="step-item"><div class="step-num">1</div><div><strong>Upload Your PDF Files</strong><p>Click Choose PDF Files or drag and drop. You can add multiple files at once — no size limit.</p></div></div>
+    <div class="step-item"><div class="step-num">2</div><div><strong>Drag to Reorder</strong><p>Drag the files into the order you want them to appear in the merged document.</p></div></div>
+    <div class="step-item"><div class="step-num">3</div><div><strong>Click Merge PDFs</strong><p>Hit Merge PDFs and wait a few seconds while your files are combined in the browser.</p></div></div>
+    <div class="step-item"><div class="step-num">4</div><div><strong>Download the Result</strong><p>Download your single merged PDF, ready to share or upload anywhere.</p></div></div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+    <div class="faq-item"><div class="faq-q">Is there a limit to how many PDFs I can merge?</div><div class="faq-a">No. You can merge as many PDF files as you need. There is no file count limit or file size limit on ShrinkPDF.</div></div>
+    <div class="faq-item"><div class="faq-q">Are my files uploaded to a server?</div><div class="faq-a">No. All merging happens entirely in your browser using JavaScript. Your files are never sent to any server.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I reorder pages before merging?</div><div class="faq-a">Yes. After uploading, drag the files into the order you want before clicking Merge.</div></div>
+    <div class="faq-item"><div class="faq-q">What if my merged PDF is too large to upload somewhere?</div><div class="faq-a">Use the Compress tool after merging to reduce the file size without losing quality.</div></div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h2>Related PDF Tools</h2>
+    <div class="related-grid">
+    <a href="split.html" class="related-tool"><strong>Split PDF</strong><span>Split a merged PDF back into individual pages or page ranges.</span></a>
+    <a href="index.html" class="related-tool"><strong>Compress PDF</strong><span>Reduce the size of your merged PDF before sending or uploading.</span></a>
+    <a href="reorder.html" class="related-tool"><strong>Reorder Pages</strong><span>Rearrange individual pages within a PDF document.</span></a>
+    </div>
+  </div>
+
+</section>
 <section class="tools-section">
   <h2>More PDF Tools</h2>
   <p>Everything you need to work with PDFs — all free, all in your browser</p>

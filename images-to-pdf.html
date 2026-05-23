@@ -117,9 +117,111 @@
   .tool-link-icon{font-size:1.5rem;margin-bottom:8px}
   .tool-link-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:4px}
   .tool-link-desc{font-size:.78rem;color:var(--text-muted)}
+
+  .tool-info-section { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+  .info-block { margin-bottom: 56px; }
+  .info-block h2 { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.5px; }
+  .info-intro { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .info-card { display: flex; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; align-items: flex-start; }
+  .info-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .info-card strong { display: block; font-size: 0.92rem; margin-bottom: 4px; color: var(--text); }
+  .info-card p { font-size: 0.84rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+  .steps-list { display: flex; flex-direction: column; gap: 14px; }
+  .step-item { display: flex; gap: 16px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+  .step-num { background: linear-gradient(135deg, var(--ac), var(--ac2)); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+  .step-item strong { display: block; font-size: 0.92rem; margin-bottom: 4px; }
+  .step-item p { font-size: 0.84rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+  .faq-list { display: flex; flex-direction: column; gap: 10px; }
+  .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; }
+  .faq-q { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; color: var(--text); }
+  .faq-a { font-size: 0.84rem; color: var(--text-muted); line-height: 1.6; }
+  .related-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .related-tool { display: flex; flex-direction: column; gap: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; text-decoration: none; transition: border-color 0.2s; }
+  .related-tool:hover { border-color: var(--ac); }
+  .related-tool strong { font-size: 0.88rem; color: var(--text); }
+  .related-tool span { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+  @media (max-width: 640px) { .info-grid { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr; } }
+
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Convert Images to PDF Online for Free",
+  "description": "Combine JPG, PNG, or WEBP images into a single PDF document instantly in your browser.",
+  "totalTime": "PT2M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "ShrinkPDF",
+    "url": "https://shrinkpdf.fyi"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Upload Your Images",
+      "text": "Click Choose Images or drag and drop JPG, PNG, or WEBP files. Add as many as you need.",
+      "url": "https://shrinkpdf.fyi/images-to-pdf.html#step1"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Drag to Reorder",
+      "text": "Drag images into the correct page order before converting.",
+      "url": "https://shrinkpdf.fyi/images-to-pdf.html#step2"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Click Convert to PDF",
+      "text": "Hit Convert to PDF and the tool assembles your images into a single PDF instantly.",
+      "url": "https://shrinkpdf.fyi/images-to-pdf.html#step3"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Download Your PDF",
+      "text": "Download the combined PDF, ready to email, upload, or print.",
+      "url": "https://shrinkpdf.fyi/images-to-pdf.html#step4"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What image formats can I convert to PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ShrinkPDF supports JPG, PNG, and WEBP. You can mix different formats in the same conversion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a limit to how many images I can combine into a PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Add as many images as you need with no limits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will images lose quality when converted to PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Images are embedded at their original resolution. Compress the PDF afterwards if you need a smaller file."
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -245,6 +347,50 @@
 </div>
 
 
+
+<section class="tool-info-section">
+
+  <div class="info-block">
+    <h2>Who Uses the Images to PDF Tool?</h2>
+    <p class="info-intro">From students to professionals, here are the most common reasons people need to images to PDF.</p>
+    <div class="info-grid">
+    <div class="info-card"><div class="info-icon">📷</div><div><strong>Scan to PDF</strong><p>Convert photos of documents taken on your phone into a single professional PDF.</p></div></div>
+    <div class="info-card"><div class="info-icon">📑</div><div><strong>Portfolio Creation</strong><p>Combine multiple design images or screenshots into one PDF to send to clients.</p></div></div>
+    <div class="info-card"><div class="info-icon">🏫</div><div><strong>Assignment Submission</strong><p>Bundle handwritten assignment photos into a single PDF for university submission portals.</p></div></div>
+    <div class="info-card"><div class="info-icon">🧾</div><div><strong>Receipt Collection</strong><p>Convert receipt photos into a PDF for expense reports or reimbursement claims.</p></div></div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h2>How to Images to PDF — Step by Step</h2>
+    <div class="steps-list">
+    <div class="step-item"><div class="step-num">1</div><div><strong>Upload Your Images</strong><p>Click Choose Images or drag and drop JPG, PNG, or WEBP files. Add as many as you need.</p></div></div>
+    <div class="step-item"><div class="step-num">2</div><div><strong>Drag to Reorder</strong><p>Drag images into the correct page order before converting.</p></div></div>
+    <div class="step-item"><div class="step-num">3</div><div><strong>Click Convert to PDF</strong><p>Hit Convert to PDF and the tool assembles your images into a single PDF instantly.</p></div></div>
+    <div class="step-item"><div class="step-num">4</div><div><strong>Download Your PDF</strong><p>Download the combined PDF, ready to email, upload, or print.</p></div></div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+    <div class="faq-item"><div class="faq-q">What image formats can I convert to PDF?</div><div class="faq-a">ShrinkPDF supports JPG, PNG, and WEBP images. You can mix different formats in the same PDF.</div></div>
+    <div class="faq-item"><div class="faq-q">Is there a limit to how many images I can combine?</div><div class="faq-a">No. Add as many images as you need — no count or file size limits apply.</div></div>
+    <div class="faq-item"><div class="faq-q">Will my images lose quality when converted?</div><div class="faq-a">Images are embedded at their original resolution. Use Light compression afterwards if you need a smaller file.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I set a custom page size?</div><div class="faq-a">Pages are sized to match each image's dimensions. For A4 or letter-sized pages, resize images to match those proportions first.</div></div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h2>Related PDF Tools</h2>
+    <div class="related-grid">
+    <a href="pdf-to-images.html" class="related-tool"><strong>PDF to Images</strong><span>Convert a PDF back into individual image files.</span></a>
+    <a href="index.html" class="related-tool"><strong>Compress PDF</strong><span>Reduce the size of your new PDF after converting.</span></a>
+    <a href="merge.html" class="related-tool"><strong>Merge PDF</strong><span>Combine your image PDF with other PDF documents.</span></a>
+    </div>
+  </div>
+
+</section>
 <section class="tools-section">
   <h2>More PDF Tools</h2>
   <p>Everything you need to work with PDFs — all free, all in your browser</p>
