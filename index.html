@@ -117,42 +117,92 @@
 
   .nav-links a:hover { color: var(--text); }
 
-  /* Tool nav buttons */
-  .nav-tools-row {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-    flex-wrap: wrap;
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,15,0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
   }
-
-  .nav-tool-btn {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.78rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    white-space: nowrap;
+  .nav-top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
   }
-
-  .nav-tool-btn:hover,
-  .nav-tool-btn.active {
-    border-color: var(--accent);
-    color: var(--text);
-    background: rgba(91,79,255,0.08);
+  .nav-bottom {
+    display: flex; align-items: center; gap: 4px;
+    padding: 7px 28px;
+    background: rgba(255,255,255,0.02);
   }
-
-  .lang-switcher { display: flex; gap: 8px; }
+  .logo {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: 1.35rem; letter-spacing: -0.5px;
+    text-decoration: none; color: var(--text);
+  }
+  .logo span {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .lang-switcher {
+    display: flex; gap: 2px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px; padding: 3px;
+  }
   .lang-btn {
-    background: var(--surface2); border: 1px solid var(--border);
-    color: var(--text-muted); padding: 6px 14px; border-radius: 8px;
-    font-size: 0.8rem; cursor: pointer; text-decoration: none; transition: all 0.2s;
+    color: var(--text-muted); padding: 5px 12px; border-radius: 7px;
+    font-size: 0.78rem; cursor: pointer; text-decoration: none;
+    transition: all 0.2s; border: none; background: none; white-space: nowrap;
   }
-  .lang-btn.active, .lang-btn:hover { border-color: var(--accent); color: var(--text); }
-
+  .lang-btn.active {
+    background: rgba(255,255,255,0.12);
+    color: var(--text);
+  }
+  .lang-btn:hover:not(.active) { color: var(--text); }
+  .nav-tool-btn {
+    color: var(--text-muted); padding: 6px 13px; border-radius: 7px;
+    font-size: 0.8rem; cursor: pointer; text-decoration: none;
+    transition: all 0.2s; border: none; background: none; white-space: nowrap;
+  }
+  .nav-tool-btn:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+  .nav-tool-btn.active {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff; font-weight: 500;
+  }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 6px;
+    border-radius: 8px;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--text); border-radius: 2px; transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-drawer {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    background: rgba(10,10,15,0.97); border-bottom: 1px solid var(--border);
+    padding: 16px 20px; flex-direction: column; gap: 8px;
+    z-index: 99; backdrop-filter: blur(20px);
+  }
+  .mobile-drawer.open { display: flex; }
+  .mobile-drawer .nav-tool-btn {
+    display: block; text-align: left; padding: 10px 14px; font-size: 0.9rem;
+    background: none; border-radius: 8px;
+  }
+  .mobile-drawer .nav-tool-btn.active {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+  }
+  .mobile-drawer .lang-row {
+    display: flex; gap: 6px; padding-top: 8px;
+    border-top: 1px solid var(--border); margin-top: 4px;
+  }
+  @media (max-width: 640px) {
+    .nav-bottom { display: none; }
+    .lang-switcher { display: none; }
+    .hamburger { display: flex; }
+  }
   .nav-cta {
     background: var(--accent);
     color: white !important;
@@ -770,7 +820,7 @@
   .mobile-drawer .lang-row {
     display: flex;
     gap: 8px;
-    padding-top: 8px;
+    padding-top: 110px;
     border-top: 1px solid var(--border);
     margin-top: 4px;
   }
@@ -817,26 +867,19 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
-  <div class="nav-tools-row">
-    <a href="index.html" class="nav-tool-btn active">🗜️ Compress</a>
-    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
-    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
-    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
-    <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
-    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
-    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
-  </div>
-  <div class="lang-switcher">
+  <div class="nav-top">
+    <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
+    <div class="lang-switcher">
     <a href="ms.html" class="lang-btn">🇲🇾 BM</a>
     <a href="index.html" class="lang-btn active">🇬🇧 EN</a>
     <a href="zh.html" class="lang-btn">🇨🇳 中文</a>
     <a href="id.html" class="lang-btn">🇮🇩 ID</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="mobile-drawer" id="mobileDrawer">
+  <div class="nav-bottom">
     <a href="index.html" class="nav-tool-btn active">🗜️ Compress</a>
     <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
     <a href="split.html" class="nav-tool-btn">✂️ Split</a>
@@ -844,11 +887,11 @@
     <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
     <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
     <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
+  </div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" class="nav-tool-btn active">🗜️ Compress</a><a href="merge.html" class="nav-tool-btn">🔗 Merge</a><a href="split.html" class="nav-tool-btn">✂️ Split</a><a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a><a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a><a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a><a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
     <div class="lang-row">
-      <a href="ms.html" class="lang-btn">🇲🇾 BM</a>
-      <a href="index.html" class="lang-btn active">🇬🇧 EN</a>
-      <a href="zh.html" class="lang-btn">🇨🇳 中文</a>
-      <a href="id.html" class="lang-btn">🇮🇩 ID</a>
+      <a href="ms.html" class="lang-btn">🇲🇾 BM</a><a href="index.html" class="lang-btn active">🇬🇧 EN</a><a href="zh.html" class="lang-btn">🇨🇳 中文</a><a href="id.html" class="lang-btn">🇮🇩 ID</a>
     </div>
   </div>
 </nav>

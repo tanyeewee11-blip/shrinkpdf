@@ -246,7 +246,7 @@
   .mobile-drawer .lang-row {
     display: flex;
     gap: 8px;
-    padding-top: 8px;
+    padding-top: 110px;
     border-top: 1px solid var(--border);
     margin-top: 4px;
   }
@@ -292,27 +292,19 @@
 <body>
 
 <nav>
-  <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
-  <div class="nav-tools-row">
-    <a href="index.html" class="nav-tool-btn active">🗜️ Compress</a>
-    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
-    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
-    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
-    <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
-    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
-    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
-  </div>
-
-  <div class="lang-switcher">
+  <div class="nav-top">
+    <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
+    <div class="lang-switcher">
     <a href="ms.html" class="lang-btn active">🇲🇾 BM</a>
     <a href="index.html" class="lang-btn">🇬🇧 EN</a>
     <a href="zh.html" class="lang-btn">🇨🇳 中文</a>
     <a href="id.html" class="lang-btn">🇮🇩 ID</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="mobile-drawer" id="mobileDrawer">
+  <div class="nav-bottom">
     <a href="index.html" class="nav-tool-btn active">🗜️ Compress</a>
     <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
     <a href="split.html" class="nav-tool-btn">✂️ Split</a>
@@ -320,11 +312,11 @@
     <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
     <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
     <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
+  </div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" class="nav-tool-btn active">🗜️ Compress</a><a href="merge.html" class="nav-tool-btn">🔗 Merge</a><a href="split.html" class="nav-tool-btn">✂️ Split</a><a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a><a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a><a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a><a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
     <div class="lang-row">
-      <a href="ms.html" class="lang-btn active">🇲🇾 BM</a>
-      <a href="index.html" class="lang-btn">🇬🇧 EN</a>
-      <a href="zh.html" class="lang-btn">🇨🇳 中文</a>
-      <a href="id.html" class="lang-btn">🇮🇩 ID</a>
+      <a href="ms.html" class="lang-btn active">🇲🇾 BM</a><a href="index.html" class="lang-btn">🇬🇧 EN</a><a href="zh.html" class="lang-btn">🇨🇳 中文</a><a href="id.html" class="lang-btn">🇮🇩 ID</a>
     </div>
   </div>
 </nav>
