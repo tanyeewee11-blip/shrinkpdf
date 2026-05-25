@@ -117,7 +117,7 @@
     z-index: 1;
     text-align: center;
     width: 100%;
-    padding: 115px 24px 48px;
+    padding: 160px 24px 48px;
   }
 
   .badge {
@@ -152,6 +152,7 @@
     font-size: clamp(1.9rem, 4vw, 3rem);
     font-weight: 800;
     line-height: 1.1;
+    text-align: center;
     letter-spacing: -1.5px;
     margin-bottom: 20px;
     animation: fadeUp 0.6s 0.1s ease both;
@@ -1108,9 +1109,7 @@
       console.error('Compression error:', err);
       setProgress(0, '');
       document.getElementById('progressWrap').classList.remove('visible');
-      alert('Could not compress this PDF. It may be password-protected or corrupted.
-
-Error: ' + err.message);
+      alert('Could not compress this PDF. It may be password-protected or corrupted.\n\nError: ' + err.message);
     }
     btn.disabled = false;
     btn.textContent = '🗜️ Compress PDF Now';
