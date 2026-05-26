@@ -585,50 +585,39 @@
   });
 </script>
 <script>
-  // Detect language preference from URL param and update nav
-  (function() {
-    function applyLang() {
-      var params = new URLSearchParams(window.location.search);
-      var lang = params.get('lang');
-      if (!lang) return;
+  // Language state from URL param
+  function applyShrinkLang() {
+    var lang = new URLSearchParams(window.location.search).get('lang');
+    if (!lang) return;
+    var homes = { ms:'ms.html', zh:'zh.html', id:'id.html', en:'index.html' };
+    var home = homes[lang];
+    if (!home) return;
 
-      var homeMap = { ms:'ms.html', zh:'zh.html', id:'id.html', en:'index.html' };
-      var home = homeMap[lang];
-      if (!home) return;
+    // 1. Lang buttons
+    [].forEach.call(document.querySelectorAll('.lang-btn'), function(b) {
+      b.classList.remove('active');
+      if (b.getAttribute('href') === home) b.classList.add('active');
+    });
 
-      // Lang buttons: clear active, set active on matching href
-      document.querySelectorAll('.lang-btn').forEach(function(btn) {
-        btn.classList.remove('active');
-        if (btn.getAttribute('href') === home) {
-          btn.classList.add('active');
-        }
-      });
+    // 2. Compress → lang homepage
+    [].forEach.call(document.querySelectorAll('.nav-tool-btn'), function(b) {
+      if (b.textContent.indexOf('Compress') >= 0) {
+        b.setAttribute('href', home);
+        b.classList.remove('active');
+      }
+    });
 
-      // Compress → back to language homepage
-      document.querySelectorAll('.nav-tool-btn').forEach(function(btn) {
-        if (btn.innerHTML.indexOf('Compress') >= 0 || btn.innerHTML.indexOf('🗜️') >= 0) {
-          btn.setAttribute('href', home);
-          btn.classList.remove('active');
-        }
-      });
-
-      // Other tools → preserve ?lang= param
-      document.querySelectorAll('.nav-tool-btn').forEach(function(btn) {
-        var href = btn.getAttribute('href');
-        if (!href) return;
-        var file = href.split('?')[0];
-        if (['ms.html','zh.html','id.html','index.html'].indexOf(file) === -1) {
-          btn.setAttribute('href', file + '?lang=' + lang);
-        }
-      });
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', applyLang);
-    } else {
-      applyLang();
-    }
-  })();
+    // 3. Other tool buttons → keep ?lang param
+    [].forEach.call(document.querySelectorAll('.nav-tool-btn'), function(b) {
+      var f = (b.getAttribute('href') || '').split('?')[0];
+      if (f && ['ms.html','zh.html','id.html','index.html'].indexOf(f) < 0 && f.indexOf('?') < 0) {
+        b.setAttribute('href', f + '?lang=' + lang);
+      }
+    });
+  }
+  // Run immediately + again after load to be safe
+  applyShrinkLang();
+  window.addEventListener('load', applyShrinkLang);
 </script>
 </body>
 </html>
