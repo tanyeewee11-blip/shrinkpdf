@@ -612,38 +612,47 @@
 <script>
   // Detect language preference from URL param and update nav
   (function() {
-    var params = new URLSearchParams(window.location.search);
-    var lang = params.get('lang');
-    if (!lang) return;
+    function applyLang() {
+      var params = new URLSearchParams(window.location.search);
+      var lang = params.get('lang');
+      if (!lang) return;
 
-    var homeMap = { ms:'ms.html', zh:'zh.html', id:'id.html', en:'index.html' };
-    var home = homeMap[lang];
-    if (!home) return;
+      var homeMap = { ms:'ms.html', zh:'zh.html', id:'id.html', en:'index.html' };
+      var home = homeMap[lang];
+      if (!home) return;
 
-    // Clear all active lang buttons, set active on matching href
-    document.querySelectorAll('.lang-btn').forEach(function(btn) {
-      btn.classList.remove('active');
-      if (btn.getAttribute('href') === home) {
-        btn.classList.add('active');
-      }
-    });
+      // Lang buttons: clear active, set active on matching href
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+        if (btn.getAttribute('href') === home) {
+          btn.classList.add('active');
+        }
+      });
 
-    // Compress → back to language homepage
-    document.querySelectorAll('.nav-tool-btn').forEach(function(btn) {
-      if (btn.innerHTML.indexOf('Compress') >= 0) {
-        btn.setAttribute('href', home);
-      }
-    });
+      // Compress → back to language homepage
+      document.querySelectorAll('.nav-tool-btn').forEach(function(btn) {
+        if (btn.innerHTML.indexOf('Compress') >= 0 || btn.innerHTML.indexOf('🗜️') >= 0) {
+          btn.setAttribute('href', home);
+          btn.classList.remove('active');
+        }
+      });
 
-    // Other tools → preserve ?lang= param
-    document.querySelectorAll('.nav-tool-btn').forEach(function(btn) {
-      var href = btn.getAttribute('href');
-      if (!href) return;
-      var file = href.split('?')[0];
-      if (['ms.html','zh.html','id.html','index.html'].indexOf(file) === -1) {
-        btn.setAttribute('href', file + '?lang=' + lang);
-      }
-    });
+      // Other tools → preserve ?lang= param
+      document.querySelectorAll('.nav-tool-btn').forEach(function(btn) {
+        var href = btn.getAttribute('href');
+        if (!href) return;
+        var file = href.split('?')[0];
+        if (['ms.html','zh.html','id.html','index.html'].indexOf(file) === -1) {
+          btn.setAttribute('href', file + '?lang=' + lang);
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', applyLang);
+    } else {
+      applyLang();
+    }
   })();
 </script>
 </body>
