@@ -680,5 +680,50 @@
     }
   });
 </script>
+<script>
+  // Detect language preference from URL param and update nav
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get('lang');
+    if (!lang) return;
+
+    const langMap = {
+      'ms': { url: 'ms.html', label: '🇲🇾 BM' },
+      'zh': { url: 'zh.html', label: '🇨🇳 中文' },
+      'id': { url: 'id.html', label: '🇮🇩 ID' },
+      'en': { url: 'index.html', label: '🇬🇧 EN' },
+    };
+    if (!langMap[lang]) return;
+
+    // Update lang buttons: set active on selected lang, remove from EN
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.getAttribute('href') === langMap[lang].url || 
+          btn.textContent.trim() === langMap[lang].label) {
+        btn.classList.add('active');
+        // Make it link back to the language homepage
+        btn.setAttribute('href', langMap[lang].url);
+      }
+    });
+
+    // Update compress link to go back to language homepage
+    document.querySelectorAll('.nav-tool-btn').forEach(btn => {
+      if (btn.textContent.includes('Compress')) {
+        btn.setAttribute('href', langMap[lang].url);
+      }
+    });
+
+    // Preserve lang param when clicking other tools
+    document.querySelectorAll('.nav-tool-btn:not(.active)').forEach(btn => {
+      const href = btn.getAttribute('href');
+      if (href && !href.includes('?') && !href.includes('.html') === false) {
+        const toolFile = href.split('?')[0];
+        if (!['ms.html','zh.html','id.html','index.html'].includes(toolFile)) {
+          btn.setAttribute('href', toolFile + '?lang=' + lang);
+        }
+      }
+    });
+  })();
+</script>
 </body>
 </html>
