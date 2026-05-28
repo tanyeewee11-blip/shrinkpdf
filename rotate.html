@@ -122,12 +122,11 @@
   .btn-another{background:none;border:1px solid var(--border);color:var(--text-muted);padding:10px 24px;border-radius:10px;cursor:pointer;font-size:.9rem;font-family:'DM Sans',sans-serif;transition:all .2s;display:block;margin:0 auto}
   .btn-another:hover{border-color:var(--accent);color:var(--text)}
   .privacy-note{text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:16px}
-.footer-logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.tool-card{padding:20px}.angle-grid{grid-template-columns:1fr 1fr 1fr}}
-  .tools-section{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 24px 80px}
+  .tools-section{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:0 24px 120px}
   .tools-section h2{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;text-align:center;margin-bottom:8px;letter-spacing:-.5px}
   .tools-section p{text-align:center;color:var(--text-muted);font-size:.9rem;margin-bottom:32px}
-  .tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:640px){.tools-grid{grid-template-columns:repeat(2,1fr)}}
   .tool-link{text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;display:block;transition:all .3s}
   .tool-link:hover{border-color:var(--accent);transform:translateY(-3px)}
   .tool-link-icon{font-size:1.5rem;margin-bottom:8px}
