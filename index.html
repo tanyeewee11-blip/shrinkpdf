@@ -335,6 +335,19 @@ body {
     border-radius: 100px;
     margin-top: 6px;
   }
+  .level-text-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 8px;
+    font-size: 0.68rem;
+    color: #e8a020;
+    background: rgba(243,156,18,0.1);
+    border: 1px solid rgba(243,156,18,0.25);
+    border-radius: 6px;
+    padding: 3px 7px;
+  }
 
   /* FILE INFO */
   .file-info {
@@ -787,23 +800,26 @@ body {
         <span class="level-emoji">🪶</span>
         <div class="level-name">Light</div>
         <div class="level-desc">Best quality<br>~20–30% smaller</div>
-        <span class="level-tag">Contracts & Legal</span>
+        <span class="level-tag">Sharpest Output</span>
+        <div class="level-text-hint">🖼️ Text → image</div>
       </div>
       <div class="level-card active" onclick="selectLevel(this, 'medium')" data-level="medium">
         <span class="level-emoji">⚖️</span>
         <div class="level-name">Balanced</div>
         <div class="level-desc">Good quality<br>~40–60% smaller</div>
         <span class="level-tag">Recommended</span>
+        <div class="level-text-hint">🖼️ Text → image</div>
       </div>
       <div class="level-card" onclick="selectLevel(this, 'strong')" data-level="strong">
         <span class="level-emoji">🗜️</span>
         <div class="level-name">Maximum</div>
         <div class="level-desc">Smallest size<br>~70–80% smaller</div>
         <span class="level-tag">Email & Upload</span>
+        <div class="level-text-hint">🖼️ Text → image</div>
       </div>
     </div>
-    <div class="max-warning" id="maxWarning">
-      ⚠️ Maximum mode converts pages to images — <strong>text won't be selectable or copy-pasteable</strong> after compression. Use <strong>Light</strong> for contracts, forms, or anything you need to edit.
+    <div class="max-warning visible" id="maxWarning">
+      ℹ️ All compression modes render pages as images — <strong>text won't be selectable or copy-pasteable</strong> after compression. This is what enables the high compression ratio. If you need to preserve selectable text, try a tool like <a href="https://www.ilovepdf.com/compress_pdf" target="_blank" rel="noopener" style="color:#a99fff;">iLovePDF</a> instead.
     </div>
   </div>
 
@@ -841,7 +857,7 @@ body {
     <a id="downloadLink" class="btn-download" download="compressed.pdf">
       ⬇️ Download Compressed PDF
     </a>
-    <p id="resultMaxWarning" style="font-size:0.78rem; color:var(--text-muted); margin-top:14px; line-height:1.6; display:none;">ℹ️ Pages are now images — text won't be selectable. Need copy-paste? Download, then <button onclick="recompressWithLevel('light')" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.78rem;text-decoration:underline;padding:0;">re-compress with Light mode</button>.</p>
+    <p id="resultMaxWarning" style="font-size:0.78rem; color:var(--text-muted); margin-top:14px; line-height:1.6; display:none;">ℹ️ Pages are rendered as high-quality images — text will look sharp but won't be selectable or copy-pasteable. This applies to all compression modes.</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:4px;">
     <button class="btn-another btn-try-level" id="btnTryLevel" onclick="recompressWithLevel()" style="display:none;">🔄 Try a different level</button>
     <button class="btn-another" onclick="resetTool()">Compress another file</button>
@@ -969,7 +985,7 @@ body {
       Will compression affect the quality of my PDF?
       <span class="faq-arrow">▼</span>
     </div>
-    <div class="faq-a"><div class="faq-a-inner">For text-heavy PDFs (contracts, reports, forms), quality is virtually identical after compression. For image-heavy PDFs, light or balanced mode will be unnoticeable to the naked eye. Only maximum mode may slightly reduce image sharpness.</div></div>
+    <div class="faq-a"><div class="faq-a-inner">All modes render pages as high-quality images, so the visual output looks sharp and clear. However, text will not be selectable or copy-pasteable in the output. For the sharpest-looking result, use Light mode. For the smallest file size, use Maximum. If you need to preserve selectable text, this tool may not be the right fit — consider a server-side compressor like iLovePDF.</div></div>
   </div>
 
   <div class="faq-item">
@@ -1104,13 +1120,6 @@ body {
     document.querySelectorAll('.level-card').forEach(c => c.classList.remove('active'));
     el.classList.add('active');
     currentLevel = level;
-    // Show warning only for maximum mode
-    const warn = document.getElementById('maxWarning');
-    if (level === 'strong') {
-      warn.classList.add('visible');
-    } else {
-      warn.classList.remove('visible');
-    }
   }
 
   const LEVELS = {
@@ -1187,13 +1196,8 @@ body {
     // Show max-mode warning and "try different level" button only for maximum
     const resultWarn = document.getElementById('resultMaxWarning');
     const btnTryLevel = document.getElementById('btnTryLevel');
-    if (currentLevel === 'strong') {
-      resultWarn.style.display = 'block';
-      btnTryLevel.style.display = 'inline-block';
-    } else {
-      resultWarn.style.display = 'none';
-      btnTryLevel.style.display = 'none';
-    }
+    resultWarn.style.display = 'block';
+    btnTryLevel.style.display = 'none';
   }
 
   function setProgress(pct, msg) {
