@@ -25,14 +25,36 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
-<style>
+<style>  /* ── NAV ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+  .nav-top{display:flex;align-items:center;justify-content:space-between;padding:12px 28px;}
+  .nav-bottom{display:flex;align-items:center;justify-content:center;gap:2px;padding:6px 24px;background:rgba(255,255,255,0.02);overflow-x:auto;scrollbar-width:none;border-top:1px solid rgba(255,255,255,0.05);}
+  .nav-bottom::-webkit-scrollbar{display:none;}
+  .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-0.5px;text-decoration:none;color:var(--text);flex-shrink:0;}
+  .logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .nav-tool-btn{color:var(--text-muted);padding:6px 13px;border-radius:7px;font-size:0.8rem;cursor:pointer;text-decoration:none;transition:all 0.2s;background:none;white-space:nowrap;}
+  .nav-tool-btn:hover{color:var(--text);background:rgba(255,255,255,0.06);}
+  .nav-tool-btn.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:500;}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:8px;}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s;}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-drawer{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,15,0.97);border-bottom:1px solid var(--border);padding:16px 20px;flex-direction:column;gap:8px;z-index:99;backdrop-filter:blur(20px);}
+  .mobile-drawer.open{display:flex;}
+  .mobile-drawer .nav-tool-btn{display:block;text-align:left;padding:10px 14px;font-size:0.9rem;}
+  .mobile-drawer .nav-tool-btn.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;}
+  @media(max-width:640px){
+    .nav-top{padding:12px 16px;}
+    .nav-bottom{display:none;}
+    .hamburger{display:flex;}
+  }
 :root{--bg:#0a0a0f;--sf:#13131a;--br:#2a2a3a;--ac:#5b4fff;--ac2:#ff4f9b;--tx:#f0f0f8;--tm:#7a7a9a;--ok:#2ecc71;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;line-height:1.8;}
 body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,0.07) 0%,transparent 50%);pointer-events:none;z-index:0;}
 .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;text-decoration:none;color:var(--tx);}
 .logo span{background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.back{color:var(--tm);text-decoration:none;font-size:0.9rem;}
 .back:hover{color:var(--tx);}
 .wrap{max-width:740px;margin:0 auto;padding:60px 24px 80px;position:relative;z-index:1;}
 .meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:32px;}
@@ -70,7 +92,8 @@ li{margin-bottom:9px;color:#d0d0e8;}
 .rl:hover{border-color:var(--ac);}
 .rl span{color:var(--tm);font-size:0.82rem;}
 footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:var(--tm);font-size:0.82rem;}
-@media(max-width:640px){nav{padding:13px 18px;}.wrap{padding:36px 18px 60px;}}
+@media(max-width:640px){
+.wrap{padding:36px 18px 60px;}}
 
   #read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
   .toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;}
@@ -80,7 +103,20 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
   .toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
   .toc li a:hover{color:var(--ac);}
   .toc li a.active{color:var(--ac);font-weight:500;}
-</style>
+
+  footer{background:var(--surface);border-top:1px solid var(--border);padding:48px 24px 24px;margin-top:80px;}
+  .footer-inner{max-width:1100px;margin:0 auto;display:flex;gap:48px;flex-wrap:wrap;}
+  .footer-brand{flex:1;min-width:200px;}
+  .footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:10px;}
+  .footer-logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .footer-tagline{font-size:0.83rem;color:var(--text-muted);line-height:1.6;}
+  .footer-links{display:flex;gap:40px;flex-wrap:wrap;}
+  .footer-col{display:flex;flex-direction:column;gap:8px;min-width:130px;}
+  .footer-col-title{font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:4px;}
+  .footer-col a{font-size:0.83rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
+  .footer-col a:hover{color:var(--text);}
+  .footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);text-align:center;}
+  @media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}}</style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 
 <script type="application/ld+json">
@@ -171,8 +207,24 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
 <body>
 <div id="read-progress"></div>
 <nav>
-  <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
-  <a href="index.html" class="back">&larr; Back to Tool</a>
+  <div class="nav-top">
+    <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-bottom">
+    <a href="index.html" class="nav-tool-btn">🗜️ Compress</a>
+    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
+    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
+    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
+    <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
+    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
+    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
+  </div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" class="nav-tool-btn">🗜️ Compress</a><a href="merge.html" class="nav-tool-btn">🔗 Merge</a><a href="split.html" class="nav-tool-btn">✂️ Split</a><a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a><a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a><a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a><a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
+  </div>
 </nav>
 <div class="wrap">
   <div class="meta"><span class="tag">Comparison</span><span class="tag">Free</span><span class="tag">No Limit</span><span class="rt">&#9201; 5 min read</span></div>
@@ -227,7 +279,43 @@ footer{border-top:1px solid var(--br);padding:22px 48px;text-align:center;color:
     <div class="rls"><a href="en-05-largefile.html" class="rl">Compress Large PDF Files (100MB+) <span>&rarr;</span></a><a href="en-07-toolarge.html" class="rl">PDF Too Large to Upload? Fix It Free <span>&rarr;</span></a><a href="en-11-comparison.html" class="rl">Best Free PDF Compressor Comparison <span>&rarr;</span></a></div>
   </div>
 </div>
-<footer>&copy; 2026 ShrinkPDF &middot; Free PDF Compression Tool &middot; Privacy First</footer>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo"><span>Shrink</span>PDF</div>
+      <p class="footer-tagline">Free PDF tools. No login. No limits. No watermarks.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Tools</div>
+        <a href="index.html">Compress PDF</a>
+        <a href="merge.html">Merge PDF</a>
+        <a href="split.html">Split PDF</a>
+        <a href="rotate.html">Rotate PDF</a>
+        <a href="pdf-to-images.html">PDF to Images</a>
+        <a href="images-to-pdf.html">Images to PDF</a>
+        <a href="reorder.html">Reorder Pages</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guides</div>
+        <a href="en-01-below1mb.html">Compress Below 1MB</a>
+        <a href="en-02-email.html">Compress for Email</a>
+        <a href="en-06-malaysia.html">LHDN e-Filing PDF</a>
+        <a href="en-09-mobile.html">Compress on Mobile</a>
+        <a href="en-12-university.html">University Submission</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 ShrinkPDF · No login · No storage · Always free</span>
+  </div>
+</footer>
 <script>
   (function(){
     var bar = document.getElementById('read-progress');

@@ -34,4 +34,8 @@
   <!-- Chinese blog articles -->
 
   <!-- Indonesian blog articles -->
+  <url>
+    <loc>https://shrinkpdf.fyi/contact.html</loc>
+    <priority>0.6</priority>
+  </url>
 </urlset>
