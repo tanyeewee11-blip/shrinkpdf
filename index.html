@@ -649,7 +649,29 @@ body {
   .footer-col a{font-size:0.83rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
   .footer-col a:hover{color:var(--text);}
   .footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);text-align:center;}
-  @media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}}</style>
+  @media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}}
+  /* Maximum mode warning */
+  .max-warning {
+    display: none;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(243, 156, 18, 0.12);
+    border: 1px solid rgba(243, 156, 18, 0.35);
+    border-radius: 10px;
+    font-size: 0.82rem;
+    color: #f5c842;
+    line-height: 1.5;
+  }
+  .max-warning.visible { display: block; }
+  .btn-try-level {
+    background: rgba(91,79,255,0.15) !important;
+    color: var(--accent) !important;
+    border: 1px solid rgba(91,79,255,0.35) !important;
+  }
+  .btn-try-level:hover {
+    background: rgba(91,79,255,0.25) !important;
+  }
+</style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 
 <script type="application/ld+json">
@@ -770,6 +792,9 @@ body {
         <span class="level-tag">Email & Upload</span>
       </div>
     </div>
+    <div class="max-warning" id="maxWarning">
+      ⚠️ Maximum mode converts pages to images — <strong>text won't be selectable or copy-pasteable</strong> after compression. Use <strong>Light</strong> for contracts, forms, or anything you need to edit.
+    </div>
   </div>
 
   <!-- Compress Button -->
@@ -806,8 +831,11 @@ body {
     <a id="downloadLink" class="btn-download" download="compressed.pdf">
       ⬇️ Download Compressed PDF
     </a>
-    <p style="font-size:0.78rem; color:var(--text-muted); margin-top:14px; line-height:1.6;">ℹ️ Pages are rendered as high-quality images — text will look sharp but won't be selectable. Use <strong>Light</strong> mode for documents that need copy-paste.</p>
+    <p id="resultMaxWarning" style="font-size:0.78rem; color:var(--text-muted); margin-top:14px; line-height:1.6; display:none;">ℹ️ Pages are now images — text won't be selectable. Need copy-paste? Download, then <button onclick="recompressWithLevel('light')" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.78rem;text-decoration:underline;padding:0;">re-compress with Light mode</button>.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:4px;">
+    <button class="btn-another btn-try-level" id="btnTryLevel" onclick="recompressWithLevel()" style="display:none;">🔄 Try a different level</button>
     <button class="btn-another" onclick="resetTool()">Compress another file</button>
+  </div>
   </div>
 
   <div class="privacy-note">
@@ -874,10 +902,15 @@ body {
       <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Reduce PDF Size Without Losing Quality</div>
       <div style="font-size:0.8rem;color:var(--text-muted);">Keep your PDF looking sharp while making it smaller</div>
     </a>
-    <a     <a href="en-04-nolimit.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+    <a href="en-04-nolimit.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="font-size:1.3rem;margin-bottom:8px;">♾️</div>
       <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">No File Size Limit — Compress Any PDF</div>
       <div style="font-size:0.8rem;color:var(--text-muted);">Free compression with no upload restrictions</div>
+    </a>
+    <a href="en-05-largefile.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+      <div style="font-size:1.3rem;margin-bottom:8px;">📦</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Compress Large PDF Files (100MB+)</div>
+      <div style="font-size:0.8rem;color:var(--text-muted);">Free online guide for huge files</div>
     </a>
     <a href="en-06-malaysia.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="font-size:1.3rem;margin-bottom:8px;">🏛️</div>
@@ -889,21 +922,15 @@ body {
       <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">PDF File Too Large to Upload? Fix It Free</div>
       <div style="font-size:0.8rem;color:var(--text-muted);">Solve "file too large" errors on any website</div>
     </a>
-    <a href="en-09-mobile.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
-      <div style="font-size:1.3rem;margin-bottom:8px;">📱</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Compress PDF on iPhone & Android</div>
-      <div style="font-size:0.8rem;color:var(--text-muted);">No app needed — compress straight from your phone</div>
-    </a>
-  </div>
-    <a href="en-05-largefile.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
-      <div style="font-size:1.3rem;margin-bottom:8px;">📦</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Compress Large PDF Files (100MB+)</div>
-      <div style="font-size:0.8rem;color:var(--text-muted);">Free online guide for huge files</div>
-    </a>
     <a href="en-08-scanned.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="font-size:1.3rem;margin-bottom:8px;">🖨️</div>
       <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Compress a Scanned PDF</div>
       <div style="font-size:0.8rem;color:var(--text-muted);">Without losing quality or readability</div>
+    </a>
+    <a href="en-09-mobile.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+      <div style="font-size:1.3rem;margin-bottom:8px;">📱</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Compress PDF on iPhone & Android</div>
+      <div style="font-size:0.8rem;color:var(--text-muted);">No app needed — compress straight from your phone</div>
     </a>
     <a href="en-10-whylarge.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="font-size:1.3rem;margin-bottom:8px;">🔍</div>
@@ -1053,6 +1080,13 @@ body {
     document.querySelectorAll('.level-card').forEach(c => c.classList.remove('active'));
     el.classList.add('active');
     currentLevel = level;
+    // Show warning only for maximum mode
+    const warn = document.getElementById('maxWarning');
+    if (level === 'strong') {
+      warn.classList.add('visible');
+    } else {
+      warn.classList.remove('visible');
+    }
   }
 
   const LEVELS = {
@@ -1126,11 +1160,34 @@ body {
 
     document.getElementById('progressWrap').classList.remove('visible');
     document.getElementById('resultCard').classList.add('visible');
+    // Show max-mode warning and "try different level" button only for maximum
+    const resultWarn = document.getElementById('resultMaxWarning');
+    const btnTryLevel = document.getElementById('btnTryLevel');
+    if (currentLevel === 'strong') {
+      resultWarn.style.display = 'block';
+      btnTryLevel.style.display = 'inline-block';
+    } else {
+      resultWarn.style.display = 'none';
+      btnTryLevel.style.display = 'none';
+    }
   }
 
   function setProgress(pct, msg) {
     document.getElementById('progressBar').style.width = pct + '%';
     document.getElementById('progressText').textContent = msg;
+  }
+
+  function recompressWithLevel(forceLevel) {
+    // Keep the current file, just hide result and let user pick a new level
+    if (forceLevel) {
+      // Activate the requested level card
+      const card = document.querySelector(`.level-card[data-level="${forceLevel === 'light' ? 'light' : forceLevel}"]`);
+      if (card) selectLevel(card, forceLevel);
+    }
+    document.getElementById('resultCard').classList.remove('visible');
+    document.getElementById('progressWrap').classList.remove('visible');
+    // Scroll up to the options panel
+    document.getElementById('optionsPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   function resetTool() {
