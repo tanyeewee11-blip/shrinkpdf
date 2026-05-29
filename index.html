@@ -13,7 +13,7 @@
 <title>ShrinkPDF – Compress PDF Free, No Limits</title>
 <meta name="description" content="Compress large PDF files for free. No file size limit. No login required. Files processed locally — never uploaded to any server.">
 <link rel="canonical" href="https://shrinkpdf.fyi/">
-<link rel="alternate" hreflang="en" href="https://shrinkpdf.fyi/index.html">
+<link rel="alternate" hreflang="x-default" href="https://shrinkpdf.fyi/">
 <link rel="alternate" hreflang="en" href="https://shrinkpdf.fyi/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shrinkpdf.fyi/">
@@ -756,7 +756,7 @@ body {
     Free · No Login · No File Size Limit
   </div>
   <h1>Compress <span class="highlight">Large PDFs</span><br>Instantly & Free</h1>
-  <p class="subtitle">Reduce your PDF size by up to 80% without losing quality. No registration, no limits, no watermarks. Files auto-deleted after download.</p>
+  <p class="subtitle">Reduce your PDF size by up to 80% without losing readability. No registration, no limits, no watermarks. Files stay on your device — never uploaded to any server.</p>
 
   <div class="trust-row">
     <div class="trust-item"><span class="trust-icon">🔒</span> Files never stored</div>
@@ -1186,17 +1186,21 @@ body {
     document.getElementById('statNew').textContent = formatSize(newSize);
     document.getElementById('statSaved').textContent = pct + '%';
 
-    const url = URL.createObjectURL(compressedBlob);
+    // Revoke previous Blob URL to prevent memory leak
     const link = document.getElementById('downloadLink');
+    if (link.href && link.href.startsWith('blob:')) {
+      URL.revokeObjectURL(link.href);
+    }
+    const url = URL.createObjectURL(compressedBlob);
     link.href = url;
     link.download = 'compressed_' + (currentFile?.name || 'file.pdf');
 
     document.getElementById('progressWrap').classList.remove('visible');
     document.getElementById('resultCard').classList.add('visible');
-    // Show max-mode warning and "try different level" button only for maximum
+    // Show warning only for maximum (strong) mode
     const resultWarn = document.getElementById('resultMaxWarning');
     const btnTryLevel = document.getElementById('btnTryLevel');
-    resultWarn.style.display = 'block';
+    resultWarn.style.display = (currentLevel === 'strong') ? 'block' : 'none';
     btnTryLevel.style.display = 'none';
   }
 

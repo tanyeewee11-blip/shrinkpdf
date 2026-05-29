@@ -11,6 +11,8 @@
 <meta property="og:description" content="Merge multiple PDF files into one. Free, no login, no file size limit. Files processed locally.">
 <meta property="og:url" content="https://shrinkpdf.fyi/merge.html">
 <meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -579,15 +581,22 @@
       setProgress(100, 'Done!');
       await sleep(300);
 
+      const dlLink = document.getElementById('downloadLink');
+      if (dlLink.href && dlLink.href.startsWith('blob:')) URL.revokeObjectURL(dlLink.href);
       const url = URL.createObjectURL(blob);
-      document.getElementById('downloadLink').href = url;
-      document.getElementById('downloadLink').download = 'merged.pdf';
+      dlLink.href = url;
+      dlLink.download = 'merged.pdf';
       document.getElementById('resultSub').textContent = `${files.length} files merged · ${totalPages} pages total · ${formatSize(blob.size)}`;
       document.getElementById('progressWrap').classList.remove('visible');
       document.getElementById('resultCard').style.display = 'block';
       document.getElementById('resultCard').classList.add('visible');
     } catch(e) {
-      alert('Error merging PDFs: ' + e.message);
+      const msg = e.message || '';
+      if (msg.toLowerCase().includes('encrypt') || msg.toLowerCase().includes('password')) {
+        alert('One or more PDFs are password-protected. Please remove the password before merging.');
+      } else {
+        alert('Error merging PDFs: ' + e.message);
+      }
     }
     btn.disabled = false; btn.textContent = '🔗 Merge PDFs';
   }

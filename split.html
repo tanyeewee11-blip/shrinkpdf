@@ -11,6 +11,8 @@
 <meta property="og:description" content="Split PDF into individual pages or extract a page range. Free, no login, no file size limit.">
 <meta property="og:url" content="https://shrinkpdf.fyi/split.html">
 <meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -472,6 +474,7 @@
 <script>
   let currentFile = null;
   let totalPages = 0;
+  let activeSplitUrls = [];
   let splitMode = 'all';
 
   const uploadZone = document.getElementById('uploadZone');
@@ -565,8 +568,12 @@
 
       const list = document.getElementById('downloadsList');
       list.innerHTML = '';
+      // Revoke any previously created Blob URLs
+      activeSplitUrls.forEach(u => URL.revokeObjectURL(u));
+      activeSplitUrls = [];
       results.forEach(r => {
         const url = URL.createObjectURL(r.blob);
+        activeSplitUrls.push(url);
         const item = document.createElement('div');
         item.className = 'download-item';
         item.innerHTML = `<span class="download-item-name">📄 ${r.name}</span><a href="${url}" download="${r.name}" class="download-item-link">⬇️ Download</a>`;

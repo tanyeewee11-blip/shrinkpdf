@@ -11,6 +11,8 @@
 <meta property="og:description" content="Rearrange PDF pages with drag and drop. Free, no login, no file size limit. Processed locally.">
 <meta property="og:url" content="https://shrinkpdf.fyi/reorder.html">
 <meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -486,25 +488,11 @@
       srcArrayBuffer = await file.arrayBuffer();
       const pdf = await pdfjsLib.getDocument({ data: srcArrayBuffer.slice(0) }).promise;
       const numPages = pdf.numPages;
-      pages = [...Array(numPages).keys()].map(i => ({ origIndex: i, selected: false }));
+      pages = [...Array(numPages).keys()].map(i => ({ origIndex: i, selected: false, canvas: null, rendered: false }));
       originalOrder = [...pages.map(p => p.origIndex)];
 
-      const grid = document.getElementById('pageGrid');
-      grid.innerHTML = '';
-
-      for (let i = 0; i < numPages; i++) {
-        setLoading(Math.round(5 + ((i + 1) / numPages) * 90), `Rendering page ${i + 1} of ${numPages}...`);
-        const page = await pdf.getPage(i + 1);
-        const viewport = page.getViewport({ scale: 0.4 });
-        const canvas = document.createElement('canvas');
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-        const ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        await page.render({ canvasContext: ctx, viewport }).promise;
-        pages[i].canvas = canvas;
-      }
+      // Store pdf reference for lazy rendering
+      window._reorderPdf = pdf;
 
       setLoading(100, 'Done!');
       await sleep(200);
@@ -529,8 +517,43 @@
       item.draggable = true;
       item.dataset.index = i;
 
-      const canvasClone = p.canvas.cloneNode(true);
-      item.appendChild(canvasClone);
+      const canvasWrap = document.createElement('div');
+      canvasWrap.className = 'page-thumb-canvas-wrap';
+      canvasWrap.style.cssText = 'width:100%;aspect-ratio:0.707;background:var(--surface2);display:flex;align-items:center;justify-content:center;';
+
+      if (p.rendered && p.canvas) {
+        canvasWrap.appendChild(p.canvas.cloneNode(true));
+      } else {
+        const placeholder = document.createElement('div');
+        placeholder.textContent = '⏳';
+        placeholder.style.cssText = 'color:var(--text-muted);font-size:1.4rem;';
+        canvasWrap.appendChild(placeholder);
+
+        // Lazy render when visible
+        const observer = new IntersectionObserver(async (entries, obs) => {
+          if (!entries[0].isIntersecting) return;
+          obs.disconnect();
+          try {
+            const pdf = window._reorderPdf;
+            const page = await pdf.getPage(p.origIndex + 1);
+            const viewport = page.getViewport({ scale: 0.4 });
+            const canvas = document.createElement('canvas');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            await page.render({ canvasContext: ctx, viewport }).promise;
+            p.canvas = canvas;
+            p.rendered = true;
+            canvasWrap.innerHTML = '';
+            canvasWrap.appendChild(canvas);
+          } catch(e) { /* ignore render error */ }
+        }, { rootMargin: '200px' });
+        observer.observe(canvasWrap);
+      }
+
+      item.appendChild(canvasWrap);
 
       const footer = document.createElement('div');
       footer.className = 'page-thumb-footer';
@@ -610,6 +633,8 @@
       setProgress(85, 'Saving PDF...');
       const bytes = await newDoc.save({ useObjectStreams: true });
       const blob = new Blob([bytes], { type: 'application/pdf' });
+      const dlLink = document.getElementById('downloadLink');
+      if (dlLink.href && dlLink.href.startsWith('blob:')) URL.revokeObjectURL(dlLink.href);
       const url = URL.createObjectURL(blob);
       setProgress(100, 'Done!');
       await sleep(300);
@@ -618,7 +643,14 @@
       document.getElementById('resultSub').textContent = `${pages.length} pages · ${formatSize(blob.size)}`;
       document.getElementById('progressWrap').classList.remove('visible');
       document.getElementById('resultCard').style.display = 'block';
-    } catch(e) { alert('Error: ' + e.message); }
+    } catch(e) {
+      const msg = e.message || '';
+      if (msg.toLowerCase().includes('encrypt') || msg.toLowerCase().includes('password')) {
+        alert('This PDF is password-protected. Please remove the password before reordering.');
+      } else {
+        alert('Error: ' + e.message);
+      }
+    }
     btn.disabled = false; btn.textContent = '💾 Save Reordered PDF';
   }
 

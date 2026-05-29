@@ -11,6 +11,8 @@
 <meta property="og:description" content="Rotate PDF pages 90, 180 or 270 degrees. Free, no login, no file size limit. Processed locally.">
 <meta property="og:url" content="https://shrinkpdf.fyi/rotate.html">
 <meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -567,6 +569,8 @@
       setProgress(85, 'Saving PDF...');
       const bytes = await doc.save({ useObjectStreams: true });
       const blob = new Blob([bytes], { type: 'application/pdf' });
+      const dlLink = document.getElementById('downloadLink');
+      if (dlLink.href && dlLink.href.startsWith('blob:')) URL.revokeObjectURL(dlLink.href);
       const url = URL.createObjectURL(blob);
 
       setProgress(100, 'Done!');
@@ -577,7 +581,14 @@
       document.getElementById('resultSub').textContent = `${targetPages.length} page${targetPages.length > 1 ? 's' : ''} rotated ${rotateAngle}° · ${formatSize(blob.size)}`;
       document.getElementById('progressWrap').classList.remove('visible');
       document.getElementById('resultCard').style.display = 'block';
-    } catch(e) { alert('Error: ' + e.message); }
+    } catch(e) {
+      const msg = e.message || '';
+      if (msg.toLowerCase().includes('encrypt') || msg.toLowerCase().includes('password')) {
+        alert('This PDF is password-protected. Please remove the password before rotating.');
+      } else {
+        alert('Error: ' + e.message);
+      }
+    }
     btn.disabled = false; btn.textContent = '🔄 Rotate PDF';
   }
 
