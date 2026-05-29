@@ -1184,7 +1184,21 @@ body {
 
     document.getElementById('statOriginal').textContent = formatSize(originalSize);
     document.getElementById('statNew').textContent = formatSize(newSize);
-    document.getElementById('statSaved').textContent = pct + '%';
+
+    const statSaved = document.getElementById('statSaved');
+    if (pct <= 0) {
+      statSaved.textContent = 'No change';
+      statSaved.style.color = 'var(--warning)';
+      // Show a tip to try a stronger level
+      const resultWarn = document.getElementById('resultMaxWarning');
+      resultWarn.style.display = 'block';
+      resultWarn.textContent = '⚠️ This PDF could not be compressed further — it may already be optimised. Try switching to a stronger compression level.';
+      document.getElementById('btnTryLevel').style.display = 'none';
+      // Still allow download of original-equivalent
+    } else {
+      statSaved.textContent = pct + '%';
+      statSaved.style.color = '';
+    }
 
     // Revoke previous Blob URL to prevent memory leak
     const link = document.getElementById('downloadLink');
@@ -1197,11 +1211,16 @@ body {
 
     document.getElementById('progressWrap').classList.remove('visible');
     document.getElementById('resultCard').classList.add('visible');
-    // Show warning only for maximum (strong) mode
-    const resultWarn = document.getElementById('resultMaxWarning');
-    const btnTryLevel = document.getElementById('btnTryLevel');
-    resultWarn.style.display = (currentLevel === 'strong') ? 'block' : 'none';
-    btnTryLevel.style.display = 'none';
+    // Show warning only for maximum (strong) mode (when compression succeeded)
+    if (pct > 0) {
+      const resultWarn = document.getElementById('resultMaxWarning');
+      const btnTryLevel = document.getElementById('btnTryLevel');
+      resultWarn.style.display = (currentLevel === 'strong') ? 'block' : 'none';
+      if (resultWarn.style.display === 'block') {
+        resultWarn.textContent = 'ℹ️ Pages are rendered as high-quality images — text will look sharp but won\'t be selectable or copy-pasteable. This applies to all compression modes.';
+      }
+      btnTryLevel.style.display = 'none';
+    }
   }
 
   function setProgress(pct, msg) {

@@ -491,7 +491,7 @@
   let currentFile = null;
   let outputFormat = 'jpg';
   let dpiScale = 2.0;
-  let renderedImages = []; // {dataUrl, name}
+  let renderedBlobs = []; // {blob, name, thumbUrl} — Blob instead of dataUrl to save memory
 
   const uploadZone = document.getElementById('uploadZone');
   uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
@@ -533,13 +533,27 @@
     document.getElementById(map[scale]).classList.add('active');
   }
 
+  async function renderPageToBlob(page, scale, mimeType, quality) {
+    const viewport = page.getViewport({ scale });
+    const canvas = document.createElement('canvas');
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    const ctx = canvas.getContext('2d');
+    if (mimeType === 'image/jpeg') { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, canvas.width, canvas.height); }
+    await page.render({ canvasContext: ctx, viewport }).promise;
+    return new Promise(resolve => canvas.toBlob(resolve, mimeType, quality));
+  }
+
   async function startConvert() {
     if (!currentFile) return;
     const btn = document.getElementById('convertBtn');
     btn.disabled = true; btn.textContent = '⏳ Converting...';
     document.getElementById('progressWrap').classList.add('visible');
     document.getElementById('previewSection').classList.remove('visible');
-    renderedImages = [];
+
+    // Revoke any previous Blob URLs
+    renderedBlobs.forEach(r => { URL.revokeObjectURL(r.thumbUrl); URL.revokeObjectURL(r.blobUrl); });
+    renderedBlobs = [];
 
     try {
       const buf = await currentFile.arrayBuffer();
@@ -552,28 +566,30 @@
       const mimeType = outputFormat === 'png' ? 'image/png' : 'image/jpeg';
       const ext = outputFormat;
       const quality = outputFormat === 'jpg' ? 0.92 : undefined;
+      const THUMB_SCALE = 0.4; // low-res for preview only
 
       for (let i = 1; i <= numPages; i++) {
         setProgress(Math.round((i / numPages) * 90), `Rendering page ${i} of ${numPages}...`);
         const page = await pdf.getPage(i);
-        const viewport = page.getViewport({ scale: dpiScale });
-        const canvas = document.createElement('canvas');
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-        const ctx = canvas.getContext('2d');
-        if (outputFormat === 'jpg') { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, canvas.width, canvas.height); }
-        await page.render({ canvasContext: ctx, viewport }).promise;
-        const dataUrl = canvas.toDataURL(mimeType, quality);
         const name = `${baseName}_page_${i}.${ext}`;
-        renderedImages.push({ dataUrl, name });
+
+        // Low-res thumbnail for display
+        const thumbBlob = await renderPageToBlob(page, THUMB_SCALE, mimeType, 0.7);
+        const thumbUrl = URL.createObjectURL(thumbBlob);
+
+        // Full-res blob for download
+        const fullBlob = await renderPageToBlob(page, dpiScale, mimeType, quality);
+        const blobUrl = URL.createObjectURL(fullBlob);
+
+        renderedBlobs.push({ blobUrl, thumbUrl, name });
 
         const item = document.createElement('div');
         item.className = 'preview-item';
         item.innerHTML = `
-          <img class="preview-img" src="${dataUrl}" alt="Page ${i}">
+          <img class="preview-img" src="${thumbUrl}" alt="Page ${i}">
           <div class="preview-footer">
             <span class="preview-label">Page ${i}</span>
-            <a class="preview-dl" href="${dataUrl}" download="${name}">⬇️</a>
+            <a class="preview-dl" href="${blobUrl}" download="${name}">⬇️</a>
           </div>
         `;
         grid.appendChild(item);
@@ -584,19 +600,26 @@
       document.getElementById('progressWrap').classList.remove('visible');
       document.getElementById('previewTitle').textContent = `${numPages} page${numPages > 1 ? 's' : ''} converted to ${ext.toUpperCase()}`;
       document.getElementById('previewSection').classList.add('visible');
-    } catch(e) { alert('Error: ' + e.message); }
+    } catch(e) {
+      const msg = e.message || '';
+      if (msg.toLowerCase().includes('encrypt') || msg.toLowerCase().includes('password')) {
+        alert('This PDF is password-protected. Please remove the password before converting.');
+      } else {
+        alert('Error: ' + e.message);
+      }
+    }
     btn.disabled = false; btn.textContent = '🖼️ Convert to Images';
   }
 
   async function downloadAll() {
-    if (!renderedImages.length) return;
+    if (!renderedBlobs.length) return;
     const btn = document.getElementById('downloadAllBtn');
     btn.textContent = '⏳ Zipping...'; btn.disabled = true;
     const zip = new JSZip();
-    renderedImages.forEach(img => {
-      const base64 = img.dataUrl.split(',')[1];
-      zip.file(img.name, base64, { base64: true });
-    });
+    for (const r of renderedBlobs) {
+      const arrayBuf = await fetch(r.blobUrl).then(res => res.arrayBuffer());
+      zip.file(r.name, arrayBuf);
+    }
     const blob = await zip.generateAsync({ type: 'blob' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -611,7 +634,10 @@
     document.getElementById('progressText').textContent = msg;
   }
   function resetTool() {
-    currentFile = null; renderedImages = [];
+    // Clean up all Blob URLs before reset
+    renderedBlobs.forEach(r => { URL.revokeObjectURL(r.thumbUrl); URL.revokeObjectURL(r.blobUrl); });
+    renderedBlobs = [];
+    currentFile = null;
     document.getElementById('fileInput').value = '';
     document.getElementById('fileInfo').classList.remove('visible');
     document.getElementById('uploadZone').style.display = '';
