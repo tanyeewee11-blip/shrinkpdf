@@ -1,0 +1,29 @@
+# Redirect extensionless URLs to .html versions (canonical)
+# This prevents Cloudflare Pages from serving duplicate content at both /page and /page.html
+
+# Tool pages
+/rotate             /rotate.html            301
+/reorder            /reorder.html           301
+/merge              /merge.html             301
+/split              /split.html             301
+/pdf-to-images      /pdf-to-images.html     301
+/images-to-pdf      /images-to-pdf.html     301
+
+# Static pages
+/about              /about.html             301
+/privacy            /privacy.html           301
+/contact            /contact.html           301
+
+# English blog articles
+/en-01-below1mb     /en-01-below1mb.html    301
+/en-02-email        /en-02-email.html       301
+/en-03-quality      /en-03-quality.html     301
+/en-04-nolimit      /en-04-nolimit.html     301
+/en-05-largefile    /en-05-largefile.html   301
+/en-06-malaysia     /en-06-malaysia.html    301
+/en-07-toolarge     /en-07-toolarge.html    301
+/en-08-scanned      /en-08-scanned.html     301
+/en-09-mobile       /en-09-mobile.html      301
+/en-10-whylarge     /en-10-whylarge.html    301
+/en-11-comparison   /en-11-comparison.html  301
+/en-12-university   /en-12-university.html  301
