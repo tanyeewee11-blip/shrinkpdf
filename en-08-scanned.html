@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>How to Compress a Scanned PDF Without Losing Quality (2026)</title>
-<meta name="description" content="Scanned PDFs are notoriously large. Learn how to compress scanned PDF files effectively while keeping them legible and professional.">
+<meta name="description" content="Scanned PDFs are 5–10× larger than regular PDFs. This guide explains why, the best compression settings to use, and how to scan smarter from the start.">
 <meta name="keywords" content="compress scanned pdf, reduce scanned pdf size, compress pdf scan without losing <a href="en-03-quality.html">quality</a>">
 <link rel="canonical" href="https://shrinkpdf.fyi/en-08-scanned.html">
 <link rel="alternate" hreflang="x-default" href="https://shrinkpdf.fyi/en-08-scanned.html">
@@ -204,6 +204,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
   gtag('js', new Date());
   gtag('config', 'G-MY7DTD213P');
 </script>
+<meta property="article:modified_time" content="2026-01-25">
 </head>
 <body>
 <div id="read-progress"></div>
@@ -228,55 +229,97 @@ h2[id],h3[id]{scroll-margin-top:110px;}
   </div>
 </nav>
 <div class="wrap">
-  <div class="meta"><span class="tag">Scanned PDF</span><span class="tag">How-To</span><span class="tag">Quality</span><span class="rt">&#9201; 5 min read</span></div>
+  <div class="meta"><span class="tag">Scanned PDF</span><span class="tag">How-To</span><span class="tag">Quality</span><span class="rt">&#9201; 7 min read</span><time datetime="2026-01-25" class="updated">Updated January 25, 2026</time></div>
   <h1>How to Compress a Scanned PDF Without Losing Quality (2026)</h1>
-  <p class="intro">Scanned PDFs are typically 5 to 10 times larger than regular PDFs because each page is stored as a high-resolution image. This guide covers the best free methods to compress scanned PDFs while keeping the content perfectly readable.</p>
+  <p class="intro">Scanned PDFs are fundamentally different from regular PDFs — instead of text and vector graphics, every page is stored as a full image. A single A4 page scanned at 300 DPI in colour can be 1–3MB on its own, making a 10-page document 20–30MB before you've done anything. This guide covers why scanned PDFs are large, the best compression approach for each scenario, and how to scan smarter to avoid the problem entirely.</p>
 <nav class="toc" aria-label="Table of contents">
   <div class="toc-title">In this article</div>
   <ol>
-    <li><a href="#why-scanned-pdfs-are-so-large">Why Scanned PDFs Are So Large</a></li>
-    <li><a href="#how-to-compress-scanned-pdfs-effectively">How to Compress Scanned PDFs Effectively</a></li>
-    <li><a href="#best-scan-settings-for-smaller-files">Best Scan Settings for Smaller Files</a></li>
-    <li><a href="#what-size-reduction-can-you-expect">What Size Reduction Can You Expect?</a></li>
+    <li><a href="#why-large">Why Scanned PDFs Are So Large</a></li>
+    <li><a href="#dpi-explained">DPI and Colour Mode: The Two Biggest Factors</a></li>
+    <li><a href="#compress">How to Compress Scanned PDFs Effectively</a></li>
+    <li><a href="#scan-settings">Best Scan Settings to Avoid the Problem</a></li>
+    <li><a href="#apps">Best Mobile Scanning Apps for Smaller Files</a></li>
+    <li><a href="#results">What Size Reduction Can You Expect?</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
   </ol>
 </nav>
-  
-<h2 id="why-scanned-pdfs-are-so-large">Why Scanned PDFs Are So Large</h2>
-<p>When you scan a document, each page becomes a high-resolution image typically at 300 DPI or higher. A single A4 page scanned at 300 DPI in colour can be 1-3MB by itself. A 10-page document can easily become 20-30MB.</p>
 
-<h2 id="how-to-compress-scanned-pdfs-effectively">How to Compress Scanned PDFs Effectively</h2>
+<h2 id="why-large">Why Scanned PDFs Are So Large</h2>
+<p>When you scan a physical document, the scanner converts it to a bitmap image — a grid of coloured pixels. Unlike a Word document or a digitally created PDF (which stores text as compact vector instructions), a scanned PDF stores the entire page as raw pixel data.</p>
+<p>A standard A4 page at 300 DPI has 2,480 × 3,507 pixels = about 8.7 million pixels. In full colour (3 bytes per pixel), that's roughly 26MB of raw data per page before any compression. Even with JPEG compression, a single colour page at 300 DPI easily reaches 1–3MB.</p>
+<p>This is why a 10-page scanned payslip can be 20MB while a 100-page text PDF created in Word might be under 2MB.</p>
+
+<h2 id="dpi-explained">DPI and Colour Mode: The Two Biggest Factors</h2>
+<p>Two settings at scan time have more impact on file size than anything else:</p>
+<ul>
+<li><strong>DPI (dots per inch):</strong> This controls resolution. 300 DPI is the standard for printing — but for a document that will only ever be read on screen, 150 DPI is sufficient and produces files roughly 4× smaller (halving DPI in both dimensions reduces pixel count by 4×). 100–120 DPI is legible for standard text documents.</li>
+<li><strong>Colour mode:</strong> Colour (RGB) stores 3 bytes per pixel. Grayscale stores 1 byte. Black and white (1-bit) stores 1 bit. For documents with no colour content — contracts, payslips, transcripts, letters — scanning in black and white at 150 DPI typically produces files under 100KB per page, compared to 1–3MB for 300 DPI colour.</li>
+</ul>
+<div class="box warn"><div class="bt">File Size by Scan Setting (per A4 page, approximate)</div>
+<ul>
+<li><strong>300 DPI colour:</strong> 1–3MB per page</li>
+<li><strong>300 DPI grayscale:</strong> 400KB–1MB per page</li>
+<li><strong>150 DPI colour:</strong> 300–700KB per page</li>
+<li><strong>150 DPI grayscale:</strong> 80–250KB per page</li>
+<li><strong>150 DPI black &amp; white:</strong> 20–80KB per page</li>
+</ul></div>
+
+<h2 id="compress">How to Compress Scanned PDFs Effectively</h2>
 <div class="step"><div class="sn">1</div><div class="sc"><h3>Upload to ShrinkPDF</h3>
-<p>Go to ShrinkPDF.com and upload your scanned PDF. No size limits apply.</p></div></div>
+<p>Go to <a href="index.html">ShrinkPDF.fyi</a> and upload your scanned PDF. No size limits — works on files of any size.</p></div></div>
 <div class="step"><div class="sn">2</div><div class="sc"><h3>Select Maximum Compression</h3>
-<p>Scanned PDFs benefit most from Maximum compression which optimizes image resolution without making text unreadable.</p></div></div>
+<p>For scanned documents, Maximum compression reduces embedded image resolution from 300 DPI to approximately 150 DPI — still clearly readable on screen — while keeping all text content intact. This typically achieves 70–85% size reduction.</p></div></div>
 <div class="step"><div class="sn">3</div><div class="sc"><h3>Download and Check Legibility</h3>
-<p>Open the compressed file and verify that all text is still clearly readable by zooming in to check fine print.</p></div></div>
-<div class="step"><div class="sn">4</div><div class="sc"><h3>Re-scan If Needed</h3>
-<p>If quality is not acceptable, re-scan at 150 DPI in black and white. This produces much smaller files from the start.</p></div></div>
+<p>Open the compressed PDF and zoom in to check fine print, signatures, and small text. For IC numbers, account numbers, or medical prescriptions where fine detail matters, make sure the compressed version is still clearly legible before submitting.</p></div></div>
+<div class="step"><div class="sn">4</div><div class="sc"><h3>Re-scan if Quality Is Not Acceptable</h3>
+<p>If Maximum compression makes the scanned text too blurry for your use case, re-scan the document at 150 DPI in black and white. This produces a smaller file from the start that compresses further with less quality loss.</p></div></div>
 
-<h2 id="best-scan-settings-for-smaller-files">Best Scan Settings for Smaller Files</h2>
-<div class="box good"><div class="bt">Optimal Scan Settings</div>
-<ul><li><strong>Resolution:</strong> 150 DPI for text documents, 300 DPI only for photos</li>
-<li><strong>Color mode:</strong> Black and White (Grayscale) for text-only documents</li>
-<li><strong>Format:</strong> PDF directly (not TIFF or BMP then converted)</li>
-<li><strong>Mobile scanning apps:</strong> CamScanner Standard quality, Microsoft Lens, Adobe Scan Normal</li></ul></div>
+<h2 id="scan-settings">Best Scan Settings to Avoid the Problem</h2>
+<p>The best time to control scanned PDF size is before you scan. These settings produce smaller files without sacrificing readability:</p>
+<div class="box good"><div class="bt">Recommended Scan Settings for Documents</div>
+<ul>
+<li><strong>Resolution:</strong> 150 DPI for text-only documents (payslips, contracts, letters). 200–300 DPI only if you need to read very fine print or preserve handwriting detail.</li>
+<li><strong>Colour mode:</strong> Black and White for any document without colour content. Grayscale if you want slightly better image quality than pure B&W. Colour only for photos, certificates with coloured seals, or documents where colour is meaningful.</li>
+<li><strong>Output format:</strong> Scan directly to PDF rather than TIFF or BMP and then convert — the intermediate step adds file size.</li>
+<li><strong>Pages:</strong> Scan only the pages you actually need to submit. Blank backs, cover pages, and staple marks don't need to be included.</li>
+</ul></div>
 
-<h2 id="what-size-reduction-can-you-expect">What Size Reduction Can You Expect?</h2>
-<div class="box"><div class="bt">Typical Results for Scanned PDFs</div>
-<ul><li>20MB colour scan at 300 DPI becomes approximately 4-6MB after Maximum compression</li>
-<li>50MB multi-page scan becomes approximately 10-20MB</li>
-<li>Black and white scan at 150 DPI is already much smaller before any compression</li></ul></div>
+<h2 id="apps">Best Mobile Scanning Apps for Smaller Files</h2>
+<p>If you scan on your phone, the app you choose makes a significant difference:</p>
+<ul>
+<li><strong>Microsoft Lens (free):</strong> Produces well-compressed PDFs by default. The document mode automatically removes shadows and flattens the image, reducing file size compared to a raw photo. Recommended for most users.</li>
+<li><strong>Adobe Scan (free):</strong> Good quality, but default settings lean toward higher resolution. Select "Normal" quality in settings rather than "High" to keep file sizes manageable.</li>
+<li><strong>CamScanner (free tier):</strong> Standard quality mode produces reasonable file sizes. Avoid the "HD" mode for documents that just need to be legible.</li>
+<li><strong>iPhone built-in scanner (Files app / Notes):</strong> Convenient but tends to produce larger files than dedicated apps. Good for occasional quick scans; use a dedicated app for regular portal submissions.</li>
+</ul>
+
+<h2 id="results">What Size Reduction Can You Expect?</h2>
+<div class="box"><div class="bt">Typical Compression Results for Scanned PDFs</div>
+<ul>
+<li><strong>20MB colour scan (300 DPI, 10 pages):</strong> Compresses to approximately 3–6MB — 70–85% reduction</li>
+<li><strong>50MB colour scan (300 DPI, 25 pages):</strong> Compresses to approximately 8–15MB — 70–85% reduction</li>
+<li><strong>10MB grayscale scan (300 DPI):</strong> Compresses to approximately 2–4MB — 60–80% reduction</li>
+<li><strong>5MB black &amp; white scan (300 DPI):</strong> Compresses to approximately 1–2MB — 60–75% reduction</li>
+</ul>
+<p style="font-size:0.82rem;color:var(--tm);margin-top:8px;">Results vary by scanner, content density, and how much compression was already applied by the scanning app.</p>
+</div>
 
   <div class="cta">
     <h3>&#10003; Try ShrinkPDF Free &mdash; No Login Required</h3>
     <p>No registration. No file size limit. Your file never leaves your browser.</p>
     <a href="index.html" class="btn">&#128218; Compress My PDF Now</a>
   </div>
-  <h2>Frequently Asked Questions</h2>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Can I make scanned text searchable after compression? <span>&#9660;</span></div><div class="fa"><div class="fai">ShrinkPDF focuses on compression only, not OCR text recognition. For searchable PDFs, use Adobe Acrobat or PDF24 which includes free OCR after compression.</div></div></div><div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will signatures and stamps in my scanned document survive compression? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes. Signatures, stamps, and all visual elements in your scanned PDF will survive compression. They may be very slightly less sharp at Maximum but remain fully visible.</div></div></div><div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">What is the best compression level for scanned documents? <span>&#9660;</span></div><div class="fa"><div class="fai">Balanced works well for most scanned documents. Use Maximum only if the file needs to meet strict size limits such as government portal uploads.</div></div></div>
+
+  <h2 id="faq">Frequently Asked Questions</h2>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compressing a scanned PDF make the text unreadable? <span>&#9660;</span></div><div class="fa"><div class="fai">Maximum compression reduces image resolution from 300 DPI to approximately 150 DPI. For standard text documents — payslips, contracts, letters — this is still clearly readable on screen. Zoom in to fine print after compressing to verify. If the result is not sharp enough, re-scan at 150 DPI instead of 300 DPI; starting at the right resolution produces better results.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">What is the best DPI to scan a document for portal submission? <span>&#9660;</span></div><div class="fa"><div class="fai">150 DPI in black and white is the sweet spot for text documents submitted to government portals, universities, or job applications. It produces files typically under 100KB per page, well within the 1–2MB limits of most portals, with no compression needed. Only use 300 DPI if you need to preserve fine detail like small handwriting or medical prescriptions.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Can I compress a scanned PDF on my phone? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes. ShrinkPDF works in mobile Chrome and Safari. For small to medium scanned documents (under 20MB), mobile compression is fast and reliable. For large scanned files (50MB+), a desktop browser is recommended for better speed and stability.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why does ShrinkPDF not upload my scanned documents to a server? <span>&#9660;</span></div><div class="fa"><div class="fai">ShrinkPDF processes all files using JavaScript in your browser. Your scanned documents — which may contain IC copies, salary details, medical records — never leave your device. This is particularly important for scanned documents which often contain more sensitive personal information than digitally created PDFs.</div></div></div>
+
   <div class="related">
     <h3>Related Articles</h3>
-    <div class="rls"><a href="en-03-quality.html" class="rl">Reduce PDF Size Without Losing Quality <span>&rarr;</span></a><a href="en-10-whylarge.html" class="rl">Why Is My PDF So Large? <span>&rarr;</span></a><a href="en-09-mobile.html" class="rl">Compress PDF on iPhone & Android <span>&rarr;</span></a></div>
+    <div class="rls"><a href="en-06-malaysia.html" class="rl">Compress PDF for Malaysian Government Portals <span>&rarr;</span></a><a href="en-05-largefile.html" class="rl">How to Compress Large PDF Files (100MB+) <span>&rarr;</span></a><a href="en-10-whylarge.html" class="rl">Why Is My PDF So Large? <span>&rarr;</span></a></div>
   </div>
 </div>
 <footer>
