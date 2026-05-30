@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>How to Compress PDF from Word and PowerPoint (2026)</title>
+<meta name="description" content="PDFs exported from Word and PowerPoint are often 5-20x larger than necessary. This guide explains why and the exact export settings to use for small, high-quality PDF output.">
+<meta name="keywords" content="compress pdf from word, word to pdf small file size, powerpoint pdf too large, reduce pdf size word export">
+<link rel="canonical" href="https://shrinkpdf.fyi/en-16-word.html">
+<link rel="alternate" hreflang="x-default" href="https://shrinkpdf.fyi/en-16-word.html">
+<link rel="alternate" hreflang="en" href="https://shrinkpdf.fyi/en-16-word.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shrinkpdf.fyi/en-16-word.html">
+<meta property="og:title" content="How to Compress PDF from Word and PowerPoint (2026)">
+<meta property="og:description" content="PDFs exported from Word and PowerPoint are often 5-20x larger than necessary. This guide explains why and the exact export settings to use for small, high-quality PDF output.">
+<meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta property="og:site_name" content="ShrinkPDF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to Compress PDF from Word and PowerPoint (2026)">
+<meta name="twitter:description" content="PDFs exported from Word and PowerPoint are often 5-20x larger than necessary. This guide explains why and the exact export settings to use for small, high-quality PDF output.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
+<style>  /* ── NAV ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+  .nav-top{display:flex;align-items:center;justify-content:space-between;padding:12px 28px;}
+  .nav-bottom{display:flex;align-items:center;justify-content:center;gap:2px;padding:6px 24px;background:rgba(255,255,255,0.02);overflow-x:auto;scrollbar-width:none;border-top:1px solid rgba(255,255,255,0.05);}
+  .nav-bottom::-webkit-scrollbar{display:none;}
+  .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-0.5px;text-decoration:none;color:var(--text);flex-shrink:0;}
+  .logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .nav-tool-btn{color:var(--text-muted);padding:6px 13px;border-radius:7px;font-size:0.8rem;cursor:pointer;text-decoration:none;transition:all 0.2s;background:none;white-space:nowrap;}
+  .nav-tool-btn:hover{color:var(--text);background:rgba(255,255,255,0.06);}
+  .nav-tool-btn.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:500;}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:8px;}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s;}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-drawer{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,15,0.97);border-bottom:1px solid var(--border);padding:16px 20px;flex-direction:column;gap:8px;z-index:99;backdrop-filter:blur(20px);}
+  .mobile-drawer.open{display:flex;}
+  .mobile-drawer .nav-tool-btn{display:block;text-align:left;padding:10px 14px;font-size:0.9rem;}
+  .mobile-drawer .nav-tool-btn.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;}
+  @media(max-width:640px){
+    .nav-top{padding:12px 16px;}
+    .nav-bottom{display:none;}
+    .hamburger{display:flex;}
+  }
+:root{--bg:#0a0a0f;--sf:#13131a;--br:#2a2a3a;--ac:#5b4fff;--ac2:#ff4f9b;--tx:#f0f0f8;--tm:#7a7a9a;--ok:#2ecc71;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--text:#f0f0f8;--text-muted:#7a7a9a;--accent:#5b4fff;--accent2:#ff4f9b;--accent-glow:rgba(91,79,255,0.35);}
+html{scroll-padding-top:100px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;line-height:1.8;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,0.07) 0%,transparent 50%);pointer-events:none;z-index:0;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;text-decoration:none;color:var(--tx);}
+.logo span{background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.back:hover{color:var(--tx);}
+.wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1;}
+.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:32px;}
+.tag{background:rgba(91,79,255,0.15);border:1px solid rgba(91,79,255,0.3);color:#a99fff;padding:4px 12px;border-radius:100px;font-size:0.78rem;}
+.rt{color:var(--tm);font-size:0.85rem;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;line-height:1.2;letter-spacing:-0.5px;margin-bottom:24px;}
+.intro{font-size:1.05rem;color:var(--tm);margin-bottom:40px;line-height:1.8;border-left:3px solid var(--ac);padding-left:20px;}
+h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;margin:40px 0 14px;}
+h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin:18px 0 8px;}
+p{margin-bottom:14px;color:#d0d0e8;}
+ul,ol{margin:14px 0 20px 22px;}
+li{margin-bottom:9px;color:#d0d0e8;}
+.box{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:22px;margin:24px 0;}
+.box.warn{border-color:rgba(243,156,18,0.35);background:rgba(243,156,18,0.04);}
+.box.good{border-color:rgba(46,204,113,0.3);background:rgba(46,204,113,0.04);}
+.bt{font-family:'Syne',sans-serif;font-weight:700;margin-bottom:10px;font-size:0.9rem;}
+.step{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start;}
+.sn{background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:3px;}
+.sc h3{margin-top:0;}
+h2[id],h3[id]{scroll-margin-top:110px;}
+.cta{background:linear-gradient(135deg,rgba(91,79,255,0.15),rgba(255,79,155,0.1));border:1px solid rgba(91,79,255,0.3);border-radius:16px;padding:32px;text-align:center;margin:40px 0;}
+.cta h3{font-family:'Syne',sans-serif;font-size:1.2rem;margin-bottom:8px;}
+.cta p{color:var(--tm);margin-bottom:20px;}
+.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;padding:14px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem;box-shadow:0 4px 20px rgba(91,79,255,0.3);transition:all 0.2s;}
+.btn:hover{transform:translateY(-2px);}
+.fi{border:1px solid var(--br);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.fq{padding:15px 18px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;font-size:0.95rem;}
+.fq:hover{color:var(--ac);}
+.fa{max-height:0;overflow:hidden;transition:max-height 0.3s;font-size:0.88rem;color:var(--tm);}
+.fi.open .fa{max-height:300px;}
+.fai{padding:0 18px 14px;}
+.related{margin-top:56px;border-top:1px solid var(--br);padding-top:36px;}
+.related h3{font-family:'Syne',sans-serif;font-weight:700;margin-bottom:18px;}
+.rls{display:grid;gap:10px;}
+.rl{background:var(--sf);border:1px solid var(--br);border-radius:12px;padding:14px 18px;text-decoration:none;color:var(--tx);transition:all 0.2s;display:flex;justify-content:space-between;align-items:center;font-size:0.9rem;}
+.rl:hover{border-color:var(--ac);}
+.rl span{color:var(--tm);font-size:0.82rem;}
+@media(max-width:640px){
+.wrap{padding:80px 18px 60px;}}
+
+  #read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+  .toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;scroll-margin-top:140px;position:relative;z-index:0;}
+  .toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .toc-title::before{content:'📋';font-size:1rem;}
+  .toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+  .toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+  .toc li a:hover{color:var(--ac);}
+  .toc li a.active{color:var(--ac);font-weight:500;}
+
+  footer{background:var(--surface);border-top:1px solid var(--border);padding:48px 24px 24px;margin-top:80px;}
+  .footer-inner{max-width:1100px;margin:0 auto;display:flex;gap:48px;flex-wrap:wrap;}
+  .footer-brand{flex:1;min-width:200px;}
+  .footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:10px;}
+  .footer-logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .footer-tagline{font-size:0.83rem;color:var(--text-muted);line-height:1.6;}
+  .footer-links{display:flex;gap:40px;flex-wrap:wrap;}
+  .footer-col{display:flex;flex-direction:column;gap:8px;min-width:130px;}
+  .footer-col-title{font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:4px;}
+  .footer-col a{font-size:0.83rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
+  .footer-col a:hover{color:var(--text);}
+  .footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);text-align:center;}
+  @media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}}
+  .nav-guides-link{color:var(--text-muted);font-size:0.82rem;text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:100px;transition:all 0.2s;white-space:nowrap;}
+  .nav-guides-link:hover{color:var(--text);border-color:var(--accent);}
+  @media(max-width:640px){.nav-guides-link{display:none;}}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Export Small PDFs from Word and PowerPoint",
+  "description": "Step-by-step guide to exporting compressed PDFs from Microsoft Word, PowerPoint, and Excel.",
+  "totalTime": "PT3M",
+  "tool": {"@type": "HowToTool", "name": "Microsoft Word", "url": "https://microsoft.com/word"},
+  "step": [
+    {"@type": "HowToStep", "position": 1, "name": "Open your document in Word", "text": "Open the .docx file in Microsoft Word."},
+    {"@type": "HowToStep", "position": 2, "name": "File → Save As → PDF", "text": "Click File, then Save As, then choose PDF as the format."},
+    {"@type": "HowToStep", "position": 3, "name": "Select Minimum Size", "text": "Before saving, click Options and select Minimum size (publishing online)."},
+    {"@type": "HowToStep", "position": 4, "name": "Save and verify", "text": "Save the PDF and check the file size."}
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
+<meta property="article:modified_time" content="2026-02-20">
+</head>
+<body>
+<div id="read-progress"></div>
+<nav>
+  <div class="nav-top">
+    <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
+    <a href="guides.html" class="nav-guides-link">📚 Guides</a>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-bottom">
+    <a href="index.html" class="nav-tool-btn">🗜️ Compress</a>
+    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
+    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
+    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
+    <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
+    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
+    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
+  </div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" class="nav-tool-btn">🗜️ Compress</a>
+    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
+    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
+    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
+    <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
+    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
+    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
+  </div>
+</nav>
+<div class="wrap">
+  <div class="meta"><span class="tag">Word</span><span class="tag">PowerPoint</span><span class="tag">How-To</span><time datetime="2026-02-20" class="updated rt">Updated February 20, 2026</time></div>
+  <h1>How to Compress PDF from Word and PowerPoint (2026)</h1>
+  <p class="intro">A 10-page Word document with a few photos should be under 2MB as a PDF. But default export settings often produce files of 15–50MB. A 30-slide PowerPoint can become a 100MB PDF. This guide explains why Office exports are so large and the exact settings to use — both at export time and after the fact.</p>
+
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc-title">In this article</div>
+  <ol>
+    <li><a href="#why-large">Why Word and PowerPoint PDFs Are So Large</a></li>
+    <li><a href="#word-export">Compress When Exporting from Word</a></li>
+    <li><a href="#word-images">Compress Images in Word Before Exporting</a></li>
+    <li><a href="#powerpoint">Compress When Exporting from PowerPoint</a></li>
+    <li><a href="#excel">Compress When Exporting from Excel</a></li>
+    <li><a href="#already-exported">If You Only Have the PDF (No Original File)</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<h2 id="why-large">Why Word and PowerPoint PDFs Are So Large</h2>
+<p>When you export a Word or PowerPoint file to PDF, Office embeds every image at full resolution by default. A photo inserted into Word at 5MB stays at 5MB in the exported PDF — even if it's displayed at thumbnail size in the document. A 30-slide PowerPoint with one full-slide photo per slide easily produces a 100MB PDF.</p>
+<p>The other factor is font embedding. Office embeds the full font files needed to display the document. A document using 3–4 fonts can carry 2–6MB of font data alone.</p>
+<p>Default export settings prioritise quality (good for printing) over file size (bad for email and uploads). Changing two settings at export time typically reduces the output PDF by 60–85%.</p>
+
+<h2 id="word-export">Compress When Exporting from Word</h2>
+<p>The most effective approach is to set the right options at export time — before the PDF is created.</p>
+<div class="step"><div class="sn">1</div><div class="sc"><h3>File → Save As → Browse</h3>
+<p>In Microsoft Word, click <strong>File → Save As</strong>. In the Save As dialog, change the file format dropdown to <strong>PDF (*.pdf)</strong>.</p></div></div>
+<div class="step"><div class="sn">2</div><div class="sc"><h3>Click "Options" Before Saving</h3>
+<p>Before clicking Save, click the <strong>Options</strong> button in the Save As dialog. This opens the PDF export settings.</p></div></div>
+<div class="step"><div class="sn">3</div><div class="sc"><h3>Select "Minimum size (publishing online)"</h3>
+<p>Under "Optimize for", select <strong>Minimum size (publishing online)</strong> instead of "Standard (publishing and printing)". This applies aggressive image downsampling — embedded images are reduced from 220 DPI to 96 DPI. Click OK.</p></div></div>
+<div class="step"><div class="sn">4</div><div class="sc"><h3>Save and Compare File Size</h3>
+<p>Click Save. Compare the resulting PDF size to what you get with Standard quality. For image-heavy documents, the difference is typically 5–15×. A 20MB Standard PDF often becomes 2–4MB at Minimum size.</p></div></div>
+<div class="box good"><div class="bt">Alternative: File → Export → Create PDF/XPS</div>
+<p>You can also go to <strong>File → Export → Create PDF/XPS</strong>. Click "Change file type" → PDF, then click "Options" in the Publish as PDF dialog. The same Minimum size option is available here.</p></div>
+
+<h2 id="word-images">Compress Images in Word Before Exporting</h2>
+<p>If the Minimum size export still produces a large file, the images in the document may be embedded at very high resolution. You can compress them before exporting:</p>
+<div class="step"><div class="sn">1</div><div class="sc"><h3>Click on Any Image in the Document</h3>
+<p>Single-click any photo or image in the document to select it. The "Picture Format" tab appears in the ribbon.</p></div></div>
+<div class="step"><div class="sn">2</div><div class="sc"><h3>Picture Format → Compress Pictures</h3>
+<p>Click <strong>Picture Format</strong> in the ribbon → <strong>Compress Pictures</strong>. A dialog opens with compression options.</p></div></div>
+<div class="step"><div class="sn">3</div><div class="sc"><h3>Choose the Right Resolution</h3>
+<p>Select the target resolution:</p>
+<ul>
+<li><strong>Email (96 PPI)</strong> — smallest file, good for email and portal uploads. Text quality is unaffected.</li>
+<li><strong>Web (150 PPI)</strong> — good balance for sharing and screen viewing.</li>
+<li><strong>Print (220 PPI)</strong> — for documents that will be printed. Same as Standard export.</li>
+</ul>
+<p>Make sure "Apply to all pictures in this document" is checked, then click OK.</p></div></div>
+<div class="step"><div class="sn">4</div><div class="sc"><h3>Export to PDF Again</h3>
+<p>Now export to PDF (File → Save As → PDF). With both image compression applied and Minimum size selected, the resulting PDF will typically be 70–90% smaller than the default export.</p></div></div>
+
+<h2 id="powerpoint">Compress When Exporting from PowerPoint</h2>
+<p>PowerPoint PDFs are often the largest of all Office exports because each slide is essentially an image-heavy page. The same Minimum size option is available.</p>
+<div class="step"><div class="sn">1</div><div class="sc"><h3>File → Export → Create PDF/XPS</h3>
+<p>In PowerPoint, click <strong>File → Export → Create PDF/XPS Document → Create PDF/XPS</strong>.</p></div></div>
+<div class="step"><div class="sn">2</div><div class="sc"><h3>Click Options</h3>
+<p>In the Publish as PDF dialog, click <strong>Options</strong>.</p></div></div>
+<div class="step"><div class="sn">3</div><div class="sc"><h3>Select Minimum Size and Adjust Slides</h3>
+<p>Select <strong>Minimum size (publishing online)</strong>. If you only need certain slides, set the slide range here too. Click OK → Publish.</p></div></div>
+<div class="box warn"><div class="bt">PowerPoint-specific tip: Compress pictures before exporting</div>
+<p>Go to any slide → click an image → Picture Format → Compress Pictures → Email (96 PPI) → apply to all pictures. Do this before exporting for maximum reduction. A 100MB PowerPoint PDF can often be brought under 10MB this way.</p></div>
+
+<h2 id="excel">Compress When Exporting from Excel</h2>
+<p>Excel PDFs are usually smaller than Word or PowerPoint, but large spreadsheets with embedded charts or images can still be oversized.</p>
+<ul>
+<li><strong>File → Export → Create PDF/XPS → Options → Minimum size</strong> — same as Word</li>
+<li>For spreadsheets with many charts: consider whether you need to export the entire workbook or just specific sheets — select "Active Sheet" in the options to avoid exporting unused tabs</li>
+<li>For spreadsheets with no images, the PDF will already be small and compression settings make little difference</li>
+</ul>
+
+<h2 id="already-exported">If You Only Have the PDF (No Original File)</h2>
+<p>If you received a Word/PowerPoint-generated PDF and don't have the original .docx or .pptx file, you can still compress it after the fact.</p>
+<div class="step"><div class="sn">1</div><div class="sc"><h3>Upload to ShrinkPDF</h3>
+<p>Go to <a href="index.html">ShrinkPDF.fyi</a> and upload the PDF. No size limit, no account needed.</p></div></div>
+<div class="step"><div class="sn">2</div><div class="sc"><h3>Use Balanced Compression</h3>
+<p>For Office-exported PDFs, Balanced compression typically achieves 50–70% reduction with no visible quality change at screen viewing sizes. Use Maximum if you have a hard size limit to meet.</p></div></div>
+<div class="step"><div class="sn">3</div><div class="sc"><h3>Download and Verify</h3>
+<p>Download the compressed PDF, open it, and verify that all text, charts, and images are still clear before sending or submitting.</p></div></div>
+<div class="box"><div class="bt">Which approach gives better results?</div>
+<p>Re-exporting from the original Office file with Minimum size selected typically produces a 5–15× smaller file than compressing the already-exported PDF. If you have the original .docx or .pptx, use the export approach first. If you don't, ShrinkPDF still achieves substantial reduction.</p></div>
+
+  <div class="cta">
+    <h3>&#10003; Try ShrinkPDF Free — No Login Required</h3>
+    <p>No registration. No file size limit. Your file never leaves your browser.</p>
+    <a href="index.html" class="btn">🗜️ Compress My PDF Now</a>
+  </div>
+
+  <h2 id="faq">Frequently Asked Questions</h2>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why is my Word PDF so large? <span>&#9660;</span></div><div class="fa"><div class="fai">Word embeds images at full resolution by default (220 DPI for Standard export). A document with several photos can produce a 15–50MB PDF even if the photos appear small on the page. Use File → Save As → PDF → Options → Minimum size to apply image compression on export, typically reducing the output by 70–85%.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">How do I make a PowerPoint PDF smaller? <span>&#9660;</span></div><div class="fa"><div class="fai">Use File → Export → Create PDF/XPS → Options → Minimum size when exporting. Additionally, compress the images in the presentation first: click any image → Picture Format → Compress Pictures → Email (96 PPI) → apply to all. This combination typically reduces a 100MB PowerPoint PDF to under 10MB.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will Minimum size export make my PDF look bad? <span>&#9660;</span></div><div class="fa"><div class="fai">For on-screen viewing and portal submission, no — Minimum size reduces images to 96 DPI, which looks identical to higher-resolution images on any screen at normal zoom. Text is completely unaffected. The difference is only noticeable if the document is printed at large format (A3+) or viewed at very high zoom.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">I don't have the original Word file — can I still compress the PDF? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes. Use ShrinkPDF — go to shrinkpdf.fyi, upload the PDF, select Balanced or Maximum compression, and download. This achieves 50–70% reduction on typical Word-exported PDFs. Re-exporting from the source file is more effective when available, but ShrinkPDF gives good results when it isn't.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Does compressing a Word-exported PDF affect the text or formatting? <span>&#9660;</span></div><div class="fa"><div class="fai">No. Compression reduces image resolution — it does not affect text, layout, fonts, colours, or page structure. A compressed PDF of a Word document reads identically to the uncompressed version on screen.</div></div></div>
+
+  <div class="related">
+    <h3>Related Articles</h3>
+    <div class="rls">
+      <a href="en-13-windows.html" class="rl">How to Compress a PDF on Windows <span>&rarr;</span></a>
+      <a href="en-15-quality.html" class="rl">Compress PDF Without Losing Quality <span>&rarr;</span></a>
+      <a href="en-01-below1mb.html" class="rl">How to Compress a PDF — Complete Guide <span>&rarr;</span></a>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo"><span>Shrink</span>PDF</div>
+      <p class="footer-tagline">Free PDF tools. No login. No limits. No watermarks.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Tools</div>
+        <a href="index.html">Compress PDF</a><a href="merge.html">Merge PDF</a><a href="split.html">Split PDF</a><a href="rotate.html">Rotate PDF</a><a href="pdf-to-images.html">PDF to Images</a><a href="images-to-pdf.html">Images to PDF</a><a href="reorder.html">Reorder Pages</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guides</div>
+        <a href="guides.html">All Guides</a><a href="en-01-below1mb.html">Compress Below 1MB</a><a href="en-06-malaysia.html">LHDN e-Filing PDF</a><a href="en-09-mobile.html">Compress on Mobile</a><a href="en-12-university.html">University Submission</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 ShrinkPDF · No login · No storage · Always free</span></div>
+</footer>
+<script>
+(function(){{
+  var nav=document.querySelector('nav');
+  if(nav){{var h=function(){{document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';}};h();window.addEventListener('resize',h);}}
+  var el=document.getElementById('read-progress');
+  if(el){{window.addEventListener('scroll',function(){{var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';}});}}
+  var links=document.querySelectorAll('.toc a');var heads=[];
+  links.forEach(function(l){{var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({{el:e,a:l}});}});
+  window.addEventListener('scroll',function(){{var y=window.scrollY+130;var cur=null;heads.forEach(function(h){{if(h.el.offsetTop<=y)cur=h;}});links.forEach(function(l){{l.classList.remove('active');}});if(cur)cur.a.classList.add('active');}});
+}})();
+function toggleDrawer(){{var d=document.getElementById('mobileDrawer');var b=document.getElementById('hamburgerBtn');d.classList.toggle('open');b.classList.toggle('open');}}
+</script>
+</body></html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>How to Compress PDF Without Losing Quality — Free Guide (2026)</title>
+<meta name="description" content="Compress a PDF without visible quality loss — what "quality" actually means in PDFs, which compression level to use, and when you can compress aggressively without any visible difference.">
+<meta name="keywords" content="compress pdf without losing quality, reduce pdf size without losing quality, compress pdf keep quality, pdf compression quality">
+<link rel="canonical" href="https://shrinkpdf.fyi/en-15-quality.html">
+<link rel="alternate" hreflang="x-default" href="https://shrinkpdf.fyi/en-15-quality.html">
+<link rel="alternate" hreflang="en" href="https://shrinkpdf.fyi/en-15-quality.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shrinkpdf.fyi/en-15-quality.html">
+<meta property="og:title" content="How to Compress PDF Without Losing Quality — Free Guide (2026)">
+<meta property="og:description" content="Compress a PDF without visible quality loss — what "quality" actually means in PDFs, which compression level to use, and when you can compress aggressively without any visible difference.">
+<meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta property="og:site_name" content="ShrinkPDF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to Compress PDF Without Losing Quality — Free Guide (2026)">
+<meta name="twitter:description" content="Compress a PDF without visible quality loss — what "quality" actually means in PDFs, which compression level to use, and when you can compress aggressively without any visible difference.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
+<style>  /* ── NAV ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+  .nav-top{display:flex;align-items:center;justify-content:space-between;padding:12px 28px;}
+  .nav-bottom{display:flex;align-items:center;justify-content:center;gap:2px;padding:6px 24px;background:rgba(255,255,255,0.02);overflow-x:auto;scrollbar-width:none;border-top:1px solid rgba(255,255,255,0.05);}
+  .nav-bottom::-webkit-scrollbar{display:none;}
+  .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-0.5px;text-decoration:none;color:var(--text);flex-shrink:0;}
+  .logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .nav-tool-btn{color:var(--text-muted);padding:6px 13px;border-radius:7px;font-size:0.8rem;cursor:pointer;text-decoration:none;transition:all 0.2s;background:none;white-space:nowrap;}
+  .nav-tool-btn:hover{color:var(--text);background:rgba(255,255,255,0.06);}
+  .nav-tool-btn.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:500;}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:8px;}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s;}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-drawer{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,15,0.97);border-bottom:1px solid var(--border);padding:16px 20px;flex-direction:column;gap:8px;z-index:99;backdrop-filter:blur(20px);}
+  .mobile-drawer.open{display:flex;}
+  .mobile-drawer .nav-tool-btn{display:block;text-align:left;padding:10px 14px;font-size:0.9rem;}
+  .mobile-drawer .nav-tool-btn.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;}
+  @media(max-width:640px){
+    .nav-top{padding:12px 16px;}
+    .nav-bottom{display:none;}
+    .hamburger{display:flex;}
+  }
+:root{--bg:#0a0a0f;--sf:#13131a;--br:#2a2a3a;--ac:#5b4fff;--ac2:#ff4f9b;--tx:#f0f0f8;--tm:#7a7a9a;--ok:#2ecc71;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--text:#f0f0f8;--text-muted:#7a7a9a;--accent:#5b4fff;--accent2:#ff4f9b;--accent-glow:rgba(91,79,255,0.35);}
+html{scroll-padding-top:100px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;line-height:1.8;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,0.07) 0%,transparent 50%);pointer-events:none;z-index:0;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;text-decoration:none;color:var(--tx);}
+.logo span{background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.back:hover{color:var(--tx);}
+.wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1;}
+.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:32px;}
+.tag{background:rgba(91,79,255,0.15);border:1px solid rgba(91,79,255,0.3);color:#a99fff;padding:4px 12px;border-radius:100px;font-size:0.78rem;}
+.rt{color:var(--tm);font-size:0.85rem;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;line-height:1.2;letter-spacing:-0.5px;margin-bottom:24px;}
+.intro{font-size:1.05rem;color:var(--tm);margin-bottom:40px;line-height:1.8;border-left:3px solid var(--ac);padding-left:20px;}
+h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;margin:40px 0 14px;}
+h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin:18px 0 8px;}
+p{margin-bottom:14px;color:#d0d0e8;}
+ul,ol{margin:14px 0 20px 22px;}
+li{margin-bottom:9px;color:#d0d0e8;}
+.box{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:22px;margin:24px 0;}
+.box.warn{border-color:rgba(243,156,18,0.35);background:rgba(243,156,18,0.04);}
+.box.good{border-color:rgba(46,204,113,0.3);background:rgba(46,204,113,0.04);}
+.bt{font-family:'Syne',sans-serif;font-weight:700;margin-bottom:10px;font-size:0.9rem;}
+.step{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start;}
+.sn{background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:3px;}
+.sc h3{margin-top:0;}
+h2[id],h3[id]{scroll-margin-top:110px;}
+.cta{background:linear-gradient(135deg,rgba(91,79,255,0.15),rgba(255,79,155,0.1));border:1px solid rgba(91,79,255,0.3);border-radius:16px;padding:32px;text-align:center;margin:40px 0;}
+.cta h3{font-family:'Syne',sans-serif;font-size:1.2rem;margin-bottom:8px;}
+.cta p{color:var(--tm);margin-bottom:20px;}
+.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;padding:14px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem;box-shadow:0 4px 20px rgba(91,79,255,0.3);transition:all 0.2s;}
+.btn:hover{transform:translateY(-2px);}
+.fi{border:1px solid var(--br);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.fq{padding:15px 18px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;font-size:0.95rem;}
+.fq:hover{color:var(--ac);}
+.fa{max-height:0;overflow:hidden;transition:max-height 0.3s;font-size:0.88rem;color:var(--tm);}
+.fi.open .fa{max-height:300px;}
+.fai{padding:0 18px 14px;}
+.related{margin-top:56px;border-top:1px solid var(--br);padding-top:36px;}
+.related h3{font-family:'Syne',sans-serif;font-weight:700;margin-bottom:18px;}
+.rls{display:grid;gap:10px;}
+.rl{background:var(--sf);border:1px solid var(--br);border-radius:12px;padding:14px 18px;text-decoration:none;color:var(--tx);transition:all 0.2s;display:flex;justify-content:space-between;align-items:center;font-size:0.9rem;}
+.rl:hover{border-color:var(--ac);}
+.rl span{color:var(--tm);font-size:0.82rem;}
+@media(max-width:640px){
+.wrap{padding:80px 18px 60px;}}
+
+  #read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+  .toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;scroll-margin-top:140px;position:relative;z-index:0;}
+  .toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .toc-title::before{content:'📋';font-size:1rem;}
+  .toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+  .toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+  .toc li a:hover{color:var(--ac);}
+  .toc li a.active{color:var(--ac);font-weight:500;}
+
+  footer{background:var(--surface);border-top:1px solid var(--border);padding:48px 24px 24px;margin-top:80px;}
+  .footer-inner{max-width:1100px;margin:0 auto;display:flex;gap:48px;flex-wrap:wrap;}
+  .footer-brand{flex:1;min-width:200px;}
+  .footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:10px;}
+  .footer-logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .footer-tagline{font-size:0.83rem;color:var(--text-muted);line-height:1.6;}
+  .footer-links{display:flex;gap:40px;flex-wrap:wrap;}
+  .footer-col{display:flex;flex-direction:column;gap:8px;min-width:130px;}
+  .footer-col-title{font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:4px;}
+  .footer-col a{font-size:0.83rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
+  .footer-col a:hover{color:var(--text);}
+  .footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);text-align:center;}
+  @media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}}
+  .nav-guides-link{color:var(--text-muted);font-size:0.82rem;text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:100px;transition:all 0.2s;white-space:nowrap;}
+  .nav-guides-link:hover{color:var(--text);border-color:var(--accent);}
+  @media(max-width:640px){.nav-guides-link{display:none;}}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Does compressing a PDF reduce quality?", "acceptedAnswer": {"@type": "Answer", "text": "For text-only PDFs, compression has no visible effect on quality — text is stored as vectors and remains perfectly sharp. For PDFs with images, compression reduces image resolution slightly. At Balanced compression, the difference is invisible at normal viewing sizes."}},
+    {"@type": "Question", "name": "Which compression level preserves the most quality?", "acceptedAnswer": {"@type": "Answer", "text": "Light compression preserves the most image quality while reducing file size by 20-35%. Balanced is the sweet spot — virtually no visible quality change with 40-60% size reduction. Maximum gives the smallest file with a slight reduction in image sharpness at high zoom."}},
+    {"@type": "Question", "name": "Can I compress a PDF and keep it print-quality?", "acceptedAnswer": {"@type": "Answer", "text": "For print-quality output, use Light compression only, or avoid compression entirely. Print requires 300 DPI images — compression reduces this to 150-200 DPI, which is fine for screen but below ideal for high-quality printing."}}
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
+<meta property="article:modified_time" content="2026-02-20">
+</head>
+<body>
+<div id="read-progress"></div>
+<nav>
+  <div class="nav-top">
+    <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
+    <a href="guides.html" class="nav-guides-link">📚 Guides</a>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-bottom">
+    <a href="index.html" class="nav-tool-btn">🗜️ Compress</a>
+    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
+    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
+    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
+    <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
+    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
+    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
+  </div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" class="nav-tool-btn">🗜️ Compress</a>
+    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
+    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
+    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
+    <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
+    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
+    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
+  </div>
+</nav>
+<div class="wrap">
+  <div class="meta"><span class="tag">Quality</span><span class="tag">How-To</span><span class="tag">Free</span><time datetime="2026-02-20" class="updated rt">Updated February 20, 2026</time></div>
+  <h1>How to Compress PDF Without Losing Quality (2026)</h1>
+  <p class="intro">"Compress without losing quality" is the most common concern about PDF compression — and the answer is more nuanced than yes or no. For text, there is genuinely no quality loss at any compression level. For images, it depends on how you define "quality" and what the document is for. This guide explains what compression actually does, which level to use for your situation, and when you can compress aggressively without any visible difference.</p>
+
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc-title">In this article</div>
+  <ol>
+    <li><a href="#what-compression-does">What PDF Compression Actually Does</a></li>
+    <li><a href="#text-vs-images">Text vs Images: Very Different Rules</a></li>
+    <li><a href="#levels">Choosing the Right Level for Your Use Case</a></li>
+    <li><a href="#when-safe">When You Can Compress Aggressively</a></li>
+    <li><a href="#when-careful">When to Be More Careful</a></li>
+    <li><a href="#how-to">How to Compress with Minimal Quality Loss</a></li>
+    <li><a href="#verify">How to Verify Quality After Compression</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<h2 id="what-compression-does">What PDF Compression Actually Does</h2>
+<p>PDF compression primarily works by reducing the resolution of embedded images. A standard scanned document has images at 300 DPI — compression reduces these to 150 DPI (Balanced) or lower (Maximum). It also strips revision history, unused font subsets, and hidden metadata.</p>
+<p>What compression does <em>not</em> do: it does not change the text, the layout, the colours, the page structure, or any vector content. It does not degrade the document itself — only the resolution of embedded raster images.</p>
+<p>This distinction matters enormously. If your PDF is primarily text — a contract, a payslip, a letter, a transcript — compression has essentially zero visible effect. The "quality loss" concern mainly applies to documents that are primarily images, like scanned documents or photo-heavy reports.</p>
+
+<h2 id="text-vs-images">Text vs Images: Very Different Rules</h2>
+<h3>Text-based PDFs</h3>
+<p>Text in PDFs is stored as vector data — mathematical descriptions of letter shapes, not pixels. Vector text is resolution-independent: it looks identical at any size, any zoom level, any compression setting. Compressing a text-heavy PDF at Maximum level produces text that is <em>indistinguishable</em> from the original at any zoom level.</p>
+<p>This means: for payslips, contracts, letters, transcripts, personal statements, and any document that is primarily text, you can use Maximum compression without any quality concern whatsoever.</p>
+
+<h3>Image-based PDFs</h3>
+<p>Images in PDFs are stored as raster data — grids of pixels. Compression reduces the number of pixels by downsampling: a 300 DPI image becomes 150 DPI. This is the same image rendered at half the resolution in each dimension.</p>
+<p>At 150 DPI, images are still clear and legible on any screen at normal viewing size (100%). The difference only becomes noticeable when you zoom in above 150–200%, or when the document is printed at large format (A3+).</p>
+<p>For on-screen reading, portal submissions, and email — which covers 99% of PDF use cases — Balanced compression produces images that look identical to the original at normal viewing sizes.</p>
+
+<h2 id="levels">Choosing the Right Level for Your Use Case</h2>
+<div class="box"><div class="bt">Compression Level Guide by Use Case</div>
+<ul>
+<li><strong>Light (20–35% reduction):</strong> Use when image quality is important and the file is for sharing or reviewing designs, portfolios, or photography. Text is unaffected. Images retain near-print quality.</li>
+<li><strong>Balanced (40–60% reduction):</strong> The sweet spot for most uses. Quality is virtually indistinguishable from the original for on-screen reading. Ideal for email, reports, presentations, and general sharing.</li>
+<li><strong>Maximum (65–85% reduction):</strong> Use when you have a hard size limit to meet. Text remains perfect. Images are slightly reduced in sharpness at high zoom but remain clearly legible. Ideal for portal uploads, government submissions, and university applications.</li>
+</ul></div>
+
+<h2 id="when-safe">When You Can Compress Aggressively (Maximum)</h2>
+<p>These document types are safe to compress at Maximum with no practical quality concern:</p>
+<ul>
+<li><strong>Payslips and salary documents</strong> — text only, zero image quality concern</li>
+<li><strong>Contracts and legal documents</strong> — text only, signatures at 150 DPI are perfectly legible</li>
+<li><strong>Academic transcripts and certificates</strong> — text with simple logos and stamps, all remain clear</li>
+<li><strong>IC copies and identity documents</strong> — Maximum compression keeps text and photo legible for verification purposes; always verify after compressing</li>
+<li><strong>Bank statements</strong> — text and simple tables, no meaningful image content</li>
+<li><strong>Letters and reference letters</strong> — text only</li>
+<li><strong>Tax forms</strong> — text and simple graphics</li>
+</ul>
+<div class="box good"><div class="bt">The practical test</div>
+<p>After compressing, open the PDF and read it at 100% zoom. If you cannot tell the difference between the original and the compressed version at normal reading size, the compression is lossless from a practical standpoint — regardless of what the technical resolution numbers say.</p></div>
+
+<h2 id="when-careful">When to Be More Careful</h2>
+<p>Use Balanced or Light compression for these document types:</p>
+<ul>
+<li><strong>Design portfolios and creative work</strong> — image quality is being evaluated; use Light compression</li>
+<li><strong>Medical imaging PDFs</strong> — diagnostic images require high resolution; use Light or no compression</li>
+<li><strong>Product catalogues for print</strong> — if the recipient will print at large format, use Balanced at most</li>
+<li><strong>Engineering drawings with fine detail</strong> — fine lines and small text in CAD drawings can become unclear at Maximum compression; use Balanced</li>
+<li><strong>Photographs being sent for review</strong> — use Light to preserve photo quality</li>
+</ul>
+
+<h2 id="how-to">How to Compress with Minimal Quality Loss</h2>
+<div class="step"><div class="sn">1</div><div class="sc"><h3>Identify Your Document Type</h3>
+<p>Is it primarily text, or primarily images? For text-heavy documents, use Maximum freely. For image-heavy documents, start with Balanced.</p></div></div>
+<div class="step"><div class="sn">2</div><div class="sc"><h3>Open ShrinkPDF and Upload</h3>
+<p>Go to <a href="index.html">ShrinkPDF.fyi</a>. Upload your PDF. Processing happens in your browser — the file never leaves your device.</p></div></div>
+<div class="step"><div class="sn">3</div><div class="sc"><h3>Choose Balanced for Image-Heavy Documents</h3>
+<p>If your document has photos or detailed graphics you want to preserve, select Balanced. This achieves 40–60% size reduction with virtually no visible quality change at normal zoom.</p></div></div>
+<div class="step"><div class="sn">4</div><div class="sc"><h3>Download and Verify Before Submitting</h3>
+<p>Open the compressed PDF. Zoom to 100% and read through the document. Check any images or photos at 100–150% zoom. If everything looks good at this zoom level, the quality is acceptable for screen and submission use.</p></div></div>
+
+<h2 id="verify">How to Verify Quality After Compression</h2>
+<p>Before submitting any compressed document, run through this quick check:</p>
+<ul>
+<li><strong>Open both files side by side</strong> if possible — original and compressed — and compare at 100% zoom</li>
+<li><strong>Check text legibility</strong> — zoom to 200% and confirm all text is sharp</li>
+<li><strong>Check fine details</strong> — IC numbers, account numbers, signatures, official stamps</li>
+<li><strong>Check images at 100%</strong> — verify photos and graphics are acceptable at normal reading size</li>
+<li><strong>Scroll through every page</strong> — confirm no pages are blank or corrupt</li>
+</ul>
+<p>If any part of the compressed version is not acceptable, re-compress using Balanced instead of Maximum, or use Light compression for documents where image quality is critical.</p>
+
+  <div class="cta">
+    <h3>&#10003; Try ShrinkPDF Free — No Login Required</h3>
+    <p>No registration. No file size limit. Your file never leaves your browser.</p>
+    <a href="index.html" class="btn">🗜️ Compress My PDF Now</a>
+  </div>
+
+  <h2 id="faq">Frequently Asked Questions</h2>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Does compressing a PDF reduce quality? <span>&#9660;</span></div><div class="fa"><div class="fai">For text-only PDFs, no — text is stored as vectors and remains perfectly sharp at any compression level. For PDFs with images, compression reduces image resolution. At Balanced compression, the difference is invisible at normal viewing sizes. At Maximum, images are slightly softer at high zoom but remain legible.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Which compression level preserves the most quality? <span>&#9660;</span></div><div class="fa"><div class="fai">Light compression preserves the most image quality (20–35% size reduction). Balanced is the practical sweet spot — virtually no visible quality change with 40–60% reduction. Maximum gives the smallest file with a slight reduction in image sharpness at high zoom.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Can I compress a PDF and keep it print-quality? <span>&#9660;</span></div><div class="fa"><div class="fai">For standard printing (A4/Letter), Balanced compression is usually sufficient — 150 DPI images print acceptably at standard sizes. For high-quality printing (A3+, professional print) or design work, use Light compression only. For offset or commercial printing, avoid compression entirely and keep the print-ready original.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Is "lossless" PDF compression possible? <span>&#9660;</span></div><div class="fa"><div class="fai">Lossless compression (removing metadata, revision history, and unused font subsets without touching image quality) is possible and happens at all compression levels. However, the significant size reductions (40–80%) require reducing image resolution, which is technically lossy. For most practical purposes — screen viewing and portal submission — the difference is invisible.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">I compressed my IC copy — is it still valid for submission? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes, as long as the IC number, name, photo, and other key details are clearly legible in the compressed version. Always open the compressed file and zoom into the text before submitting. Maximum compression on a standard IC scan typically keeps all text and the photo clearly readable.</div></div></div>
+
+  <div class="related">
+    <h3>Related Articles</h3>
+    <div class="rls">
+      <a href="en-01-below1mb.html" class="rl">How to Compress a PDF — Complete Guide <span>&rarr;</span></a>
+      <a href="en-08-scanned.html" class="rl">How to Compress a Scanned PDF <span>&rarr;</span></a>
+      <a href="en-10-whylarge.html" class="rl">Why Is My PDF So Large? <span>&rarr;</span></a>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo"><span>Shrink</span>PDF</div>
+      <p class="footer-tagline">Free PDF tools. No login. No limits. No watermarks.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Tools</div>
+        <a href="index.html">Compress PDF</a><a href="merge.html">Merge PDF</a><a href="split.html">Split PDF</a><a href="rotate.html">Rotate PDF</a><a href="pdf-to-images.html">PDF to Images</a><a href="images-to-pdf.html">Images to PDF</a><a href="reorder.html">Reorder Pages</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Guides</div>
+        <a href="guides.html">All Guides</a><a href="en-01-below1mb.html">Compress Below 1MB</a><a href="en-06-malaysia.html">LHDN e-Filing PDF</a><a href="en-09-mobile.html">Compress on Mobile</a><a href="en-12-university.html">University Submission</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 ShrinkPDF · No login · No storage · Always free</span></div>
+</footer>
+<script>
+(function(){{
+  var nav=document.querySelector('nav');
+  if(nav){{var h=function(){{document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';}};h();window.addEventListener('resize',h);}}
+  var el=document.getElementById('read-progress');
+  if(el){{window.addEventListener('scroll',function(){{var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';}});}}
+  var links=document.querySelectorAll('.toc a');var heads=[];
+  links.forEach(function(l){{var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({{el:e,a:l}});}});
+  window.addEventListener('scroll',function(){{var y=window.scrollY+130;var cur=null;heads.forEach(function(h){{if(h.el.offsetTop<=y)cur=h;}});links.forEach(function(l){{l.classList.remove('active');}});if(cur)cur.a.classList.add('active');}});
+}})();
+function toggleDrawer(){{var d=document.getElementById('mobileDrawer');var b=document.getElementById('hamburgerBtn');d.classList.toggle('open');b.classList.toggle('open');}}
+</script>
+</body></html>
