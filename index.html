@@ -694,6 +694,10 @@ body {
   .btn-try-level:hover {
     background: rgba(91,79,255,0.25) !important;
   }
+
+  .nav-guides-link{color:var(--text-muted);font-size:0.82rem;text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:100px;transition:all 0.2s;white-space:nowrap;}
+  .nav-guides-link:hover{color:var(--text);border-color:var(--accent);}
+  @media(max-width:640px){.nav-guides-link{display:none;}}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 
@@ -728,6 +732,7 @@ body {
 <nav>
   <div class="nav-top">
     <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
+    <a href="guides.html" class="nav-guides-link">📚 Guides</a>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -911,7 +916,8 @@ body {
 <!-- BLOG ARTICLES -->
 <section style="position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 24px 80px;">
   <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;text-align:center;margin-bottom:12px;letter-spacing:-0.5px;">Free PDF Compression Guides</div>
-  <p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-bottom:40px;">Step-by-step tutorials to help you compress PDFs for any situation</p>
+  <p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-bottom:20px;">Step-by-step tutorials to help you compress PDFs for any situation</p>
+  <div style="text-align:center;margin-bottom:40px;"><a href="guides.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--accent);text-decoration:none;font-size:0.88rem;border:1px solid rgba(91,79,255,0.35);padding:7px 18px;border-radius:100px;transition:all 0.2s;" onmouseover="this.style.background='rgba(91,79,255,0.1)'" onmouseout="this.style.background='transparent'">📚 View all guides →</a></div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
     <a href="en-01-below1mb.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="font-size:1.3rem;margin-bottom:8px;">📉</div>
@@ -1057,6 +1063,7 @@ body {
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
+        <a href="guides.html">All Guides</a>
         <a href="en-01-below1mb.html">Compress Below 1MB</a>
         <a href="en-02-email.html">Compress for Email</a>
         <a href="en-06-malaysia.html">LHDN e-Filing PDF</a>

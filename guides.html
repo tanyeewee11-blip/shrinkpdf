@@ -92,6 +92,10 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:48px
 .footer-col a:hover{color:var(--text);}
 .footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);text-align:center;}
 @media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}.page{padding:60px 18px 80px;}}
+
+  .nav-guides-link{color:var(--text-muted);font-size:0.82rem;text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:100px;transition:all 0.2s;white-space:nowrap;}
+  .nav-guides-link:hover{color:var(--text);border-color:var(--accent);}
+  @media(max-width:640px){.nav-guides-link{display:none;}}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 <script type="application/ld+json">
@@ -121,6 +125,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:48px
 <nav>
   <div class="nav-top">
     <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
+    <a href="guides.html" class="nav-guides-link">📚 Guides</a>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
