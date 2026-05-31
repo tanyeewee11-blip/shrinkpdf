@@ -3,13 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#5b4fff">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="ShrinkPDF">
-<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rotate PDF Free – Rotate Pages Online | ShrinkPDF</title>
 <meta name="description" content="Rotate PDF pages 90°, 180° or 270°. Rotate all pages or specific pages. Free, no login, processed locally in your browser.">
@@ -637,15 +630,6 @@
       btn.classList.remove('open');drawer.classList.remove('open');
     }
   });
-</script>
-<script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("/sw.js")
-        .then(reg => console.log("ShrinkPDF SW registered:", reg.scope))
-        .catch(err => console.warn("SW registration failed:", err));
-    });
-  }
 </script>
 </body>
 </html>
