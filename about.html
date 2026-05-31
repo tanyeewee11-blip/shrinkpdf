@@ -80,7 +80,11 @@ footer { flex-direction:column; text-align:center; } }
   .footer-col a{font-size:0.83rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
   .footer-col a:hover{color:var(--text);}
   .footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);text-align:center;}
-  @media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}}</style>
+  @media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}}
+  .nav-guides-link{color:var(--text-muted);font-size:0.82rem;text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:100px;transition:all 0.2s;white-space:nowrap;}
+  .nav-guides-link:hover{color:var(--text);border-color:var(--accent);}
+  @media(max-width:640px){.nav-guides-link{display:none;}}
+</style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 <meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -100,6 +104,7 @@ footer { flex-direction:column; text-align:center; } }
 <nav>
   <div class="nav-top">
     <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
+    <a href="guides.html" class="nav-guides-link">📚 Guides</a>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -120,58 +125,74 @@ footer { flex-direction:column; text-align:center; } }
 
 <div class="hero">
   <h1>About <span>ShrinkPDF</span></h1>
-  <p>A free, privacy-first PDF compression tool built for everyday people — students, job seekers, office workers, and anyone who's ever been told their file is too large.</p>
+  <p>A free, privacy-first PDF tool built for everyday people — students, job seekers, office workers, and anyone who's ever been told their file is too large.</p>
 </div>
 
 <div class="container">
 
   <div class="card">
     <h2>👋 Who Made This</h2>
-    <p>ShrinkPDF was built by a small independent team based in Malaysia. We built it out of personal frustration — constantly running into file size rejections on government portals and university systems, and finding that every free online alternative either had caps, required accounts, or uploaded sensitive documents to unknown servers.</p>
-    <p>We're not a large company. ShrinkPDF is a focused utility, built carefully and maintained actively. If something's broken or you have feedback, we actually read the emails at <a href="mailto:hello@shrinkpdf.fyi" style="color:var(--accent);">hello@shrinkpdf.fyi</a>.</p>
+    <p>ShrinkPDF was built by a small independent team based in Malaysia. We built it out of personal frustration — constantly running into file size rejections on LHDN, university portals, and job application systems, and finding that every free alternative either had caps, required an account, or uploaded sensitive documents to servers we knew nothing about.</p>
+    <p>We're not a large company. ShrinkPDF is a focused utility — 7 free tools, maintained actively, built with privacy as a non-negotiable. If something's broken or you have feedback, we actually read the emails at <a href="mailto:hello@shrinkpdf.fyi" style="color:var(--accent);">hello@shrinkpdf.fyi</a>.</p>
   </div>
 
   <div class="card">
     <h2>🎯 Why We Built This</h2>
-    <p>PDF file size limits are frustrating. Whether you're uploading documents to LHDN, submitting a university application, sending a resume, or just trying to share a file on WhatsApp — you've probably hit a wall with "file too large".</p>
-    <p>Most free PDF compressors online either have strict file size limits (10–20MB), require you to create an account, show annoying watermarks, or upload your sensitive documents to their servers.</p>
-    <p>ShrinkPDF does none of that. Your files are compressed entirely in your browser — no uploads, no accounts, no limits, no watermarks. Always free.</p>
+    <p>PDF file size limits are a daily frustration in Malaysia. LHDN e-Filing caps supporting documents at 2MB. UPU and university portals reject transcripts over 2MB. EPF i-Akaun is stricter at 1MB for some uploads. Job application portals on Jobstreet and LinkedIn enforce their own limits.</p>
+    <p>Most free PDF compressors we tried were either capped at 10–20MB on the free tier, required account registration, showed watermarks on the output, or — most importantly — uploaded every document to their servers. For IC copies, payslips, and tax filings, that last point matters.</p>
+    <p>ShrinkPDF processes everything in your browser. Your files never leave your device. That's the core reason it exists.</p>
   </div>
 
   <div class="values-grid">
     <div class="value-item">
       <span class="value-icon">🔒</span>
       <div class="value-title">Privacy First</div>
-      <div class="value-desc">Files never leave your device. Zero server uploads.</div>
+      <div class="value-desc">Files are processed in your browser. Zero server uploads — ever.</div>
     </div>
     <div class="value-item">
       <span class="value-icon">♾️</span>
       <div class="value-title">No Limits</div>
-      <div class="value-desc">No file size caps. Compress files of any size.</div>
+      <div class="value-desc">No file size caps, no daily task limits, no paywalls.</div>
     </div>
     <div class="value-item">
       <span class="value-icon">🆓</span>
       <div class="value-title">Always Free</div>
-      <div class="value-desc">No subscriptions, no premium tiers, no paywalls.</div>
+      <div class="value-desc">Ad-supported. No subscriptions, no premium tiers, no tricks.</div>
     </div>
     <div class="value-item">
       <span class="value-icon">🌏</span>
-      <div class="value-title">Built for SEA</div>
-      <div class="value-desc">Designed with Malaysia & Southeast Asia in mind.</div>
+      <div class="value-title">Built for Malaysia</div>
+      <div class="value-desc">Designed with LHDN, EPF, UPU, and local portals in mind.</div>
     </div>
   </div>
 
   <div class="card">
     <h2>⚙️ How It Works</h2>
-    <p>ShrinkPDF uses <strong>pdf-lib</strong>, an open-source JavaScript library, to process your PDF directly in your browser. When you upload a file, it is read into your browser's memory — never sent over the internet.</p>
-    <p>The compression removes redundant data, optimises internal structures, and (depending on your chosen level) reduces image quality slightly to achieve smaller file sizes. The result is a new PDF file that you can download immediately.</p>
-    <p>Once you close the page or compress another file, all data is cleared from memory automatically.</p>
+    <p>ShrinkPDF uses <a href="https://pdf-lib.js.org/" target="_blank" rel="noopener" style="color:var(--accent);">pdf-lib</a>, an open-source JavaScript library, to process your PDF entirely within your browser. When you select a file, it is loaded into your browser's memory — it is never sent over the internet to any server.</p>
+    <p>Depending on the compression level you choose, the tool reduces embedded image resolution (from 300 DPI to approximately 150 DPI at Maximum), strips unused font subsets, removes revision history and hidden metadata, and re-encodes the document structure. Text is stored as vector data and is never affected by compression — it remains perfectly sharp regardless of the level chosen.</p>
+    <p>The compressed PDF is generated in your browser and offered as a direct download. Once you close the tab or refresh the page, all file data is cleared from browser memory automatically.</p>
   </div>
 
   <div class="card">
-    <h2>📧 Contact</h2>
-    <p>Have feedback, found a bug, or want to get in touch? We'd love to hear from you.</p>
-    <p>Email us at: <a href="mailto:hello@shrinkpdf.fyi" style="color:var(--accent);">hello@shrinkpdf.fyi</a></p>
+    <h2>🛠️ What We Offer</h2>
+    <p>ShrinkPDF currently offers 7 free browser-based PDF tools:</p>
+    <ul style="color:var(--text-muted);line-height:2;font-size:0.95rem;padding-left:1.2rem;">
+      <li><a href="index.html" style="color:var(--accent);">Compress PDF</a> — reduce file size at three quality levels</li>
+      <li><a href="merge.html" style="color:var(--accent);">Merge PDF</a> — combine multiple PDFs into one</li>
+      <li><a href="split.html" style="color:var(--accent);">Split PDF</a> — extract pages or split into parts</li>
+      <li><a href="rotate.html" style="color:var(--accent);">Rotate PDF</a> — rotate pages in any direction</li>
+      <li><a href="pdf-to-images.html" style="color:var(--accent);">PDF to Images</a> — convert pages to JPG or PNG</li>
+      <li><a href="images-to-pdf.html" style="color:var(--accent);">Images to PDF</a> — combine images into a PDF</li>
+      <li><a href="reorder.html" style="color:var(--accent);">Reorder Pages</a> — drag and drop pages into any order</li>
+    </ul>
+    <p>All tools are free, require no login, and process files locally in your browser.</p>
+  </div>
+
+  <div class="card">
+    <h2>📧 Get in Touch</h2>
+    <p>Have feedback, found a bug, or want to get in touch? We read every email.</p>
+    <p>Email: <a href="mailto:hello@shrinkpdf.fyi" style="color:var(--accent);">hello@shrinkpdf.fyi</a> — we reply within 1–2 business days.</p>
+    <p style="font-size:0.85rem;color:var(--text-muted);">You can write to us in English, Bahasa Malaysia, Mandarin, or Indonesian.</p>
   </div>
 
   <div class="cta-box">
@@ -201,6 +222,7 @@ footer { flex-direction:column; text-align:center; } }
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
+        <a href="guides.html">All Guides</a>
         <a href="en-01-below1mb.html">Compress Below 1MB</a>
         <a href="en-02-email.html">Compress for Email</a>
         <a href="en-06-malaysia.html">LHDN e-Filing PDF</a>
