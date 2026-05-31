@@ -80,6 +80,14 @@
   .topic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
   .topic-btn { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; font-size: 0.84rem; color: var(--text-muted); text-align: left; cursor: pointer; transition: all 0.2s; }
   .topic-btn:hover { border-color: var(--accent); color: var(--text); }
+  .form-group { margin-bottom: 18px; }
+  .form-label { display: block; font-size: 0.83rem; font-weight: 500; color: var(--text-muted); margin-bottom: 7px; }
+  .form-input { width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 11px 14px; font-size: 0.9rem; color: var(--text); font-family: inherit; transition: border-color 0.2s; outline: none; }
+  .form-input:focus { border-color: var(--accent); }
+  .form-textarea { min-height: 120px; resize: vertical; }
+  .form-btn { width: 100%; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; border: none; border-radius: 12px; padding: 13px 24px; font-size: 0.95rem; font-weight: 600; font-family: inherit; cursor: pointer; transition: opacity 0.2s; margin-top: 4px; }
+  .form-btn:hover { opacity: 0.9; }
+  .form-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
   /* ── FOOTER ── */
   footer{background:var(--surface);border-top:1px solid var(--border);padding:48px 24px 24px;margin-top:80px;}
@@ -95,13 +103,21 @@
   .footer-col a:hover{color:var(--text);}
   .footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);text-align:center;}
   @media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}.topic-grid{grid-template-columns:1fr;}}
-  </style>
+  
+  .nav-guides-link{color:var(--text-muted);font-size:0.82rem;text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:100px;transition:all 0.2s;white-space:nowrap;}
+  .nav-guides-link:hover{color:var(--text);border-color:var(--accent);}
+  @media(max-width:640px){.nav-guides-link{display:none;}}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
 </head>
 <body>
 
 <nav>
   <div class="nav-top">
     <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
+    <a href="guides.html" class="nav-guides-link">📚 Guides</a>
     <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -134,15 +150,64 @@
 <div class="container">
 
   <div class="contact-card">
-    <div class="contact-email">
-      <div class="contact-email-icon">✉️</div>
-      <div>
-        <div class="contact-email-text">Send us an email at</div>
-        <div class="contact-email-addr"><a href="mailto:hello@shrinkpdf.fyi">hello@shrinkpdf.fyi</a></div>
-      </div>
-    </div>
+    <h2 style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:20px;">✉️ Send Us a Message</h2>
 
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="828433a1-a17d-4cc9-8c95-ce3036f93c5d">
+      <input type="hidden" name="subject" value="ShrinkPDF Contact Form">
+      <input type="hidden" name="from_name" value="ShrinkPDF Contact">
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <div class="form-group">
+        <label class="form-label" for="name">Your Name</label>
+        <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email">Email Address</label>
+        <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="topic">Topic</label>
+        <select class="form-input" id="topic" name="topic" required>
+          <option value="" disabled selected>Select a topic</option>
+          <option value="Bug Report">🐛 Report a Bug</option>
+          <option value="Feature Request">💡 Feature Request</option>
+          <option value="Partnership / Ads">🤝 Partnership / Ads</option>
+          <option value="General Question">❓ General Question</option>
+          <option value="AdSense / Publisher">📊 AdSense / Publisher</option>
+          <option value="Privacy Concern">🔒 Privacy Concern</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="message">Message</label>
+        <textarea class="form-input form-textarea" id="message" name="message" placeholder="Tell us what's on your mind..." required></textarea>
+      </div>
+
+      <button type="submit" class="form-btn" id="submitBtn">
+        <span id="btnText">Send Message →</span>
+      </button>
+
+      <div id="formSuccess" style="display:none;margin-top:16px;padding:14px 18px;background:rgba(91,255,141,0.1);border:1px solid rgba(91,255,141,0.3);border-radius:10px;color:#5fff8d;font-size:0.9rem;">
+        ✓ Message sent! We'll reply to your email within 1–2 business days.
+      </div>
+      <div id="formError" style="display:none;margin-top:16px;padding:14px 18px;background:rgba(255,91,91,0.1);border:1px solid rgba(255,91,91,0.3);border-radius:10px;color:#ff7070;font-size:0.9rem;">
+        ✗ Something went wrong. Please email us directly at <a href="mailto:hello@shrinkpdf.fyi" style="color:#ff7070;">hello@shrinkpdf.fyi</a>
+      </div>
+    </form>
+  </div>
+
+  <div class="contact-card">
     <div class="info-list">
+      <div class="info-item">
+        <div class="info-item-icon">✉️</div>
+        <div>
+          <h3>Email Directly</h3>
+          <p>Prefer email? Reach us at <a href="mailto:hello@shrinkpdf.fyi" style="color:var(--accent);">hello@shrinkpdf.fyi</a></p>
+        </div>
+      </div>
       <div class="info-item">
         <div class="info-item-icon">⚡</div>
         <div>
@@ -167,20 +232,41 @@
     </div>
   </div>
 
-  <div class="contact-card">
-    <h2 style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:6px;">What can we help with?</h2>
-    <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:0;">Include these details in your email for a faster reply.</p>
-    <div class="topic-grid">
-      <div class="topic-btn">🐛 Report a Bug</div>
-      <div class="topic-btn">💡 Feature Request</div>
-      <div class="topic-btn">🤝 Partnership / Ads</div>
-      <div class="topic-btn">❓ General Question</div>
-      <div class="topic-btn">📊 AdSense / Publisher</div>
-      <div class="topic-btn">🔒 Privacy Concern</div>
-    </div>
-  </div>
-
 </div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  var btnText = document.getElementById('btnText');
+  var success = document.getElementById('formSuccess');
+  var error = document.getElementById('formError');
+
+  btn.disabled = true;
+  btnText.textContent = 'Sending...';
+  success.style.display = 'none';
+  error.style.display = 'none';
+
+  try {
+    var res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(this)
+    });
+    var data = await res.json();
+    if (data.success) {
+      success.style.display = 'block';
+      this.reset();
+    } else {
+      error.style.display = 'block';
+    }
+  } catch(err) {
+    error.style.display = 'block';
+  }
+
+  btn.disabled = false;
+  btnText.textContent = 'Send Message →';
+});
+</script>
 
 <footer>
   <div class="footer-inner">
@@ -201,6 +287,7 @@
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Guides</div>
+        <a href="guides.html">All Guides</a>
         <a href="en-01-below1mb.html">Compress Below 1MB</a>
         <a href="en-02-email.html">Compress for Email</a>
         <a href="en-06-malaysia.html">LHDN e-Filing PDF</a>
