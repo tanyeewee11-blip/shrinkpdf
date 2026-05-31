@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#5b4fff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ShrinkPDF">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -92,10 +99,9 @@ body {
   }
 
   /* NAV - Plan C dual row */
-    .result-stats { grid-template-columns: 1fr; }
-}
+  .result-stats { grid-template-columns: 1fr; }
 
-    .hero {
+  .hero {
     position: relative;
     z-index: 1;
     text-align: center;
@@ -113,7 +119,7 @@ body {
     padding: 6px 16px;
     font-size: 0.8rem;
     color: #a99fff;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     animation: fadeUp 0.6s ease both;
   }
 
@@ -137,7 +143,7 @@ body {
     line-height: 1.1;
     text-align: center;
     letter-spacing: -1.5px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     animation: fadeUp 0.6s 0.1s ease both;
   }
 
@@ -151,7 +157,7 @@ body {
     font-size: 1.1rem;
     color: var(--text-muted);
     max-width: 520px;
-    margin: 0 auto 48px;
+    margin: 0 auto 36px;
     line-height: 1.7;
     font-weight: 300;
     animation: fadeUp 0.6s 0.2s ease both;
@@ -168,7 +174,7 @@ body {
     justify-content: center;
     gap: 32px;
     flex-wrap: wrap;
-    margin-bottom: 52px;
+    margin-bottom: 36px;
     animation: fadeUp 0.6s 0.3s ease both;
   }
 
@@ -1256,6 +1262,15 @@ body {
       btn.classList.remove('open');drawer.classList.remove('open');
     }
   });
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('ShrinkPDF SW registered:', reg.scope))
+        .catch(err => console.warn('SW registration failed:', err));
+    });
+  }
 </script>
 </body>
 </html>
