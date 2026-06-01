@@ -3,13 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#5b4fff">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="ShrinkPDF">
-<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+
 <meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -1263,14 +1257,6 @@ body {
     }
   });
 </script>
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .then(reg => console.log('ShrinkPDF SW registered:', reg.scope))
-        .catch(err => console.warn('SW registration failed:', err));
-    });
-  }
-</script>
+
 </body>
 </html>
