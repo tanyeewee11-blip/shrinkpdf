@@ -16,12 +16,9 @@
 
   <!-- English blog articles -->
   <url><loc>https://shrinkpdf.fyi/en-01-below1mb.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-02-email.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-03-quality.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/en-04-nolimit.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/en-05-largefile.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/en-06-malaysia.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-07-toolarge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/en-08-scanned.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/en-09-mobile.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/en-10-whylarge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

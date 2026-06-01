@@ -1,1 +1,4 @@
 https://shrinkpdf.pages.dev/* https://shrinkpdf.fyi/:splat 301
+/en-02-email.html /en-01-below1mb.html 301
+/en-03-quality.html /en-15-quality.html 301
+/en-07-toolarge.html /en-05-largefile.html 301
