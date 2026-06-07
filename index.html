@@ -1092,36 +1092,11 @@ body {
     currentLevel = level;
   }
 
-  // MuPDF Worker (lazy init)
-  let mupdfWorker = null;
-  let workerMsgId = 0;
-
-  function getMuPDFWorker() {
-    if (!mupdfWorker) {
-      mupdfWorker = new Worker('mupdf-worker.js');
-    }
-    return mupdfWorker;
-  }
-
-  function compressWithWorker(arrayBuffer, level) {
-    return new Promise((resolve, reject) => {
-      const worker = getMuPDFWorker();
-      const id = ++workerMsgId;
-      worker.onmessage = (e) => {
-        if (e.data.id !== id) return;
-        const { type, pct, msg, buffer, message } = e.data;
-        if (type === 'progress') {
-          setProgress(pct, msg);
-        } else if (type === 'result') {
-          resolve(buffer);
-        } else if (type === 'error') {
-          reject(new Error(message));
-        }
-      };
-      worker.onerror = (err) => reject(new Error(err.message));
-      worker.postMessage({ id, type: 'compress', payload: { arrayBuffer, level } }, [arrayBuffer]);
-    });
-  }
+  const LEVELS = {
+    light:  { scale: 2.0, quality: 0.82, useJpeg: true },
+    medium: { scale: 1.5, quality: 0.62, useJpeg: true },
+    strong: { scale: 1.2, quality: 0.38, useJpeg: true },
+  };
 
   async function startCompress() {
     if (!currentFile) return;
@@ -1131,10 +1106,36 @@ body {
     document.getElementById('progressWrap').classList.add('visible');
     document.getElementById('resultCard').classList.remove('visible');
     try {
-      setProgress(5, 'Reading file…');
+      setProgress(5, 'Loading PDF…');
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
       const arrayBuffer = await currentFile.arrayBuffer();
-      const resultBuffer = await compressWithWorker(arrayBuffer, currentLevel);
-      compressedBlob = new Blob([resultBuffer], { type: 'application/pdf' });
+      const pdfJsDoc = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
+      const totalPages = pdfJsDoc.numPages;
+      setProgress(10, `Loaded ${totalPages} page${totalPages > 1 ? 's' : ''}…`);
+      const cfg = LEVELS[currentLevel];
+      const outDoc = await PDFLib.PDFDocument.create();
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      for (let i = 1; i <= totalPages; i++) {
+        setProgress(Math.round(10 + (i / totalPages) * 80), `Compressing page ${i} of ${totalPages}…`);
+        const page = await pdfJsDoc.getPage(i);
+        const viewport = page.getViewport({ scale: cfg.scale });
+        canvas.width = Math.floor(viewport.width);
+        canvas.height = Math.floor(viewport.height);
+        ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        await page.render({ canvasContext: ctx, viewport }).promise;
+        const dataUrl = canvas.toDataURL(cfg.useJpeg ? 'image/jpeg' : 'image/png', cfg.useJpeg ? cfg.quality : undefined);
+        const imgBytes = Uint8Array.from(atob(dataUrl.split(',')[1]), c => c.charCodeAt(0));
+        const pointWidth = viewport.width / cfg.scale;
+        const pointHeight = viewport.height / cfg.scale;
+        const embeddedImg = cfg.useJpeg ? await outDoc.embedJpg(imgBytes) : await outDoc.embedPng(imgBytes);
+        const newPage = outDoc.addPage([pointWidth, pointHeight]);
+        newPage.drawImage(embeddedImg, { x: 0, y: 0, width: pointWidth, height: pointHeight });
+      }
+      setProgress(93, 'Building output file…');
+      const compressedBytes = await outDoc.save({ useObjectStreams: true });
+      compressedBlob = new Blob([compressedBytes], { type: 'application/pdf' });
+      setProgress(100, 'Done!');
       await sleep(300);
       showResult(currentFile.size, compressedBlob.size);
     } catch (err) {
