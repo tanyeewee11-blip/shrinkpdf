@@ -1098,7 +1098,7 @@ body {
 
   function getMuPDFWorker() {
     if (!mupdfWorker) {
-      mupdfWorker = new Worker('mupdf-worker.js', { type: 'module' });
+      mupdfWorker = new Worker('mupdf-worker.js');
     }
     return mupdfWorker;
   }
