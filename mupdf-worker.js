@@ -1,3 +1,4 @@
+(async () => {
 // mupdf-wasm-stub.js
 var _ = async function(_2 = {}) {
   var a, e, t = _2, s = new Promise((_3, t2) => {
@@ -3600,3 +3601,5 @@ self.onmessage = async (e) => {
     self.postMessage({ id, type: "error", message: err.message || String(err) });
   }
 };
+
+})().catch(e => console.error("MuPDF init error:", e));
