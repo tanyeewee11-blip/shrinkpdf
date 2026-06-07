@@ -1,18 +1,8 @@
 /**
  * mupdf-worker.js — ES Module Worker
- * mupdf-wasm.js 和 mupdf-wasm.wasm 必须在同一目录
+ * 需要同目录有: mupdf.js, mupdf-wasm.js, mupdf-wasm.wasm
  */
-import muPDFInit from './mupdf-wasm.js';
-
-let mupdfInstance = null;
-
-async function getMuPDF() {
-  if (!mupdfInstance) {
-    // 不传 locateFile，让它用 import.meta.url 自动找 .wasm 文件
-    mupdfInstance = await muPDFInit();
-  }
-  return mupdfInstance;
-}
+import * as mupdf from './mupdf.js';
 
 const LEVEL_OPTIONS = {
   light:  'compress,compress-images,compress-fonts,garbage=2,sanitize',
@@ -27,9 +17,6 @@ self.onmessage = async (e) => {
   const progress = (pct, msg) => self.postMessage({ id, type: 'progress', pct, msg });
 
   try {
-    progress(5, 'Loading MuPDF engine…');
-    const mupdf = await getMuPDF();
-
     progress(20, 'Opening PDF…');
     const uint8 = new Uint8Array(payload.arrayBuffer);
     const doc = mupdf.Document.openDocument(uint8, 'application/pdf');
