@@ -8,7 +8,7 @@ var _ = async function(_2 = {}) {
   }
   var o, p, d = "./this.program", w = (_3, a2) => {
     throw a2;
-  }, f = import.meta.url, l = "";
+  }, f = self.location.href, l = "";
   if (m) {
     var c = r("fs"), g = r("path");
     f.startsWith("file:") && (l = g.dirname(r("url").fileURLToPath(f)) + "/"), p = (_3) => (_3 = U(_3) ? new URL(_3) : _3, c.readFileSync(_3)), o = async (_3, a2 = true) => (_3 = U(_3) ? new URL(_3) : _3, c.readFileSync(_3, a2 ? void 0 : "utf8")), process.argv.length > 1 && (d = process.argv[1].replace(/\\/g, "/")), process.argv.slice(2), w = (_3, a2) => {
@@ -41,7 +41,7 @@ var _ = async function(_2 = {}) {
   }
   var C, E = 0, S = null;
   function D() {
-    return t.locateFile ? (_3 = "mupdf-wasm.wasm", t.locateFile ? t.locateFile(_3, l) : l + _3) : new URL("mupdf-wasm.wasm", import.meta.url).href;
+    return t.locateFile ? (_3 = "mupdf-wasm.wasm", t.locateFile ? t.locateFile(_3, l) : l + _3) : new URL("mupdf-wasm.wasm", self.location.href).href;
     var _3;
   }
   async function M(_3) {
