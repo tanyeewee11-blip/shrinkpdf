@@ -1,27 +1,23 @@
 /**
- * mupdf-worker.js
- * 放在网站根目录。使用本地 mupdf-wasm.js + mupdf-wasm.wasm
+ * mupdf-worker.js — ES Module Worker
+ * mupdf-wasm.js 和 mupdf-wasm.wasm 必须在同一目录
  */
-
-// 加载本地 mupdf-wasm.js（浏览器版）
-importScripts('mupdf-wasm.js');
+import muPDFInit from './mupdf-wasm.js';
 
 let mupdfInstance = null;
 
 async function getMuPDF() {
   if (!mupdfInstance) {
-    // mupdf-wasm.js 暴露全局 _ 函数，调用后返回 mupdf 实例
-    mupdfInstance = await self._(
-      { locateFile: (file) => file }  // 告诉它从同目录加载 .wasm
-    );
+    // 不传 locateFile，让它用 import.meta.url 自动找 .wasm 文件
+    mupdfInstance = await muPDFInit();
   }
   return mupdfInstance;
 }
 
 const LEVEL_OPTIONS = {
-  light:  "compress,compress-images,compress-fonts,garbage=2,sanitize",
-  medium: "compress,compress-images,compress-fonts,garbage=3,sanitize",
-  strong: "compress,compress-images,compress-fonts,garbage=4,sanitize",
+  light:  'compress,compress-images,compress-fonts,garbage=2,sanitize',
+  medium: 'compress,compress-images,compress-fonts,garbage=3,sanitize',
+  strong: 'compress,compress-images,compress-fonts,garbage=4,sanitize',
 };
 
 self.onmessage = async (e) => {
