@@ -28,8 +28,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<!-- MuPDF WASM loaded inside mupdf-worker.js via Web Worker -->
 <style>:root {
     --bg: #0a0a0f;
     --surface: #13131a;
@@ -760,12 +759,12 @@ body {
     <span class="badge-dot"></span>
     Free · No Login · No File Size Limit
   </div>
-  <h1>Compress <span class="highlight">Large PDFs</span><br>Instantly & Free</h1>
-  <p class="subtitle">Reduce your PDF size by up to 80% without losing readability. No registration, no limits, no watermarks. Files stay on your device — never uploaded to any server.</p>
+  <h1>Compress <span class="highlight">PDFs Instantly</span><br>— Free & Private</h1>
+  <p class="subtitle">Reduce PDF size by up to 80% — free, with no file size limit. Unlike Smallpdf or iLovePDF, your file <strong>never leaves your browser</strong>. No upload. No server. Completely private.</p>
 
   <div class="trust-row">
-    <div class="trust-item"><span class="trust-icon">🔒</span> Files never stored</div>
-    <div class="trust-item"><span class="trust-icon">⚡</span> Fast compression</div>
+    <div class="trust-item"><span class="trust-icon">🔒</span> No upload — ever</div>
+    <div class="trust-item"><span class="trust-icon">⚡</span> Instant, local processing</div>
     <div class="trust-item"><span class="trust-icon">♾️</span> No file size limit</div>
     <div class="trust-item"><span class="trust-icon">🆓</span> Always free</div>
   </div>
@@ -876,56 +875,33 @@ body {
   <div class="features-grid">
     <div class="feature-card">
       <span class="feature-icon">🔒</span>
-      <div class="feature-title">100% Private — No Upload</div>
-      <div class="feature-desc">Your PDF never leaves your device. Compression runs entirely inside your browser using JavaScript — no server ever receives your file. This matters when you're compressing payslips, tax documents, medical records, or anything sensitive.</div>
+      <div class="feature-title">100% Private</div>
+      <div class="feature-desc">Your PDF is compressed directly in your browser. No file ever leaves your device. Zero data stored.</div>
     </div>
     <div class="feature-card">
       <span class="feature-icon">♾️</span>
-      <div class="feature-title">No File Size Limit</div>
-      <div class="feature-desc">Most free PDF compressors cap out at 10–20MB on the free tier. ShrinkPDF has no limit — we've tested it on files over 200MB. Processing happens on your own device, so the only limit is your browser's memory.</div>
+      <div class="feature-title">No Size Limit</div>
+      <div class="feature-desc">Unlike other tools that cap at 10–20MB, we handle files of any size — completely free.</div>
     </div>
     <div class="feature-card">
       <span class="feature-icon">🚫</span>
-      <div class="feature-title">No Account Required</div>
-      <div class="feature-desc">No sign-up, no email, no subscription. Open the page, drop your file, download the result. We don't track individual files or store any document data between sessions.</div>
+      <div class="feature-title">No Login Needed</div>
+      <div class="feature-desc">No account, no email, no registration. Just upload your PDF and compress. Done.</div>
     </div>
     <div class="feature-card">
       <span class="feature-icon">🎯</span>
-      <div class="feature-title">3 Compression Levels</div>
-      <div class="feature-desc"><strong>Light</strong> preserves the highest image quality — good for print-ready documents. <strong>Balanced</strong> is the right choice for most everyday files. <strong>Maximum</strong> is for when you need the smallest possible file, such as government portal uploads with a 1–2MB limit.</div>
+      <div class="feature-title">3 Compression Modes</div>
+      <div class="feature-desc">Choose light for quality-sensitive docs, balanced for everyday use, or maximum to squeeze out every byte.</div>
     </div>
     <div class="feature-card">
       <span class="feature-icon">📱</span>
-      <div class="feature-title">Works on Any Device</div>
-      <div class="feature-desc">ShrinkPDF runs in your browser — Chrome, Safari, Firefox, Edge. No app to install. Works on iPhone, Android, Windows, Mac, and Chromebook. If you have a browser, you have a PDF compressor.</div>
+      <div class="feature-title">Works on Mobile</div>
+      <div class="feature-desc">Compress PDFs straight from your phone or tablet. No app download required.</div>
     </div>
     <div class="feature-card">
       <span class="feature-icon">⚡</span>
-      <div class="feature-title">Fast — No Queue, No Wait</div>
-      <div class="feature-desc">Cloud-based tools make you wait while your file uploads and processes on their servers. ShrinkPDF runs locally — a typical 10MB PDF compresses in 2–5 seconds. No queue, no spinner, no waiting for a download link.</div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section style="position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 24px 72px;">
-  <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;text-align:center;margin-bottom:12px;letter-spacing:-0.5px;">How PDF Compression Works</div>
-  <p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto;">Understanding what actually happens when you compress a PDF — and why file size varies so much.</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;">
-      <div style="font-size:1.4rem;margin-bottom:10px;">🖼️</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:8px;">Embedded Images Are the Main Culprit</div>
-      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin:0;">Most large PDFs are large because of images. A scanned document, a form with a photo, a brochure — these embed full-resolution images at 300 DPI or higher. Compression reduces that resolution to 96–150 DPI, which is indistinguishable on screen but dramatically smaller in file size.</p>
-    </div>
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;">
-      <div style="font-size:1.4rem;margin-bottom:10px;">🔤</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:8px;">Text Is Never Affected</div>
-      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin:0;">Text in a PDF is stored as vector data — mathematical descriptions of shapes, not pixels. This means text compresses differently from images, and ShrinkPDF never degrades it. Your text remains sharp, selectable, and copy-pasteable at every compression level.</p>
-    </div>
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;">
-      <div style="font-size:1.4rem;margin-bottom:10px;">🗑️</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:8px;">Hidden Data Gets Removed</div>
-      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin:0;">PDFs accumulate hidden overhead: revision history from multiple edits, duplicate font subsets, unused objects, and embedded metadata. None of this is visible when you open the document, but it adds size. Compression strips these out without changing anything you can see.</p>
+      <div class="feature-title">Instant Results</div>
+      <div class="feature-desc">Processing happens in seconds. No waiting in queues, no slow cloud uploads.</div>
     </div>
   </div>
 </section>
@@ -933,38 +909,38 @@ body {
 <!-- BLOG ARTICLES -->
 <section style="position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 24px 80px;">
   <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;text-align:center;margin-bottom:12px;letter-spacing:-0.5px;">Free PDF Compression Guides</div>
-  <p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-bottom:20px;">Step-by-step tutorials to help you compress PDFs for any situation</p>
-  <div style="text-align:center;margin-bottom:40px;"><a href="guides.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--accent);text-decoration:none;font-size:0.88rem;border:1px solid rgba(91,79,255,0.35);padding:7px 18px;border-radius:100px;transition:all 0.2s;" onmouseover="this.style.background='rgba(91,79,255,0.1)'" onmouseout="this.style.background='transparent'">📚 View all guides →</a></div>
+  <p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-bottom:8px;max-width:600px;margin-left:auto;margin-right:auto;">Not sure which compression level to use, or why your PDF is so large in the first place? These guides cover the most common scenarios — from hitting a 2MB portal limit to compressing scanned documents without losing legibility.</p>
+  <div style="text-align:center;margin-bottom:40px;margin-top:20px;"><a href="guides.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--accent);text-decoration:none;font-size:0.88rem;border:1px solid rgba(91,79,255,0.35);padding:7px 18px;border-radius:100px;transition:all 0.2s;" onmouseover="this.style.background='rgba(91,79,255,0.1)'" onmouseout="this.style.background='transparent'">📚 View all 43 guides →</a></div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
     <a href="en-01-below1mb.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="font-size:1.3rem;margin-bottom:8px;">📉</div>
       <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">How to Compress a PDF — Complete Guide</div>
-      <div style="font-size:0.8rem;color:var(--text-muted);">Target any size — 1MB, 2MB, or for email. Covers every scenario.</div>
-    </a>
-    <a href="en-13-windows.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
-      <div style="font-size:1.3rem;margin-bottom:8px;">🪟</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Compress PDF on Windows 10 & 11</div>
-      <div style="font-size:0.8rem;color:var(--text-muted);">5 methods — no software install needed. Works on any Windows PC.</div>
-    </a>
-    <a href="en-09-mobile.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
-      <div style="font-size:1.3rem;margin-bottom:8px;">📱</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Compress PDF on iPhone & Android</div>
-      <div style="font-size:0.8rem;color:var(--text-muted);">No app needed — step-by-step for Safari and Chrome.</div>
-    </a>
-    <a href="en-15-quality.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
-      <div style="font-size:1.3rem;margin-bottom:8px;">🔬</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Compress PDF Without Losing Quality</div>
-      <div style="font-size:0.8rem;color:var(--text-muted);">When you can compress aggressively — and when to be careful.</div>
+      <div style="font-size:0.8rem;color:var(--text-muted);">Compress to any target size — 1MB, 2MB, or for email. Covers every document type and scenario with real size estimates.</div>
     </a>
     <a href="en-11-comparison.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="font-size:1.3rem;margin-bottom:8px;">⚖️</div>
       <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Smallpdf vs ILovePDF vs ShrinkPDF</div>
-      <div style="font-size:0.8rem;color:var(--text-muted);">Honest comparison with real compression data — 2026.</div>
+      <div style="font-size:0.8rem;color:var(--text-muted);">Honest comparison: compression ratios, privacy practices, free tier limits, and which tool is right for which situation.</div>
+    </a>
+    <a href="en-26-dpi-explained.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+      <div style="font-size:1.3rem;margin-bottom:8px;">🔬</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">DPI and PDF File Size Explained</div>
+      <div style="font-size:0.8rem;color:var(--text-muted);">Why a one-page Canva design is 8MB but a 50-page Word export is 600KB — and what that means for compression.</div>
+    </a>
+    <a href="en-09-mobile.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+      <div style="font-size:1.3rem;margin-bottom:8px;">📱</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Compress PDF on iPhone & Android</div>
+      <div style="font-size:0.8rem;color:var(--text-muted);">No app download required — step-by-step instructions for Safari on iPhone and Chrome on Android.</div>
+    </a>
+    <a href="en-13-windows.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+      <div style="font-size:1.3rem;margin-bottom:8px;">🪟</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Compress PDF on Windows 10 & 11</div>
+      <div style="font-size:0.8rem;color:var(--text-muted);">5 methods compared — which ones actually work, and which waste your time. No software installation required.</div>
     </a>
     <a href="en-14-mac.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="font-size:1.3rem;margin-bottom:8px;">🍎</div>
       <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Compress PDF on Mac</div>
-      <div style="font-size:0.8rem;color:var(--text-muted);">Why Preview often fails — and the most reliable free alternative.</div>
+      <div style="font-size:0.8rem;color:var(--text-muted);">Why Mac's built-in Preview compressor often makes files larger — and the reliable free alternative that actually works.</div>
     </a>
   </div>
 </section>
@@ -978,7 +954,7 @@ body {
       Will compression affect the quality of my PDF?
       <span class="faq-arrow">▼</span>
     </div>
-    <div class="faq-a"><div class="faq-a-inner">It depends on what's in your PDF. Text is stored as vector data and is never degraded — it stays sharp and selectable at every compression level. Images are resampled at lower resolution in Balanced and Maximum modes, which reduces file size significantly but may look slightly softer if you zoom in closely. For documents that are mostly text (contracts, reports, forms), all three modes produce near-identical visual output. For image-heavy PDFs like scans or brochures, Light mode is the safest choice if quality matters.</div></div>
+    <div class="faq-a"><div class="faq-a-inner">Compression preserves the visual quality of your PDF. Text remains fully selectable and copy-pasteable. For the sharpest result with the smallest size reduction, use Light mode. For maximum size reduction, use Maximum mode — images will be resampled at a lower resolution but text is unaffected.</div></div>
   </div>
 
   <div class="faq-item">
@@ -986,7 +962,7 @@ body {
       Is my file safe? Will you store my PDF?
       <span class="faq-arrow">▼</span>
     </div>
-    <div class="faq-a"><div class="faq-a-inner">Your file never leaves your device. ShrinkPDF processes everything locally in your browser — there is no upload step, no server involved, and no file storage. You can verify this yourself: open your browser's Network tab while compressing and you'll see zero outgoing requests for your file. Once you close or refresh the tab, all file data is automatically cleared from browser memory.</div></div>
+    <div class="faq-a"><div class="faq-a-inner">Your file is processed 100% in your browser using JavaScript. It never gets uploaded to any server. We cannot see, access, or store your file at any point.</div></div>
   </div>
 
   <div class="faq-item">
@@ -994,7 +970,7 @@ body {
       Why is my PDF so large in the first place?
       <span class="faq-arrow">▼</span>
     </div>
-    <div class="faq-a"><div class="faq-a-inner">The most common reason is embedded images at high resolution — scans, photos, or screenshots embedded at 300 DPI or higher. A single full-page scan can be 1–3MB on its own. Other causes include duplicate font subsets (when the same font is embedded multiple times), revision history from multiple edits in Word or Acrobat, and unused objects left behind by PDF generators. Compression addresses all of these.</div></div>
+    <div class="faq-a"><div class="faq-a-inner">PDFs become large due to high-resolution images, embedded fonts, metadata, and scan data. Compression removes unnecessary data and optimises images — keeping your content intact while reducing file size dramatically.</div></div>
   </div>
 
   <div class="faq-item">
@@ -1002,54 +978,29 @@ body {
       What's the maximum file size I can compress?
       <span class="faq-arrow">▼</span>
     </div>
-    <div class="faq-a"><div class="faq-a-inner">There's no limit on our end. The practical limit is your browser's available memory — on most modern computers, files up to 200–300MB process without issues. On mobile devices, very large files may slow down or cause the tab to crash. If you're compressing a large file on mobile, try splitting it into smaller parts first using our Split PDF tool, then compress each part separately.</div></div>
+    <div class="faq-a"><div class="faq-a-inner">There is no hard limit on our end. Very large files (100MB+) may take a few extra seconds depending on your device's processing power, since everything runs locally on your browser.</div></div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
-      I need to compress a PDF for LHDN / JPA / MyEG / university upload. Will this work?
+      I need to compress PDF for LHDN / JPA / university upload — will this work?
       <span class="faq-arrow">▼</span>
     </div>
-    <div class="faq-a"><div class="faq-a-inner">Yes — this is one of the most common use cases. Malaysian government portals (LHDN ezHasil, MyEG, JPA, PTPTN) and university application systems typically require PDFs under 1–5MB. Use Maximum compression mode for the smallest output. If the file is still too large, check whether it contains high-resolution scans — scanning at 150 DPI instead of 300 DPI before compressing makes a significant difference. You can also try splitting multi-page documents and uploading them separately if the portal allows it.</div></div>
+    <div class="faq-a"><div class="faq-a-inner">Yes! Most government and university portals require PDFs under 1–5MB. Use our "Maximum" compression mode to get your file as small as possible for uploads.</div></div>
   </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">
-      How much smaller will my PDF get?
-      <span class="faq-arrow">▼</span>
-    </div>
-    <div class="faq-a"><div class="faq-a-inner">It varies based on content. Image-heavy PDFs (scans, brochures, photo albums) typically compress by 40–80%. Text-heavy PDFs (contracts, reports, essays) typically compress by 10–30%, since text is already very efficient to store. PDFs that were already compressed by another tool may show little improvement — there's a physical limit to how small a file can get without discarding visible content.</div></div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">
-      Can I compress a password-protected PDF?
-      <span class="faq-arrow">▼</span>
-    </div>
-    <div class="faq-a"><div class="faq-a-inner">No — password-protected PDFs cannot be processed because the content is encrypted and inaccessible to the compression tool. You'll need to remove the password protection first using a PDF editor or the original application that created the file, then compress. If you don't know the password, the file cannot be unlocked or compressed.</div></div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">
-      Does ShrinkPDF work offline?
-      <span class="faq-arrow">▼</span>
-    </div>
-    <div class="faq-a"><div class="faq-a-inner">Once the page has loaded in your browser, compression itself works without an internet connection — everything runs locally. You do need internet access to load the page initially. If you regularly need offline access, you can save the page using your browser's "Save Page As" feature, though some functionality may not be fully preserved depending on your browser.</div></div>
-  </div>
-
 </section>
 
 <!-- MORE PDF TOOLS -->
 <section class="tools-section">
   <h2>More PDF Tools</h2>
-  <p>Everything you need to work with PDFs — all free, all in your browser</p>
+  <p>Everything you need to work with PDFs — all free, no upload, no account required</p>
   <div class="tools-grid">
-    <a href="split.html" class="tool-link"><div class="tool-link-icon">✂️</div><div class="tool-link-name">Split PDF</div><div class="tool-link-desc">Extract pages or split by range</div></a>
-    <a href="merge.html" class="tool-link"><div class="tool-link-icon">🔗</div><div class="tool-link-name">Merge PDF</div><div class="tool-link-desc">Combine multiple PDFs into one</div></a>
-    <a href="rotate.html" class="tool-link"><div class="tool-link-icon">🔄</div><div class="tool-link-name">Rotate PDF</div><div class="tool-link-desc">Rotate pages 90°/180°/270°</div></a>
-    <a href="pdf-to-images.html" class="tool-link"><div class="tool-link-icon">🖼️</div><div class="tool-link-name">PDF to Images</div><div class="tool-link-desc">Convert each page to JPG/PNG</div></a>
-    <a href="images-to-pdf.html" class="tool-link"><div class="tool-link-icon">📷</div><div class="tool-link-name">Images to PDF</div><div class="tool-link-desc">Combine images into one PDF</div></a>
-    <a href="reorder.html" class="tool-link"><div class="tool-link-icon">📋</div><div class="tool-link-name">Reorder Pages</div><div class="tool-link-desc">Drag & drop to rearrange</div></a>
+    <a href="split.html" class="tool-link"><div class="tool-link-icon">✂️</div><div class="tool-link-name">Split PDF</div><div class="tool-link-desc">Extract specific pages or split by range — useful when a portal needs only certain pages from a larger document</div></a>
+    <a href="merge.html" class="tool-link"><div class="tool-link-icon">🔗</div><div class="tool-link-name">Merge PDF</div><div class="tool-link-desc">Combine multiple PDFs into a single file — ideal for job applications, submissions, or bundling documents before sending</div></a>
+    <a href="rotate.html" class="tool-link"><div class="tool-link-icon">🔄</div><div class="tool-link-name">Rotate PDF</div><div class="tool-link-desc">Fix pages that came out sideways or upside-down after scanning — rotate individual pages or the whole document</div></a>
+    <a href="pdf-to-images.html" class="tool-link"><div class="tool-link-icon">🖼️</div><div class="tool-link-name">PDF to Images</div><div class="tool-link-desc">Convert PDF pages to JPG or PNG — share on WhatsApp or social media, or extract a diagram from a report</div></a>
+    <a href="images-to-pdf.html" class="tool-link"><div class="tool-link-icon">📷</div><div class="tool-link-name">Images to PDF</div><div class="tool-link-desc">Turn phone photos into a PDF — combine scanned receipts, handwritten pages, or photos into one submittable file</div></a>
+    <a href="reorder.html" class="tool-link"><div class="tool-link-icon">📋</div><div class="tool-link-name">Reorder Pages</div><div class="tool-link-desc">Drag and drop to rearrange pages — fix scan order, reorganise a report, or put a merged document in the right sequence</div></a>
   </div>
 </section>
 
