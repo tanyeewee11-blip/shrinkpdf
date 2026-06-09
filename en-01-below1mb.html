@@ -236,9 +236,9 @@ h2[id],h3[id]{scroll-margin-top:110px;}
   </div>
 </nav>
 <div class="wrap">
-  <div class="meta"><span class="tag">How-To</span><span class="tag">Free</span><span class="tag">No Login</span><span class="rt">&#9201; 8 min read</span><time datetime="2026-01-15" class="updated">Updated January 15, 2026</time></div>
-  <h1>How to Compress a PDF — Target Any Size, Keep Quality (Free 2026 Guide)</h1>
-  <p class="intro">Whether you're hitting a 1MB limit on a government portal, a 2MB cap on a job application, a 25MB email attachment ceiling, or just trying to save space — this guide covers everything you need to compress a PDF to any target size, for free, without uploading your file to any server.</p>
+  <div class="meta"><span class="tag">How-To</span><span class="tag">Free</span><span class="tag">No Login</span><span class="rt">&#9201; 10 min read</span><time datetime="2026-01-15" class="updated">Updated January 15, 2026</time></div>
+  <h1>How to Compress a PDF to Any Size — Free Guide (2026)</h1>
+  <p class="intro">Whether you're hitting a 1MB limit on a government portal, a 2MB cap on a job application, a 25MB email attachment ceiling, or just trying to save storage space — this guide covers everything you need to compress a PDF to any target size, for free, without uploading your file to any server.</p>
 
 <nav class="toc" aria-label="Table of contents">
   <div class="toc-title">In this article</div>
@@ -249,104 +249,118 @@ h2[id],h3[id]{scroll-margin-top:110px;}
     <li><a href="#step-by-step">Step-by-Step: Compress to Your Target Size</a></li>
     <li><a href="#quality">Will Compression Affect Quality?</a></li>
     <li><a href="#still-too-large">Still Too Large After Compression?</a></li>
-    <li><a href="#email">Specific Guide: Compressing for Email</a></li>
+    <li><a href="#email">Compressing for Email vs Portal Uploads</a></li>
+    <li><a href="#types">How Different PDF Types Respond</a></li>
     <li><a href="#faq">Frequently Asked Questions</a></li>
   </ol>
 </nav>
 
 <h2 id="size-limits">Common File Size Limits by Platform</h2>
-<p>The right compression level depends on where you're sending the file. Here are the most common limits you'll encounter:</p>
-<div class="box warn"><div class="bt">File Size Limits by Platform Type</div>
+<p>The right compression level depends on where you're sending the file. These limits are per-file unless otherwise noted — a multi-document submission may have the same limit applied to each file individually.</p>
+<div class="box warn"><div class="bt">File Size Limits by Platform</div>
 <ul>
-<li><strong>Government portals (LHDN, EPF, JPA, UPU, SPA):</strong> 1–2MB per document</li>
+<li><strong>Malaysian government portals (LHDN, EPF, JPA, UPU, SPA, PTPTN):</strong> 1–2MB per document</li>
 <li><strong>University submission portals:</strong> 2–5MB per file</li>
-<li><strong>Job application portals (LinkedIn, Workday, etc.):</strong> 5–10MB</li>
-<li><strong>Gmail:</strong> 25MB per email total</li>
+<li><strong>Job application portals (LinkedIn, Workday, JobStreet):</strong> 5–10MB</li>
+<li><strong>Gmail:</strong> 25MB per email total (all attachments combined)</li>
 <li><strong>Outlook.com:</strong> 20MB per email total</li>
 <li><strong>Yahoo Mail:</strong> 25MB per email total</li>
-<li><strong>Corporate email servers:</strong> Often 5–10MB — check with your IT team</li>
-<li><strong>WhatsApp / Telegram:</strong> Up to 100MB, but large files send slowly</li>
+<li><strong>Corporate email servers:</strong> Often 5–10MB — stricter than consumer email</li>
+<li><strong>WhatsApp document:</strong> 100MB per file</li>
+<li><strong>Telegram:</strong> 2GB per file (effectively no limit)</li>
+<li><strong>Google Drive shared link:</strong> No practical limit for standard documents</li>
 </ul></div>
-<p>For Malaysian government portals specifically, see our <a href="en-06-malaysia.html">detailed guide on LHDN, EPF, JPA, and UPU limits</a>.</p>
+<p>For Malaysian government portal limits specifically, see the <a href="en-06-malaysia.html">detailed guide on LHDN, EPF, JPA, and UPU upload requirements</a>.</p>
 
 <h2 id="what-affects-size">What Actually Makes a PDF Large?</h2>
-<p>Understanding why your PDF is large helps you pick the right fix. The four main culprits are:</p>
+<p>Understanding why your PDF is large tells you whether compression will work well — and how much reduction to expect. There are four main causes:</p>
 <ul>
-<li><strong>High-resolution embedded images:</strong> A scan at 300 DPI colour is the most common cause of oversized PDFs. A single scanned A4 page at 300 DPI colour can be 1–3MB on its own.</li>
-<li><strong>Uncompressed image data:</strong> Many PDF creators embed images without applying any compression. The raw pixel data is stored as-is.</li>
-<li><strong>Colour vs black and white:</strong> Colour images carry 3× more data than grayscale. For documents that don't need colour (payslips, contracts, transcripts), this is pure overhead.</li>
-<li><strong>Embedded fonts and metadata:</strong> A smaller contributor, but PDFs generated from design software or Word can carry unused font subsets and hidden metadata that add hundreds of KB.</li>
+<li><strong>High-resolution embedded images:</strong> A scan at 300 DPI colour is the single most common cause of oversized PDFs. Each full A4 page scanned at 300 DPI colour occupies 1–3MB of raw data. A 5-page payslip history or 6-month bank statement can easily reach 8–15MB this way. Compression works by resampling these images to a lower resolution — typically 96–150 DPI for screen viewing, which looks identical in practice but stores far less data.</li>
+<li><strong>Uncompressed image data:</strong> Many PDF generators (including scanner apps and Word's "Print to PDF") embed images without applying any compression algorithm. The pixels are stored as-is. A compression tool's first pass often yields dramatic results simply by applying standard compression to already-embedded images.</li>
+<li><strong>Colour vs grayscale:</strong> Colour images carry three data values per pixel (red, green, blue) versus one for grayscale. For documents that don't visually require colour — contracts, payslips, transcripts, official letters — colour is pure overhead that adds nothing to the document's utility.</li>
+<li><strong>Embedded fonts, metadata, and revision history:</strong> PDFs generated from design tools or through multiple edits in Word or Acrobat can accumulate unused font subsets (fonts embedded but never used), revision history from tracked changes, and hidden metadata. These add anywhere from a few KB to several hundred KB depending on the document's history.</li>
 </ul>
-<p>Text itself is almost never the problem — text in PDFs is stored as vector data and compresses to almost nothing. If your PDF is mainly text and is still large, it almost certainly has embedded images or was exported without compression from another application.</p>
+<p><strong>Key insight:</strong> Text in PDFs is stored as vector data — mathematical descriptions of shapes — not pixels. Text compresses to almost nothing and is never the reason a PDF is large. If your text-heavy PDF is unexpectedly large, it has embedded images or was exported without compression from another application.</p>
 
 <h2 id="compression-levels">Choosing the Right Compression Level</h2>
-<p>ShrinkPDF offers three compression levels. Here's when to use each:</p>
+<p>ShrinkPDF offers three compression levels, each suited to different situations:</p>
 <div class="box"><div class="bt">Compression Level Guide</div>
 <ul>
-<li><strong>Light (20–35% reduction):</strong> Best for documents where image quality is important — product photos, design portfolios, medical imaging. Text stays identical. Use when you just need to trim a few MB.</li>
-<li><strong>Balanced (40–60% reduction):</strong> The sweet spot for most everyday documents. Ideal for email attachments, reports, and presentations. Quality is virtually indistinguishable on screen at normal zoom.</li>
-<li><strong>Maximum (65–85% reduction):</strong> Use when you have a hard size limit to hit — government portals, EPF, university submissions. Images get noticeably smaller but text remains perfectly sharp. Always verify readability after downloading.</li>
+<li><strong>Light (20–35% reduction):</strong> Applies minimal image resampling — preserves near-original image quality. Best for portfolios, product photos, design work, or medical imaging where visual detail matters. Use when you need to trim a few MB without any perceptible quality change.</li>
+<li><strong>Balanced (40–60% reduction):</strong> The right choice for most everyday documents. Email attachments, reports, presentations, and general documents all compress well at this level. Image quality is virtually indistinguishable at normal viewing sizes on screen.</li>
+<li><strong>Maximum (65–85% reduction):</strong> Use when you have a hard size limit — government portals, university submissions, EPF. Aggressively resamples images to a lower resolution. Text remains perfectly sharp at all levels; only embedded images are affected. Always verify readability after downloading.</li>
 </ul></div>
-<p>When in doubt: use Balanced for email, Maximum for portal uploads with strict limits.</p>
+<p>Rule of thumb: Balanced for email, Maximum for portal uploads with strict limits. If Balanced doesn't get you under the target size, switch to Maximum.</p>
 
 <h2 id="step-by-step">Step-by-Step: Compress to Your Target Size</h2>
 <div class="step"><div class="sn">1</div><div class="sc"><h3>Check Your Current File Size</h3>
-<p>On Windows: right-click the file → Properties. On Mac: right-click → Get Info. On mobile: long-press in Files app. Note the size so you can confirm the reduction after compression.</p></div></div>
-<div class="step"><div class="sn">2</div><div class="sc"><h3>Open ShrinkPDF in Your Browser</h3>
-<p>Go to <a href="index.html">ShrinkPDF.fyi</a> — no account, no app download, no file size limit. Works on Chrome, Safari, Firefox, and Edge on desktop and mobile.</p></div></div>
+<p>Windows: right-click → Properties → "Size on disk". Mac: right-click → Get Info. Mobile: long-press the file in Files app or Google Files. Record the original size — you'll want to confirm the compression result meets your target before submitting.</p></div></div>
+<div class="step"><div class="sn">2</div><div class="sc"><h3>Open ShrinkPDF</h3>
+<p>Go to <a href="index.html">ShrinkPDF.fyi</a> — no account, no app, no size limit. Works on Chrome, Safari, Firefox, and Edge on desktop and mobile. Everything runs locally in your browser.</p></div></div>
 <div class="step"><div class="sn">3</div><div class="sc"><h3>Upload Your PDF</h3>
-<p>Click "Choose PDF File" or drag and drop. Your file stays on your device — nothing is uploaded to any server. Processing happens entirely in your browser.</p></div></div>
-<div class="step"><div class="sn">4</div><div class="sc"><h3>Select the Right Compression Level</h3>
-<p>Use the table above to pick your level. For hard limits (government portals, EPF), choose Maximum. For email, Balanced is usually sufficient. If you're not sure, start with Balanced — you can always re-compress at Maximum.</p></div></div>
+<p>Click "Choose PDF File" or drag and drop. Your file stays on your device — nothing is uploaded to any server. This matters for sensitive documents like payslips, bank statements, and identity documents.</p></div></div>
+<div class="step"><div class="sn">4</div><div class="sc"><h3>Choose the Right Level</h3>
+<p>Use the guidance above. For portal uploads with a 1–2MB limit, select Maximum. For email attachments where quality matters more, select Balanced. You can re-compress at a different level if the first result doesn't meet your target — just upload the original again (not the already-compressed version).</p></div></div>
 <div class="step"><div class="sn">5</div><div class="sc"><h3>Download and Verify</h3>
-<p>After compression, download the file and check two things: (1) the file size meets your target limit, and (2) open the PDF to confirm text and images are still legible. For documents with fine print or signatures, zoom in to verify.</p></div></div>
+<p>Download the compressed file and check: (1) the file size meets your target, and (2) open the PDF and verify that text is legible and key details are clear. For documents with fine print, signatures, or IC numbers, zoom in to confirm they're readable before submitting.</p></div></div>
 
 <h2 id="quality">Will Compression Affect Quality?</h2>
-<p>This is the most common concern, and the answer depends on what's in your PDF:</p>
+<p>This depends on what's in your PDF:</p>
 <ul>
-<li><strong>Text is never affected.</strong> Text in PDFs is stored as vector data, not pixels. No matter what compression level you choose, text remains perfectly sharp and crisp.</li>
-<li><strong>Images are affected — but usually not noticeably.</strong> At Balanced compression, image quality is virtually identical on screen at normal viewing sizes. At Maximum compression, you may notice a slight reduction in sharpness if you zoom into photos at 200%+ — but for document images like charts, logos, and diagrams, it's rarely visible.</li>
-<li><strong>Formatting, colours, and structure are not affected.</strong> Compression does not change the layout, colours, or page structure of your PDF.</li>
+<li><strong>Text is never affected.</strong> Text is stored as vector data in PDFs — not pixels. Regardless of compression level, text remains perfectly sharp and crisp. No PDF compressor can degrade text quality.</li>
+<li><strong>Images are resampled, not destroyed.</strong> Compression reduces image DPI from typically 300 to 96–150 DPI. At normal screen zoom (100%), this is invisible. At 200%+ zoom you may notice photos are slightly less sharp. For document images — logos, signatures, stamps, charts — the change is rarely noticeable.</li>
+<li><strong>Layout, colours, and structure are unchanged.</strong> Compression does not touch page layout, font choices, colour values, or document structure. The document looks the same; images are just stored with less data.</li>
 </ul>
-<div class="box good"><div class="bt">What compression actually does</div>
-<p>Compression reduces embedded image resolution from 300 DPI to 150 DPI (or lower at Maximum), strips unused font subsets, and removes hidden metadata. None of these changes are visible to anyone reading the document normally.</p></div>
+<div class="box good"><div class="bt">What compression actually changes</div>
+<p>Compression reduces embedded image resolution (from 300 DPI to ~150 DPI or lower), strips unused font subsets, removes hidden metadata and revision history, and recompresses image streams using more efficient algorithms. None of these changes are visible to a reader opening the document normally — they affect only how much storage space the file requires.</p></div>
 
 <h2 id="still-too-large">Still Too Large After Compression?</h2>
-<p>If your PDF is still above the limit after Maximum compression, try these steps in order:</p>
+<p>If Maximum compression still leaves you above the target size, work through these options in order:</p>
 <ul>
-<li><strong>Re-scan at lower DPI:</strong> If the document was scanned, 300 DPI is far higher than needed for on-screen reading. Re-scan at 150 DPI in black and white — this alone reduces most scanned PDFs by 70–80% before any compression is applied. See the <a href="en-08-scanned.html">scanned PDF guide</a> for details.</li>
-<li><strong>Split the document:</strong> Use the <a href="split.html">ShrinkPDF Split tool</a> to divide a multi-page document into separate files, then compress and upload each part individually. Most portals allow multiple file uploads.</li>
-<li><strong>Remove blank or unnecessary pages:</strong> Use the <a href="reorder.html">Reorder tool</a> to delete blank pages, duplicate pages, or cover pages that aren't required for the submission.</li>
-<li><strong>Compress again:</strong> Running Maximum compression a second time can sometimes squeeze out an additional 10–15% from files that have mixed content.</li>
+<li><strong>Re-scan at lower DPI and grayscale:</strong> If the source document is a scan, the single most effective fix is to re-scan at 150 DPI in grayscale (black and white). A single A4 page scanned this way is typically 50–200KB — well under any portal limit without any compression needed. This is more effective than any compression tool when you have access to the original physical document.</li>
+<li><strong>Split into smaller parts:</strong> Use the <a href="split.html">ShrinkPDF Split tool</a> to extract specific pages or page ranges into separate files. If the portal allows multiple uploads for the same category, compress and upload each part individually.</li>
+<li><strong>Remove unnecessary pages:</strong> Use the <a href="reorder.html">Reorder tool</a> to delete blank pages, duplicate scans, or appendix pages not required for the submission. Even removing one high-resolution page can significantly reduce the total.</li>
+<li><strong>Compress a second time:</strong> In some cases, running Maximum compression again on an already-compressed file yields an additional 10–20% reduction, particularly for mixed-content documents.</li>
+<li><strong>Use an alternative submission method:</strong> For email, share a Google Drive or OneDrive link instead of attaching. For portals, contact the helpdesk — most Malaysian government portals have an email alternative for genuinely large documents.</li>
 </ul>
 
-<h2 id="email">Specific Guide: Compressing for Email</h2>
-<p>Email has different requirements than portal uploads. Gmail and Outlook have generous limits (20–25MB), so for most documents you can use Balanced compression rather than Maximum — this preserves more image quality while still reducing the file enough for fast sending.</p>
-<p>The exception is corporate email servers, which often have much stricter limits (5–10MB or even lower). If you're emailing to a company address and the email bounces due to size, try Maximum compression or consider an alternative.</p>
-<div class="box"><div class="bt">When compression alone isn't enough for email</div>
+<h2 id="email">Compressing for Email vs Portal Uploads</h2>
+<p>Email and portal uploads have different requirements, and the right compression strategy differs:</p>
+<p><strong>For email (Gmail, Outlook, Yahoo):</strong> The 20–25MB attachment limit is generous for most documents. Use Balanced compression — it preserves more visual quality while still reducing file size meaningfully. Reserve Maximum for documents with hard size targets. If a file is genuinely too large for email after Maximum compression (e.g. a 200-page report), switch to sharing a link via Google Drive or OneDrive rather than compressing further.</p>
+<p><strong>For government portals:</strong> Use Maximum compression without hesitation. The 1–2MB limits are strict and the quality tradeoff is not meaningful for text-heavy government documents. Reviewers are reading on screen, not printing at high resolution.</p>
+<p><strong>For corporate email:</strong> Server limits vary. If a compressed PDF bounces with a size error, check whether the limit is per-attachment or per-email-total. A 5MB limit per email with three attachments means each file should be under ~1.5MB after accounting for email overhead.</p>
+
+<h2 id="types">How Different PDF Types Respond to Compression</h2>
+<p>Not all PDFs compress equally. Here's what to expect by document type:</p>
+<div class="box"><div class="bt">Expected Compression Results by Document Type</div>
 <ul>
-<li><strong>Google Drive:</strong> Upload the file and share a view link instead of attaching. Free, no size limit.</li>
-<li><strong>OneDrive / Dropbox:</strong> Same approach — share a link rather than attaching.</li>
-<li><strong>WeTransfer.com:</strong> Free for files up to 2GB, no account needed. Link expires after 7 days.</li>
+<li><strong>Scanned documents (colour, 300 DPI):</strong> 70–85% reduction — best results of any document type</li>
+<li><strong>Scanned documents (grayscale, 300 DPI):</strong> 60–75% reduction</li>
+<li><strong>Documents with embedded photos:</strong> 50–75% reduction depending on original photo resolution</li>
+<li><strong>Office documents exported to PDF (Word, PowerPoint):</strong> 20–50% reduction</li>
+<li><strong>Text-only PDFs (contracts, letters):</strong> 10–30% reduction — already efficiently stored</li>
+<li><strong>Already-compressed PDFs:</strong> 5–15% — diminishing returns, little headroom remaining</li>
 </ul></div>
+<p>If your scanned PDF shows less than 30% reduction after Maximum compression, the file may already have been compressed at the scanner level, or it may contain embedded images that are already at low resolution.</p>
 
   <div class="cta">
-    <h3>&#10003; Try ShrinkPDF Free &mdash; No Login Required</h3>
+    <h3>&#10003; Try ShrinkPDF Free — No Login Required</h3>
     <p>No registration. No file size limit. Your file never leaves your browser.</p>
     <a href="index.html" class="btn">&#128218; Compress My PDF Now</a>
   </div>
 
   <h2 id="faq">Frequently Asked Questions</h2>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compressing to under 1MB ruin my document? <span>&#9660;</span></div><div class="fa"><div class="fai">For text-based PDFs, quality is virtually identical at any compression level. For image-heavy PDFs, Maximum compression may slightly reduce image sharpness at high zoom, but text remains perfectly sharp. Always open the compressed file to verify before submitting.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Is there a file size limit on ShrinkPDF? <span>&#9660;</span></div><div class="fa"><div class="fai">No. Unlike most free tools that cap at 10–20MB, ShrinkPDF has no file size limit. You can compress files of any size. For very large files on older or low-RAM devices, processing may be slower since everything happens in your browser.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Does my file get stored on your servers? <span>&#9660;</span></div><div class="fa"><div class="fai">No. Your file is processed 100% locally in your browser using JavaScript. It never gets uploaded to any server at any point. You can verify this by going offline after the page loads — compression will still work.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">What compression level should I use for a government portal? <span>&#9660;</span></div><div class="fa"><div class="fai">Use Maximum compression for government portals like LHDN, EPF, JPA, and UPU, which typically enforce 1–2MB limits. Maximum compression reduces most documents by 65–85%, giving you a comfortable margin under the limit.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">What's the difference between Balanced and Maximum compression? <span>&#9660;</span></div><div class="fa"><div class="fai">Balanced reduces file size by 40–60% with virtually no visible quality change — ideal for email and everyday use. Maximum reduces by 65–85% with a slight reduction in image sharpness — use this when you have a hard size limit to meet, like a 1MB or 2MB portal cap.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">My PDF is still too large after Maximum compression. What next? <span>&#9660;</span></div><div class="fa"><div class="fai">If the document was scanned, re-scan at 150 DPI in black and white — this typically reduces scanned PDFs by 70–80% before any additional compression. Alternatively, use ShrinkPDF's Split tool to divide the document into smaller parts and upload them separately.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compressing to under 1MB ruin my document? <span>&#9660;</span></div><div class="fa"><div class="fai">For text-based PDFs, quality is virtually identical at any compression level — text is stored as vector data and is never degraded. For image-heavy PDFs, Maximum compression reduces image resolution, which may look slightly softer when zoomed in at 200%+. For normal reading and on-screen review, the difference is not visible. Always open the compressed file and verify before submitting to a portal or employer.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Is there a file size limit on ShrinkPDF? <span>&#9660;</span></div><div class="fa"><div class="fai">No. Unlike most free tools that cap at 10–20MB on the free tier, ShrinkPDF has no file size limit. You can compress a 200MB PDF. For very large files, processing takes longer since everything happens locally in your browser — but there is no size cutoff.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Does my file get stored on your servers? <span>&#9660;</span></div><div class="fa"><div class="fai">No. Your file is processed 100% locally in your browser using JavaScript. It never gets uploaded to any server at any point. You can verify this yourself: go offline after the page loads and compression will still work, because no server connection is required.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Which compression level should I use for government portals? <span>&#9660;</span></div><div class="fa"><div class="fai">Use Maximum compression for all Malaysian government portals (LHDN, EPF, JPA, UPU, SPA, PTPTN). These portals enforce 1–2MB limits and Maximum compression reduces most documents by 65–85%, giving you a comfortable margin. For EPF specifically, which sometimes enforces a 1MB limit, Maximum compression is essential.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">What's the difference between Balanced and Maximum compression? <span>&#9660;</span></div><div class="fa"><div class="fai">Balanced reduces file size by 40–60% with virtually no visible quality difference at normal screen zoom — ideal for email and everyday sharing. Maximum reduces by 65–85% by more aggressively resampling images — use this when you have a hard size limit to meet. Text is unaffected at both levels; only embedded images are resampled differently.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">My PDF is still too large after Maximum compression. What next? <span>&#9660;</span></div><div class="fa"><div class="fai">If the document is a scan, re-scan at 150 DPI in grayscale — this is almost always more effective than any compression tool. If you can't re-scan, use the Split tool to break the document into smaller parts and upload separately. If neither option works for your portal, contact the portal helpdesk — most have an email alternative for genuinely large documents.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Can I compress the same PDF multiple times? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes, but with diminishing returns. A second pass of Maximum compression on an already-compressed file may yield 10–20% additional reduction in some cases, but typically much less. More importantly, always compress from the original file if possible — running compression on an already-compressed file produces worse quality than running it once on the original at the same level.</div></div></div>
 
   <div class="related">
     <h3>Related Articles</h3>
-    <div class="rls"><a href="en-06-malaysia.html" class="rl">Compress PDF for LHDN, JPA &amp; EPF Portals <span>&rarr;</span></a><a href="en-08-scanned.html" class="rl">How to Compress a Scanned PDF <span>&rarr;</span></a><a href="en-09-mobile.html" class="rl">Compress PDF on iPhone and Android <span>&rarr;</span></a><a href="en-13-windows.html" class="rl">How to Compress a PDF on Windows 10 &amp; 11 <span>&rarr;</span></a><a href="en-14-mac.html" class="rl">How to Compress a PDF on Mac <span>&rarr;</span></a></div>
+    <div class="rls"><a href="en-06-malaysia.html" class="rl">Compress PDF for LHDN, JPA &amp; EPF Portals <span>&rarr;</span></a><a href="en-08-scanned.html" class="rl">How to Compress a Scanned PDF <span>&rarr;</span></a><a href="en-26-dpi-explained.html" class="rl">DPI and PDF File Size Explained <span>&rarr;</span></a><a href="en-11-comparison.html" class="rl">ShrinkPDF vs iLovePDF vs Smallpdf: Which Is Best? <span>&rarr;</span></a><a href="en-13-windows.html" class="rl">How to Compress a PDF on Windows <span>&rarr;</span></a></div>
   </div>
 </div>
 <footer>

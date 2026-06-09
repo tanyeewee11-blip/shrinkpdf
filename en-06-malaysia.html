@@ -253,15 +253,16 @@ h2[id],h3[id]{scroll-margin-top:110px;}
   </div>
 </nav>
 <div class="wrap">
-  <div class="meta"><span class="tag">Malaysia</span><span class="tag">Government</span><span class="tag">LHDN</span><span class="tag">How-To</span><span class="rt">&#9201; 7 min read</span><time datetime="2026-02-01" class="updated">Updated February 01, 2026</time></div>
+  <div class="meta"><span class="tag">Malaysia</span><span class="tag">Government</span><span class="tag">LHDN</span><span class="tag">How-To</span><span class="rt">&#9201; 10 min read</span><time datetime="2026-02-01" class="updated">Updated February 01, 2026</time></div>
   <h1>Compress PDF for Malaysian Government Portal Upload — LHDN, JPA, EPF (2026)</h1>
-  <p class="intro">You've filled in the form, scanned all your documents, and then — the portal rejects your file for being too large. This happens to thousands of Malaysians every year on LHDN, JPA, EPF, UPU, and SPA portals. Here's a complete guide to fixing it, for free, without uploading your sensitive documents to any server.</p>
+  <p class="intro">You've filled in the form, scanned all your documents, and then — the portal rejects your file for being too large. This happens to thousands of Malaysians every year on LHDN, JPA, EPF, UPU, and SPA portals. Here's a complete guide to fixing it fast, for free, without uploading your sensitive documents to any server.</p>
 <nav class="toc" aria-label="Table of contents">
   <div class="toc-title">In this article</div>
   <ol>
     <li><a href="#portal-limits">File Size Limits by Portal</a></li>
     <li><a href="#why-so-large">Why Are My Scanned Documents So Large?</a></li>
     <li><a href="#portal-specific">Portal-Specific Tips</a></li>
+    <li><a href="#document-types">Compression by Document Type</a></li>
     <li><a href="#step-by-step">Step-by-Step: Compress for Government Portal Upload</a></li>
     <li><a href="#before-you-scan">Tips Before You Even Scan</a></li>
     <li><a href="#still-too-large">Still Too Large After Compression?</a></li>
@@ -270,8 +271,8 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 </nav>
 
 <h2 id="portal-limits">File Size Limits by Portal</h2>
-<p>Malaysian government portals enforce strict upload limits to manage server load. The limits below are based on current portal requirements as of 2026:</p>
-<div class="box warn"><div class="bt">Upload Limits by Portal</div>
+<p>Malaysian government portals enforce strict upload limits to manage server load. The limits below are based on current portal requirements as of 2026. These limits are per file — not per submission — so a multi-document application may require compressing each file separately.</p>
+<div class="box warn"><div class="bt">Upload Limits by Portal (2026)</div>
 <ul>
 <li><strong>LHDN e-Filing (ezHASiL):</strong> 2MB per supporting document</li>
 <li><strong>UPU / MyGovUC (university application):</strong> 2MB per file</li>
@@ -281,94 +282,116 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <li><strong>MARA / Bank Rakyat scholarship portals:</strong> 1–2MB per file</li>
 <li><strong>MySejahtera / Padu:</strong> 2MB per upload</li>
 <li><strong>MyIPO (intellectual property):</strong> 5MB per attachment</li>
+<li><strong>MyEG (road tax, licence renewal):</strong> 2MB per supporting document</li>
+<li><strong>PTPTN (loan application):</strong> 2MB per file</li>
 </ul></div>
-<p>Most portals share the same 2MB threshold. EPF i-Akaun is stricter for certain document types — when in doubt, compress to under 1MB to be safe across all portals.</p>
+<p>Most portals share the same 2MB threshold. EPF i-Akaun is stricter for certain document types — when in doubt, compress to under 1MB to be safe across all portals. Portal limits can change without notice; if a file you've submitted before is now rejected, the portal may have tightened its limits.</p>
 
 <h2 id="why-so-large">Why Are My Scanned Documents So Large?</h2>
-<p>A scanned document at the default scanner settings (300 DPI, colour) can easily produce a 5–15MB PDF for just a few pages. Here's why:</p>
+<p>A scanned document at default scanner settings (300 DPI, colour) easily produces a 5–15MB PDF for just a few pages. Understanding why helps you fix it faster — and avoid the problem in future.</p>
 <ul>
-<li><strong>High DPI (dots per inch):</strong> 300 DPI is meant for printing, not web upload. At 150 DPI, text documents are still perfectly readable on screen.</li>
-<li><strong>Colour scanning:</strong> Colour adds 3x more data than black and white. For official documents like salary slips or transcripts, colour is rarely needed.</li>
-<li><strong>No compression applied:</strong> Default scanner apps on phones (including CamScanner, Adobe Scan) often save in high quality by default.</li>
-<li><strong>Multiple pages combined:</strong> A 6-month bank statement scanned at 300 DPI colour can exceed 10MB easily.</li>
+<li><strong>High DPI (dots per inch):</strong> 300 DPI is the standard for printing. For screen-only submissions to government portals, 150 DPI produces files that are 75% smaller while remaining perfectly readable. The portal reviewer is reading your document on a screen, not printing it at A3 size.</li>
+<li><strong>Colour scanning:</strong> Colour images store three values per pixel (red, green, blue) versus one for grayscale. For official documents like payslips, transcripts, and forms, colour is rarely required — and switching to grayscale cuts file size by 60–70%.</li>
+<li><strong>No compression in the scanner app:</strong> Default settings in CamScanner, Adobe Scan, and iPhone Notes prioritise quality over file size. The raw image data is embedded in the PDF with minimal compression applied.</li>
+<li><strong>Multiple pages:</strong> A 6-month bank statement scanned at 300 DPI colour can exceed 15MB. Each page adds 1–3MB at high quality settings. A 5-page payslip history can easily reach 8MB before compression.</li>
+<li><strong>Embedded metadata:</strong> Scanner apps embed device information, GPS data, and editing history into the PDF. This adds surprisingly little to file size but compounds with other factors.</li>
 </ul>
-<p>The good news: these factors mean your documents have a lot of room to compress without losing legibility.</p>
+<p>The practical implication: a document that scans at 8MB can typically be compressed to under 500KB without any visible loss of legibility. The compression headroom is large because the source quality is far higher than needed.</p>
 
 <h2 id="portal-specific">Portal-Specific Tips</h2>
 
 <h3>LHDN e-Filing (ezHASiL)</h3>
-<p>LHDN requires supporting documents during tax filing for claims like medical expenses, education fees, and donations. The most commonly rejected files are:</p>
+<p>LHDN requires supporting documents during tax filing for claims like medical expenses, education fees, donations, and lifestyle purchases. The most commonly rejected files are:</p>
 <ul>
-<li>EA Forms scanned in colour at 300 DPI</li>
-<li>Medical receipts with photos or logos that inflate file size</li>
-<li>Combined bank statements across multiple months</li>
+<li>EA Forms scanned in colour at 300 DPI — typically 3–6MB, compress to under 1.5MB</li>
+<li>Medical receipts with logos and colour headers that inflate file size</li>
+<li>Combined bank statements across multiple months — split into individual months before compressing</li>
+<li>Insurance policy documents that are already-digital PDFs but bloated with embedded fonts</li>
 </ul>
-<p>For LHDN, aim for under 1.5MB per file to have a safe margin. Split multi-month statements into individual months if needed.</p>
+<p>For LHDN, aim for under 1.5MB per file to have a comfortable margin under the 2MB limit. If you're uploading multiple supporting documents (e.g. several months of receipts), compress each one individually rather than merging them first.</p>
 
 <h3>UPU / MyGovUC (University Application)</h3>
-<p>SPM results, co-curricular certificates, and personal statements are commonly too large. Certificates printed in colour and scanned at high DPI are the usual culprits. Since these documents have no fine print that requires high resolution, 150 DPI black-and-white compression works perfectly.</p>
+<p>SPM results slips, co-curricular certificates, and personal statements are the most commonly oversized files. Certificates printed in colour on certificate paper and scanned at high DPI are the usual culprits — the colour background and gold borders make these files surprisingly large. Since these documents have no fine print requiring high resolution, 150 DPI black-and-white compression works perfectly and is what portal reviewers expect.</p>
 
 <h3>JPA Biasiswa Scholarship Portal</h3>
-<p>JPA requires income proof, transcripts, and supporting letters. Income documents like payslips and bank statements can get large when combined. Upload them separately rather than merging into one PDF, and compress each individually.</p>
+<p>JPA requires income proof, academic transcripts, and supporting letters. Income documents — payslips and bank statements — can get large when covering multiple months. Best practice: upload each document type separately rather than merging everything into one PDF. Compress each file to under 1.5MB. JPA reviewers often need to cross-reference specific pages, and separate files make this easier for them too.</p>
 
 <h3>EPF i-Akaun (KWSP)</h3>
-<p>EPF is one of the stricter portals — some document types have a 1MB limit. Compress your documents to under 800KB if you're submitting to EPF to avoid rejection. IC copies and bank account documents are the most common uploads here.</p>
+<p>EPF is one of the stricter portals — some document categories have a 1MB limit per file. Compress your documents to under 800KB when submitting to EPF to be safe. IC copies, bank account documents, and marriage certificates are the most frequent uploads. For IC copies, a simple black-and-white scan at 150 DPI produces a file well under 200KB, which is well within any portal's limit.</p>
 
 <h3>SPA Online (Civil Service Application)</h3>
-<p>SPA requires academic certificates, transcripts, and experience letters. These are typically multi-page documents and can reach 5–8MB when scanned. Use maximum compression and consider splitting certificates from transcripts into separate uploads.</p>
+<p>SPA requires academic certificates, transcripts, and experience letters. Multi-page transcripts and certificate bundles are common — a full 3-year university transcript can be 10–15 pages and reach 8MB when scanned. Use maximum compression and split certificates from transcripts into separate uploads if the portal allows it. SPA also accepts documents via email in some cases, where attachment limits are typically 10–20MB — compression still helps here.</p>
+
+<h3>PTPTN Loan Application</h3>
+<p>PTPTN commonly requires offer letters, IC copies, and guarantor documents. The guarantor's income documents (payslips, EA form) are often the largest files. Compress each to under 1MB. If a guarantor is submitting on a phone, use ShrinkPDF's mobile-friendly interface — it works on Android and iPhone without installing an app.</p>
+
+<h2 id="document-types">Compression by Document Type</h2>
+<p>Different documents respond differently to compression. Here's what to expect:</p>
+<div class="box warn"><div class="bt">Expected File Size After Maximum Compression</div>
+<ul>
+<li><strong>IC copy (1 page, colour scan):</strong> Typically 3–5MB → under 300KB after compression</li>
+<li><strong>Payslip (1–2 pages):</strong> Typically 1–3MB → under 300KB after compression</li>
+<li><strong>Bank statement (1 month, 2–4 pages):</strong> Typically 2–6MB → under 500KB after compression</li>
+<li><strong>Academic transcript (5–10 pages):</strong> Typically 5–12MB → under 1MB after compression</li>
+<li><strong>Certificate (1 page, colour):</strong> Typically 2–4MB → under 400KB after compression</li>
+<li><strong>EA Form (1–2 pages):</strong> Typically 1–3MB → under 400KB after compression</li>
+<li><strong>Offer letter / official letter (1–3 pages, text-heavy):</strong> Typically 500KB–2MB → under 300KB after compression</li>
+</ul></div>
+<p>Text-heavy documents (letters, forms with typed content) compress significantly better than image-heavy scans. A well-formatted offer letter that is already a digital PDF may only need light compression to stay under 2MB.</p>
 
 <h2 id="step-by-step">Step-by-Step: Compress for Government Portal Upload</h2>
 <div class="step"><div class="sn">1</div><div class="sc"><h3>Check Which Files Are Too Large</h3>
-<p>On Windows: right-click the file → Properties → check the file size. On Mac: right-click → Get Info. On phone: long-press the file in Files app to see details. Any file over the portal's limit needs compression.</p></div></div>
-<div class="step"><div class="sn">2</div><div class="sc"><h3>Open ShrinkPDF in Your Browser</h3>
-<p>Go to <a href="index.html">ShrinkPDF.fyi</a> on any browser — Chrome, Safari, or Firefox. No app download, no account creation required. Works on both desktop and mobile.</p></div></div>
-<div class="step"><div class="sn">3</div><div class="sc"><h3>Upload Your PDF and Select Maximum Compression</h3>
-<p>Click "Choose PDF File" or drag and drop. Select <strong>Maximum</strong> compression level. For government portal documents, maximum compression reduces file size by 70–85% while keeping text fully readable. Your file is processed entirely in your browser — nothing is uploaded to any server.</p></div></div>
+<p>On Windows: right-click the file → Properties → check the file size under "Size on disk". On Mac: right-click → Get Info. On phone: long-press the file in Files app or Google Files. Note the original size so you can confirm the compression worked. Any file over the portal's stated limit needs compression before upload.</p></div></div>
+<div class="step"><div class="sn">2</div><div class="sc"><h3>Open ShrinkPDF on Any Browser</h3>
+<p>Go to <a href="index.html">ShrinkPDF.fyi</a> on Chrome, Safari, or Firefox — no app download, no account required. Works on desktop (Windows, Mac) and mobile (Android, iPhone). The full tool loads in a few seconds.</p></div></div>
+<div class="step"><div class="sn">3</div><div class="sc"><h3>Upload and Select Maximum Compression</h3>
+<p>Click "Choose PDF File" or drag and drop. Select <strong>Maximum</strong> compression — this is the right choice for all government portal documents. Maximum compression reduces file size by 70–85% while keeping text fully readable. Your file is processed entirely in your browser — nothing is uploaded to any server, which matters for sensitive documents like IC copies and payslips.</p></div></div>
 <div class="step"><div class="sn">4</div><div class="sc"><h3>Download and Verify the File Size</h3>
-<p>After compression, download the file. Check the file size again (right-click → Properties). Confirm it is under the portal's limit before proceeding. If you're submitting to EPF, aim for under 1MB to be safe.</p></div></div>
-<div class="step"><div class="sn">5</div><div class="sc"><h3>Open the File to Verify Readability</h3>
-<p>Before uploading, open the compressed PDF and confirm the text is legible and no pages are missing. For image-heavy documents, zoom in to check that key details (IC number, account number, signature) are still clear.</p></div></div>
+<p>After compression, download the file and check its size again. For EPF submissions, confirm it's under 1MB. For all other portals, confirm it's under 2MB. If submitting multiple documents, check each one before starting the portal upload session.</p></div></div>
+<div class="step"><div class="sn">5</div><div class="sc"><h3>Open the File and Verify Readability</h3>
+<p>Before uploading to the portal, open the compressed PDF and scan through every page. Confirm the text is legible, no pages are missing, and key details (IC number, account number, amounts, signatures) are clearly visible. Zoom in to check fine print if needed. A rejected or unreadable document submission wastes everyone's time.</p></div></div>
 <div class="step"><div class="sn">6</div><div class="sc"><h3>Upload to the Portal</h3>
-<p>Use the compressed file for your government portal submission. If the portal still rejects the file, try compressing again or splitting a multi-page document into separate files.</p></div></div>
+<p>Use the compressed file for your portal submission. If the portal still rejects the file despite being under the size limit, try refreshing the session and re-uploading, or use a different browser. Occasionally portal upload errors are server-side rather than file-related.</p></div></div>
 
 <div class="box good"><div class="bt">Privacy Note — Important for Government Documents</div>
-<p>ShrinkPDF processes all files locally in your browser using JavaScript. Your IC copies, payslips, tax documents, and bank statements <strong>never leave your device</strong> and are not sent to any server at any point. This is different from tools like Smallpdf or ILovePDF, which upload your files to their servers for processing. For sensitive government documents, local processing matters.</p></div>
+<p>ShrinkPDF processes all files locally in your browser using JavaScript. Your IC copies, payslips, tax documents, and bank statements <strong>never leave your device</strong> — they are not sent to any server at any point. This is verifiably different from tools like Smallpdf or iLovePDF, which upload your files to their cloud servers for processing. You can confirm ShrinkPDF's local processing by opening your browser's Network tab while compressing — you will see no outgoing file transfer. For sensitive government documents, this distinction matters.</p></div>
 
 <h2 id="before-you-scan">Tips Before You Even Scan</h2>
-<p>If you haven't scanned your documents yet, these settings will save you the compression step entirely:</p>
+<p>If you haven't scanned your documents yet, the right scan settings eliminate the compression step entirely. These settings produce portal-ready files directly from the scanner:</p>
 <ul>
-<li><strong>Use 150 DPI instead of 300 DPI</strong> — sufficient for official documents, reduces file size by ~75%</li>
-<li><strong>Scan in black and white (grayscale)</strong> — most Malaysian government documents don't require colour; this alone cuts size by 60–70%</li>
-<li><strong>Use a scanner app with built-in compression</strong> — Microsoft Lens (free) and Google PhotoScan both produce smaller files than most scanner apps by default</li>
-<li><strong>Scan pages individually if possible</strong> — it's easier to manage file sizes per document</li>
+<li><strong>Use 150 DPI instead of 300 DPI</strong> — 150 DPI is sufficient for all Malaysian government portal submissions. Text remains sharp on screen. File size is ~75% smaller than 300 DPI. In CamScanner: Settings → Scan Quality → Standard. In Adobe Scan: this is harder to control, but exporting as "Compressed" helps.</li>
+<li><strong>Scan in black and white (grayscale)</strong> — Most Malaysian government documents (payslips, transcripts, letters) do not require colour. Black and white scanning cuts file size by 60–70% compared to colour. In iPhone Notes scanner: use the "Document" option, not "Photo". In CamScanner: colour mode → Grayscale.</li>
+<li><strong>Use Microsoft Lens (free)</strong> — Microsoft Lens produces smaller PDFs than most scanner apps by default and has better automatic edge detection. Available on Android and iPhone. Free with no ads.</li>
+<li><strong>Scan individual pages separately if possible</strong> — Managing one page at a time makes it easier to verify each scan and control file sizes. Avoid scanning 6-month bank statements as a single session if individual months can be uploaded separately.</li>
 </ul>
 
 <h2 id="still-too-large">Still Too Large After Compression?</h2>
-<p>For documents that still exceed the portal limit after maximum compression, try these steps:</p>
+<p>For documents that still exceed the portal limit after maximum compression, these are the most effective fallbacks:</p>
 <ul>
-<li><strong>Split the document:</strong> Use the <a href="split.html">ShrinkPDF Split tool</a> to break a multi-page PDF into separate files, then compress and upload each part individually.</li>
-<li><strong>Re-scan at lower DPI:</strong> If you have access to the original physical document, re-scan at 100–150 DPI in black and white. This almost always results in a file well under 1MB per page.</li>
-<li><strong>Remove unnecessary pages:</strong> Use the <a href="reorder.html">Reorder tool</a> to delete blank pages or duplicates before compressing.</li>
-<li><strong>Convert to black and white first:</strong> If your document was scanned in colour, converting it to grayscale before compression significantly improves the compression ratio.</li>
+<li><strong>Split the document:</strong> Use the <a href="split.html">ShrinkPDF Split tool</a> to break a multi-page PDF into smaller files. Upload each part separately if the portal allows multiple uploads for the same document category.</li>
+<li><strong>Re-scan at lower settings:</strong> If you have the original physical document, re-scan at 100–150 DPI in grayscale. A single A4 page scanned at 150 DPI grayscale is typically 50–150KB — well under any portal's limit.</li>
+<li><strong>Remove unnecessary pages:</strong> Use the <a href="reorder.html">Reorder tool</a> to delete blank pages, duplicate scans, or summary pages before compressing. Removing even one high-resolution page can make the difference.</li>
+<li><strong>Contact the portal helpdesk:</strong> Some portals have an exception process or an email submission alternative for documents that genuinely cannot be compressed further (e.g. a 20-page medical report). LHDN and EPF both have customer service lines where this can be raised.</li>
 </ul>
 
   <div class="cta">
-    <h3>&#10003; Try ShrinkPDF Free &mdash; No Login Required</h3>
+    <h3>&#10003; Compress Your PDF Free — No Login Required</h3>
     <p>No registration. No file size limit. Your file never leaves your browser.</p>
     <a href="index.html" class="btn">&#128218; Compress My PDF Now</a>
   </div>
 
   <h2 id="faq">Frequently Asked Questions</h2>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Is it safe to compress sensitive government documents like IC copies or payslips? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes. ShrinkPDF processes all files locally in your browser. Your IC copies, payslips, tax documents, and bank statements never leave your device — they are not sent to any server at any point. This is verifiable: you can disconnect your internet after loading the page and compression will still work.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">What file format do Malaysian government portals accept? <span>&#9660;</span></div><div class="fa"><div class="fai">All major Malaysian government portals (LHDN, JPA, EPF, UPU, SPA) accept standard PDF format. The compressed file from ShrinkPDF remains a standard PDF and is fully compatible with all portals. Do not use image formats like JPG or PNG unless the portal specifically requests it.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">My compressed PDF is still over 2MB. What should I do? <span>&#9660;</span></div><div class="fa"><div class="fai">Try scanning the document in black and white at 150 DPI instead of colour at 300 DPI — this alone reduces scanned PDFs by 70–80%. If you're working with an existing PDF you can't re-scan, use ShrinkPDF's Split tool to divide the document into smaller parts and upload them separately.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compression make my documents unreadable or invalid? <span>&#9660;</span></div><div class="fa"><div class="fai">No. ShrinkPDF's maximum compression is designed to keep text sharp and legible while reducing image quality slightly. For text-heavy documents like payslips, letters, and transcripts, the compressed file looks nearly identical to the original. Always open the compressed file to verify before uploading.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Which compression level should I use for LHDN vs EPF? <span>&#9660;</span></div><div class="fa"><div class="fai">Use Maximum compression for both. For EPF, which sometimes enforces a 1MB limit, maximum compression is essential. For LHDN's 2MB limit, maximum compression gives you plenty of margin. There is no advantage to using a lower compression level for government portal submissions.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Can I compress PDFs on my phone for portal uploads? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes. ShrinkPDF works on mobile browsers including Chrome and Safari on Android and iPhone. Open shrinkpdf.fyi, tap Choose PDF File, select your document from Files or Google Drive, compress, and download. The compressed file will appear in your Downloads folder ready to upload.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Is it safe to compress sensitive government documents like IC copies or payslips? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes. ShrinkPDF processes all files locally in your browser. Your IC copies, payslips, tax documents, and bank statements never leave your device — they are not sent to any server at any point. This is verifiable: open your browser's Network tab while compressing and you'll see no outgoing file transfer. You can also go offline after the page loads — compression will still work because no server connection is needed.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">What file format do Malaysian government portals accept? <span>&#9660;</span></div><div class="fa"><div class="fai">All major Malaysian government portals (LHDN, JPA, EPF, UPU, SPA, PTPTN, MyEG) accept standard PDF format. The compressed file from ShrinkPDF remains a fully standard PDF and is compatible with all portal upload systems. Do not convert to JPG or PNG unless the portal specifically requests image format — most portals that accept images also accept PDF and PDF is generally preferable.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">My compressed PDF is still over 2MB. What should I do? <span>&#9660;</span></div><div class="fa"><div class="fai">The most effective fix is to re-scan the original document at 150 DPI in black and white — this alone reduces scanned PDFs by 70–80% compared to default scanner settings. If re-scanning isn't possible, use ShrinkPDF's Split tool to divide the document into smaller parts and upload them separately. If the portal accepts only a single file, contact the portal helpdesk — they often have an email submission alternative for genuinely large documents.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compression make my documents unreadable or invalid for government purposes? <span>&#9660;</span></div><div class="fa"><div class="fai">No. Maximum compression keeps text sharp and fully legible while reducing image resolution. For text-heavy documents like payslips, letters, and transcripts, the compressed output looks nearly identical to the original. Images (like a scanned photo or logo) may look slightly softer at high zoom, but remain perfectly readable for official purposes. Always open the compressed file and verify key details (IC number, amounts, signatures) are clear before submitting.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Which compression level should I use for LHDN vs EPF? <span>&#9660;</span></div><div class="fa"><div class="fai">Use Maximum compression for both. For EPF, which enforces 1MB limits on some document types, maximum compression is essential. For LHDN's 2MB limit, maximum compression gives a comfortable margin. There is no practical reason to use a lower compression level for government portal submissions — text quality is preserved at all levels, and the only difference is how aggressively images are resampled.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Can I compress PDFs on my phone for portal uploads? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes. ShrinkPDF works on mobile browsers — Chrome and Samsung Internet on Android, and Safari on iPhone. Open shrinkpdf.fyi in your browser, tap "Choose PDF File", and select the file from Files, Google Drive, or your downloads. After compression, the file downloads to your device's Downloads folder, from where you can attach it directly to the portal upload field. No app installation required.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">I compressed my IC copy but it looks slightly blurry. Will the portal still accept it? <span>&#9660;</span></div><div class="fa"><div class="fai">For Maximum compression, images are resampled at lower resolution, which can make them look slightly softer when zoomed in closely. However, the IC number, name, and address should remain clearly legible at normal viewing size. Portal reviewers read documents at standard zoom — they are not examining pixel-level sharpness. If in doubt, try Balanced compression instead of Maximum — it produces a slightly larger file but preserves image quality more closely. Always verify the compressed file before submitting.</div></div></div>
 
   <div class="related">
     <h3>Related Articles</h3>
-    <div class="rls"><a href="en-01-below1mb.html" class="rl">How to Get Your PDF Below 1MB <span>&rarr;</span></a><a href="en-12-university.html" class="rl">Compress PDF for University Submission <span>&rarr;</span></a><a href="en-05-largefile.html" class="rl">How to Compress Large PDF Files (100MB+) <span>&rarr;</span></a><a href="en-13-windows.html" class="rl">How to Compress a PDF on Windows 10 &amp; 11 <span>&rarr;</span></a><a href="en-14-mac.html" class="rl">How to Compress a PDF on Mac <span>&rarr;</span></a></div>
+    <div class="rls"><a href="en-01-below1mb.html" class="rl">How to Get Your PDF Below 1MB <span>&rarr;</span></a><a href="en-12-university.html" class="rl">Compress PDF for University Portal Submission <span>&rarr;</span></a><a href="en-35-tax-filing.html" class="rl">Compress PDF for LHDN Tax Filing <span>&rarr;</span></a><a href="en-38-scholarship-application.html" class="rl">Compress PDF for Scholarship Applications <span>&rarr;</span></a><a href="en-05-largefile.html" class="rl">How to Compress Large PDF Files (100MB+) <span>&rarr;</span></a></div>
   </div>
 </div>
 <footer>

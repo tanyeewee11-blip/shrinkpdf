@@ -113,92 +113,142 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:48px
   </div>
 </nav>
 <div class="wrap">
-  <div class="meta"><span class="tag">Deep Dive</span><span class="tag">DPI</span><span class="tag">Compression</span><time datetime="2026-05-01" class="rt">Updated May 1, 2026</time></div>
-  <h1>PDF Compression Explained — DPI, File Size and Quality</h1>
-  <p class="intro">Why does a one-page PDF from Canva weigh 8MB while a 50-page Word export is only 600KB? The answer is DPI — dots per inch. Understanding how DPI and image compression interact in PDFs makes it much easier to choose the right settings and predict the result.</p>
+  <div class="meta"><span class="tag">Deep Dive</span><span class="tag">DPI</span><span class="tag">Compression</span><span class="rt">&#9201; 12 min read</span><time datetime="2026-02-15" class="updated">Updated February 15, 2026</time></div>
+  <h1>DPI and PDF File Size Explained — What Actually Happens When You Compress a PDF</h1>
+  <p class="intro">Why does a one-page PDF from Canva weigh 8MB while a 50-page Word export is only 600KB? Why does your scanned payslip compress from 4MB to 300KB but a digital bank statement barely changes? The answer is DPI — dots per inch. Understanding how DPI and image compression interact in PDFs makes it much easier to choose the right compression settings and predict the result before you hit submit.</p>
 
-  <nav class="toc" aria-label="Table of contents">
-    <div class="toc-title">In this article</div>
-    <ol>
-      <li><a href="#what-is-dpi">What Is DPI and Why Does It Matter for PDFs?</a></li>
-      <li><a href="#dpi-vs-filesize">How DPI Affects File Size</a></li>
-      <li><a href="#compression-levels">What Compression Levels Actually Do</a></li>
-      <li><a href="#screen-vs-print">Screen DPI vs Print DPI — What You Actually Need</a></li>
-      <li><a href="#types">How Different PDF Types Respond to Compression</a></li>
-      <li><a href="#faq">Frequently Asked Questions</a></li>
-    </ol>
-  </nav>
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc-title">In this article</div>
+  <ol>
+    <li><a href="#what-is-dpi">What Is DPI and Why Does It Matter for PDFs?</a></li>
+    <li><a href="#dpi-vs-filesize">How DPI Affects File Size — With Real Numbers</a></li>
+    <li><a href="#text-vs-images">Why Text Is Never Affected by Compression</a></li>
+    <li><a href="#compression-levels">What Compression Levels Actually Do to Your File</a></li>
+    <li><a href="#screen-vs-print">Screen DPI vs Print DPI — What You Actually Need</a></li>
+    <li><a href="#types">How Different PDF Types Respond to Compression</a></li>
+    <li><a href="#scan-settings">Scanning at the Right DPI — Avoiding the Problem at Source</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
 
-  <h2 id="what-is-dpi">What Is DPI and Why Does It Matter for PDFs?</h2>
-  <p>DPI stands for <strong>dots per inch</strong> — the number of pixels used to represent one inch of an image. Higher DPI means more pixels, more detail, and a larger file size. Lower DPI means fewer pixels, less detail, and a smaller file.</p>
-  <p>PDFs are a mixed format: they can contain vector elements (text, lines, shapes drawn with mathematical coordinates) and raster elements (photos, scans, embedded images stored as pixel grids). DPI only applies to the raster elements — the images.</p>
-  <div class="box"><div class="bt">Text has no DPI — it's always sharp</div>
-  <p>Text in a PDF is stored as font data — instructions for drawing each character. It has no DPI and scales perfectly at any size. This is why compressing a PDF never affects text quality. Only embedded images have DPI, and only images are affected by compression.</p></div>
+<h2 id="what-is-dpi">What Is DPI and Why Does It Matter for PDFs?</h2>
+<p>DPI stands for <strong>dots per inch</strong> — the number of pixels used to represent one inch of an image. Higher DPI means more pixels, more detail, and a larger file size. Lower DPI means fewer pixels, less detail, and a smaller file.</p>
+<p>PDFs are a mixed format: they can contain <strong>vector elements</strong> (text, lines, shapes drawn with mathematical coordinates) and <strong>raster elements</strong> (photos, scans, embedded images stored as pixel grids). DPI only applies to the raster elements — the images. This distinction explains why the same compression setting produces dramatically different results on different PDFs.</p>
+<p>When a scanner captures a physical document at 300 DPI, it stores 300 × 300 = 90,000 pixels per square inch. When that image is embedded in a PDF and later compressed, the tool reduces the pixel density to, say, 96 DPI — storing only 9,216 pixels per square inch. The image is smaller in bytes, looks nearly identical on a screen, and takes a fraction of the storage space.</p>
+<div class="box"><div class="bt">DPI vs PPI — Is There a Difference?</div>
+<p>In casual usage, DPI (dots per inch) and PPI (pixels per inch) are used interchangeably for digital images. Technically, DPI refers to physical printer output (how many ink dots per inch) while PPI refers to pixel density in digital files. For PDF compression purposes, the distinction doesn't matter — both terms describe the same concept: how many data points represent one inch of an image. This guide uses DPI throughout as it's the more commonly recognised term in consumer contexts.</p></div>
 
-  <h2 id="dpi-vs-filesize">How DPI Affects File Size</h2>
-  <p>The relationship between DPI and file size is roughly quadratic — double the DPI and the image takes up roughly four times the storage space:</p>
-  <table class="dpi-table">
-    <thead><tr><th>DPI</th><th>Pixels in an A4 image</th><th>Approx. file size (JPEG)</th><th>Use case</th></tr></thead>
-    <tbody>
-      <tr><td>72 DPI</td><td>595 × 842 px</td><td>~50–150KB</td><td>Screen viewing, email, portals</td></tr>
-      <tr><td>96 DPI</td><td>794 × 1123 px</td><td>~100–300KB</td><td>Screen + light print</td></tr>
-      <tr><td>150 DPI</td><td>1240 × 1754 px</td><td>~300KB–1MB</td><td>Good print quality</td></tr>
-      <tr><td>300 DPI</td><td>2480 × 3508 px</td><td>~1–4MB</td><td>Professional print / press</td></tr>
-      <tr><td>600 DPI</td><td>4960 × 7016 px</td><td>~4–16MB</td><td>High-res scanning, archiving</td></tr>
-    </tbody>
-  </table>
-  <p>A single A4 page with one photo at 300 DPI can easily be 2–4MB. A 10-page brochure with photos on every page could be 20–40MB before compression. After downsampling to 96 DPI, the same brochure might be 2–5MB — a 90% reduction.</p>
+<h2 id="dpi-vs-filesize">How DPI Affects File Size — With Real Numbers</h2>
+<p>The relationship between DPI and file size is roughly quadratic: double the DPI and the image takes up approximately four times the storage space. Here's what that looks like in practice for a single A4 page:</p>
+<table class="dpi-table">
+  <thead><tr><th>DPI</th><th>Pixels in an A4 image</th><th>Approx. file size (JPEG)</th><th>Best used for</th></tr></thead>
+  <tbody>
+    <tr><td>72 DPI</td><td>595 × 842 px</td><td>~50–150KB</td><td>Screen viewing, portal uploads, email</td></tr>
+    <tr><td>96 DPI</td><td>794 × 1123 px</td><td>~100–300KB</td><td>Screen + light A4 printing</td></tr>
+    <tr><td>150 DPI</td><td>1240 × 1754 px</td><td>~300KB–1MB</td><td>Good print quality, standard office printing</td></tr>
+    <tr><td>300 DPI</td><td>2480 × 3508 px</td><td>~1–4MB</td><td>Professional print, press-ready files</td></tr>
+    <tr><td>600 DPI</td><td>4960 × 7016 px</td><td>~4–16MB</td><td>High-resolution archiving, technical drawings</td></tr>
+  </tbody>
+</table>
+<p>A single A4 page with one embedded photo at 300 DPI occupies 1–4MB. A 10-page report with a photo on every page can easily reach 20–40MB before compression. After downsampling those images to 96 DPI, the same document might be 1–3MB — a 90%+ reduction with no visible difference when read on screen.</p>
 
-  <h2 id="compression-levels">What Compression Levels Actually Do</h2>
-  <p>When you compress a PDF, the tool downsizes embedded images to a target DPI and applies JPEG compression to reduce their byte size further. Here's what ShrinkPDF's two levels do:</p>
-  <div class="box good"><div class="bt">Balanced — targets approximately 96 DPI</div>
-  <p>Images are resampled to around 96 DPI and compressed with moderate JPEG quality. This looks sharp on any screen at 100% zoom — a monitor typically displays at 72–110 PPI, so 96 DPI provides slightly more data than the screen can show, resulting in crisp rendering. Good for documents where image quality matters: reports with charts, resumes with photos, mixed content.</p></div>
-  <div class="box warn"><div class="bt">Maximum — targets approximately 72 DPI</div>
-  <p>Images are resampled to around 72 DPI with aggressive JPEG compression. This matches the baseline screen resolution, so images look acceptable at 100% zoom but noticeably soft when zoomed in. Produces the smallest file. Best for: scanned documents, text-heavy files, invoices, government forms, anything where images are secondary.</p></div>
+<div class="box warn"><div class="bt">Why Canva PDFs Are So Large</div>
+<p>Canva and other design tools export PDFs with embedded images at 300 DPI or higher by default — optimised for commercial printing quality. A simple one-page design with background gradients, icons, and a photo can be 8–15MB because every graphical element is stored at full print resolution. Compressing to 96 DPI (Balanced mode) typically reduces a Canva PDF by 80–90% — a 10MB file becomes 1–2MB — with no visible quality difference when shared digitally.</p></div>
 
-  <h2 id="screen-vs-print">Screen DPI vs Print DPI — What You Actually Need</h2>
-  <p>Most people compressing PDFs are doing so to email, upload, or share digitally — not to print professionally. This changes the DPI requirement significantly:</p>
-  <ul>
-    <li><strong>Laptop screens:</strong> 96–150 PPI (pixels per inch). A 96 DPI PDF looks sharp.</li>
-    <li><strong>Retina/HiDPI screens:</strong> 200–300+ PPI. A 96 DPI PDF looks acceptable; 150 DPI looks crisp.</li>
-    <li><strong>Desktop office printing:</strong> 150–300 DPI is sufficient. Laser printers print at 600 DPI but most documents don't need it.</li>
-    <li><strong>Professional press printing:</strong> 300 DPI minimum. Do not compress if printing commercially.</li>
-  </ul>
-  <p>For 99% of document sharing and portal uploads, 72–96 DPI is completely fine. The recipient reads it on a screen — they don't zoom in to 400% to inspect image quality.</p>
+<h2 id="text-vs-images">Why Text Is Never Affected by Compression</h2>
+<p>This is the most important concept to understand — and the one that surprises most people.</p>
+<p>Text in a PDF is not stored as pixels. It's stored as <strong>font instructions</strong> — mathematical descriptions of how to draw each character, along with references to font files embedded in the document. When a PDF viewer renders text, it draws it fresh at whatever resolution your screen requires. Text in a PDF is, in this sense, resolution-independent.</p>
+<p>This means:</p>
+<ul>
+<li>Compressing a PDF never affects text sharpness — text looks identical at any zoom level before and after compression</li>
+<li>Text-only PDFs (contracts, letters, Word exports with no images) compress minimally — there's almost nothing to downsample</li>
+<li>A scanned document (a photo of a page, not a digitally created PDF) is stored entirely as images — there's no "text layer" unless OCR has been applied, so it compresses very well</li>
+</ul>
+<div class="box good"><div class="bt">How to Tell If Your PDF Has Real Text or Image Text</div>
+<p>Open the PDF and try to select a word with your cursor. If the text highlights blue when you click and drag, it's real vector text — compression won't change how it looks. If you can't select any text, the document is image-based (a scan or screenshot) — every "character" is actually a pixel, stored as an image. Image-based PDFs compress dramatically better than text-based ones.</p></div>
 
-  <h2 id="types">How Different PDF Types Respond to Compression</h2>
-  <table class="dpi-table">
-    <thead><tr><th>PDF Type</th><th>Main content</th><th>Compression effect</th><th>Recommended level</th></tr></thead>
-    <tbody>
-      <tr><td>Word / Google Docs export</td><td>Text + occasional images</td><td>60–80% reduction</td><td>Maximum</td></tr>
-      <tr><td>Canva / design export</td><td>High-res images, graphics</td><td>70–90% reduction</td><td>Balanced</td></tr>
-      <tr><td>PowerPoint / Slides export</td><td>Mixed text + images</td><td>50–80% reduction</td><td>Balanced</td></tr>
-      <tr><td>Scanned document</td><td>Image of text per page</td><td>60–85% reduction</td><td>Maximum</td></tr>
-      <tr><td>Text-only (no images)</td><td>Pure text + fonts</td><td>5–20% reduction</td><td>Either (minimal impact)</td></tr>
-      <tr><td>Already compressed PDF</td><td>Mixed</td><td>5–30% reduction</td><td>Balanced</td></tr>
-    </tbody>
-  </table>
-  <p>Text-only PDFs compress the least because there are no images to downsample — the savings come only from metadata removal and font optimisation. If you compress a text-only PDF and see minimal size reduction, this is expected and normal.</p>
+<h2 id="compression-levels">What Compression Levels Actually Do to Your File</h2>
+<p>When you compress a PDF, the tool performs two main operations: downsampling (reducing image DPI) and recompression (applying more efficient compression algorithms to the pixel data that remains). Here's exactly what ShrinkPDF's levels do:</p>
+
+<h3>Light Compression</h3>
+<p>Applies minimal downsampling — images are reduced to around 150–200 DPI, and JPEG quality is kept high. File size reduction is typically 20–35%. Visually indistinguishable from the original even when zoomed in closely. Best for: portfolios, product photography, medical imaging, design work, or any situation where image fidelity is the priority and you're not constrained by a strict size limit.</p>
+
+<h3>Balanced Compression</h3>
+<p>Targets approximately 96 DPI with moderate JPEG quality settings. This is the sweet spot for most documents shared digitally. A 96 DPI image looks sharp on any standard monitor at 100% zoom — screens typically display at 72–110 PPI, so 96 DPI provides slightly more data than the screen shows, resulting in crisp rendering. File size reduction is typically 40–60%. Recommended for: email attachments, presentations, reports, mixed-content documents.</p>
+
+<h3>Maximum Compression</h3>
+<p>Targets approximately 72 DPI with aggressive JPEG compression. This matches the baseline screen resolution, so images look good at 100% zoom but become noticeably softer when zoomed in significantly. Produces the smallest possible output file — typically 65–85% smaller than the original. Recommended for: scanned documents, government portal uploads, any file that needs to meet a strict size limit (1–2MB). Text quality is completely unaffected.</p>
+
+<div class="box"><div class="bt">A Common Misconception About Maximum Compression</div>
+<p>Many people avoid Maximum compression because they fear their document will become "unreadable." In practice, for the documents most commonly compressed — payslips, transcripts, IC copies, bank statements, official letters — Maximum compression produces a file that is visually indistinguishable from the original when read normally on screen. The quality difference only becomes apparent when zooming in to 200%+, which is not how these documents are reviewed. A government portal reviewer reading your submitted payslip does not zoom in to inspect pixel-level image quality.</p></div>
+
+<h2 id="screen-vs-print">Screen DPI vs Print DPI — What You Actually Need</h2>
+<p>The DPI you need depends entirely on the final use of your document. Most people compressing PDFs are preparing files for digital sharing — email, portal upload, WhatsApp — not professional printing. This changes the requirement significantly:</p>
+<ul>
+  <li><strong>Laptop and desktop screens (non-Retina):</strong> 72–110 PPI. A 96 DPI PDF looks perfectly sharp.</li>
+  <li><strong>Retina / HiDPI screens (iPhone, MacBook Pro, modern Windows laptops):</strong> 200–330+ PPI. A 96 DPI PDF looks acceptable; 150 DPI looks crisp even on Retina at high zoom.</li>
+  <li><strong>Standard office printing (A4, laser printer):</strong> 150–300 DPI is sufficient. Most office laser printers print at 600 DPI but the document content rarely requires it — a 150 DPI PDF prints acceptably on a standard office laser printer.</li>
+  <li><strong>Professional press printing:</strong> 300 DPI minimum for images. Do not use Maximum compression on files destined for commercial printing, large-format printing, or anything above A3 size.</li>
+</ul>
+<p>For 95% of document sharing and portal uploads in Malaysia and Southeast Asia — where documents are reviewed on screen, not printed commercially — 72–96 DPI is completely adequate. You're not submitting your payslip to be printed on a billboard.</p>
+
+<div class="box warn"><div class="bt">When NOT to Compress</div>
+<ul>
+<li>Files for commercial printing (brochures, catalogues, posters)</li>
+<li>Medical imaging (X-rays, scan results — these require full diagnostic quality)</li>
+<li>Architectural or engineering drawings where fine detail must be preserved</li>
+<li>Legal originals — while compression is fine for submissions, keep uncompressed originals for your records</li>
+<li>Already-at-minimum PDFs — if a file is already under 500KB, compression is unnecessary</li>
+</ul></div>
+
+<h2 id="types">How Different PDF Types Respond to Compression</h2>
+<p>Not all PDFs compress equally, and understanding why helps you set realistic expectations:</p>
+<table class="dpi-table">
+  <thead><tr><th>PDF Type</th><th>Main content</th><th>Typical compression reduction</th><th>Recommended level</th></tr></thead>
+  <tbody>
+    <tr><td>Scanned document (colour, 300 DPI)</td><td>Image of page</td><td>70–85%</td><td>Maximum</td></tr>
+    <tr><td>Scanned document (grayscale, 300 DPI)</td><td>Image of page</td><td>60–75%</td><td>Maximum</td></tr>
+    <tr><td>Canva / design export</td><td>High-res images + vector</td><td>75–90%</td><td>Balanced</td></tr>
+    <tr><td>PowerPoint / Slides export</td><td>Mixed text + images</td><td>50–75%</td><td>Balanced</td></tr>
+    <tr><td>Word / Google Docs export</td><td>Text + occasional images</td><td>30–60%</td><td>Maximum or Balanced</td></tr>
+    <tr><td>Text-only PDF (no images)</td><td>Pure vector text</td><td>5–20%</td><td>Either (minimal impact)</td></tr>
+    <tr><td>Already compressed PDF</td><td>Mixed</td><td>5–25%</td><td>Balanced</td></tr>
+  </tbody>
+</table>
+<p>The key pattern: documents with high-DPI images (especially scans) compress dramatically. Documents that are already digital text compress minimally — not because the tool is ineffective, but because there's very little pixel data to reduce.</p>
+
+<h2 id="scan-settings">Scanning at the Right DPI — Avoiding the Problem at Source</h2>
+<p>If you're scanning physical documents for portal uploads or email, choosing the right scan settings eliminates the need for post-processing compression entirely. These settings produce portal-ready files directly:</p>
+<ul>
+<li><strong>150 DPI instead of 300 DPI:</strong> The most impactful single setting. 150 DPI is sharp and legible on screen for all standard documents. A page scanned at 150 DPI is approximately 75% smaller than the same page at 300 DPI. In CamScanner: Settings → Scan Quality → Standard. In Microsoft Lens: the "Document" mode applies reasonable compression automatically.</li>
+<li><strong>Grayscale (black and white) instead of colour:</strong> For documents without meaningful colour content — payslips, transcripts, official letters, forms — grayscale reduces file size by 60–70% compared to colour. Colour adds three data channels per pixel; grayscale uses one.</li>
+<li><strong>Use Microsoft Lens (free app):</strong> Available on Android and iPhone, Microsoft Lens produces smaller, well-cropped PDFs than most scanner apps by default. Better automatic perspective correction than CamScanner and no ads on the free version.</li>
+</ul>
+<p>A single A4 page scanned at 150 DPI in grayscale with Microsoft Lens typically produces a PDF of 50–200KB per page — a 10-page document comes in under 2MB with no compression needed. Compare that to the same document scanned at 300 DPI in colour (3–5MB per page, 30–50MB total) and the difference in approach is stark.</p>
 
   <div class="cta">
-    <h3>✓ Try It Yourself — Compress Free</h3>
-    <p>See exactly how much your PDF shrinks with Balanced vs Maximum.</p>
-    <a href="index.html" class="btn">🗜️ Compress My PDF Now</a>
+    <h3>&#10003; Try It Yourself — See the DPI Difference</h3>
+    <p>No registration. No file size limit. Your file never leaves your browser.</p>
+    <a href="index.html" class="btn">&#128218; Compress My PDF Now</a>
   </div>
 
   <h2 id="faq">Frequently Asked Questions</h2>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">What DPI should a PDF be for emailing? <span>&#9660;</span></div><div class="fa"><div class="fai">72–96 DPI is perfectly fine for emailing. The recipient will read it on a screen, and modern screens display at 72–150 PPI. A 96 DPI PDF looks sharp on any screen at normal viewing size. You only need higher DPI if the recipient will print the document professionally.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why does my compressed PDF look blurry when I zoom in? <span>&#9660;</span></div><div class="fa"><div class="fai">At high zoom levels (200%+), you're seeing the individual pixels of the compressed images at 72–96 DPI — each pixel is now displayed larger than intended. This is expected and not a problem in practice — documents are read at 100% zoom, not zoomed in to inspect individual pixels. Text remains sharp at any zoom because it's vector-based.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compression affect a PDF I want to print? <span>&#9660;</span></div><div class="fa"><div class="fai">For home and office printing: no visible difference. Most office documents look fine printed at 96 DPI. For professional press or large-format printing: do not compress below 150 DPI. If the PDF will be printed at A3 or larger, keep images at 300 DPI minimum. Use Balanced compression (which targets 96 DPI) only for documents destined for screen sharing or standard A4 office printing.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why is my Canva PDF so large? <span>&#9660;</span></div><div class="fa"><div class="fai">Canva exports PDFs with images at 300 DPI or higher by default, optimised for printing. A simple one-page design can be 5–15MB because every background, photo, and graphic is stored at full print resolution. Compressing to 96 DPI (Balanced) typically reduces Canva PDFs by 80–90% — a 10MB file becomes 1–2MB — with no visible quality difference on screen.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">What DPI should a PDF be for emailing? <span>&#9660;</span></div><div class="fa"><div class="fai">72–96 DPI is completely adequate for emailing. The recipient reads your document on a screen, and standard laptop and desktop screens display at 72–110 PPI — a 96 DPI PDF looks sharp at normal viewing zoom. You only need higher DPI if the recipient will print the document at A3 or larger, or for professional press printing where 300 DPI minimum is required.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why does my compressed PDF look blurry when I zoom in? <span>&#9660;</span></div><div class="fa"><div class="fai">At high zoom levels (200%+), you're seeing the individual pixels of the compressed images at 72–96 DPI — each pixel is now displayed larger than intended. This is expected behaviour, not a flaw. Documents are read at 100% zoom, not at 200%+ where pixel-level sharpness becomes visible. Text always remains sharp at any zoom because it's stored as vector data, not pixels — so even if images look slightly softer when zoomed, text stays crisp.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compression affect a PDF I want to print at home? <span>&#9660;</span></div><div class="fa"><div class="fai">For standard A4 home or office printing on a laser or inkjet printer, Balanced compression (96 DPI) looks fine. Most readers don't notice the difference between 96 DPI and 300 DPI when printed on A4 paper and held at normal reading distance. For professional press printing, large format printing (A3+), or commercial brochures, do not compress below 150 DPI — in those cases, keep the full-resolution original.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why is my Canva PDF so large? <span>&#9660;</span></div><div class="fa"><div class="fai">Canva exports PDFs with all images at 300 DPI by default — optimised for print quality, not digital sharing. A simple one-page design with a background image, icons, and text can be 8–15MB because every visual element is stored at full print resolution. Compressing to 96 DPI (Balanced mode) typically reduces a Canva PDF by 80–90% — a 10MB file becomes 1–2MB — with no visible quality difference on screen.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">My scanned document didn't compress much. Why? <span>&#9660;</span></div><div class="fa"><div class="fai">If a scanned document showed less than 30% reduction after Maximum compression, it was likely already compressed by the scanner app before being saved. Many modern apps (CamScanner, Adobe Scan) apply their own compression at export time. The second pass of compression has less headroom to work with. The most effective fix for future scans is to change the scan settings directly — 150 DPI grayscale produces small files from the start, regardless of which compression tool you use later.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Is 96 DPI good enough for Malaysian government portal submissions? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes. Malaysian government portals (LHDN, EPF, JPA, UPU, SPA) review submitted documents on screen — they do not print them at high resolution or inspect pixel-level image quality. A document at 72–96 DPI is clearly readable for text, stamps, IC numbers, and signature lines at normal screen zoom, which is all that's required for official review purposes. The portal's 1–2MB size limit is what matters — DPI is the means to meet that limit, not an end in itself.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Can I check what DPI my PDF's images are currently stored at? <span>&#9660;</span></div><div class="fa"><div class="fai">In Adobe Acrobat Pro: Tools → Print Production → Preflight, then examine the image resolution report. In free tools, you can estimate: if your scanned PDF is 2–4MB per page, it's likely at 300 DPI colour. If it's 200–500KB per page, it was probably already compressed to ~150 DPI. Under 150KB per page suggests 96 DPI or lower, or a grayscale scan. You don't need to know the exact DPI to compress effectively — just select Maximum for portal uploads and verify the result.</div></div></div>
 
   <div class="related">
     <h3>Related Articles</h3>
     <div class="rls">
-      <a href="en-25-make-pdf-smaller.html" class="rl">How to Make a PDF Smaller Without Losing Text Quality <span>&rarr;</span></a>
-      <a href="en-15-quality.html" class="rl">How to Compress PDF Without Losing Quality <span>&rarr;</span></a>
+      <a href="en-01-below1mb.html" class="rl">How to Compress a PDF — Complete Guide <span>&rarr;</span></a>
+      <a href="en-06-malaysia.html" class="rl">Compress PDF for Malaysian Government Portals <span>&rarr;</span></a>
+      <a href="en-08-scanned.html" class="rl">How to Compress a Scanned PDF <span>&rarr;</span></a>
+      <a href="en-11-comparison.html" class="rl">ShrinkPDF vs Smallpdf vs ILovePDF — Which Is Best? <span>&rarr;</span></a>
       <a href="en-10-whylarge.html" class="rl">Why Is My PDF So Large? <span>&rarr;</span></a>
-      <a href="en-01-below1mb.html" class="rl">How to Compress a PDF Below 1MB <span>&rarr;</span></a>
     </div>
   </div>
 </div>
