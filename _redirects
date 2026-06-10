@@ -4,7 +4,59 @@ https://shrinkpdf.pages.dev/* https://shrinkpdf.fyi/:splat 301
 # Redirect index.html to clean URL
 /index.html / 301
 
-# Ghost page redirects
-/en-02-email.html /en-01-below1mb.html 301
-/en-03-quality.html /en-15-quality.html 301
-/en-07-toolarge.html /en-05-largefile.html 301
+# Ghost page redirects (existing)
+/en-02-email.html /guides/en-01-below1mb.html 301
+/en-03-quality.html /guides/en-15-quality.html 301
+/en-07-toolarge.html /guides/en-05-largefile.html 301
+
+# Guide URL restructure redirects (old root URLs → new /guides/ URLs)
+/en-01-below1mb.html /guides/en-01-below1mb.html 301
+/en-02-email.html /guides/en-02-email.html 301
+/en-03-quality.html /guides/en-03-quality.html 301
+/en-04-nolimit.html /guides/en-04-nolimit.html 301
+/en-05-largefile.html /guides/en-05-largefile.html 301
+/en-06-malaysia.html /guides/en-06-malaysia.html 301
+/en-07-toolarge.html /guides/en-07-toolarge.html 301
+/en-08-scanned.html /guides/en-08-scanned.html 301
+/en-09-mobile.html /guides/en-09-mobile.html 301
+/en-10-whylarge.html /guides/en-10-whylarge.html 301
+/en-11-comparison.html /guides/en-11-comparison.html 301
+/en-12-university.html /guides/en-12-university.html 301
+/en-13-windows.html /guides/en-13-windows.html 301
+/en-14-mac.html /guides/en-14-mac.html 301
+/en-15-quality.html /guides/en-15-quality.html 301
+/en-16-word.html /guides/en-16-word.html 301
+/en-17-job-application.html /guides/en-17-job-application.html 301
+/en-18-whatsapp.html /guides/en-18-whatsapp.html 301
+/en-19-google-drive.html /guides/en-19-google-drive.html 301
+/en-20-chromebook.html /guides/en-20-chromebook.html 301
+/en-21-acrobat-vs-free.html /guides/en-21-acrobat-vs-free.html 301
+/en-22-iphone-files.html /guides/en-22-iphone-files.html 301
+/en-23-telegram.html /guides/en-23-telegram.html 301
+/en-24-ic-passport.html /guides/en-24-ic-passport.html 301
+/en-25-make-pdf-smaller.html /guides/en-25-make-pdf-smaller.html 301
+/en-26-dpi-explained.html /guides/en-26-dpi-explained.html 301
+/en-27-best-free-pdf-tools.html /guides/en-27-best-free-pdf-tools.html 301
+/en-28-insurance-claim.html /guides/en-28-insurance-claim.html 301
+/en-29-bank-account.html /guides/en-29-bank-account.html 301
+/en-30-android-no-app.html /guides/en-30-android-no-app.html 301
+/en-31-ipad.html /guides/en-31-ipad.html 301
+/en-32-linux.html /guides/en-32-linux.html 301
+/en-33-microsoft-edge.html /guides/en-33-microsoft-edge.html 301
+/en-34-send-large-pdf-email.html /guides/en-34-send-large-pdf-email.html 301
+/en-35-tax-filing.html /guides/en-35-tax-filing.html 301
+/en-36-rental-agreement.html /guides/en-36-rental-agreement.html 301
+/en-37-visa-application.html /guides/en-37-visa-application.html 301
+/en-38-scholarship-application.html /guides/en-38-scholarship-application.html 301
+/en-39-hr-onboarding.html /guides/en-39-hr-onboarding.html 301
+/en-40-samsung.html /guides/en-40-samsung.html 301
+/en-41-google-chrome.html /guides/en-41-google-chrome.html 301
+/en-42-compress-without-losing-quality.html /guides/en-42-compress-without-losing-quality.html 301
+/en-43-compress-for-printing.html /guides/en-43-compress-for-printing.html 301
+/en-44-firefox.html /guides/en-44-firefox.html 301
+/en-45-no-watermark.html /guides/en-45-no-watermark.html 301
+/en-46-batch.html /guides/en-46-batch.html 301
+/en-47-no-upload.html /guides/en-47-no-upload.html 301
+/en-48-linkedin.html /guides/en-48-linkedin.html 301
+/en-49-huawei.html /guides/en-49-huawei.html 301
+/en-50-without-adobe.html /guides/en-50-without-adobe.html 301

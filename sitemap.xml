@@ -3,10 +3,10 @@
 
   <!-- Main pages -->
   <url><loc>https://shrinkpdf.fyi/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://shrinkpdf.fyi/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://shrinkpdf.fyi/privacy.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://shrinkpdf.fyi/contact.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shrinkpdf.fyi/contact.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shrinkpdf.fyi/privacy.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
 
   <!-- Tool pages -->
   <url><loc>https://shrinkpdf.fyi/merge.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -17,55 +17,55 @@
   <url><loc>https://shrinkpdf.fyi/reorder.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
   <!-- English guides -->
-  <url><loc>https://shrinkpdf.fyi/en-01-below1mb.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-02-email.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-03-quality.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-04-nolimit.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-05-largefile.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-06-malaysia.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-07-toolarge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-08-scanned.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-09-mobile.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-10-whylarge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-11-comparison.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-12-university.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-13-windows.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-14-mac.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-15-quality.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-16-word.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-17-job-application.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-18-whatsapp.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-19-google-drive.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-20-chromebook.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-21-acrobat-vs-free.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-22-iphone-files.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-23-telegram.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-24-ic-passport.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-25-make-pdf-smaller.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-26-dpi-explained.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-27-best-free-pdf-tools.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-28-insurance-claim.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-29-bank-account.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-30-android-no-app.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-31-ipad.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-32-linux.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-33-microsoft-edge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-34-send-large-pdf-email.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-35-tax-filing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-36-rental-agreement.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-37-visa-application.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-38-scholarship-application.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-39-hr-onboarding.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-40-samsung.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-41-google-chrome.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-42-compress-without-losing-quality.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-43-compress-for-printing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-44-firefox.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-45-no-watermark.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-46-batch.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-47-no-upload.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-48-linkedin.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-49-huawei.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://shrinkpdf.fyi/en-50-without-adobe.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-01-below1mb.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-02-email.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-03-quality.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-04-nolimit.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-05-largefile.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-06-malaysia.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-07-toolarge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-08-scanned.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-09-mobile.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-10-whylarge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-11-comparison.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-12-university.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-13-windows.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-14-mac.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-15-quality.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-16-word.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-17-job-application.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-18-whatsapp.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-19-google-drive.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-20-chromebook.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-21-acrobat-vs-free.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-22-iphone-files.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-23-telegram.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-24-ic-passport.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-25-make-pdf-smaller.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-26-dpi-explained.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-27-best-free-pdf-tools.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-28-insurance-claim.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-29-bank-account.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-30-android-no-app.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-31-ipad.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-32-linux.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-33-microsoft-edge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-34-send-large-pdf-email.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-35-tax-filing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-36-rental-agreement.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-37-visa-application.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-38-scholarship-application.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-39-hr-onboarding.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-40-samsung.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-41-google-chrome.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-42-compress-without-losing-quality.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-43-compress-for-printing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-44-firefox.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-45-no-watermark.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-46-batch.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-47-no-upload.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-48-linkedin.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-49-huawei.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-50-without-adobe.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
 </urlset>
