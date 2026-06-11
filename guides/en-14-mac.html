@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../shared.css"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>How to Compress a PDF on Mac — Free Guide (2026)</title>
 <meta name="description" content="4 ways to compress a PDF on Mac — Preview app, ColorSync Utility, Automator, and free browser-based tools. Includes why Preview compression often fails.">
 <meta name="keywords" content="compress pdf mac, reduce pdf size mac, compress pdf preview mac, how to compress pdf on mac free">
@@ -24,37 +25,13 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
-<style>  /* ── NAV ── */
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
-  .nav-top{display:flex;align-items:center;justify-content:space-between;padding:12px 28px;}
-  .nav-bottom{display:flex;align-items:center;justify-content:center;gap:2px;padding:6px 24px;background:rgba(255,255,255,0.02);overflow-x:auto;scrollbar-width:none;border-top:1px solid rgba(255,255,255,0.05);}
-  .nav-bottom::-webkit-scrollbar{display:none;}
-  .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-0.5px;text-decoration:none;color:var(--text);flex-shrink:0;}
-  .logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-  .nav-tool-btn{color:var(--text-muted);padding:6px 13px;border-radius:7px;font-size:0.8rem;cursor:pointer;text-decoration:none;transition:all 0.2s;background:none;white-space:nowrap;}
-  .nav-tool-btn:hover{color:var(--text);background:rgba(255,255,255,0.06);}
-  .nav-tool-btn.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:500;}
-  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:8px;}
-  .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s;}
-  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-  .hamburger.open span:nth-child(2){opacity:0;}
-  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-  .mobile-drawer{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,15,0.97);border-bottom:1px solid var(--border);padding:16px 20px;flex-direction:column;gap:8px;z-index:99;backdrop-filter:blur(20px);}
-  .mobile-drawer.open{display:flex;}
-  .mobile-drawer .nav-tool-btn{display:block;text-align:left;padding:10px 14px;font-size:0.9rem;}
-  .mobile-drawer .nav-tool-btn.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;}
-  @media(max-width:640px){
-    .nav-top{padding:12px 16px;}
-    .nav-bottom{display:none;}
-    .hamburger{display:flex;}
-  }
+<style>
+
 :root{--bg:#0a0a0f;--sf:#13131a;--br:#2a2a3a;--ac:#5b4fff;--ac2:#ff4f9b;--tx:#f0f0f8;--tm:#7a7a9a;--ok:#2ecc71;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--text:#f0f0f8;--text-muted:#7a7a9a;--accent:#5b4fff;--accent2:#ff4f9b;--accent-glow:rgba(91,79,255,0.35);}
 html{scroll-padding-top:100px;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;line-height:1.8;min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,0.07) 0%,transparent 50%);pointer-events:none;z-index:0;}
-.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;text-decoration:none;color:var(--tx);}
-.logo span{background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .back:hover{color:var(--tx);}
 .wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1;}
 .meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:32px;}
@@ -104,21 +81,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
   .toc li a:hover{color:var(--ac);}
   .toc li a.active{color:var(--ac);font-weight:500;}
 
-  footer{background:var(--surface);border-top:1px solid var(--border);padding:48px 24px 24px;margin-top:80px;}
-  .footer-inner{max-width:1100px;margin:0 auto;display:flex;gap:48px;flex-wrap:wrap;}
-  .footer-brand{flex:1;min-width:200px;}
-  .footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:10px;}
-  .footer-logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-  .footer-tagline{font-size:0.83rem;color:var(--text-muted);line-height:1.6;}
-  .footer-links{display:flex;gap:40px;flex-wrap:wrap;}
-  .footer-col{display:flex;flex-direction:column;gap:8px;min-width:130px;}
-  .footer-col-title{font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:4px;}
-  .footer-col a{font-size:0.83rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
-  .footer-col a:hover{color:var(--text);}
-  .footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);text-align:center;}
   @media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}}
-  .nav-guides-link{color:var(--text-muted);font-size:0.82rem;text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:100px;transition:all 0.2s;white-space:nowrap;}
-  .nav-guides-link:hover{color:var(--text);border-color:var(--accent);}
   @media(max-width:640px){.nav-guides-link{display:none;}}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
@@ -141,34 +104,11 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
 <meta property="article:modified_time" content="2026-02-15">
+<script src="../components.js" defer></script>
 </head>
 <body>
 <div id="read-progress"></div>
-<nav>
-  <div class="nav-top">
-    <a href="index.html" class="logo"><span>Shrink</span>PDF</a>
-    <a href="guides.html" class="nav-guides-link">📚 Guides</a>
-    <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu"><span></span><span></span><span></span></button>
-  </div>
-  <div class="nav-bottom">
-    <a href="index.html" class="nav-tool-btn">🗜️ Compress</a>
-    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
-    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
-    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
-    <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
-    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
-    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
-  </div>
-  <div class="mobile-drawer" id="mobileDrawer">
-    <a href="index.html" class="nav-tool-btn">🗜️ Compress</a>
-    <a href="merge.html" class="nav-tool-btn">🔗 Merge</a>
-    <a href="split.html" class="nav-tool-btn">✂️ Split</a>
-    <a href="rotate.html" class="nav-tool-btn">🔄 Rotate</a>
-    <a href="pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a>
-    <a href="images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a>
-    <a href="reorder.html" class="nav-tool-btn">📋 Reorder</a>
-  </div>
-</nav>
+<nav id="site-nav"></nav>
 <div class="wrap">
   <div class="meta"><span class="tag">Mac</span><span class="tag">How-To</span><span class="tag">Free</span><time datetime="2026-02-15" class="updated rt">Updated February 15, 2026</time></div>
   <h1>How to Compress a PDF on Mac — Free (2026)</h1>
@@ -275,29 +215,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
     </div>
   </div>
 </div>
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="footer-logo"><span>Shrink</span>PDF</div>
-      <p class="footer-tagline">Free PDF tools. No login. No limits. No watermarks.</p>
-    </div>
-    <div class="footer-links">
-      <div class="footer-col">
-        <div class="footer-col-title">Tools</div>
-        <a href="index.html">Compress PDF</a><a href="merge.html">Merge PDF</a><a href="split.html">Split PDF</a><a href="rotate.html">Rotate PDF</a><a href="pdf-to-images.html">PDF to Images</a><a href="images-to-pdf.html">Images to PDF</a><a href="reorder.html">Reorder Pages</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Guides</div>
-        <a href="guides.html">All Guides</a><a href="en-01-below1mb.html">Compress Below 1MB</a><a href="en-06-malaysia.html">LHDN e-Filing PDF</a><a href="en-09-mobile.html">Compress on Mobile</a><a href="en-12-university.html">University Submission</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Company</div>
-        <a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom"><span>© 2026 ShrinkPDF · No login · No storage · Always free</span></div>
-</footer>
+<footer id="site-footer"></footer>
 <script>
 (function(){{
   var nav=document.querySelector('nav');
@@ -308,6 +226,6 @@ h2[id],h3[id]{scroll-margin-top:110px;}
   links.forEach(function(l){{var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({{el:e,a:l}});}});
   window.addEventListener('scroll',function(){{var y=window.scrollY+130;var cur=null;heads.forEach(function(h){{if(h.el.offsetTop<=y)cur=h;}});links.forEach(function(l){{l.classList.remove('active');}});if(cur)cur.a.classList.add('active');}});
 }})();
-function toggleDrawer(){{var d=document.getElementById('mobileDrawer');var b=document.getElementById('hamburgerBtn');d.classList.toggle('open');b.classList.toggle('open');}}
+}
 </script>
 </body></html>
