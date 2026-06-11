@@ -27,7 +27,9 @@
   const isInGuides = window.location.pathname.includes('/guides/');
   const root = isInGuides ? '../' : '';
 
-  const page = window.location.pathname.split('/').pop() || '';
+  const rawPage = window.location.pathname.split('/').pop() || '';
+  // Normalise: add .html if missing so /merge and merge.html both match
+  const page = rawPage === '' ? '' : rawPage.includes('.') ? rawPage : rawPage + '.html';
   const activePage = NAV_ACTIVE[page] || '';
 
   function navBtn(tool) {
