@@ -68,4 +68,11 @@
   <url><loc>https://shrinkpdf.fyi/guides/en-49-huawei.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-50-without-adobe.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
+</urlset>  <!-- New problem-solving guides -->
+  <url><loc>https://shrinkpdf.fyi/guides/en-51-pdf-wont-compress.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-52-pdf-too-large-upload.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-53-reduce-pdf-50kb.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-54-scanned-pdf-large.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-55-pdf-size-after-compression.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
 </urlset>

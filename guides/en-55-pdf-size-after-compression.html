@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PDF Size Not Reduced After Compression — Why and What to Do (2026)</title>
+<meta name="description" content="Compressed your PDF but the file size barely changed? Here's why compression sometimes doesn't work — and the right alternative approach for each situation.">
+<meta name="keywords" content="pdf size not reduced after compression, pdf compression not working, compressed pdf same size, pdf not getting smaller after compression, why isn't my pdf smaller">
+<link rel="canonical" href="https://shrinkpdf.fyi/guides/en-55-pdf-size-after-compression.html">
+<meta property="og:type" content="article"><meta property="og:url" content="https://shrinkpdf.fyi/guides/en-55-pdf-size-after-compression.html">
+<meta property="og:title" content="PDF Size Not Reduced After Compression — Why and What to Do (2026)">
+<meta property="og:description" content="Compressed your PDF but the file size barely changed? Here's why compression sometimes doesn't work — and the right alternative approach for each situation.">
+<meta property="og:image" content="https://shrinkpdf.fyi/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://shrinkpdf.fyi/og-image.png"><meta property="og:site_name" content="ShrinkPDF">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
+<meta property="article:modified_time" content="2026-04-15">
+<style>
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-top{display:flex;align-items:center;justify-content:space-between;padding:12px 28px;}
+.nav-bottom{display:flex;align-items:center;justify-content:center;gap:2px;padding:6px 24px;background:rgba(255,255,255,0.02);overflow-x:auto;scrollbar-width:none;border-top:1px solid rgba(255,255,255,0.05);}
+.nav-bottom::-webkit-scrollbar{display:none;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-0.5px;text-decoration:none;color:var(--text);flex-shrink:0;}
+.logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-tool-btn{color:var(--text-muted);padding:6px 13px;border-radius:7px;font-size:0.8rem;cursor:pointer;text-decoration:none;transition:all 0.2s;background:none;white-space:nowrap;}
+.nav-tool-btn:hover{color:var(--text);background:rgba(255,255,255,0.06);}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:8px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-drawer{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,15,0.97);border-bottom:1px solid var(--border);padding:16px 20px;flex-direction:column;gap:8px;z-index:99;backdrop-filter:blur(20px);}
+.mobile-drawer.open{display:flex;}
+.mobile-drawer .nav-tool-btn{display:block;text-align:left;padding:10px 14px;font-size:0.9rem;}
+@media(max-width:640px){.nav-top{padding:12px 16px;}.nav-bottom{display:none;}.hamburger{display:flex;}}
+:root{--bg:#0a0a0f;--sf:#13131a;--br:#2a2a3a;--ac:#5b4fff;--ac2:#ff4f9b;--tx:#f0f0f8;--tm:#7a7a9a;--surface:#13131a;--border:#2a2a3a;--text:#f0f0f8;--text-muted:#7a7a9a;--accent:#5b4fff;--accent2:#ff4f9b;}
+html{scroll-padding-top:100px;}*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;line-height:1.8;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,0.07) 0%,transparent 50%);pointer-events:none;z-index:0;}
+.wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1;}
+.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:32px;}
+.tag{background:rgba(91,79,255,0.15);border:1px solid rgba(91,79,255,0.3);color:#a99fff;padding:4px 12px;border-radius:100px;font-size:0.78rem;}
+.rt{color:var(--tm);font-size:0.85rem;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;line-height:1.2;letter-spacing:-0.5px;margin-bottom:24px;}
+.intro{font-size:1.05rem;color:var(--tm);margin-bottom:40px;line-height:1.8;border-left:3px solid var(--ac);padding-left:20px;}
+h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;margin:40px 0 14px;}
+h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin:18px 0 8px;}
+p{margin-bottom:14px;color:#d0d0e8;}ul,ol{margin:14px 0 20px 22px;}li{margin-bottom:9px;color:#d0d0e8;}
+.box{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:22px;margin:24px 0;}
+.box.good{border-color:rgba(46,204,113,0.3);background:rgba(46,204,113,0.04);}
+.box.warn{border-color:rgba(255,179,0,0.3);background:rgba(255,179,0,0.04);}
+.bt{font-family:'Syne',sans-serif;font-weight:700;margin-bottom:10px;font-size:0.9rem;}
+.step{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start;}
+.sn{background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:3px;}
+.sc h3{margin-top:0;}h2[id],h3[id]{scroll-margin-top:110px;}
+.cta{background:linear-gradient(135deg,rgba(91,79,255,0.15),rgba(255,79,155,0.1));border:1px solid rgba(91,79,255,0.3);border-radius:16px;padding:32px;text-align:center;margin:40px 0;}
+.cta h3{font-family:'Syne',sans-serif;font-size:1.2rem;margin-bottom:8px;}.cta p{color:var(--tm);margin-bottom:20px;}
+.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;padding:14px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem;box-shadow:0 4px 20px rgba(91,79,255,0.3);transition:all 0.2s;}
+.btn:hover{transform:translateY(-2px);}
+.fi{border:1px solid var(--br);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.fq{padding:15px 18px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;font-size:0.95rem;}
+.fq:hover{color:var(--ac);}.fa{max-height:0;overflow:hidden;transition:max-height 0.3s;font-size:0.88rem;color:var(--tm);}
+.fi.open .fa{max-height:600px;}.fai{padding:0 18px 14px;}
+.related{margin-top:56px;border-top:1px solid var(--br);padding-top:36px;}
+.related h3{font-family:'Syne',sans-serif;font-weight:700;margin-bottom:18px;}
+.rls{display:grid;gap:10px;}
+.rl{background:var(--sf);border:1px solid var(--br);border-radius:12px;padding:14px 18px;text-decoration:none;color:var(--tx);transition:all 0.2s;display:flex;justify-content:space-between;align-items:center;font-size:0.9rem;}
+.rl:hover{border-color:var(--ac);}.rl span{color:var(--tm);font-size:0.82rem;}
+#read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+.toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;}
+.toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.toc-title::before{content:'📋';font-size:1rem;}
+.toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+.toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+.toc li a:hover{color:var(--ac);}.toc li a.active{color:var(--ac);font-weight:500;}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.88rem;}
+th{background:var(--sf);padding:10px 14px;text-align:left;font-family:'Syne',sans-serif;font-weight:700;border-bottom:2px solid var(--br);}
+td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}
+tr:last-child td{border-bottom:none;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:48px 24px 24px;margin-top:80px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;gap:48px;flex-wrap:wrap;}
+.footer-brand{flex:1;min-width:200px;}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:10px;}
+.footer-logo span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.footer-tagline{font-size:0.83rem;color:var(--text-muted);line-height:1.6;}
+.footer-links{display:flex;gap:40px;flex-wrap:wrap;}
+.footer-col{display:flex;flex-direction:column;gap:8px;min-width:130px;}
+.footer-col-title{font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:4px;}
+.footer-col a{font-size:0.83rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
+.footer-col a:hover{color:var(--text);}
+.footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);text-align:center;}
+@media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}.wrap{padding:80px 18px 60px;}}
+.nav-guides-link{color:var(--text-muted);font-size:0.82rem;text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:100px;transition:all 0.2s;white-space:nowrap;}
+.nav-guides-link:hover{color:var(--text);border-color:var(--accent);}@media(max-width:640px){.nav-guides-link{display:none;}}
+</style>
+</head>
+<body>
+<div id="read-progress"></div>
+<nav>
+  <div class="nav-top">
+    <a href="/" class="logo"><span>Shrink</span>PDF</a>
+    <a href="/guides.html" class="nav-guides-link">📚 Guides</a>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-bottom">
+    <a href="/" class="nav-tool-btn">🗜️ Compress</a><a href="/merge.html" class="nav-tool-btn">🔗 Merge</a><a href="/split.html" class="nav-tool-btn">✂️ Split</a><a href="/rotate.html" class="nav-tool-btn">🔄 Rotate</a><a href="/pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a><a href="/images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a><a href="/reorder.html" class="nav-tool-btn">📋 Reorder</a>
+  </div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="/" class="nav-tool-btn">🗜️ Compress</a><a href="/merge.html" class="nav-tool-btn">🔗 Merge</a><a href="/split.html" class="nav-tool-btn">✂️ Split</a><a href="/rotate.html" class="nav-tool-btn">🔄 Rotate</a><a href="/pdf-to-images.html" class="nav-tool-btn">🖼️ PDF→IMG</a><a href="/images-to-pdf.html" class="nav-tool-btn">📷 IMG→PDF</a><a href="/reorder.html" class="nav-tool-btn">📋 Reorder</a>
+  </div>
+</nav>
+<div class="wrap">
+  <div class="meta"><span class="tag">Troubleshooting</span><span class="tag">Compression</span><span class="tag">How-To</span><span class="rt">&#9201; 8 min read</span><time datetime="2026-04-15" class="rt">Updated 2026-04-15</time></div>
+  <h1>PDF Size Not Reduced After Compression — Why and What to Do (2026)</h1>
+  <p class="intro">You ran your PDF through a compressor and downloaded the result — but the file size is almost identical to the original. Maybe it shrank by 3%. Maybe it actually got larger. This is a well-known problem with specific causes. Understanding why it happens tells you exactly what to try instead.</p>
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">In this article</div>
+    <ol>
+      <li><a href="#causes">The Four Reasons Compression Doesn't Work</a></li>
+      <li><a href="#already-compressed">Cause 1: The PDF Was Already Compressed</a></li>
+      <li><a href="#text-only">Cause 2: The PDF Is Mostly Text</a></li>
+      <li><a href="#wrong-tool">Cause 3: The Tool Used Isn't Effective for This File Type</a></li>
+      <li><a href="#encrypted">Cause 4: The PDF Contains Encrypted or Protected Content</a></li>
+      <li><a href="#what-to-do">What to Do Instead</a></li>
+      <li><a href="#prevent">How to Prevent Oversized PDFs in Future</a></li>
+      <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ol>
+  </nav>
+  
+  <h2 id="causes">The Four Reasons Compression Doesn't Work</h2>
+  <p>PDF compression works by reducing the resolution of embedded images and removing redundant structural data. If there are no high-resolution images and no redundant data, there is nothing to compress. The four specific situations where compression fails:</p>
+  <ol>
+    <li>The PDF was already compressed by a previous tool</li>
+    <li>The PDF contains mostly text, which is already stored efficiently</li>
+    <li>The compression tool isn't suited to the specific file type</li>
+    <li>The PDF contains encrypted or protected content the tool can't touch</li>
+  </ol>
+
+  <h2 id="already-compressed">Cause 1: The PDF Was Already Compressed</h2>
+  <p>This is the most common reason compression produces minimal results. Modern scanner apps (CamScanner, Adobe Scan, Microsoft Lens), PDF export tools, and online services all apply compression when creating the PDF. By the time you run it through another compression tool, the images are already at a low resolution with JPEG compression applied. There is simply nothing left to reduce.</p>
+  <p><strong>How to identify this:</strong> The file size per page is already small (under 300KB per page), or a previous compression attempt produced minimal reduction.</p>
+  <p><strong>What to do:</strong> Compression won't help here. If you still need a smaller file, the options are: re-scan at lower settings, extract only the pages you need, or accept that the file is already near its minimum size.</p>
+  <div class="box good">
+    <div class="bt">Quick check: is your PDF already compressed?</div>
+    <p>Divide the file size by the number of pages. Under 200KB per page = already compressed. 200–500KB per page = compression may help somewhat. Over 500KB per page = compression will likely produce significant reduction.</p>
+  </div>
+
+  <h2 id="text-only">Cause 2: The PDF Is Mostly Text</h2>
+  <p>Text in PDFs is stored as font instructions — mathematical descriptions of character shapes, not pixels. This is extremely space-efficient. A 100-page text-only document might be only 300–500KB because there is no image data to compress.</p>
+  <p>Running a text-only PDF through a compression tool produces 5–15% reduction at best, because the tool targets image data that barely exists in the file. If your text PDF is unexpectedly large, the cause is usually embedded images: a scanned signature page, a high-resolution letterhead logo on every page, or a background image.</p>
+  <p><strong>How to identify this:</strong> Try selecting text in the PDF — if you can highlight and copy text, it's stored as real text, not as images. Pages where you can't select text are image-based (scanned).</p>
+
+  <h2 id="wrong-tool">Cause 3: The Tool Used Isn't Effective for This File Type</h2>
+  <p>Different compression tools use different algorithms and are more or less effective depending on the PDF content:</p>
+  <ul>
+    <li><strong>Browser-based tools (including ShrinkPDF):</strong> Work well for most documents but achieve slightly lower compression ratios on image-heavy PDFs compared to server-side tools using Ghostscript.</li>
+    <li><strong>Mac Preview's "Reduce File Size":</strong> Notoriously produces poor results — often larger than the original — for PDFs that were already optimised. If Preview didn't help, try ShrinkPDF or Ghostscript instead.</li>
+    <li><strong>Windows built-in tools:</strong> Windows has no built-in PDF compressor. If you used a built-in Windows option, it likely just re-saved the file without any compression.</li>
+  </ul>
+  <div class="box warn">
+    <div class="bt">If Mac Preview made your PDF larger</div>
+    <p>Mac Preview's "Reduce File Size" filter uses a fixed algorithm that works poorly on modern, already-optimised PDFs. It's one of the least effective compression options available. Use ShrinkPDF, PDF24, or Ghostscript instead — all produce better results.</p>
+  </div>
+
+  <h2 id="encrypted">Cause 4: Encrypted or Protected Content</h2>
+  <p>Password-protected PDFs and PDFs with permission restrictions (no printing, no editing) may have encrypted content streams that compression tools cannot access or modify. The tool receives an encrypted blob — it cannot see the image data inside, let alone compress it.</p>
+  <p><strong>How to identify this:</strong> A lock icon appears when opening the PDF, or you're asked for a password. In some tools, a "permissions" message appears.</p>
+  <p><strong>What to do:</strong> Remove the password protection first (requires the password), then compress. If you don't have the password, you cannot compress the file.</p>
+
+  <h2 id="what-to-do">What to Do Instead</h2>
+  <p>When standard compression fails, these alternatives work:</p>
+
+  <h3>Option A: Re-Scan at Lower DPI (Most Effective for Scans)</h3>
+  <p>If the document is a scan and you have access to the physical original, re-scanning at 150 DPI in grayscale produces a file 70–90% smaller than a 300 DPI colour scan — without any compression tool needed. This is always more effective than any post-scan compression when the original scan settings are the root cause.</p>
+
+  <h3>Option B: Re-Export From Source</h3>
+  <p>If the PDF was created from Word, PowerPoint, or Canva, re-exporting with size-optimised settings often reduces file size dramatically:</p>
+  <ul>
+    <li>Word: File → Save As → PDF → "Minimum size (publishing online)"</li>
+    <li>PowerPoint: File → Export → Create PDF/XPS → "Minimum size"</li>
+    <li>Canva: Download → PDF Standard (not PDF Print)</li>
+  </ul>
+
+  <h3>Option C: Use Ghostscript</h3>
+  <p>Ghostscript is a free, local PDF engine that often achieves better compression than browser-based tools, especially for image-heavy PDFs:</p>
+  <div class="box">
+    <div class="bt">Ghostscript maximum compression</div>
+    <p><code>gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf</code></p>
+    <p>Install free: Windows (ghostscript.com), Mac (<code>brew install ghostscript</code>), Linux (<code>sudo apt install ghostscript</code>)</p>
+  </div>
+
+  <h3>Option D: Extract and Compress Only the Pages You Need</h3>
+  <p>If you only need specific pages from the document, extract them first using <a href="/split.html">ShrinkPDF Split</a>, then compress the smaller extracted file. A 5-page extract from a 50-page document is much easier to compress to a target size.</p>
+
+  <h2 id="prevent">How to Prevent Oversized PDFs in Future</h2>
+  <ul>
+    <li><strong>Scan at 150 DPI grayscale</strong> — produces small files directly, no compression needed for most portal uploads</li>
+    <li><strong>Use Microsoft Lens</strong> — produces smaller, better-compressed PDFs than most scanner apps by default</li>
+    <li><strong>Export Word/PowerPoint at minimum size</strong> — select the screen/minimum quality option at export time</li>
+    <li><strong>Use Canva PDF Standard</strong> — not PDF Print, which exports at full 300 DPI print quality</li>
+    <li><strong>Don't embed raw camera photos</strong> — use a scanner app to photograph documents, not just the phone camera</li>
+  </ul>
+  <div class="cta">
+    <h3>&#10003; Try ShrinkPDF Free — No Login Required</h3>
+    <p>No registration. No file size limit. Your file never leaves your browser.</p>
+    <a href="/" class="btn">&#128218; Compress My PDF Now</a>
+  </div>
+  <h2 id="faq">Frequently Asked Questions</h2>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why did my PDF get larger after compression? <span>&#9660;</span></div><div class="fa"><div class="fai">This happens when the compression algorithm adds overhead that exceeds the data it removes. It's most common with very small PDFs (under 200KB), PDFs with almost no image content, or PDFs where the images are already at minimum quality. If compression increases your file size, use the original uncompressed version — it's already as small as it can reasonably be.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">My PDF only compressed by 5%. Is that normal? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes, for certain file types. Text-only PDFs, already-compressed scans, and digitally-created documents often compress by less than 10% because there's minimal image data to reduce. A 5% reduction on a text-heavy Word export is typical and expected. For image-heavy scanned documents, 5% reduction after Maximum compression is a sign the file was already compressed by the scanner app.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Does the compression tool matter? Are some better than others? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes, significantly. Ghostscript (used by PDF24 and many server-side tools) achieves better compression ratios than browser-based JavaScript tools, especially for image-heavy PDFs. Mac Preview's Reduce File Size is consistently the worst option — it often produces larger files. For most everyday documents, ShrinkPDF and ILovePDF produce good results. When they don't, Ghostscript command line is the next step.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">My PDF is already small but the portal still rejects it for size. What's happening? <span>&#9660;</span></div><div class="fa"><div class="fai">Check the exact file size in bytes, not megabytes. A file displayed as '1.9MB' might actually be 1.98MB — which exceeds a 2.0MB limit. Also check whether the portal's limit applies per-file or per-submission-total. Some portals count all uploaded files combined. Compress to give yourself a clear margin — if the limit is 2MB, aim for under 1.7MB.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will switching from PDF to JPG make the file smaller? <span>&#9660;</span></div><div class="fa"><div class="fai">Sometimes, but with significant trade-offs. A JPG of a document page at 72 DPI might be 30–80KB — smaller than an equivalent PDF page. However, JPGs are single images with no text layer, no multi-page support, no selectable text, and potentially reduced legibility. Most government portals specifically require PDF format. Only convert to JPG if the portal explicitly accepts image files and JPG produces a file within the required size limit.</div></div></div>
+  <div class="related">
+    <h3>Related Articles</h3>
+    <div class="rls">
+      <a href="/guides/en-51-pdf-wont-compress.html" class="rl">PDF Won't Compress — Why It Happens and How to Fix It <span>&rarr;</span></a>
+      <a href="/guides/en-52-pdf-too-large-upload.html" class="rl">PDF Too Large to Upload — 7 Fixes <span>&rarr;</span></a>
+      <a href="/guides/en-01-below1mb.html" class="rl">How to Compress a PDF — Complete Guide <span>&rarr;</span></a>
+      <a href="/guides/en-54-scanned-pdf-large.html" class="rl">Why Is My Scanned PDF So Large? <span>&rarr;</span></a>
+      <a href="/guides/en-26-dpi-explained.html" class="rl">DPI and PDF File Size Explained <span>&rarr;</span></a>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="footer-logo"><span>Shrink</span>PDF</div><p class="footer-tagline">Free PDF tools. No login. No limits. No watermarks.</p></div>
+    <div class="footer-links">
+      <div class="footer-col"><div class="footer-col-title">Tools</div><a href="/">Compress PDF</a><a href="/merge.html">Merge PDF</a><a href="/split.html">Split PDF</a><a href="/rotate.html">Rotate PDF</a><a href="/pdf-to-images.html">PDF to Images</a><a href="/images-to-pdf.html">Images to PDF</a><a href="/reorder.html">Reorder Pages</a></div>
+      <div class="footer-col"><div class="footer-col-title">Guides</div><a href="/guides.html">All Guides</a><a href="/guides/en-01-below1mb.html">Compress Below 1MB</a><a href="/guides/en-13-windows.html">Compress on Windows</a><a href="/guides/en-14-mac.html">Compress on Mac</a><a href="/guides/en-09-mobile.html">Compress on Mobile</a></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy Policy</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>&#169; 2026 ShrinkPDF &middot; No login &middot; No storage &middot; Always free</span></div>
+</footer>
+<script>
+(function(){var nav=document.querySelector('nav');if(nav){var h=function(){document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';};h();window.addEventListener('resize',h);}var el=document.getElementById('read-progress');if(el){window.addEventListener('scroll',function(){var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';});}var links=document.querySelectorAll('.toc a');var heads=[];links.forEach(function(l){var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({el:e,a:l});});window.addEventListener('scroll',function(){var y=window.scrollY+130;var cur=null;heads.forEach(function(h){if(h.el.offsetTop<=y)cur=h;});links.forEach(function(l){l.classList.remove('active');});if(cur)cur.a.classList.add('active');});})();
+function toggleDrawer(){var d=document.getElementById('mobileDrawer');var b=document.getElementById('hamburgerBtn');d.classList.toggle('open');b.classList.toggle('open');}
+</script>
+</body></html>
