@@ -1,21 +1,21 @@
-# Redirect deleted multilang pages → English guides
-/zh/:file /guides/en-:file 301
-/ms/:file /guides/en-:file 301
-/id/:file /guides/en-:file 301
-/zh /guides.html 301
-/ms /guides.html 301
-/id /guides.html 301
+# Redirect deleted multilang pages (flat filenames) → English guides / homepage
+/zh.html /index.html 301
+/zh /index.html 301
+/zh-* /guides/en-:splat 301
+
+/ms.html /index.html 301
+/ms /index.html 301
+/ms-* /guides/en-:splat 301
+
+/id.html /index.html 301
+/id /index.html 301
+/id-* /guides/en-:splat 301
 
 # Redirect Cloudflare Pages subdomain to main domain
 https://shrinkpdf.pages.dev/* https://shrinkpdf.fyi/:splat 301
 
 # Redirect index.html to clean URL
 /index.html / 301
-
-# Ghost page redirects (existing)
-/en-02-email.html /guides/en-01-below1mb.html 301
-/en-03-quality.html /guides/en-15-quality.html 301
-/en-07-toolarge.html /guides/en-05-largefile.html 301
 
 # Guide URL restructure redirects (old root URLs → new /guides/ URLs)
 /en-01-below1mb.html /guides/en-01-below1mb.html 301
