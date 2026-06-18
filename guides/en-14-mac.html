@@ -103,7 +103,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
-<meta property="article:modified_time" content="2026-02-15">
+<meta property="article:modified_time" content="2026-06-18">
 <script src="../components.js" defer></script>
 </head>
 <body>
@@ -202,7 +202,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
   <h2 id="faq">Frequently Asked Questions</h2>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why did Preview make my PDF larger instead of smaller? <span>&#9660;</span></div><div class="fa"><div class="fai">Preview's Reduce File Size filter downsamples images to 72 DPI. If your PDF's images are already at low resolution, there's nothing to reduce — the re-encoding process can actually add overhead. This is a known limitation. Use ShrinkPDF instead for consistent results.</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Can I compress a PDF on Mac without downloading any app? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes. ShrinkPDF runs in Safari, Chrome, or Firefox — no app download required. Open shrinkpdf.fyi, upload your PDF, compress, and download. Alternatively, macOS Preview is pre-installed and can reduce some PDF file sizes using the Quartz Filter.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Does compressing a PDF on Mac affect its quality? <span>&#9660;</span></div><div class="fa"><div class="fai">Text is never affected — it remains perfectly sharp regardless of compression. Images are reduced in resolution — at Maximum compression, images go from 300 DPI to approximately 150 DPI, which is still clear for on-screen reading. Always open the compressed file to verify before submitting.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Does compressing a PDF on Mac affect its quality? <span>&#9660;</span></div><div class="fa"><div class="fai">Visually, it stays close to the original, especially at Light and Balanced. Worth knowing: ShrinkPDF re-renders each page as an image to compress it, including text pages, so the output loses real selectable text, working hyperlinks, and any digital signature even though it looks the same on screen. At Maximum compression, images go from 300 DPI to approximately 150 DPI, which is still clear for on-screen reading. Always open the compressed file to verify before submitting.</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">How do I compress a PDF on Mac for email? <span>&#9660;</span></div><div class="fa"><div class="fai">Use ShrinkPDF with Balanced compression — open shrinkpdf.fyi in Safari, upload the PDF, select Balanced, and download. Balanced compression reduces most PDFs by 40–60% with virtually no visible quality change, making it ideal for email attachments.</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will Preview's compression work on scanned PDFs? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes — scanned PDFs at 300 DPI colour are one of the cases where Preview's Reduce File Size filter works reasonably well, because there's actual resolution to reduce. However, ShrinkPDF typically achieves better reduction (70–85% vs 50–70%) on the same scanned files.</div></div></div>
 
@@ -211,7 +211,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
     <div class="rls">
       <a href="en-13-windows.html" class="rl">How to Compress a PDF on Windows <span>&rarr;</span></a>
       <a href="en-09-mobile.html" class="rl">How to Compress PDF on iPhone and Android <span>&rarr;</span></a>
-      <a href="en-08-scanned.html" class="rl">How to Compress a Scanned PDF <span>&rarr;</span></a>
+      <a href="en-54-scanned-pdf-large.html" class="rl">Why Is My Scanned PDF So Large? <span>&rarr;</span></a>
     </div>
   </div>
 </div>

@@ -19,7 +19,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
-<meta property="article:modified_time" content="2026-03-20">
+<meta property="article:modified_time" content="2026-06-18">
 <style>
 @media(max-width:640px){.nav-top{padding:12px 16px;}.nav-bottom{display:none;}.hamburger{display:flex;}}
 :root{--bg:#0a0a0f;--sf:#13131a;--br:#2a2a3a;--ac:#5b4fff;--ac2:#ff4f9b;--tx:#f0f0f8;--tm:#7a7a9a;--surface:#13131a;--border:#2a2a3a;--text:#f0f0f8;--text-muted:#7a7a9a;--accent:#5b4fff;--accent2:#ff4f9b;}
@@ -159,7 +159,7 @@ p{margin-bottom:14px;color:#d0d0e8;}ul,ol{margin:14px 0 20px 22px;}li{margin-bot
   <ul>
     <li><strong>Open the compressed PDF at 100% zoom</strong> and read through it. Text should be sharp and clear. Headshot (if any) should look professional — not pixelated or artifacted.</li>
     <li><strong>Check colours</strong> if your CV uses brand colours or a designed template. Compression should preserve colour values exactly — if something looks off, re-export from the original source at a slightly higher quality setting.</li>
-    <li><strong>Verify hyperlinks work</strong> if your CV contains links (LinkedIn profile, portfolio URL, GitHub). Compression preserves hyperlinks — they should be clickable in the output.</li>
+    <li><strong>Don't rely on hyperlinks working</strong> if your CV contains links (LinkedIn profile, portfolio URL, GitHub) — ShrinkPDF's compression flattens each page into an image, so links are not clickable in the compressed output. Keep the original PDF on hand to send if a recruiter needs the links to work.</li>
     <li><strong>Check the file name</strong> before uploading. "Compressed_CV_v3_FINAL2.pdf" looks unprofessional. Rename it to "FirstName_LastName_CV.pdf" before submitting.</li>
   </ul>
   <div class="cta">
@@ -169,17 +169,17 @@ p{margin-bottom:14px;color:#d0d0e8;}ul,ol{margin:14px 0 20px 22px;}li{margin-bot
   </div>
   <h2 id="faq">Frequently Asked Questions</h2>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">What is the file size limit for LinkedIn PDF uploads? <span>&#9660;</span></div><div class="fa"><div class="fai">LinkedIn's limit is 5MB per file for both Featured section uploads and Easy Apply applications. A well-formatted digital CV should be well under 1MB. If yours is larger, it likely contains a high-resolution headshot or was exported from a design tool at print quality — Balanced compression will bring it within limits.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compression affect how my CV is parsed by ATS systems? <span>&#9660;</span></div><div class="fa"><div class="fai">For digital PDFs (created in Word, Google Docs, or a design tool), compression does not affect text parsing — text is stored as vector data and is completely unaffected by compression. For scanned CVs, text is stored as images, and ATS systems may use OCR to extract it — compression does not meaningfully change OCR accuracy. For best ATS compatibility, always submit a digital PDF, not a scan.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compression affect how my CV is parsed by ATS systems? <span>&#9660;</span></div><div class="fa"><div class="fai">It can, and this is worth knowing before you compress. ShrinkPDF re-renders each page as an image, so the compressed file no longer has a real text layer for an ATS to extract from — the same situation as a scanned CV, which many basic ATS systems struggle to parse or reject outright. If your CV is small enough to submit uncompressed (most text-based CVs are well under 1MB), submit the original. If you must compress to meet a strict size limit, check the portal's stated requirements, since some explicitly ask for a "text-based" or "non-scanned" PDF.</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Should I compress my portfolio to Maximum quality for LinkedIn? <span>&#9660;</span></div><div class="fa"><div class="fai">No — use Light or Balanced for portfolios. Your work is being evaluated on visual quality, and Maximum compression noticeably degrades images at closer inspection. If Light compression doesn't get you under 5MB, use Balanced. If Balanced isn't enough, consider creating a highlights version of your portfolio with fewer but higher-quality pieces.</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Does LinkedIn compress my PDF again after I upload it? <span>&#9660;</span></div><div class="fa"><div class="fai">LinkedIn may re-process uploaded PDFs for display purposes (generating previews, thumbnails), but the original file you uploaded is stored and available for download by recruiters and connections. Start with a well-compressed file so both the preview and the download look professional.</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">My CV is 15MB because I have a Canva template. What should I do? <span>&#9660;</span></div><div class="fa"><div class="fai">Canva exports at 300 DPI print quality, which makes design-heavy CVs very large. Use Balanced compression — this typically reduces a Canva CV from 10–15MB to under 1MB with no visible change at normal screen zoom. Your design, layout, colours, and fonts are all preserved.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will the hyperlinks in my CV still work after compression? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes. Hyperlinks in PDFs are stored as metadata separate from the visual content and are preserved through compression. Links to your LinkedIn profile, portfolio, or GitHub should remain clickable in the compressed output.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will the hyperlinks in my CV still work after compression? <span>&#9660;</span></div><div class="fa"><div class="fai">No. ShrinkPDF's compression re-renders each page as an image, so clickable hyperlinks are not preserved in the compressed file, even though they look the same visually. If a recruiter needs to click through to your LinkedIn, portfolio, or GitHub, send the original uncompressed PDF for the links, and only use the compressed version where a portal has a strict file-size limit and visual reading is enough.</div></div></div>
   <div class="related">
     <h3>Related Articles</h3>
     <div class="rls">
       <a href="en-17-job-application.html" class="rl">Compress PDF for Job Applications <span>&rarr;</span></a>
       <a href="en-45-no-watermark.html" class="rl">Compress PDF Free Without Watermark <span>&rarr;</span></a>
-      <a href="en-03-quality.html" class="rl">Compress PDF Without Losing Quality <span>&rarr;</span></a>
+      <a href="en-15-quality.html" class="rl">Compress PDF Without Losing Quality <span>&rarr;</span></a>
       <a href="en-01-below1mb.html" class="rl">How to Compress a PDF — Complete Guide <span>&rarr;</span></a>
       <a href="en-11-comparison.html" class="rl">ShrinkPDF vs Smallpdf vs ILovePDF <span>&rarr;</span></a>
     </div>

@@ -102,7 +102,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
-<meta property="article:modified_time" content="2026-05-01">
+<meta property="article:modified_time" content="2026-06-18">
 <script src="../components.js" defer></script>
 </head>
 <body>
@@ -172,13 +172,13 @@ h2[id],h3[id]{scroll-margin-top:110px;}
     <li><strong>For portal upload (5MB limit):</strong> Use Maximum compression first. If still over the limit, use the Split tool to divide the portfolio into parts and upload separately if the portal allows multiple files.</li>
     <li><strong>For sharing via link:</strong> No need to compress — upload the original to Google Drive or Dropbox and share the link instead.</li>
   </ul>
-  <p>A typical 30-page design portfolio with high-resolution images can be compressed from 40MB to 8–12MB with Balanced, or 4–6MB with Maximum. Text sharpness is preserved; image quality is reduced but usually acceptable for viewing on screen.</p>
+  <p>A typical 30-page design portfolio with high-resolution images can be compressed from 40MB to 8–12MB with Balanced, or 4–6MB with Maximum. Visually, image quality is reduced but usually acceptable for viewing on screen.</p>
 
   <h2 id="quality">Will Compression Make My Resume Look Bad to Recruiters?</h2>
-  <p>For text-based resumes: no. PDF compression on text-only documents is essentially lossless in appearance — the text will look identical because text in PDFs is stored as vector data, not pixels. Compression only affects embedded images and metadata.</p>
+  <p>Visually, no — at Light or Balanced, your resume looks essentially identical at normal screen zoom. There's one trade-off worth knowing for resumes specifically: ShrinkPDF compresses by re-rendering each page as an image, which means the compressed file loses real selectable text and any clickable hyperlinks (to your LinkedIn, portfolio, or GitHub). If those links matter to you, attach the original PDF alongside the compressed one, or only compress for portals with a strict size limit that don't need the links to work.</p>
   <p>For resumes with photos or logos: Balanced compression maintains quality that looks sharp on any screen. The difference is only visible if you zoom in to 300%+ and compare side by side. Recruiters open PDFs at normal viewing size — they won't notice.</p>
   <div class="box"><div class="bt">What actually happens when a PDF resume is compressed</div>
-  <p>ShrinkPDF reduces the resolution of embedded images (your photo, company logos, background graphics) and removes unnecessary metadata. The font data and text content are not altered — your formatting, layout, and all written content remain identical.</p></div>
+  <p>ShrinkPDF re-renders each page (your photo, company logos, background graphics, and the text itself) as an image and removes unnecessary metadata. Visually, your formatting, layout, and written content look identical. What changes structurally: the text is no longer selectable/searchable, and any hyperlinks or fillable fields are not preserved.</p></div>
 
   <div class="cta">
     <h3>&#10003; Compress Your Resume PDF Free</h3>
@@ -188,7 +188,8 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 
   <h2 id="faq">Frequently Asked Questions</h2>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">What is the ideal PDF size for a job application? <span>&#9660;</span></div><div class="fa"><div class="fai">Under 500KB for most portals. This is easily achievable for text resumes and cover letters. For portfolios or scanned documents, aim for under 2MB. Even when a portal allows 5MB, smaller files are faster to open and less likely to trigger ATS parsing errors.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compressing my resume PDF affect the text quality? <span>&#9660;</span></div><div class="fa"><div class="fai">No. PDF compression reduces image quality and removes metadata — it does not affect text. Text in PDFs is stored as vector data (font outlines and character codes), not as pixels, so it remains perfectly sharp at any zoom level regardless of compression. The only visible change may be on embedded photos or logos.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compressing my resume PDF affect the text quality? <span>&#9660;</span></div><div class="fa"><div class="fai">Visually, no, at Light or Balanced — text looks sharp at normal zoom. At Maximum, some softening can become visible if you zoom in, since every page (including text) is re-rendered as an image during compression. The bigger change is that the text is no longer real, selectable text in the output file — see the next question on hyperlinks for why that matters for a resume specifically.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will the links in my resume to LinkedIn or my portfolio still work after compression? <span>&#9660;</span></div><div class="fa"><div class="fai">No. Compression flattens each page into an image, so clickable hyperlinks are not preserved in the compressed file. If a recruiter needs to click through to your LinkedIn, portfolio, or GitHub, attach the original PDF as well, and only rely on the compressed version where a portal's size limit requires it.</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why does my resume PDF from Canva or Word look so large? <span>&#9660;</span></div><div class="fa"><div class="fai">Canva exports PDFs with high-resolution images and uncompressed assets by default — a simple one-page resume can be 5–15MB. Word also embeds full-resolution images unless you choose "Minimum size" on export. Both can be reduced to under 500KB with ShrinkPDF's Balanced compression.</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">The job portal says my PDF exceeds the size limit. What do I do? <span>&#9660;</span></div><div class="fa"><div class="fai">Compress with Maximum compression on ShrinkPDF first. If still over the limit, check if the portal accepts multiple file uploads — you can split the document using ShrinkPDF's Split tool. Alternatively, remove any high-resolution images or unnecessary pages from your resume before re-exporting.</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Is it safe to compress my resume on ShrinkPDF? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes. ShrinkPDF processes everything locally in your browser — your resume is never uploaded to any server. No one at ShrinkPDF can access your document. The compression happens entirely on your device using JavaScript.</div></div></div>

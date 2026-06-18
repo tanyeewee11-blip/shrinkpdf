@@ -19,7 +19,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
-<meta property="article:modified_time" content="2026-05-01">
+<meta property="article:modified_time" content="2026-06-18">
 <style>
 @media(max-width:640px){.nav-top{padding:12px 16px;}.nav-bottom{display:none;}.hamburger{display:flex;}}
 :root{--bg:#0a0a0f;--sf:#13131a;--br:#2a2a3a;--ac:#5b4fff;--ac2:#ff4f9b;--tx:#f0f0f8;--tm:#7a7a9a;--surface:#13131a;--border:#2a2a3a;--text:#f0f0f8;--text-muted:#7a7a9a;--accent:#5b4fff;--accent2:#ff4f9b;}
@@ -81,7 +81,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
   <ol>
     <li><a href="#what-is-dpi">What Is DPI and Why Does It Matter for PDFs?</a></li>
     <li><a href="#dpi-vs-filesize">How DPI Affects File Size — With Real Numbers</a></li>
-    <li><a href="#text-vs-images">Why Text Is Never Affected by Compression</a></li>
+    <li><a href="#text-vs-images">What Happens to Text When You Compress a PDF</a></li>
     <li><a href="#compression-levels">What Compression Levels Actually Do to Your File</a></li>
     <li><a href="#screen-vs-print">Screen DPI vs Print DPI — What You Actually Need</a></li>
     <li><a href="#types">How Different PDF Types Respond to Compression</a></li>
@@ -114,17 +114,19 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <div class="box warn"><div class="bt">Why Canva PDFs Are So Large</div>
 <p>Canva and other design tools export PDFs with embedded images at 300 DPI or higher by default — optimised for commercial printing quality. A simple one-page design with background gradients, icons, and a photo can be 8–15MB because every graphical element is stored at full print resolution. Compressing to 96 DPI (Balanced mode) typically reduces a Canva PDF by 80–90% — a 10MB file becomes 1–2MB — with no visible quality difference when shared digitally.</p></div>
 
-<h2 id="text-vs-images">Why Text Is Never Affected by Compression</h2>
-<p>This is the most important concept to understand — and the one that surprises most people.</p>
-<p>Text in a PDF is not stored as pixels. It's stored as <strong>font instructions</strong> — mathematical descriptions of how to draw each character, along with references to font files embedded in the document. When a PDF viewer renders text, it draws it fresh at whatever resolution your screen requires. Text in a PDF is, in this sense, resolution-independent.</p>
-<p>This means:</p>
+<h2 id="text-vs-images">What Happens to Text When You Compress a PDF</h2>
+<p>This is the part that surprises most people, and it's the opposite of what you might expect.</p>
+<p>In the <em>original</em> PDF, text is not stored as pixels — it's stored as <strong>font instructions</strong>, mathematical descriptions of how to draw each character, plus references to embedded font files. This is why a text-only PDF starts out tiny: there's almost no pixel data to begin with.</p>
+<p>ShrinkPDF's compression, however, works by rendering each page to a canvas and re-encoding it as an image, then assembling those images into a new PDF. This applies to every page — including pages that are pure text. There's no step that says "leave the text alone." This is actually useful to know, because it means:</p>
 <ul>
-<li>Compressing a PDF never affects text sharpness — text looks identical at any zoom level before and after compression</li>
-<li>Text-only PDFs (contracts, letters, Word exports with no images) compress minimally — there's almost nothing to downsample</li>
-<li>A scanned document (a photo of a page, not a digitally created PDF) is stored entirely as images — there's no "text layer" unless OCR has been applied, so it compresses very well</li>
+<li>Text-heavy documents compress substantially too, not just scans — a contract or letter can still shrink 40–70%, because the whole page becomes a recompressed image regardless of what was on it</li>
+<li>The compressed file no longer has a real, selectable text layer — you can't highlight, copy, or Ctrl+F search it, even though it looks the same on screen</li>
+<li>Hyperlinks, bookmarks, fillable form fields, and digital signatures don't survive compression, since the page is now a flattened image with none of that structure</li>
 </ul>
-<div class="box good"><div class="bt">How to Tell If Your PDF Has Real Text or Image Text</div>
-<p>Open the PDF and try to select a word with your cursor. If the text highlights blue when you click and drag, it's real vector text — compression won't change how it looks. If you can't select any text, the document is image-based (a scan or screenshot) — every "character" is actually a pixel, stored as an image. Image-based PDFs compress dramatically better than text-based ones.</p></div>
+<div class="box good"><div class="bt">How to Tell If Your Original PDF Has Real Text or Image Text</div>
+<p>Open the original PDF (before compressing) and try to select a word with your cursor. If it highlights, it's real vector text. If you can't select anything, it's already image-based (a scan or screenshot). This matters for deciding how much compression to expect — but either way, once you compress with ShrinkPDF, the output is image-based regardless of what the input was.</p></div>
+<div class="box warn"><div class="bt">When this trade-off matters</div>
+<p>For a payslip, transcript, or letter someone will just read on screen, none of this matters. It matters if you need the document to stay searchable, if it has hyperlinks you need to keep, or if it carries a digital signature that needs to remain valid — for those, compress a copy and keep the original, or compress before signing rather than after.</p></div>
 
 <h2 id="compression-levels">What Compression Levels Actually Do to Your File</h2>
 <p>When you compress a PDF, the tool performs two main operations: downsampling (reducing image DPI) and recompression (applying more efficient compression algorithms to the pixel data that remains). Here's exactly what ShrinkPDF's levels do:</p>
@@ -136,7 +138,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <p>Targets approximately 96 DPI with moderate JPEG quality settings. This is the sweet spot for most documents shared digitally. A 96 DPI image looks sharp on any standard monitor at 100% zoom — screens typically display at 72–110 PPI, so 96 DPI provides slightly more data than the screen shows, resulting in crisp rendering. File size reduction is typically 40–60%. Recommended for: email attachments, presentations, reports, mixed-content documents.</p>
 
 <h3>Maximum Compression</h3>
-<p>Targets approximately 72 DPI with aggressive JPEG compression. This matches the baseline screen resolution, so images look good at 100% zoom but become noticeably softer when zoomed in significantly. Produces the smallest possible output file — typically 65–85% smaller than the original. Recommended for: scanned documents, government portal uploads, any file that needs to meet a strict size limit (1–2MB). Text quality is completely unaffected.</p>
+<p>Targets approximately 72 DPI with aggressive JPEG compression. This matches the baseline screen resolution, so images look good at 100% zoom but become noticeably softer when zoomed in significantly — this includes text, since every page is rendered as an image at this stage regardless of what was originally on it. Produces the smallest possible output file — typically 65–85% smaller than the original. Recommended for: scanned documents, government portal uploads, any file that needs to meet a strict size limit (1–2MB).</p>
 
 <div class="box"><div class="bt">A Common Misconception About Maximum Compression</div>
 <p>Many people avoid Maximum compression because they fear their document will become "unreadable." In practice, for the documents most commonly compressed — payslips, transcripts, IC copies, bank statements, official letters — Maximum compression produces a file that is visually indistinguishable from the original when read normally on screen. The quality difference only becomes apparent when zooming in to 200%+, which is not how these documents are reviewed. A government portal reviewer reading your submitted payslip does not zoom in to inspect pixel-level image quality.</p></div>
@@ -170,11 +172,11 @@ h2[id],h3[id]{scroll-margin-top:110px;}
     <tr><td>Canva / design export</td><td>High-res images + vector</td><td>75–90%</td><td>Balanced</td></tr>
     <tr><td>PowerPoint / Slides export</td><td>Mixed text + images</td><td>50–75%</td><td>Balanced</td></tr>
     <tr><td>Word / Google Docs export</td><td>Text + occasional images</td><td>30–60%</td><td>Maximum or Balanced</td></tr>
-    <tr><td>Text-only PDF (no images)</td><td>Pure vector text</td><td>5–20%</td><td>Either (minimal impact)</td></tr>
+    <tr><td>Text-only PDF (no images)</td><td>Pure vector text</td><td>40–70%</td><td>Balanced or Maximum</td></tr>
     <tr><td>Already compressed PDF</td><td>Mixed</td><td>5–25%</td><td>Balanced</td></tr>
   </tbody>
 </table>
-<p>The key pattern: documents with high-DPI images (especially scans) compress dramatically. Documents that are already digital text compress minimally — not because the tool is ineffective, but because there's very little pixel data to reduce.</p>
+<p>The key pattern: documents with high-DPI images (especially scans) compress the most dramatically, since there was a lot of pixel data to begin with. Text-heavy documents still compress substantially, because ShrinkPDF re-renders every page as an image regardless of content — they're just starting from a smaller original file size.</p>
 
 <h2 id="scan-settings">Scanning at the Right DPI — Avoiding the Problem at Source</h2>
 <p>If you're scanning physical documents for portal uploads or email, choosing the right scan settings eliminates the need for post-processing compression entirely. These settings produce portal-ready files directly:</p>
@@ -193,7 +195,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 
   <h2 id="faq">Frequently Asked Questions</h2>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">What DPI should a PDF be for emailing? <span>&#9660;</span></div><div class="fa"><div class="fai">72–96 DPI is completely adequate for emailing. The recipient reads your document on a screen, and standard laptop and desktop screens display at 72–110 PPI — a 96 DPI PDF looks sharp at normal viewing zoom. You only need higher DPI if the recipient will print the document at A3 or larger, or for professional press printing where 300 DPI minimum is required.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why does my compressed PDF look blurry when I zoom in? <span>&#9660;</span></div><div class="fa"><div class="fai">At high zoom levels (200%+), you're seeing the individual pixels of the compressed images at 72–96 DPI — each pixel is now displayed larger than intended. This is expected behaviour, not a flaw. Documents are read at 100% zoom, not at 200%+ where pixel-level sharpness becomes visible. Text always remains sharp at any zoom because it's stored as vector data, not pixels — so even if images look slightly softer when zoomed, text stays crisp.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why does my compressed PDF look blurry when I zoom in? <span>&#9660;</span></div><div class="fa"><div class="fai">At high zoom levels (200%+), you're seeing the individual pixels of the compressed images at 72–96 DPI — each pixel is now displayed larger than intended. This is expected behaviour, not a flaw. Documents are read at 100% zoom, not at 200%+ where pixel-level sharpness becomes visible. Note this applies to text too at Maximum compression, since ShrinkPDF re-renders every page as an image regardless of whether it started as text or a scan — if text looks too soft, try Balanced or Light instead.</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compression affect a PDF I want to print at home? <span>&#9660;</span></div><div class="fa"><div class="fai">For standard A4 home or office printing on a laser or inkjet printer, Balanced compression (96 DPI) looks fine. Most readers don't notice the difference between 96 DPI and 300 DPI when printed on A4 paper and held at normal reading distance. For professional press printing, large format printing (A3+), or commercial brochures, do not compress below 150 DPI — in those cases, keep the full-resolution original.</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why is my Canva PDF so large? <span>&#9660;</span></div><div class="fa"><div class="fai">Canva exports PDFs with all images at 300 DPI by default — optimised for print quality, not digital sharing. A simple one-page design with a background image, icons, and text can be 8–15MB because every visual element is stored at full print resolution. Compressing to 96 DPI (Balanced mode) typically reduces a Canva PDF by 80–90% — a 10MB file becomes 1–2MB — with no visible quality difference on screen.</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">My scanned document didn't compress much. Why? <span>&#9660;</span></div><div class="fa"><div class="fai">If a scanned document showed less than 30% reduction after Maximum compression, it was likely already compressed by the scanner app before being saved. Many modern apps (CamScanner, Adobe Scan) apply their own compression at export time. The second pass of compression has less headroom to work with. The most effective fix for future scans is to change the scan settings directly — 150 DPI grayscale produces small files from the start, regardless of which compression tool you use later.</div></div></div>
@@ -205,7 +207,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
     <div class="rls">
       <a href="en-01-below1mb.html" class="rl">How to Compress a PDF — Complete Guide <span>&rarr;</span></a>
       <a href="en-06-malaysia.html" class="rl">Compress PDF for Malaysian Government Portals <span>&rarr;</span></a>
-      <a href="en-08-scanned.html" class="rl">How to Compress a Scanned PDF <span>&rarr;</span></a>
+      <a href="en-54-scanned-pdf-large.html" class="rl">Why Is My Scanned PDF So Large? <span>&rarr;</span></a>
       <a href="en-11-comparison.html" class="rl">ShrinkPDF vs Smallpdf vs ILovePDF — Which Is Best? <span>&rarr;</span></a>
       <a href="en-10-whylarge.html" class="rl">Why Is My PDF So Large? <span>&rarr;</span></a>
     </div>

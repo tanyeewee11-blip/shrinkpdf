@@ -115,7 +115,7 @@
   <div class="card">
     <h2>⚙️ How It Works</h2>
     <p>ShrinkPDF uses <a href="https://pdf-lib.js.org/" target="_blank" rel="noopener" style="color:var(--accent);">pdf-lib</a>, an open-source JavaScript library, to process your PDF entirely within your browser. When you select a file, it is loaded into your browser's memory — it is never sent over the internet to any server.</p>
-    <p>Depending on the compression level you choose, the tool reduces embedded image resolution (from 300 DPI to approximately 150 DPI at Maximum), strips unused font subsets, removes revision history and hidden metadata, and re-encodes the document structure. Text is stored as vector data and is never affected by compression — it remains perfectly sharp regardless of the level chosen.</p>
+    <p>Depending on the compression level you choose, the tool re-renders each page as an image and re-encodes it (from roughly 300 DPI down to as low as ~72 DPI at Maximum), strips unused font subsets, removes revision history and hidden metadata, and rebuilds the document from those images. This applies to every page, including pages that are pure text — so the compressed file no longer has a real, selectable text layer, and any hyperlinks, form fields, or digital signature do not carry over. Visually it looks close to the original, especially at Light and Balanced.</p>
     <p>The compressed PDF is generated in your browser and offered as a direct download. Once you close the tab or refresh the page, all file data is cleared from browser memory automatically.</p>
   </div>
 
