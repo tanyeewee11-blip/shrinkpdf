@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../shared.css"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>How to Compress PDF Without Losing Quality — Free Guide (2026)</title>
-<meta name="description" content="Compress a PDF without visible quality loss — what compression actually does to text vs images, which level to use for your situation, and when you can compress aggressively with no visible difference at all.">
+<meta name="description" content="What ShrinkPDF's compression actually does to your PDF: it rasterizes each page, which shrinks text-heavy and image-heavy files alike but removes selectable text, links and signatures. Here's when that trade-off is fine and when it isn't.">
 <meta name="keywords" content="compress pdf without losing quality, reduce pdf size without losing quality, compress pdf keep quality, pdf compression quality">
 <link rel="canonical" href="https://shrinkpdf.fyi/en-15-quality.html">
 <link rel="alternate" hreflang="x-default" href="https://shrinkpdf.fyi/en-15-quality.html">
@@ -12,14 +12,14 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shrinkpdf.fyi/en-15-quality.html">
 <meta property="og:title" content="How to Compress PDF Without Losing Quality — Free Guide (2026)">
-<meta property="og:description" content="Compress a PDF without visible quality loss — what compression actually does to text vs images, which level to use for your situation, and when you can compress aggressively with no visible difference at all."quality" actually means in PDFs, which compression level to use, and when you can compress aggressively without any visible difference.">
+<meta property="og:description" content="What ShrinkPDF's compression actually does to your PDF: it rasterizes each page, which shrinks text-heavy and image-heavy files alike but removes selectable text, links and signatures. Here's when that trade-off is fine and when it isn't.">
 <meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://shrinkpdf.fyi/og-image.png">
 <meta property="og:site_name" content="ShrinkPDF">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to Compress PDF Without Losing Quality — Free Guide (2026)">
-<meta name="twitter:description" content="Compress a PDF without visible quality loss — what compression actually does to text vs images, which level to use for your situation, and when you can compress aggressively with no visible difference at all."quality" actually means in PDFs, which compression level to use, and when you can compress aggressively without any visible difference.">
+<meta name="twitter:description" content="What ShrinkPDF's compression actually does to your PDF: it rasterizes each page, which shrinks text-heavy and image-heavy files alike but removes selectable text, links and signatures. Here's when that trade-off is fine and when it isn't.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap">
@@ -33,7 +33,7 @@ html{scroll-padding-top:100px;}
 body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;line-height:1.8;min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,0.07) 0%,transparent 50%);pointer-events:none;z-index:0;}
 .back:hover{color:var(--tx);}
-.wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1;}
+.wrap{max-width:740px;margin:0 auto;padding:115px 24px 80px;position:relative;z-index:1;}
 .meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:32px;}
 .tag{background:rgba(91,79,255,0.15);border:1px solid rgba(91,79,255,0.3);color:#a99fff;padding:4px 12px;border-radius:100px;font-size:0.78rem;}
 .rt{color:var(--tm);font-size:0.85rem;}
@@ -90,103 +90,107 @@ h2[id],h3[id]{scroll-margin-top:110px;}
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Does compressing a PDF reduce quality?", "acceptedAnswer": {"@type": "Answer", "text": "For text-only PDFs, compression has no visible effect on quality — text is stored as vectors and remains perfectly sharp. For PDFs with images, compression reduces image resolution slightly. At Balanced compression, the difference is invisible at normal viewing sizes."}},
-    {"@type": "Question", "name": "Which compression level preserves the most quality?", "acceptedAnswer": {"@type": "Answer", "text": "Light compression preserves the most image quality while reducing file size by 20-35%. Balanced is the sweet spot — virtually no visible quality change with 40-60% size reduction. Maximum gives the smallest file with a slight reduction in image sharpness at high zoom."}},
-    {"@type": "Question", "name": "Can I compress a PDF and keep it print-quality?", "acceptedAnswer": {"@type": "Answer", "text": "For print-quality output, use Light compression only, or avoid compression entirely. Print requires 300 DPI images — compression reduces this to 150-200 DPI, which is fine for screen but below ideal for high-quality printing."}}
+    {"@type": "Question", "name": "Does compressing a PDF with ShrinkPDF reduce quality?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, visually, to some degree at every level. ShrinkPDF re-renders each page as an image and re-encodes it, so file size drops a lot for both text-heavy and image-heavy PDFs. At Light and Balanced, the visual difference is hard to spot at normal zoom. At Maximum, softness becomes visible if you zoom in. The bigger change for text-heavy documents is that the text is no longer real, selectable text after compression."}},
+    {"@type": "Question", "name": "Will my PDF still be searchable and copy-pasteable after compression?", "acceptedAnswer": {"@type": "Answer", "text": "No. ShrinkPDF's compression converts every page into a flattened image, so the output PDF will not have selectable or searchable text, even if the original did. If you need to keep a searchable, editable, or accessible text layer, compress a copy and keep the original for that purpose."}},
+    {"@type": "Question", "name": "Are hyperlinks and digital signatures preserved after compression?", "acceptedAnswer": {"@type": "Answer", "text": "No. Because each page becomes a flattened image, clickable hyperlinks, fillable form fields, bookmarks, and digital signatures are not carried over to the compressed file. For a resume or document where clickable links matter, share the original alongside (or instead of) the compressed version. For a digitally signed document, compress before signing, not after, or check with the recipient whether a visual copy is acceptable."}}
   ]
 }
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
-<meta property="article:modified_time" content="2026-02-20">
+<meta property="article:modified_time" content="2026-06-17">
 <script src="../components.js" defer></script>
 </head>
 <body>
 <div id="read-progress"></div>
 <nav id="site-nav"></nav>
 <div class="wrap">
-  <div class="meta"><span class="tag">Quality</span><span class="tag">How-To</span><span class="tag">Free</span><time datetime="2026-02-20" class="updated rt">Updated February 20, 2026</time></div>
+  <div class="meta"><span class="tag">Quality</span><span class="tag">How-To</span><span class="tag">Free</span><time datetime="2026-06-17" class="updated rt">Updated June 17, 2026</time></div>
   <h1>How to Compress PDF Without Losing Quality (2026)</h1>
-  <p class="intro">"Compress without losing quality" is the most common concern about PDF compression — and the answer is more nuanced than yes or no. For text, there is genuinely no quality loss at any compression level. For images, it depends on how you define "quality" and what the document is for. This guide explains what compression actually does, which level to use for your situation, and when you can compress aggressively without any visible difference.</p>
+  <p class="intro">"Compress without losing quality" is the question everyone asks, and the honest answer is more nuanced than yes or no. ShrinkPDF's compression re-renders every page as an image, which is why it shrinks text-heavy documents as effectively as photo-heavy ones — but it also means the output is no longer a "real" text PDF. This guide explains exactly what changes, which level to use, and the situations where you should think twice before relying on the compressed copy alone.</p>
 
 <nav class="toc" aria-label="Table of contents">
   <div class="toc-title">In this article</div>
   <ol>
-    <li><a href="#what-compression-does">What PDF Compression Actually Does</a></li>
-    <li><a href="#text-vs-images">Text vs Images: Very Different Rules</a></li>
+    <li><a href="#what-compression-does">What ShrinkPDF's Compression Actually Does</a></li>
+    <li><a href="#text-vs-images">What You Gain and What You Give Up</a></li>
     <li><a href="#levels">Choosing the Right Level for Your Use Case</a></li>
-    <li><a href="#when-safe">When You Can Compress Aggressively</a></li>
-    <li><a href="#when-careful">When to Be More Careful</a></li>
-    <li><a href="#how-to">How to Compress with Minimal Quality Loss</a></li>
-    <li><a href="#verify">How to Verify Quality After Compression</a></li>
+    <li><a href="#when-safe">Best Settings by Document Type</a></li>
+    <li><a href="#when-careful">When This Tool Isn't the Right Choice</a></li>
+    <li><a href="#how-to">How to Compress with Minimal Visible Loss</a></li>
+    <li><a href="#verify">How to Verify the Result Before Submitting</a></li>
     <li><a href="#faq">Frequently Asked Questions</a></li>
   </ol>
 </nav>
 
-<h2 id="what-compression-does">What PDF Compression Actually Does</h2>
-<p>PDF compression primarily works by reducing the resolution of embedded images. A standard scanned document has images at 300 DPI — compression reduces these to 150 DPI (Balanced) or lower (Maximum). It also strips revision history, unused font subsets, and hidden metadata.</p>
-<p>What compression does <em>not</em> do: it does not change the text, the layout, the colours, the page structure, or any vector content. It does not degrade the document itself — only the resolution of embedded raster images.</p>
-<p>This distinction matters enormously. If your PDF is primarily text — a contract, a payslip, a letter, a transcript — compression has essentially zero visible effect. The "quality loss" concern mainly applies to documents that are primarily images, like scanned documents or photo-heavy reports.</p>
+<h2 id="what-compression-does">What ShrinkPDF's Compression Actually Does</h2>
+<p>ShrinkPDF compresses a PDF by rendering each page as an image and re-encoding it at a lower resolution and JPEG quality, then assembling those images back into a new PDF. This is a different mechanism from how some desktop tools work, and it has one important consequence worth knowing upfront: <strong>it applies to the whole page, including any real text</strong>. That's actually why it compresses text-heavy documents (contracts, letters, forms) just as effectively as photo-heavy ones — there's no separate "leave the text alone" step.</p>
+<div class="box warn"><div class="bt">What this means in practice</div>
+<p>The compressed PDF is, structurally, a sequence of page images — not a text document with embedded images. Visually it looks like the original at normal zoom. But the underlying text, hyperlinks, bookmarks, form fields, and any digital signature are not carried over, because none of those exist in an image file. Whether that matters depends entirely on what you're using the document for, which the next two sections cover.</p></div>
 
-<h2 id="text-vs-images">Text vs Images: Very Different Rules</h2>
-<h3>Text-based PDFs</h3>
-<p>Text in PDFs is stored as vector data — mathematical descriptions of letter shapes, not pixels. Vector text is resolution-independent: it looks identical at any size, any zoom level, any compression setting. Compressing a text-heavy PDF at Maximum level produces text that is <em>indistinguishable</em> from the original at any zoom level.</p>
-<p>This means: for payslips, contracts, letters, transcripts, personal statements, and any document that is primarily text, you can use Maximum compression without any quality concern whatsoever.</p>
-
-<h3>Image-based PDFs</h3>
-<p>Images in PDFs are stored as raster data — grids of pixels. Compression reduces the number of pixels by downsampling: a 300 DPI image becomes 150 DPI. This is the same image rendered at half the resolution in each dimension.</p>
-<p>At 150 DPI, images are still clear and legible on any screen at normal viewing size (100%). The difference only becomes noticeable when you zoom in above 150–200%, or when the document is printed at large format (A3+).</p>
-<p>For on-screen reading, portal submissions, and email — which covers 99% of PDF use cases — Balanced compression produces images that look identical to the original at normal viewing sizes.</p>
+<h2 id="text-vs-images">What You Gain and What You Give Up</h2>
+<h3>What you gain</h3>
+<p>A smaller file, fast, for free, with no upload — and it works the same way regardless of whether the original PDF was mostly text, mostly scanned images, or a mix. You don't need to guess whether your specific document will compress well; visually, the result looks close to the original at normal screen zoom for Light and Balanced, with some softening visible at Maximum.</p>
+<h3>What you give up</h3>
+<ul>
+<li><strong>Selectable and searchable text</strong> — you won't be able to highlight, copy, or Ctrl+F search text in the compressed file, even if you could in the original.</li>
+<li><strong>Working hyperlinks</strong> — any clickable links (to a portfolio, LinkedIn profile, or website) stop being clickable.</li>
+<li><strong>Digital signatures</strong> — a cryptographic signature on the original PDF will not carry over or remain valid in the compressed copy.</li>
+<li><strong>Fillable form fields and bookmarks</strong> — interactive forms become flat images; navigation bookmarks are not preserved.</li>
+<li><strong>Accessibility</strong> — screen readers cannot read text from an image-only page.</li>
+</ul>
+<p>None of this makes the tool less useful for its core purpose, which is producing a smaller file that looks right when someone opens and reads it. It just means the compressed copy should be the <em>last</em> step for documents where any of the properties above matter, not something you do casually to a file you still need to edit, search, or have someone digitally re-verify.</p>
 
 <h2 id="levels">Choosing the Right Level for Your Use Case</h2>
 <div class="box"><div class="bt">Compression Level Guide by Use Case</div>
 <ul>
-<li><strong>Light (20–35% reduction):</strong> Use when image quality is important and the file is for sharing or reviewing designs, portfolios, or photography. Text is unaffected. Images retain near-print quality.</li>
-<li><strong>Balanced (40–60% reduction):</strong> The sweet spot for most uses. Quality is virtually indistinguishable from the original for on-screen reading. Ideal for email, reports, presentations, and general sharing.</li>
-<li><strong>Maximum (65–85% reduction):</strong> Use when you have a hard size limit to meet. Text remains perfect. Images are slightly reduced in sharpness at high zoom but remain clearly legible. Ideal for portal uploads, government submissions, and university applications.</li>
+<li><strong>Light (20–35% reduction):</strong> The sharpest output. Use when visual detail matters most — portfolios, photography, design work, or anything you might want to view zoomed in.</li>
+<li><strong>Balanced (40–60% reduction):</strong> The sweet spot for most everyday documents. Looks close to the original at normal screen zoom. Good default for email, reports, presentations, and general sharing.</li>
+<li><strong>Maximum (65–85% reduction):</strong> The smallest file. Some softening is visible if you zoom in, but it's usually fine for documents someone will read at normal size — portal uploads and submissions with a hard size limit.</li>
 </ul></div>
 
-<h2 id="when-safe">When You Can Compress Aggressively (Maximum)</h2>
-<p>These document types are safe to compress at Maximum with no practical quality concern:</p>
+<h2 id="when-safe">Best Settings by Document Type</h2>
+<p>Because the trade-off is about more than image sharpness, the right level depends on what the document is for, not just whether it has photos in it:</p>
+<div class="box"><div class="bt">Recommended level and what to check afterward</div>
 <ul>
-<li><strong>Payslips and salary documents</strong> — text only, zero image quality concern</li>
-<li><strong>Contracts and legal documents</strong> — text only, signatures at 150 DPI are perfectly legible</li>
-<li><strong>Academic transcripts and certificates</strong> — text with simple logos and stamps, all remain clear</li>
-<li><strong>IC copies and identity documents</strong> — Maximum compression keeps text and photo legible for verification purposes; always verify after compressing</li>
-<li><strong>Bank statements</strong> — text and simple tables, no meaningful image content</li>
-<li><strong>Letters and reference letters</strong> — text only</li>
-<li><strong>Tax forms</strong> — text and simple graphics</li>
-</ul>
+<li><strong>Payslips, bank statements, letters</strong> — Maximum is fine. You only need to read the numbers and text on screen; nobody needs to copy-paste from these.</li>
+<li><strong>Contracts and signed agreements</strong> — Balanced, and verify the signature is still clearly visible. If the recipient needs a cryptographically valid digital signature, compress before signing rather than after, or send the original alongside the compressed copy.</li>
+<li><strong>Academic transcripts and certificates</strong> — Balanced. Grades and institution names should stay crisp; a portal that needs to verify a stamp or seal benefits from the extra clarity.</li>
+<li><strong>IC, passport, or ID scans</strong> — Maximum is usually fine since these are scans (already images) — but always zoom in afterward to confirm the ID number is still readable.</li>
+<li><strong>Resumes and portfolios with hyperlinks</strong> — compress for the file-size limit, but also keep the original on hand if the recipient cares about clickable links to your LinkedIn, GitHub, or site.</li>
+<li><strong>Tax forms and government submissions</strong> — Balanced or Maximum depending on the portal's limit; these are usually read on screen, not searched or edited by the reviewer.</li>
+</ul></div>
 <div class="box good"><div class="bt">The practical test</div>
-<p>After compressing, open the PDF and read it at 100% zoom. If you cannot tell the difference between the original and the compressed version at normal reading size, the compression is lossless from a practical standpoint — regardless of what the technical resolution numbers say.</p></div>
+<p>After compressing, open the PDF and read it at 100% zoom. If you cannot tell the difference between the original and the compressed version at normal reading size, it looks right for submission. Separately, try selecting a line of text or clicking a link — if you need either of those to still work, the compressed file isn't the one to send.</p></div>
 
-<h2 id="when-careful">When to Be More Careful</h2>
-<p>Use Balanced or Light compression for these document types:</p>
+<h2 id="when-careful">When This Tool Isn't the Right Choice</h2>
+<p>Compress a different copy, or skip compression, for documents where any of these matter:</p>
 <ul>
-<li><strong>Design portfolios and creative work</strong> — image quality is being evaluated; use Light compression</li>
-<li><strong>Medical imaging PDFs</strong> — diagnostic images require high resolution; use Light or no compression</li>
-<li><strong>Product catalogues for print</strong> — if the recipient will print at large format, use Balanced at most</li>
-<li><strong>Engineering drawings with fine detail</strong> — fine lines and small text in CAD drawings can become unclear at Maximum compression; use Balanced</li>
-<li><strong>Photographs being sent for review</strong> — use Light to preserve photo quality</li>
+<li><strong>Anything that needs to remain searchable or copy-pasteable</strong> — reports, ebooks, or reference documents you'll search through later.</li>
+<li><strong>Documents with a digital signature you need to stay cryptographically valid</strong> — compress before the signing step, not after.</li>
+<li><strong>Fillable PDF forms</strong> — compression flattens form fields, so the recipient won't be able to type into them.</li>
+<li><strong>Design portfolios and creative work being judged on image quality</strong> — use Light, and consider whether compression is even needed if the file size limit allows the original.</li>
+<li><strong>Medical imaging or engineering drawings with fine detail</strong> — any resampling can lose detail that matters; check with the recipient before compressing at all.</li>
 </ul>
 
-<h2 id="how-to">How to Compress with Minimal Quality Loss</h2>
-<div class="step"><div class="sn">1</div><div class="sc"><h3>Identify Your Document Type</h3>
-<p>Is it primarily text, or primarily images? For text-heavy documents, use Maximum freely. For image-heavy documents, start with Balanced.</p></div></div>
+<h2 id="how-to">How to Compress with Minimal Visible Loss</h2>
+<div class="step"><div class="sn">1</div><div class="sc"><h3>Decide What the Document Needs to Do Next</h3>
+<p>Will anyone need to copy text from it, click a link in it, or verify a digital signature on it? If yes, see the "When This Tool Isn't the Right Choice" section above first. If the file just needs to be opened and read, any level works.</p></div></div>
 <div class="step"><div class="sn">2</div><div class="sc"><h3>Open ShrinkPDF and Upload</h3>
 <p>Go to <a href="index.html">ShrinkPDF.fyi</a>. Upload your PDF. Processing happens in your browser — the file never leaves your device.</p></div></div>
-<div class="step"><div class="sn">3</div><div class="sc"><h3>Choose Balanced for Image-Heavy Documents</h3>
-<p>If your document has photos or detailed graphics you want to preserve, select Balanced. This achieves 40–60% size reduction with virtually no visible quality change at normal zoom.</p></div></div>
+<div class="step"><div class="sn">3</div><div class="sc"><h3>Choose Balanced for Most Documents</h3>
+<p>Balanced is the right starting point for most documents. This achieves 40–60% size reduction while still looking close to the original at normal zoom.</p></div></div>
 <div class="step"><div class="sn">4</div><div class="sc"><h3>Download and Verify Before Submitting</h3>
 <p>Open the compressed PDF. Zoom to 100% and read through the document. Check any images or photos at 100–150% zoom. If everything looks good at this zoom level, the quality is acceptable for screen and submission use.</p></div></div>
 
-<h2 id="verify">How to Verify Quality After Compression</h2>
+<h2 id="verify">How to Verify the Result Before Submitting</h2>
 <p>Before submitting any compressed document, run through this quick check:</p>
 <ul>
 <li><strong>Open both files side by side</strong> if possible — original and compressed — and compare at 100% zoom</li>
-<li><strong>Check text legibility</strong> — zoom to 200% and confirm all text is sharp</li>
+<li><strong>Check text legibility</strong> — zoom to 200% and confirm text is still sharp enough to read comfortably</li>
 <li><strong>Check fine details</strong> — IC numbers, account numbers, signatures, official stamps</li>
-<li><strong>Check images at 100%</strong> — verify photos and graphics are acceptable at normal reading size</li>
+<li><strong>Try selecting a line of text</strong> — if you can't, the file is now image-only; that's expected, but make sure you don't need that text to remain selectable</li>
+<li><strong>Test any hyperlinks</strong> — if the original had clickable links you still need, the compressed copy won't have them</li>
 <li><strong>Scroll through every page</strong> — confirm no pages are blank or corrupt</li>
 </ul>
 <p>If any part of the compressed version is not acceptable, re-compress using Balanced instead of Maximum, or use Light compression for documents where image quality is critical.</p>
@@ -198,17 +202,18 @@ h2[id],h3[id]{scroll-margin-top:110px;}
   </div>
 
   <h2 id="faq">Frequently Asked Questions</h2>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Does compressing a PDF reduce quality? <span>&#9660;</span></div><div class="fa"><div class="fai">For text-only PDFs, no — text is stored as vectors and remains perfectly sharp at any compression level. For PDFs with images, compression reduces image resolution. At Balanced compression, the difference is invisible at normal viewing sizes. At Maximum, images are slightly softer at high zoom but remain legible.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Which compression level preserves the most quality? <span>&#9660;</span></div><div class="fa"><div class="fai">Light compression preserves the most image quality (20–35% size reduction). Balanced is the practical sweet spot — virtually no visible quality change with 40–60% reduction. Maximum gives the smallest file with a slight reduction in image sharpness at high zoom.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Can I compress a PDF and keep it print-quality? <span>&#9660;</span></div><div class="fa"><div class="fai">For standard printing (A4/Letter), Balanced compression is usually sufficient — 150 DPI images print acceptably at standard sizes. For high-quality printing (A3+, professional print) or design work, use Light compression only. For offset or commercial printing, avoid compression entirely and keep the print-ready original.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Is "lossless" PDF compression possible? <span>&#9660;</span></div><div class="fa"><div class="fai">Lossless compression (removing metadata, revision history, and unused font subsets without touching image quality) is possible and happens at all compression levels. However, the significant size reductions (40–80%) require reducing image resolution, which is technically lossy. For most practical purposes — screen viewing and portal submission — the difference is invisible.</div></div></div>
-  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">I compressed my IC copy — is it still valid for submission? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes, as long as the IC number, name, photo, and other key details are clearly legible in the compressed version. Always open the compressed file and zoom into the text before submitting. Maximum compression on a standard IC scan typically keeps all text and the photo clearly readable.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Does compressing a PDF reduce quality? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes, to some degree, because ShrinkPDF re-renders each page as an image rather than selectively compressing only embedded photos. At Light and Balanced, the visual difference at normal screen zoom is hard to notice. At Maximum, some softening becomes visible if you zoom in. This applies even to text-heavy pages, since the whole page is rendered as one image.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will my text still be selectable and searchable after compression? <span>&#9660;</span></div><div class="fa"><div class="fai">No. The compressed PDF is made of page images, not real text, so you won't be able to select, copy, or search text in it even if the original PDF had real text. If you need a searchable copy later, keep the original file as well.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will the hyperlinks in my PDF still work after compression? <span>&#9660;</span></div><div class="fa"><div class="fai">No. Clickable links, bookmarks, and fillable form fields are not preserved, because the compressed page is a flattened image with no clickable elements. If links matter — for example a resume linking to your portfolio — send the original alongside the compressed copy, or only compress for portals that don't need the links to work.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Can I compress a PDF and keep it print-quality? <span>&#9660;</span></div><div class="fa"><div class="fai">For standard home or office printing (A4/Letter), Balanced compression is usually acceptable. For high-quality or professional printing (A3+, offset, commercial print), avoid compression entirely and use the original file — the resampling that happens at every level reduces image detail below what professional printing needs.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">I compressed my IC copy or a signed document — is it still valid for submission? <span>&#9660;</span></div><div class="fa"><div class="fai">For an ID scan that just needs to be visually legible, yes — as long as the ID number, name, and photo are clearly readable after compressing, which you should always check by zooming in. For a document that needs a cryptographically valid digital signature, no — compression does not preserve the signature, so compress before signing rather than after, or send the originally-signed file when validity matters.</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why does my compressed PDF look slightly blurry? <span>&#9660;</span></div><div class="fa"><div class="fai">This is most noticeable on text-heavy pages at Maximum compression, since the whole page (including the text) is being re-rendered as a lower-resolution image. If it looks too soft, switch to Balanced or Light — both keep more detail at the cost of a smaller size reduction. If you started from a scanned PDF that was already low-resolution, no compression setting will recover detail that wasn't in the original scan.</div></div></div>
 
   <div class="related">
     <h3>Related Articles</h3>
     <div class="rls">
       <a href="en-01-below1mb.html" class="rl">How to Compress a PDF — Complete Guide <span>&rarr;</span></a>
-      <a href="en-08-scanned.html" class="rl">How to Compress a Scanned PDF <span>&rarr;</span></a>
+      <a href="en-54-scanned-pdf-large.html" class="rl">Why Is My Scanned PDF So Large? <span>&rarr;</span></a>
       <a href="en-10-whylarge.html" class="rl">Why Is My PDF So Large? <span>&rarr;</span></a>
     </div>
   </div>

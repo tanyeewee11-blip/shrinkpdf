@@ -25,7 +25,7 @@
 html{scroll-padding-top:100px;}*{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;line-height:1.8;min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,0.07) 0%,transparent 50%);pointer-events:none;z-index:0;}
-.wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1;}
+.wrap{max-width:740px;margin:0 auto;padding:115px 24px 80px;position:relative;z-index:1;}
 .meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:32px;}
 .tag{background:rgba(91,79,255,0.15);border:1px solid rgba(91,79,255,0.3);color:#a99fff;padding:4px 12px;border-radius:100px;font-size:0.78rem;}
 .rt{color:var(--tm);font-size:0.85rem;}
@@ -92,6 +92,7 @@ tr:last-child td{border-bottom:none;}
   
   <h2 id="why">Why Scanned PDFs Are So Large</h2>
   <p>When you scan a document, your scanner or phone camera captures every pixel of the page as a raster image — a grid of dots. Unlike a digitally-typed PDF where text is stored as mathematical instructions (tiny), a scanned PDF stores the entire page as a photograph. A full-colour photograph of an A4 page at high resolution contains millions of pixels, which adds up to megabytes of data.</p>
+  <p>To put a number on it: a standard A4 page at 300 DPI is roughly 2,480 × 3,507 pixels — about 8.7 million pixels. In full colour at 3 bytes per pixel, that's around 26MB of raw image data for a single page before any compression. This is why a 10-page scanned payslip can be 20MB while a 100-page text document created in Word might be under 2MB.</p>
   <p>The three factors that determine scanned PDF size:</p>
   <ul>
     <li><strong>Resolution (DPI):</strong> More dots per inch = more pixels = larger file. Doubling DPI roughly quadruples file size.</li>
@@ -190,7 +191,7 @@ tr:last-child td{border-bottom:none;}
     <h3>Related Articles</h3>
     <div class="rls">
       <a href="/guides/en-26-dpi-explained.html" class="rl">DPI and PDF File Size Explained <span>&rarr;</span></a>
-      <a href="/guides/en-08-scanned.html" class="rl">How to Compress a Scanned PDF <span>&rarr;</span></a>
+      <a href="/guides/en-15-quality.html" class="rl">How to Compress PDF Without Losing Quality <span>&rarr;</span></a>
       <a href="/guides/en-01-below1mb.html" class="rl">How to Compress a PDF — Complete Guide <span>&rarr;</span></a>
       <a href="/guides/en-52-pdf-too-large-upload.html" class="rl">PDF Too Large to Upload — 7 Fixes <span>&rarr;</span></a>
       <a href="/guides/en-06-malaysia.html" class="rl">Compress PDF for Malaysian Government Portals <span>&rarr;</span></a>
