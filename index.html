@@ -797,7 +797,7 @@
 <section style="position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 24px 80px;">
   <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;text-align:center;margin-bottom:12px;letter-spacing:-0.5px;">Free PDF Compression Guides</div>
   <p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-bottom:8px;max-width:600px;margin-left:auto;margin-right:auto;">Not sure which compression level to use, or why your PDF is so large in the first place? These guides cover the most common scenarios — from hitting a 2MB portal limit to compressing scanned documents without losing legibility.</p>
-  <div style="text-align:center;margin-bottom:40px;margin-top:20px;"><a href="guides.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--accent);text-decoration:none;font-size:0.88rem;border:1px solid rgba(91,79,255,0.35);padding:7px 18px;border-radius:100px;transition:all 0.2s;" onmouseover="this.style.background='rgba(91,79,255,0.1)'" onmouseout="this.style.background='transparent'">📚 View all 43 guides →</a></div>
+  <div style="text-align:center;margin-bottom:40px;margin-top:20px;"><a href="guides.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--accent);text-decoration:none;font-size:0.88rem;border:1px solid rgba(91,79,255,0.35);padding:7px 18px;border-radius:100px;transition:all 0.2s;" onmouseover="this.style.background='rgba(91,79,255,0.1)'" onmouseout="this.style.background='transparent'">📚 View all 52 guides →</a></div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
     <a href="/guides/en-01-below1mb.html" style="text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:block;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
       <div style="font-size:1.3rem;margin-bottom:8px;">📉</div>
@@ -829,6 +829,36 @@
       <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:6px;color:var(--text);">Compress PDF on Mac</div>
       <div style="font-size:0.8rem;color:var(--text-muted);">Why Mac's built-in Preview compressor often makes files larger — and the reliable free alternative that actually works.</div>
     </a>
+  </div>
+</section>
+
+<!-- EDITORIAL: WHY PRIVATE -->
+<section style="position:relative;z-index:1;max-width:800px;margin:0 auto;padding:0 24px 80px;">
+  <div style="font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800;text-align:center;margin-bottom:14px;letter-spacing:-0.5px;">Why "No Upload" Actually Matters</div>
+  <p style="text-align:center;color:var(--text-muted);font-size:0.95rem;margin-bottom:48px;max-width:580px;margin-left:auto;margin-right:auto;">Most free PDF tools are free because they process your file on their servers, log it, and use it to train or improve their products. ShrinkPDF works differently.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:48px;">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;">
+      <div style="font-size:1.6rem;margin-bottom:12px;">🔒</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:8px;">Your file never leaves your device</div>
+      <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;">The compression runs entirely in JavaScript inside your browser tab. No server receives your file — not even temporarily. You can verify this yourself by watching the Network tab in your browser's DevTools while compressing.</p>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;">
+      <div style="font-size:1.6rem;margin-bottom:12px;">📄</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:8px;">Built for documents with sensitive content</div>
+      <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;">Payslips, bank statements, IC copies, signed contracts, medical reports — the documents people most often need to compress are exactly the ones you don't want passing through a third-party server. That's why local processing matters.</p>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;">
+      <div style="font-size:1.6rem;margin-bottom:12px;">⚡</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:8px;">No upload means no waiting</div>
+      <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;">Server-based tools have a round-trip: your file uploads, the server processes it, the result downloads back. ShrinkPDF processes inside your device's own memory — for most files, compression finishes in seconds regardless of your internet speed.</p>
+    </div>
+  </div>
+
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 32px;">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:12px;">How the compression actually works</div>
+    <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin-bottom:10px;">ShrinkPDF uses your browser's built-in rendering engine to redraw each page of your PDF as an image, then assembles those images back into a new PDF. This is the same approach used by most browser-based PDF compressors, and it's what makes file size reduction possible without needing a server.</p>
+    <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;">One thing worth knowing: because each page is re-rendered as an image, the output PDF is no longer a "text" PDF in the traditional sense — you won't be able to select or copy text from the compressed version, even if you could in the original. For most submission and sharing scenarios, this doesn't matter. If it does matter for your use case, keep the original file.</p>
   </div>
 </section>
 
