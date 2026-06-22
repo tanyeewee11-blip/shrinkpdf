@@ -68,5 +68,8 @@
   <url><loc>https://shrinkpdf.fyi/guides/en-54-scanned-pdf-large</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-55-pdf-size-after-compression</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-56-forms-applications</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-57-merge-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-58-split-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-59-pdf-to-jpg</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
 </urlset>
