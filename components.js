@@ -40,6 +40,7 @@
   // Inject NAV
   const navEl = document.getElementById('site-nav');
   if (navEl) {
+    navEl.insertAdjacentHTML('beforebegin', '<a href="#main-content" class="skip-link">Skip to main content</a>');
     navEl.innerHTML = `
       <div class="nav-top">
         <a href="${root}index.html" class="logo"><span>Shrink</span>PDF</a>

@@ -25,9 +25,9 @@
 <meta name="twitter:description" content="Compress large PDF files for free. No file size limit. No login required.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap"></noscript>
 <!-- MuPDF WASM loaded inside mupdf-worker.js via Web Worker -->
 <style>
 .hero {
@@ -485,6 +485,8 @@ gtag('config', 'G-MY7DTD213P');
 <!-- NAV -->
 <nav id="site-nav"></nav>
 
+<main id="main-content">
+
 <!-- HERO -->
 <section class="hero">
   <div class="badge">
@@ -872,6 +874,8 @@ gtag('config', 'G-MY7DTD213P');
 </section>
 
 <!-- FOOTER -->
+</main>
+
 <footer id="site-footer"></footer>
 
 <script>
@@ -925,6 +929,7 @@ async function startCompress() {
 
   try {
     setProgress(5, 'Loading PDF…');
+    await loadLibs();
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
     const arrayBuffer = await currentFile.arrayBuffer();
     const pdfJsDoc = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
@@ -1057,6 +1062,29 @@ function formatSize(bytes) {
 function toggleFaq(el) {
   el.parentElement.classList.toggle('open');
 }
+// ── Lazy-load pdf.js and pdf-lib on first use ──
+let _libsLoaded = false;
+let _libsLoading = null;
+function loadLibs() {
+  if (_libsLoaded) return Promise.resolve();
+  if (_libsLoading) return _libsLoading;
+  _libsLoading = new Promise((resolve, reject) => {
+    const scripts = [
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js',
+    ];
+    let loaded = 0;
+    scripts.forEach(src => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = () => { if (++loaded === scripts.length) { _libsLoaded = true; resolve(); } };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  });
+  return _libsLoading;
+}
+
 
 // ── NEW: share helpers ──
 function shareWhatsApp() {
@@ -1074,9 +1102,7 @@ function copyLink() {
 }
 </script>
 
-<!-- pdf.js + pdf-lib -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<!-- pdf.js + pdf-lib loaded on demand via loadLibs() -->
 
 </body>
 </html>
