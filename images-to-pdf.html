@@ -263,7 +263,7 @@
 
 
 <div class="tool-card">
-  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()" role="button" tabindex="0" aria-label="Drop PDF here or click to choose file" onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('fileInput').click()">
     <span class="upload-icon">🖼️</span>
     <h2>Drop your images here</h2>
     <p>JPG, PNG, WebP — drag & drop or click to browse</p>
@@ -309,9 +309,9 @@
       </div>
     </div>
 
-    <button class="btn-action" id="convertBtn" onclick="startConvert()">📄 Convert to PDF</button>
+    <button class="btn-action" id="convertBtn" onclick="startConvert()" aria-label="Start converting images to PDF">📄 Convert to PDF</button>
 
-    <div class="progress-wrap" id="progressWrap">
+    <div class="progress-wrap" id="progressWrap" aria-live="polite" aria-label="Processing progress">
       <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBar"></div></div>
       <div class="progress-text" id="progressText">Converting...</div>
     </div>
@@ -471,7 +471,7 @@
           <div class="img-name">${img.file.name}</div>
           <div class="img-meta">${formatSize(img.file.size)} · Page ${idx + 1}</div>
         </div>
-        <button class="img-remove" onclick="removeImage(${img.id})" title="Remove">✕</button>
+        <button class="img-remove" onclick="removeImage(${img.id})" title="Remove" aria-label="Remove image">✕</button>
       `;
       item.addEventListener('dragstart', onDragStart);
       item.addEventListener('dragover', onDragOver);
@@ -606,7 +606,7 @@
       document.getElementById('resultWrap').classList.add('visible');
       document.getElementById('convertBtn').style.display = 'none';
     } catch(e) {
-      alert('Error: ' + e.message);
+      showToast('Something went wrong: ' + e.message, 'error');
     }
     btn.disabled = false; btn.textContent = '📄 Convert to PDF';
   }

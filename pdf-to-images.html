@@ -270,15 +270,15 @@
       <div class="file-meta" id="fileSize"></div>
     </div>
     <span class="file-pages" id="filePages"></span>
-    <button class="file-remove" onclick="resetTool()">✕</button>
+    <button class="file-remove" onclick="resetTool()" aria-label="Remove file">✕</button>
   </div>
 
-  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()" role="button" tabindex="0" aria-label="Drop PDF here or click to choose file" onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('fileInput').click()">
     <span class="upload-icon">📂</span>
     <h2>Drop your PDF here</h2>
     <p>Drag & drop or click to browse</p>
     <button class="btn-upload" onclick="event.stopPropagation();document.getElementById('fileInput').click()">📁 Choose PDF File</button>
-    <input type="file" id="fileInput" accept=".pdf" onchange="handleFile(this.files[0])">
+    <input type="file" id="fileInput" accept=".pdf" onchange="handleFile(this.files[0])" aria-label="Select PDF file">
   </div>
 
   <div class="options-panel" id="optionsPanel">
@@ -311,9 +311,9 @@
     </div>
   </div>
 
-  <button class="btn-action" id="convertBtn" style="display:none" onclick="startConvert()">🖼️ Convert to Images</button>
+  <button class="btn-action" id="convertBtn" style="display:none" onclick="startConvert()" aria-label="Start converting PDF to images">🖼️ Convert to Images</button>
 
-  <div class="progress-wrap" id="progressWrap">
+  <div class="progress-wrap" id="progressWrap" aria-live="polite" aria-label="Processing progress">
     <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBar"></div></div>
     <div class="progress-text" id="progressText">Converting...</div>
   </div>
@@ -321,7 +321,7 @@
   <div class="preview-section" id="previewSection">
     <div class="preview-header">
       <div class="preview-title" id="previewTitle">Pages converted</div>
-      <button class="btn-download-all" id="downloadAllBtn" onclick="downloadAll()">⬇️ Download All (ZIP)</button>
+      <button class="btn-download-all" id="downloadAllBtn" onclick="downloadAll()" aria-label="Download all images as ZIP">⬇️ Download All (ZIP)</button>
     </div>
     <div class="preview-grid" id="previewGrid"></div>
     <button class="btn-another" onclick="resetTool()">Convert another file</button>
@@ -543,9 +543,9 @@
     } catch(e) {
       const msg = e.message || '';
       if (msg.toLowerCase().includes('encrypt') || msg.toLowerCase().includes('password')) {
-        alert('This PDF is password-protected. Please remove the password before converting.');
+        showToast('This PDF is password-protected. Please remove the password first.', 'warning');
       } else {
-        alert('Error: ' + e.message);
+        showToast('Something went wrong: ' + e.message, 'error');
       }
     }
     btn.disabled = false; btn.textContent = '🖼️ Convert to Images';

@@ -107,4 +107,31 @@
     btn.classList.toggle('open');
     drawer.classList.toggle('open');
   };
+
+  // ── showToast(message, type, duration) ──
+  // type: 'error' | 'warning' | 'success' | 'info'  (default: 'error')
+  // duration: ms (default: 4000)
+  window.showToast = function(message, type, duration) {
+    type = type || 'error';
+    duration = duration || 4000;
+
+    var container = document.getElementById('toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'toast-container';
+      container.className = 'toast-container';
+      document.body.appendChild(container);
+    }
+
+    var icons = { error: '❌', warning: '⚠️', success: '✅', info: 'ℹ️' };
+    var toast = document.createElement('div');
+    toast.className = 'toast toast-' + type;
+    toast.innerHTML = '<span class="toast-icon">' + (icons[type] || '❌') + '</span><span>' + message + '</span>';
+    container.appendChild(toast);
+
+    setTimeout(function() {
+      toast.classList.add('removing');
+      toast.addEventListener('animationend', function() { toast.remove(); }, { once: true });
+    }, duration);
+  };
 })();

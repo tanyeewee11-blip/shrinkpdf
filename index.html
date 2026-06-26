@@ -511,18 +511,18 @@ gtag('config', 'G-MY7DTD213P');
       <div class="file-name" id="fileName">document.pdf</div>
       <div class="file-size" id="fileSize">0 MB</div>
     </div>
-    <button class="file-remove" onclick="resetTool()" title="Remove file">✕</button>
+    <button class="file-remove" onclick="resetTool()" title="Remove file" aria-label="Remove file">✕</button>
   </div>
 
   <!-- Upload Zone -->
-  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+  <div class="upload-zone" id="uploadZone" role="button" tabindex="0" aria-label="Drop PDF here or click to choose file" onclick="document.getElementById('fileInput').click()" onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('fileInput').click()">
     <span class="upload-icon">📂</span>
     <h2>Drop your PDF here</h2>
     <p>Drag &amp; drop or click to browse — any size welcome</p>
-    <button class="btn-upload" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">
+    <button class="btn-upload" onclick="event.stopPropagation(); document.getElementById('fileInput').click()" aria-label="Choose PDF file to compress">
       📁 Choose PDF File
     </button>
-    <input type="file" id="fileInput" accept=".pdf,application/pdf" onchange="handleFile(this.files[0])">
+    <input type="file" id="fileInput" accept=".pdf,application/pdf" onchange="handleFile(this.files[0])" aria-label="Select PDF file">
   </div>
 
   <!-- Options -->
@@ -551,12 +551,12 @@ gtag('config', 'G-MY7DTD213P');
   </div>
 
   <!-- Compress Button -->
-  <button class="btn-compress" id="compressBtn" onclick="startCompress()">
+  <button class="btn-compress" id="compressBtn" onclick="startCompress()" aria-label="Start compressing PDF">
     🗜️ Compress PDF Now
   </button>
 
   <!-- Progress -->
-  <div class="progress-wrap" id="progressWrap">
+  <div class="progress-wrap" id="progressWrap" aria-live="polite" aria-label="Compression progress">
     <div class="progress-bar-bg">
       <div class="progress-bar-fill" id="progressBar"></div>
     </div>
@@ -962,7 +962,7 @@ async function startCompress() {
 
   } catch (err) {
     console.error(err);
-    alert('Compression failed: ' + err.message);
+    showToast('Compression failed: ' + err.message, 'error');
   } finally {
     btn.disabled = false;
     btn.textContent = '🗜️ Compress PDF Now';

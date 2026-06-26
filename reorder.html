@@ -76,7 +76,7 @@
   .btn-sm.danger:hover{border-color:var(--accent2);color:var(--accent2)}
 
   /* PAGE THUMBNAIL GRID */
-  .page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px;margin-bottom:20px}
+  .page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;margin-bottom:20px}@media(max-width:480px){.page-grid{grid-template-columns:repeat(2,1fr);gap:10px;}}
   .page-thumb{position:relative;background:var(--surface2);border:2px solid var(--border);border-radius:12px;overflow:hidden;cursor:grab;transition:all .2s;user-select:none}
   .page-thumb:hover{border-color:var(--accent)}
   .page-thumb.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(91,79,255,.3)}
@@ -263,12 +263,12 @@
 
 
 <div class="tool-card">
-  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()" role="button" tabindex="0" aria-label="Drop PDF here or click to choose file" onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('fileInput').click()">
     <span class="upload-icon">📂</span>
     <h2>Drop your PDF here</h2>
     <p>All pages will be shown as thumbnails — drag to reorder</p>
     <button class="btn-upload" onclick="event.stopPropagation();document.getElementById('fileInput').click()">📁 Choose PDF File</button>
-    <input type="file" id="fileInput" accept=".pdf" onchange="handleFile(this.files[0])">
+    <input type="file" id="fileInput" accept=".pdf" onchange="handleFile(this.files[0])" aria-label="Select PDF file">
   </div>
 
   <div class="loading-bar" id="loadingBar">
@@ -279,17 +279,17 @@
   <div class="toolbar" id="toolbar">
     <div class="toolbar-info" id="toolbarInfo"></div>
     <div class="toolbar-actions">
-      <button class="btn-sm" onclick="resetOrder()">↺ Reset Order</button>
-      <button class="btn-sm danger" onclick="deleteSelected()">🗑️ Delete Selected</button>
-      <button class="btn-sm danger" onclick="resetTool()">✕ New File</button>
+      <button class="btn-sm" onclick="resetOrder()" aria-label="Reset page order to original">↺ Reset Order</button>
+      <button class="btn-sm danger" onclick="deleteSelected()" aria-label="Delete selected pages">🗑️ Delete Selected</button>
+      <button class="btn-sm danger" onclick="resetTool()" aria-label="Load a new file">✕ New File</button>
     </div>
   </div>
 
   <div class="page-grid" id="pageGrid"></div>
 
-  <button class="btn-action" id="saveBtn" style="display:none" onclick="startSave()">💾 Save Reordered PDF</button>
+  <button class="btn-action" id="saveBtn" style="display:none" onclick="startSave()" aria-label="Save reordered PDF">💾 Save Reordered PDF</button>
 
-  <div class="progress-wrap" id="progressWrap">
+  <div class="progress-wrap" id="progressWrap" aria-live="polite" aria-label="Processing progress">
     <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBar"></div></div>
     <div class="progress-text" id="progressText">Saving...</div>
   </div>
@@ -442,7 +442,7 @@
       document.getElementById('saveBtn').style.display = 'block';
       updateToolbar();
     } catch(e) {
-      alert('Error loading PDF: ' + e.message);
+      showToast('Error loading PDF: ' + e.message, 'error');
       document.getElementById('loadingBar').classList.remove('visible');
       document.getElementById('uploadZone').style.display = '';
     }
@@ -476,7 +476,8 @@
           try {
             const pdf = window._reorderPdf;
             const page = await pdf.getPage(p.origIndex + 1);
-            const viewport = page.getViewport({ scale: 0.4 });
+            const scale = window.innerWidth < 480 ? 0.6 : 0.4;
+            const viewport = page.getViewport({ scale });
             const canvas = document.createElement('canvas');
             canvas.width = viewport.width;
             canvas.height = viewport.height;
@@ -500,7 +501,7 @@
       footer.innerHTML = `
         <span class="page-num">Page ${i + 1}</span>
         <span class="page-orig">#${p.origIndex + 1}</span>
-        <button class="page-del" onclick="deletePage(${i})" title="Delete page">🗑️</button>
+        <button class="page-del" onclick="deletePage(${i})" title="Delete page" aria-label="Delete page">🗑️</button>
       `;
       item.appendChild(footer);
 
@@ -517,6 +518,22 @@
       });
       item.addEventListener('dragstart', () => { dragSrcIdx = i; item.classList.add('dragging'); });
       item.addEventListener('dragend', () => item.classList.remove('dragging'));
+      // Touch drag support for mobile
+      item.addEventListener('touchstart', e => { dragSrcIdx = i; item.classList.add('dragging'); }, { passive: true });
+      item.addEventListener('touchend', e => {
+        item.classList.remove('dragging');
+        const touch = e.changedTouches[0];
+        const target = document.elementFromPoint(touch.clientX, touch.clientY);
+        const destThumb = target && target.closest('.page-thumb');
+        if (destThumb && destThumb !== item) {
+          const destIdx = parseInt(destThumb.dataset.index);
+          if (!isNaN(destIdx) && destIdx !== dragSrcIdx) {
+            const moved = pages.splice(dragSrcIdx, 1)[0];
+            pages.splice(destIdx, 0, moved);
+            renderGrid();
+          }
+        }
+      }, { passive: true });
       item.addEventListener('dragover', e => { e.preventDefault(); item.classList.add('drag-over'); });
       item.addEventListener('dragleave', () => item.classList.remove('drag-over'));
       item.addEventListener('drop', e => {
@@ -586,9 +603,9 @@
     } catch(e) {
       const msg = e.message || '';
       if (msg.toLowerCase().includes('encrypt') || msg.toLowerCase().includes('password')) {
-        alert('This PDF is password-protected. Please remove the password before reordering.');
+        showToast('This PDF is password-protected. Please remove the password first.', 'warning');
       } else {
-        alert('Error: ' + e.message);
+        showToast('Something went wrong: ' + e.message, 'error');
       }
     }
     btn.disabled = false; btn.textContent = '💾 Save Reordered PDF';

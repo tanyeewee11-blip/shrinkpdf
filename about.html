@@ -147,6 +147,42 @@
     <p style="font-size:0.85rem;color:var(--text-muted);">You can write to us in English, Bahasa Malaysia, Mandarin, or Indonesian.</p>
   </div>
 
+  <div class="card">
+    <h2>❓ Frequently Asked Questions</h2>
+
+    <div style="margin-top:20px;">
+      <div style="border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:18px;">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:8px;">Does ShrinkPDF really never upload my file?</div>
+        <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin:0;">Yes, genuinely. The compression runs in JavaScript inside your browser tab. You can verify this yourself: open your browser's DevTools (F12), go to the Network tab, and compress a file. You will see no outgoing file upload request — only the standard page assets already loaded. The file data never leaves your device.</p>
+      </div>
+
+      <div style="border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:18px;">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:8px;">Why can't I select text in the compressed PDF?</div>
+        <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin:0;">ShrinkPDF compresses by re-rendering each page as an image, then rebuilding the PDF from those images. This is how browser-based compression achieves significant file size reduction without a server. The trade-off is that the output PDF no longer has a text layer — text cannot be selected, copied, or searched, hyperlinks don't work, and digital signatures are invalidated. For most submission and sharing scenarios this doesn't matter. If it matters for your use case, keep the original alongside the compressed copy.</p>
+      </div>
+
+      <div style="border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:18px;">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:8px;">Is there a file size limit?</div>
+        <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin:0;">No. Because files are processed locally in your browser rather than uploaded to a server, we don't impose a size cap. Very large files (100MB+) will take longer depending on your device's processing speed, but they will process. Most files under 50MB finish in under 30 seconds.</p>
+      </div>
+
+      <div style="border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:18px;">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:8px;">How does ShrinkPDF make money if it's free?</div>
+        <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin:0;">The site carries display advertising via Google AdSense. We may also include affiliate links to paid PDF software or cloud storage services in our guides, which we disclose when present. The tools themselves are free and will remain free. There is no premium tier, no usage cap, and no plan to add one.</p>
+      </div>
+
+      <div style="border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:18px;">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:8px;">Why does my compressed file look slightly different?</div>
+        <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin:0;">The re-rendering process reduces DPI — from typically 150–300 DPI in the original down to around 96–120 DPI at Balanced, and lower at Maximum. On screen this is rarely noticeable. Printed at A4, Balanced output looks close to the original; Maximum may show softness on fine text or small details. For documents that will be printed at high quality, use Light compression.</p>
+      </div>
+
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:8px;">Can I use ShrinkPDF for commercial purposes?</div>
+        <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin:0;">Yes. There are no restrictions on how you use the compressed output. You can use ShrinkPDF to compress documents for clients, for business submissions, or in a professional workflow. The tool itself is free to use for any purpose.</p>
+      </div>
+    </div>
+  </div>
+
   <div class="cta-box">
     <h2>Ready to compress your PDF?</h2>
     <p>Free, instant, private. No login required.</p>

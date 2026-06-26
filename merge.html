@@ -269,7 +269,7 @@
 <div class="tool-card">
   <div class="file-list" id="fileList"></div>
 
-  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()" role="button" tabindex="0" aria-label="Drop PDF here or click to choose file" onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('fileInput').click()">
     <span class="upload-icon">📂</span>
     <h2>Drop your PDFs here</h2>
     <p>Drag & drop or click to browse — add multiple files at once</p>
@@ -282,9 +282,9 @@
     <input type="file" id="fileInput2" accept=".pdf" multiple onchange="handleFiles(this.files)" style="display:none">
   </button>
 
-  <button class="btn-action" id="mergeBtn" style="display:none" onclick="startMerge()">🔗 Merge PDFs</button>
+  <button class="btn-action" id="mergeBtn" style="display:none" onclick="startMerge()" aria-label="Start merging PDFs">🔗 Merge PDFs</button>
 
-  <div class="progress-wrap" id="progressWrap">
+  <div class="progress-wrap" id="progressWrap" aria-live="polite" aria-label="Processing progress">
     <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBar"></div></div>
     <div class="progress-text" id="progressText">Merging...</div>
   </div>
@@ -447,7 +447,7 @@
           <div class="file-item-size">${formatSize(f.file.size)}</div>
         </div>
         <span class="file-item-pages">${f.pages} page${f.pages !== 1 ? 's' : ''}</span>
-        <button class="file-item-remove" onclick="removeFile(${i})" title="Remove">✕</button>
+        <button class="file-item-remove" onclick="removeFile(${i})" title="Remove" aria-label="Remove file ${i+1} from list">✕</button>
       `;
       item.addEventListener('dragstart', () => { dragSrcIndex = i; item.classList.add('dragging'); });
       item.addEventListener('dragend', () => item.classList.remove('dragging'));
@@ -512,9 +512,9 @@
     } catch(e) {
       const msg = e.message || '';
       if (msg.toLowerCase().includes('encrypt') || msg.toLowerCase().includes('password')) {
-        alert('One or more PDFs are password-protected. Please remove the password before merging.');
+        showToast('One or more PDFs are password-protected. Please remove the password first.', 'warning');
       } else {
-        alert('Error merging PDFs: ' + e.message);
+        showToast('Error merging PDFs: ' + e.message, 'error');
       }
     }
     btn.disabled = false; btn.textContent = '🔗 Merge PDFs';
