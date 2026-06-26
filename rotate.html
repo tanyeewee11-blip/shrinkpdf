@@ -319,6 +319,38 @@
     <div class="result-sub" id="resultSub"></div>
     <a id="downloadLink" class="btn-download" download="rotated.pdf">⬇️ Download Rotated PDF</a>
     <button class="btn-another" onclick="resetTool()">Rotate another file</button>
+
+    <!-- next-steps CTA -->
+    <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:20px;text-align:left;">
+      <div style="font-size:0.72rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">What's next?</div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+        <a href="index.html" style="text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;display:block;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:1.1rem;margin-bottom:4px;">🗜️</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:3px;color:var(--text);">Compress PDF</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;">Reduce file size after rotating for portal uploads</div>
+        </a>
+        <a href="split.html" style="text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;display:block;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:1.1rem;margin-bottom:4px;">✂️</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:3px;color:var(--text);">Split PDF</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;">Extract only the pages you need after rotating</div>
+        </a>
+        <a href="merge.html" style="text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;display:block;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:1.1rem;margin-bottom:4px;">🔗</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:3px;color:var(--text);">Merge PDF</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;">Combine the rotated PDF with other documents</div>
+        </a>
+        <a href="reorder.html" style="text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;display:block;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:1.1rem;margin-bottom:4px;">📋</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:3px;color:var(--text);">Reorder pages</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;">Rearrange page order after fixing rotation</div>
+        </a>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap;">
+        <span style="font-size:0.78rem;color:var(--text-muted);white-space:nowrap;">Found it useful?</span>
+        <button onclick="shareWhatsApp()" style="display:flex;align-items:center;gap:6px;background:none;border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:8px;font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">💬 Share on WhatsApp</button>
+        <button onclick="copyLink()" id="copyLinkBtn" style="display:flex;align-items:center;gap:6px;background:none;border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:8px;font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">🔗 Copy link</button>
+      </div>
+    </div>
   </div>
 
   <div class="privacy-note">🔒 Your file is processed locally and never sent to any server</div>
@@ -375,12 +407,12 @@
   <h2>More PDF Tools</h2>
   <p>Everything you need to work with PDFs — all free, all in your browser</p>
   <div class="tools-grid">
-    <a href="index.html" class="tool-link"><div class="tool-link-icon">🗜️</div><div class="tool-link-name">Compress PDF</div><div class="tool-link-desc">Reduce file size up to 80%</div></a>
-    <a href="merge.html" class="tool-link"><div class="tool-link-icon">🔗</div><div class="tool-link-name">Merge PDF</div><div class="tool-link-desc">Combine multiple PDFs into one</div></a>
-    <a href="split.html" class="tool-link"><div class="tool-link-icon">✂️</div><div class="tool-link-name">Split PDF</div><div class="tool-link-desc">Extract pages or split by range</div></a>
-    <a href="pdf-to-images.html" class="tool-link"><div class="tool-link-icon">🖼️</div><div class="tool-link-name">PDF to Images</div><div class="tool-link-desc">Convert each page to JPG/PNG</div></a>
-    <a href="images-to-pdf.html" class="tool-link"><div class="tool-link-icon">📷</div><div class="tool-link-name">Images to PDF</div><div class="tool-link-desc">Combine images into one PDF</div></a>
-    <a href="reorder.html" class="tool-link"><div class="tool-link-icon">📋</div><div class="tool-link-name">Reorder Pages</div><div class="tool-link-desc">Drag & drop to rearrange</div></a>
+    <a href="index.html" class="tool-link"><div class="tool-link-icon">🗜️</div><div class="tool-link-name">Compress PDF</div><div class="tool-link-desc">Need to upload the rotated file? Compress it first to meet portal size limits.</div></a>
+    <a href="merge.html" class="tool-link"><div class="tool-link-icon">🔗</div><div class="tool-link-name">Merge PDF</div><div class="tool-link-desc">Combine the corrected PDF with other documents into one submission file.</div></a>
+    <a href="split.html" class="tool-link"><div class="tool-link-icon">✂️</div><div class="tool-link-name">Split PDF</div><div class="tool-link-desc">Only need certain pages? Extract them after rotating for a cleaner submission.</div></a>
+    <a href="pdf-to-images.html" class="tool-link"><div class="tool-link-icon">🖼️</div><div class="tool-link-name">PDF to Images</div><div class="tool-link-desc">Send rotated pages via WhatsApp or upload to portals that only accept images.</div></a>
+    <a href="images-to-pdf.html" class="tool-link"><div class="tool-link-icon">📷</div><div class="tool-link-name">Images to PDF</div><div class="tool-link-desc">Have scanned images that need rotating? Convert to PDF here, then use Rotate.</div></a>
+    <a href="reorder.html" class="tool-link"><div class="tool-link-icon">📋</div><div class="tool-link-name">Reorder Pages</div><div class="tool-link-desc">Fix page order at the same time — reorder after rotating for a clean final file.</div></a>
   </div>
 </section>
 

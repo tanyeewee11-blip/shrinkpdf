@@ -295,6 +295,38 @@
     <div class="result-sub" id="resultSub"></div>
     <a id="downloadLink" class="btn-download" download="merged.pdf">⬇️ Download Merged PDF</a>
     <button class="btn-another" onclick="resetTool()">Merge more files</button>
+
+    <!-- next-steps CTA -->
+    <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:20px;text-align:left;">
+      <div style="font-size:0.72rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">What's next?</div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+        <a href="index.html" style="text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;display:block;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:1.1rem;margin-bottom:4px;">🗜️</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:3px;color:var(--text);">Compress PDF</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;">Reduce the merged file size before submitting</div>
+        </a>
+        <a href="split.html" style="text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;display:block;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:1.1rem;margin-bottom:4px;">✂️</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:3px;color:var(--text);">Split PDF</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;">Extract specific pages from the merged result</div>
+        </a>
+        <a href="reorder.html" style="text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;display:block;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:1.1rem;margin-bottom:4px;">📋</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:3px;color:var(--text);">Reorder pages</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;">Drag & drop to fix page order before or after merging</div>
+        </a>
+        <a href="pdf-to-images.html" style="text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;display:block;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:1.1rem;margin-bottom:4px;">🖼️</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:3px;color:var(--text);">PDF to images</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;">Share the merged PDF as images on WhatsApp or social</div>
+        </a>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap;">
+        <span style="font-size:0.78rem;color:var(--text-muted);white-space:nowrap;">Found it useful?</span>
+        <button onclick="shareWhatsApp()" style="display:flex;align-items:center;gap:6px;background:none;border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:8px;font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">💬 Share on WhatsApp</button>
+        <button onclick="copyLink()" id="copyLinkBtn" style="display:flex;align-items:center;gap:6px;background:none;border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:8px;font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">🔗 Copy link</button>
+      </div>
+    </div>
   </div>
 
   <div class="privacy-note">🔒 Your files are processed locally and never sent to any server</div>
@@ -351,12 +383,12 @@
   <h2>More PDF Tools</h2>
   <p>Everything you need to work with PDFs — all free, all in your browser</p>
   <div class="tools-grid">
-    <a href="index.html" class="tool-link"><div class="tool-link-icon">🗜️</div><div class="tool-link-name">Compress PDF</div><div class="tool-link-desc">Reduce file size up to 80%</div></a>
-    <a href="split.html" class="tool-link"><div class="tool-link-icon">✂️</div><div class="tool-link-name">Split PDF</div><div class="tool-link-desc">Extract pages or split by range</div></a>
-    <a href="rotate.html" class="tool-link"><div class="tool-link-icon">🔄</div><div class="tool-link-name">Rotate PDF</div><div class="tool-link-desc">Rotate pages 90°/180°/270°</div></a>
-    <a href="pdf-to-images.html" class="tool-link"><div class="tool-link-icon">🖼️</div><div class="tool-link-name">PDF to Images</div><div class="tool-link-desc">Convert each page to JPG/PNG</div></a>
-    <a href="images-to-pdf.html" class="tool-link"><div class="tool-link-icon">📷</div><div class="tool-link-name">Images to PDF</div><div class="tool-link-desc">Combine images into one PDF</div></a>
-    <a href="reorder.html" class="tool-link"><div class="tool-link-icon">📋</div><div class="tool-link-name">Reorder Pages</div><div class="tool-link-desc">Drag & drop to rearrange</div></a>
+    <a href="index.html" class="tool-link"><div class="tool-link-icon">🗜️</div><div class="tool-link-name">Compress PDF</div><div class="tool-link-desc">Merged file too large to upload? Compress it down — often 60–80% smaller.</div></a>
+    <a href="split.html" class="tool-link"><div class="tool-link-icon">✂️</div><div class="tool-link-name">Split PDF</div><div class="tool-link-desc">Need only part of the merged result? Extract the pages you need.</div></a>
+    <a href="rotate.html" class="tool-link"><div class="tool-link-icon">🔄</div><div class="tool-link-name">Rotate PDF</div><div class="tool-link-desc">Some pages sideways? Rotate them before merging for a clean final document.</div></a>
+    <a href="pdf-to-images.html" class="tool-link"><div class="tool-link-icon">🖼️</div><div class="tool-link-name">PDF to Images</div><div class="tool-link-desc">Share your merged document as images — useful for WhatsApp or image-only portals.</div></a>
+    <a href="images-to-pdf.html" class="tool-link"><div class="tool-link-icon">📷</div><div class="tool-link-name">Images to PDF</div><div class="tool-link-desc">Got photos or scans to include? Convert them to PDF first, then merge.</div></a>
+    <a href="reorder.html" class="tool-link"><div class="tool-link-icon">📋</div><div class="tool-link-name">Reorder Pages</div><div class="tool-link-desc">Page order off after merging? Drag and drop to get the sequence right.</div></a>
   </div>
 </section>
 
