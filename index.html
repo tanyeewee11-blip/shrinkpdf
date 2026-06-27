@@ -14,6 +14,11 @@
 <title>ShrinkPDF – Compress PDF Free, No Limits</title>
 <meta name="description" content="Compress large PDF files for free. No file size limit. No login required. Files processed locally — never uploaded to any server.">
 <link rel="canonical" href="https://shrinkpdf.fyi/">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ShrinkPDF">
 <link rel="alternate" hreflang="x-default" href="https://shrinkpdf.fyi/">
 <link rel="alternate" hreflang="en" href="https://shrinkpdf.fyi/">
 <meta property="og:type" content="website">
@@ -25,11 +30,13 @@
 <meta name="twitter:description" content="Compress large PDF files for free. No file size limit. No login required.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap"></noscript>
 <!-- MuPDF WASM loaded inside mupdf-worker.js via Web Worker -->
 <style>
+/* Force font-display:swap behavior - prevent FOIT */
+@font-face { font-family: 'Syne'; font-display: swap; }
+@font-face { font-family: 'DM Sans'; font-display: swap; }
 .hero {
   position: relative;
   z-index: 1;
@@ -641,6 +648,13 @@ gtag('config', 'G-MY7DTD213P');
           🔗 Copy link
         </button>
       </div>
+
+      <!-- bookmark / install prompt -->
+      <div id="savePrompt" style="display:none;margin-top:12px;padding:10px 14px;background:rgba(91,79,255,0.08);border:1px solid rgba(91,79,255,0.25);border-radius:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="font-size:0.82rem;color:var(--text-muted);flex:1;min-width:160px;" id="savePromptText">Save ShrinkPDF for next time — no app store needed</span>
+        <button id="saveBtn" onclick="handleSave()" style="background:rgba(91,79,255,0.2);border:1px solid rgba(91,79,255,0.4);color:#a99fff;padding:6px 14px;border-radius:8px;font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;">📌 Save to home screen</button>
+        <button onclick="document.getElementById('savePrompt').style.display='none'" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1rem;padding:2px 6px;" aria-label="Dismiss">✕</button>
+      </div>
     </div>
     <!-- ── END next-steps CTA ── -->
 
@@ -1017,6 +1031,8 @@ function showResult(origSize, newSize) {
 
   document.getElementById('resultCard').classList.add('visible');
   document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  // Show save/bookmark prompt after first successful compression
+  setTimeout(showSavePrompt, 1200);
 }
 
 function recompressWithLevel() {
@@ -1062,6 +1078,59 @@ function formatSize(bytes) {
 function toggleFaq(el) {
   el.parentElement.classList.toggle('open');
 }
+// ── PWA install / bookmark prompt ──
+let _deferredInstall = null;
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  _deferredInstall = e;
+});
+
+function showSavePrompt() {
+  const prompt = document.getElementById('savePrompt');
+  if (!prompt) return;
+  // Only show once per session
+  if (sessionStorage.getItem('savePromptShown')) return;
+  sessionStorage.setItem('savePromptShown', '1');
+
+  if (_deferredInstall) {
+    // PWA install available
+    document.getElementById('savePromptText').textContent = 'Add ShrinkPDF to your home screen — compress PDFs offline, no browser needed';
+    document.getElementById('saveBtn').textContent = '📲 Add to home screen';
+  } else {
+    // Fallback: show bookmark tip
+    const isMac = /Mac|iPhone|iPad/.test(navigator.userAgent);
+    const isAndroid = /Android/.test(navigator.userAgent);
+    if (isAndroid) {
+      document.getElementById('saveBtn').textContent = '📌 Save to home screen';
+    } else if (isMac) {
+      document.getElementById('saveBtn').textContent = '⌘D Bookmark this page';
+    } else {
+      document.getElementById('saveBtn').textContent = 'Ctrl+D Bookmark this page';
+    }
+  }
+  prompt.style.display = 'flex';
+}
+
+async function handleSave() {
+  if (_deferredInstall) {
+    _deferredInstall.prompt();
+    const { outcome } = await _deferredInstall.userChoice;
+    if (outcome === 'accepted') {
+      document.getElementById('savePrompt').style.display = 'none';
+    }
+    _deferredInstall = null;
+  } else {
+    // Trigger native bookmark shortcut or show tip
+    const isMac = /Mac|iPhone|iPad/.test(navigator.userAgent);
+    showToast(
+      isMac ? 'Press ⌘D to bookmark ShrinkPDF for next time!' : 'Press Ctrl+D to bookmark ShrinkPDF for next time!',
+      'info', 4000
+    );
+    document.getElementById('savePrompt').style.display = 'none';
+  }
+}
+
 // ── Lazy-load pdf.js and pdf-lib on first use ──
 let _libsLoaded = false;
 let _libsLoading = null;
