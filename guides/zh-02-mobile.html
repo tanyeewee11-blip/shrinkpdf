@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../shared.css">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>手机压缩PDF — Android和iPhone免费教程（无需安装App）</title>
+<meta name="description" content="用手机压缩PDF文件，无需安装任何App。支持Android和iPhone，文件不上传到服务器，完全在手机本地处理。">
+<meta name="keywords" content="手机压缩PDF, 手机PDF压缩, Android压缩PDF, iPhone压缩PDF, 不用App压缩PDF">
+<link rel="canonical" href="https://shrinkpdf.fyi/guides/zh-02-mobile">
+<link rel="alternate" hreflang="x-default" href="https://shrinkpdf.fyi/guides/en-09-mobile">
+<link rel="alternate" hreflang="en" href="https://shrinkpdf.fyi/guides/en-09-mobile">
+<link rel="alternate" hreflang="zh-Hans" href="https://shrinkpdf.fyi/guides/zh-02-mobile">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shrinkpdf.fyi/guides/zh-02-mobile">
+<meta property="og:title" content="手机压缩PDF — Android和iPhone免费教程（无需安装App）">
+<meta property="og:description" content="用手机浏览器直接压缩PDF，无需安装App，文件不离开设备。">
+<meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="ShrinkPDF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="手机压缩PDF — Android和iPhone免费教程">
+<meta name="twitter:description" content="无需App，用浏览器直接压缩PDF，文件不上传。">
+<meta name="twitter:image" content="https://shrinkpdf.fyi/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap"></noscript>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
+<style>
+:root{--bg:#0a0a0f;--sf:#13131a;--br:#2a2a3a;--ac:#5b4fff;--ac2:#ff4f9b;--tx:#f0f0f8;--tm:#9898b8;--ok:#2ecc71;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--text:#f0f0f8;--text-muted:#9898b8;--accent:#5b4fff;--accent2:#ff4f9b;}
+html{scroll-padding-top:100px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;line-height:1.8;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,0.07) 0%,transparent 50%);pointer-events:none;z-index:0;}
+.wrap{max-width:740px;margin:0 auto;padding:115px 24px 80px;position:relative;z-index:1;}
+.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:32px;}
+.tag{background:rgba(91,79,255,0.15);border:1px solid rgba(91,79,255,0.3);color:#a99fff;padding:4px 12px;border-radius:100px;font-size:0.78rem;}
+.rt{color:var(--tm);font-size:0.85rem;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;line-height:1.2;letter-spacing:-0.5px;margin-bottom:24px;}
+.intro{font-size:1.05rem;color:var(--tm);margin-bottom:40px;line-height:1.8;border-left:3px solid var(--ac);padding-left:20px;}
+h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;margin:40px 0 14px;}
+h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin:18px 0 8px;}
+p{margin-bottom:14px;color:#d0d0e8;}
+ul,ol{margin:14px 0 20px 22px;}
+li{margin-bottom:9px;color:#d0d0e8;}
+.box{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:22px;margin:24px 0;}
+.box.warn{border-color:rgba(243,156,18,0.35);background:rgba(243,156,18,0.04);}
+.box.good{border-color:rgba(46,204,113,0.3);background:rgba(46,204,113,0.04);}
+.box.info{border-color:rgba(91,79,255,0.3);background:rgba(91,79,255,0.04);}
+.box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:10px;}
+.cta-box{background:linear-gradient(135deg,rgba(91,79,255,0.15),rgba(255,79,155,0.08));border:1px solid rgba(91,79,255,0.3);border-radius:16px;padding:28px;text-align:center;margin:36px 0;}
+.cta-box h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:8px;}
+.cta-box p{color:var(--tm);margin-bottom:20px;font-size:0.95rem;}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--ac),#7b6fff);color:white;padding:14px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem;transition:transform 0.2s;}
+.btn:hover{transform:translateY(-2px);}
+.steps{display:flex;flex-direction:column;gap:16px;margin:24px 0;}
+.step{display:flex;gap:16px;align-items:flex-start;background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px;}
+.step-num{background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+.step strong{display:block;font-size:0.95rem;margin-bottom:5px;}
+.step p{margin:0;font-size:0.88rem;color:var(--tm);}
+.os-tabs{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--br);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+.os-tab{padding:12px;text-align:center;font-size:0.9rem;font-weight:500;cursor:pointer;background:var(--surface2);transition:background 0.2s;}
+.os-tab.active{background:rgba(91,79,255,0.2);color:#a99fff;}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:24px 0;}
+.related a{display:flex;flex-direction:column;gap:4px;background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:16px;text-decoration:none;transition:border-color 0.2s;}
+.related a:hover{border-color:var(--ac);}
+.related a strong{font-size:0.88rem;color:var(--tx);}
+.related a span{font-size:0.78rem;color:var(--tm);line-height:1.4;}
+@media(max-width:640px){.step{flex-direction:column;gap:10px;}.step-num{margin-top:0;}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "如何在手机上压缩PDF文件",
+  "description": "无需安装App，用Android或iPhone浏览器免费压缩PDF",
+  "step": [
+    {"@type": "HowToStep", "name": "打开浏览器", "text": "Android用Chrome，iPhone用Safari，访问 shrinkpdf.fyi"},
+    {"@type": "HowToStep", "name": "选择PDF文件", "text": "点击"选择PDF文件"，从手机文件管理器选取"},
+    {"@type": "HowToStep", "name": "选择压缩级别", "text": "选择轻度、平衡或最大压缩"},
+    {"@type": "HowToStep", "name": "下载压缩文件", "text": "点击下载，文件保存到手机下载文件夹"}
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
+<script src="../components.js" defer></script>
+</head>
+<body>
+<nav id="site-nav"></nav>
+<main id="main-content">
+<div class="wrap">
+
+  <div class="meta">
+    <span class="tag">📱 手机教程</span>
+    <span class="tag">🇨🇳 简体中文</span>
+    <span class="rt">阅读时间约 4 分钟</span>
+  </div>
+
+  <h1>如何在手机上压缩PDF<br>（无需安装任何App）</h1>
+
+  <p class="intro">不需要下载任何 App，用手机浏览器就能直接压缩 PDF。本文分别介绍 Android 和 iPhone 的操作步骤，全程在手机本地处理，文件不会上传到任何服务器。</p>
+
+  <div class="cta-box">
+    <h3>🗜️ 直接在手机上压缩</h3>
+    <p>Android 和 iPhone 均支持，无需 App</p>
+    <a href="../index.html" class="btn">免费压缩PDF →</a>
+  </div>
+
+  <h2>为什么不建议用App压缩PDF？</h2>
+  <p>App 商店里有很多"PDF压缩"类 App，但大多数都有以下问题：</p>
+  <ul>
+    <li>需要下载安装，占用手机空间</li>
+    <li>大部分免费版有文件大小限制或每日次数限制</li>
+    <li>文件会上传到他们的服务器——你的薪资单、身份证扫描件并不安全</li>
+    <li>很多 App 会在压缩后的文件上加水印</li>
+  </ul>
+  <p>用浏览器直接打开 ShrinkPDF，这些问题全部不存在。</p>
+
+  <h2>Android 手机操作步骤</h2>
+  <p>推荐使用 Chrome 浏览器（90 以上版本）。三星自带浏览器和 Firefox 也可以。</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <strong>在 Chrome 打开 shrinkpdf.fyi</strong>
+        <p>打开 Chrome，地址栏输入 shrinkpdf.fyi 并访问。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <strong>点击"选择PDF文件"</strong>
+        <p>点击上传按钮，手机文件管理器会打开。你的 PDF 可能在"下载"文件夹、Google Drive 或其他位置，找到后点击选取。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <strong>选择压缩级别</strong>
+        <p>要上传到政府或大学门户（LHDN、UPU 等）选"最大压缩"。发邮件或 WhatsApp 选"平衡"。点击"立即压缩"，压缩在手机本地运行，不需要网络传输文件。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <strong>下载压缩后的文件</strong>
+        <p>点击下载，文件保存到"下载"文件夹。Chrome 顶部会有下载完成提示。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div>
+        <strong>确认文件大小</strong>
+        <p>打开"文件"App（三星叫"我的文件"），进入下载文件夹，长按文件查看大小，确认符合上传限制再提交。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>iPhone 操作步骤</h2>
+  <p>推荐使用 Safari（iOS 14 以上）。iOS 版 Chrome 也可以。</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <strong>在 Safari 打开 shrinkpdf.fyi</strong>
+        <p>打开 Safari，输入 shrinkpdf.fyi 访问。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <strong>点击"选择PDF文件"</strong>
+        <p>点击上传按钮，iOS 文件选择器打开。你的 PDF 可能在"iCloud 云盘"、"我的 iPhone"，或 Google Drive / Dropbox（这些会出现在"文件" App 的位置列表里）。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <strong>选择压缩级别并压缩</strong>
+        <p>选好级别，点击"立即压缩"。压缩在 iPhone 本地运行，视文件大小一般需要 5–30 秒。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <strong>下载文件</strong>
+        <p>点击下载，文件保存到"文件" App 的"下载"文件夹。Safari 会在右上角显示下载进度。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div>
+        <strong>分享或上传</strong>
+        <p>在"文件" App 找到压缩后的文件，长按 → 分享，选择上传到 WhatsApp、邮件、或直接在浏览器里提交到门户网站。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ 压缩过程中不要切换 App</div>
+    <p style="margin:0;font-size:0.9rem;">压缩是在浏览器里运行的，如果切换到其他 App，iOS Safari 可能会暂停压缩进程。建议保持浏览器在前台，直到看到"压缩完成"提示再离开。</p>
+  </div>
+
+  <h2>手机压缩后文件在哪里？</h2>
+  <table style="width:100%;border-collapse:collapse;margin:20px 0;font-size:0.88rem;">
+    <thead><tr style="background:var(--surface);"><th style="padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);">系统</th><th style="padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);">文件位置</th><th style="padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);">查看方式</th></tr></thead>
+    <tbody>
+      <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:#d0d0e8;">Android</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:#d0d0e8;">下载文件夹</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:#d0d0e8;">文件 App → 下载</td></tr>
+      <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:#d0d0e8;">iPhone</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:#d0d0e8;">文件 App 下载</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:#d0d0e8;">文件 → 浏览 → 下载</td></tr>
+      <tr><td style="padding:10px 14px;color:#d0d0e8;">华为（HarmonyOS）</td><td style="padding:10px 14px;color:#d0d0e8;">下载文件夹</td><td style="padding:10px 14px;color:#d0d0e8;">文件管理 → 下载</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box good">
+    <div class="box-title">✅ 隐私说明</div>
+    <p style="margin:0;font-size:0.9rem;">压缩完全在手机本地运行。你的文件不会发送到任何服务器。你可以在页面加载完成后关闭 WiFi，压缩依然能正常工作——因为整个过程不需要网络。</p>
+  </div>
+
+  <h2>相关工具</h2>
+  <div class="related">
+    <a href="../index.html"><strong>🗜️ 压缩PDF</strong><span>减小文件大小，满足上传限制</span></a>
+    <a href="../pdf-to-images.html"><strong>🖼️ PDF转图片</strong><span>转成JPG直接发WhatsApp</span></a>
+    <a href="../split.html"><strong>✂️ 拆分PDF</strong><span>只提取需要的页码</span></a>
+    <a href="zh-05-whatsapp.html"><strong>💬 WhatsApp发送PDF</strong><span>手机发送PDF的正确方式</span></a>
+  </div>
+
+</div>
+</main>
+<footer id="site-footer"></footer>
+</body>
+</html>

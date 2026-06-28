@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../shared.css">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LHDN报税上传PDF — 如何把文件压缩到2MB以内（2026）</title>
+<meta name="description" content="LHDN e-Filing上传限制2MB。本文教你如何把薪资单、银行月结单、收据压缩到符合要求的大小，文件不离开设备。">
+<meta name="keywords" content="LHDN PDF上传, 报税PDF压缩, LHDN 2MB限制, e-Filing上传文件, 马来西亚报税上传">
+<link rel="canonical" href="https://shrinkpdf.fyi/guides/zh-03-lhdn">
+<link rel="alternate" hreflang="x-default" href="https://shrinkpdf.fyi/guides/en-35-tax-filing">
+<link rel="alternate" hreflang="en" href="https://shrinkpdf.fyi/guides/en-35-tax-filing">
+<link rel="alternate" hreflang="zh-Hans" href="https://shrinkpdf.fyi/guides/zh-03-lhdn">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shrinkpdf.fyi/guides/zh-03-lhdn">
+<meta property="og:title" content="LHDN报税上传PDF — 压缩到2MB以内（2026）">
+<meta property="og:description" content="LHDN e-Filing每个文件限制2MB。教你压缩薪资单和月结单，文件不离开设备。">
+<meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="ShrinkPDF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LHDN报税上传PDF — 压缩到2MB以内">
+<meta name="twitter:description" content="LHDN e-Filing每个文件限制2MB。教你压缩税务文件，文件不离开设备。">
+<meta name="twitter:image" content="https://shrinkpdf.fyi/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap"></noscript>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
+<style>
+:root{--bg:#0a0a0f;--sf:#13131a;--br:#2a2a3a;--ac:#5b4fff;--ac2:#ff4f9b;--tx:#f0f0f8;--tm:#9898b8;--ok:#2ecc71;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--text:#f0f0f8;--text-muted:#9898b8;--accent:#5b4fff;--accent2:#ff4f9b;}
+html{scroll-padding-top:100px;}*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;line-height:1.8;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,0.07) 0%,transparent 50%);pointer-events:none;z-index:0;}
+.wrap{max-width:740px;margin:0 auto;padding:115px 24px 80px;position:relative;z-index:1;}
+.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:32px;}
+.tag{background:rgba(91,79,255,0.15);border:1px solid rgba(91,79,255,0.3);color:#a99fff;padding:4px 12px;border-radius:100px;font-size:0.78rem;}
+.rt{color:var(--tm);font-size:0.85rem;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;line-height:1.2;letter-spacing:-0.5px;margin-bottom:24px;}
+.intro{font-size:1.05rem;color:var(--tm);margin-bottom:40px;line-height:1.8;border-left:3px solid var(--ac);padding-left:20px;}
+h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;margin:40px 0 14px;}
+h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin:18px 0 8px;}
+p{margin-bottom:14px;color:#d0d0e8;}
+ul,ol{margin:14px 0 20px 22px;}li{margin-bottom:9px;color:#d0d0e8;}
+.box{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:22px;margin:24px 0;}
+.box.warn{border-color:rgba(243,156,18,0.35);background:rgba(243,156,18,0.04);}
+.box.good{border-color:rgba(46,204,113,0.3);background:rgba(46,204,113,0.04);}
+.box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:10px;}
+.cta-box{background:linear-gradient(135deg,rgba(91,79,255,0.15),rgba(255,79,155,0.08));border:1px solid rgba(91,79,255,0.3);border-radius:16px;padding:28px;text-align:center;margin:36px 0;}
+.cta-box h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:8px;}
+.cta-box p{color:var(--tm);margin-bottom:20px;font-size:0.95rem;}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--ac),#7b6fff);color:white;padding:14px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem;transition:transform 0.2s;}
+.btn:hover{transform:translateY(-2px);}
+.steps{display:flex;flex-direction:column;gap:16px;margin:24px 0;}
+.step{display:flex;gap:16px;align-items:flex-start;background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px;}
+.step-num{background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+.step strong{display:block;font-size:0.95rem;margin-bottom:5px;}
+.step p{margin:0;font-size:0.88rem;color:var(--tm);}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:24px 0;}
+.related a{display:flex;flex-direction:column;gap:4px;background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:16px;text-decoration:none;transition:border-color 0.2s;}
+.related a:hover{border-color:var(--ac);}
+.related a strong{font-size:0.88rem;color:var(--tx);}
+.related a span{font-size:0.78rem;color:var(--tm);line-height:1.4;}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.88rem;}
+th{background:var(--sf);padding:10px 14px;text-align:left;font-family:'Syne',sans-serif;font-weight:700;border-bottom:1px solid var(--br);}
+td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}
+tr:last-child td{border-bottom:none;}
+@media(max-width:640px){.step{flex-direction:column;gap:10px;}.step-num{margin-top:0;}}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
+<script src="../components.js" defer></script>
+</head>
+<body>
+<nav id="site-nav"></nav>
+<main id="main-content">
+<div class="wrap">
+
+  <div class="meta">
+    <span class="tag">🧾 税务申报</span>
+    <span class="tag">🇨🇳 简体中文</span>
+    <span class="rt">阅读时间约 4 分钟</span>
+  </div>
+
+  <h1>LHDN报税上传PDF<br>如何压缩到2MB以内</h1>
+
+  <p class="intro">LHDN e-Filing 每个文件上传限制为 2MB。薪资单、银行月结单、收据扫描件很容易超过这个限制。本文教你如何快速压缩，全程文件不离开设备。</p>
+
+  <div class="cta-box">
+    <h3>🗜️ 立即压缩税务文件</h3>
+    <p>文件不上传到服务器，薪资单和月结单完全保密</p>
+    <a href="../index.html" class="btn">免费压缩PDF →</a>
+  </div>
+
+  <h2>LHDN e-Filing 文件大小限制</h2>
+  <table>
+    <thead><tr><th>文件类型</th><th>上传限制</th><th>建议压缩级别</th></tr></thead>
+    <tbody>
+      <tr><td>薪资单（EA表格）</td><td>2 MB / 份</td><td>平衡压缩</td></tr>
+      <tr><td>银行月结单</td><td>2 MB / 份</td><td>平衡压缩</td></tr>
+      <tr><td>收据 / 发票扫描件</td><td>2 MB / 份</td><td>最大压缩</td></tr>
+      <tr><td>捐款证明</td><td>2 MB / 份</td><td>最大压缩</td></tr>
+      <tr><td>医疗收据</td><td>2 MB / 份</td><td>最大压缩</td></tr>
+    </tbody>
+  </table>
+
+  <h2>哪个压缩级别适合税务文件？</h2>
+  <div class="box">
+    <div class="box-title">压缩级别选择指南</div>
+    <ul style="margin:0;">
+      <li><strong>平衡压缩</strong> — 薪资单、银行月结单。这类文件需要数字和金额清晰可读，平衡模式能在保持清晰度的前提下减少 40–60%。</li>
+      <li><strong>最大压缩</strong> — 收据、发票、捐款证明。这类文件只需要基本可读，最大压缩能减少 70–80%，通常直接从 5MB+ 压到 1MB 以内。</li>
+      <li><strong>不建议用轻度压缩</strong> — 对于 LHDN 上传来说，轻度压缩减少的空间通常不够达到 2MB 限制。</li>
+    </ul>
+  </div>
+
+  <h2>分步操作：压缩并提交税务文件</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <strong>整理所有需要上传的文件</strong>
+        <p>先把所有文件列出来：薪资单、银行月结单、收据、捐款证明、医疗收据。能用电子版的就用电子版（银行 App 导出的 PDF 比扫描件小很多）。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <strong>逐一压缩每个文件</strong>
+        <p>打开 <a href="../index.html" style="color:#a99fff;">shrinkpdf.fyi</a>，一次上传一个文件，选好压缩级别，下载压缩后的文件，保存到专门的文件夹（建议命名为"报税2025—已压缩"）。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <strong>验证文件清晰度</strong>
+        <p>打开每个压缩后的 PDF，在 100% 缩放下检查金额、日期、参考编号是否清晰可读。每份文件大约 30 秒，防止被 LHDN 以"文件不清晰"为由拒绝。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <strong>上传到 LHDN e-Filing</strong>
+        <p>登录 MyTax 系统，按要求逐一上传压缩好的文件。如果某个文件还是超过 2MB，回到第二步用最大压缩级别重新压缩。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>常见问题：压缩后还是超过2MB怎么办？</h2>
+  <p>如果用最大压缩后文件还是超过 2MB，通常是以下原因：</p>
+  <ul>
+    <li><strong>扫描分辨率太高</strong> — 用 200 DPI 重新扫描（而不是 300 或 600 DPI），再压缩</li>
+    <li><strong>彩色扫描</strong> — 改用黑白扫描，文件大小会减少 60% 以上</li>
+    <li><strong>多页文件</strong> — 用 <a href="../split.html" style="color:#a99fff;">拆分工具</a>，只保留 LHDN 需要的页码，删掉不必要的页面</li>
+  </ul>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ 压缩后文字不可复制</div>
+    <p style="margin:0;font-size:0.9rem;">ShrinkPDF 的压缩方式会将每一页重新渲染为图片。压缩后的 PDF 视觉上看起来正常，但文字无法复制，超链接也会失效。对于 LHDN 上传用途，这完全不影响——审核人员只需要看到文件内容清晰即可。</p>
+  </div>
+
+  <div class="box good">
+    <div class="box-title">✅ 你的财务文件绝对安全</div>
+    <p style="margin:0;font-size:0.9rem;">税务文件包含薪资、账号、雇主信息等敏感内容。ShrinkPDF 的压缩完全在浏览器本地运行，文件不会发送到任何服务器。你可以在页面加载后断开网络，压缩依然可以正常工作。</p>
+  </div>
+
+  <h2>相关工具</h2>
+  <div class="related">
+    <a href="../index.html"><strong>🗜️ 压缩PDF</strong><span>把文件压缩到2MB以内</span></a>
+    <a href="../merge.html"><strong>🔗 合并PDF</strong><span>把多份收据合并成一个文件提交</span></a>
+    <a href="../split.html"><strong>✂️ 拆分PDF</strong><span>只提取LHDN需要的页码</span></a>
+    <a href="zh-01-compress.html"><strong>📖 PDF压缩完整指南</strong><span>了解更多压缩方法和技巧</span></a>
+  </div>
+
+</div>
+</main>
+<footer id="site-footer"></footer>
+</body>
+</html>

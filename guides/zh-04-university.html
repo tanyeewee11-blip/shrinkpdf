@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../shared.css">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>大学申请上传PDF — 如何压缩到UPU、公立大学和奖学金门户要求的大小</title>
+<meta name="description" content="马来西亚大学申请门户（UPU、UM、UKM、JPA奖学金）的PDF上传限制通常为1-2MB。本文教你如何压缩成绩单和证书，文件不离开设备。">
+<meta name="keywords" content="大学申请PDF压缩, UPU上传PDF, 马来西亚大学申请文件, JPA奖学金上传, 成绩单压缩">
+<link rel="canonical" href="https://shrinkpdf.fyi/guides/zh-04-university">
+<link rel="alternate" hreflang="x-default" href="https://shrinkpdf.fyi/guides/en-12-university">
+<link rel="alternate" hreflang="en" href="https://shrinkpdf.fyi/guides/en-12-university">
+<link rel="alternate" hreflang="zh-Hans" href="https://shrinkpdf.fyi/guides/zh-04-university">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shrinkpdf.fyi/guides/zh-04-university">
+<meta property="og:title" content="大学申请上传PDF — 压缩到UPU和奖学金门户要求的大小">
+<meta property="og:description" content="UPU和马来西亚公立大学申请门户每个文件限制2MB。教你压缩成绩单和证书。">
+<meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:site_name" content="ShrinkPDF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shrinkpdf.fyi/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap"></noscript>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
+<script src="../components.js" defer></script>
+<style>
+:root{--bg:#0a0a0f;--sf:#13131a;--br:#2a2a3a;--ac:#5b4fff;--ac2:#ff4f9b;--tx:#f0f0f8;--tm:#9898b8;--ok:#2ecc71;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--text:#f0f0f8;--text-muted:#9898b8;--accent:#5b4fff;--accent2:#ff4f9b;}
+html{scroll-padding-top:100px;}*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;line-height:1.8;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,0.07) 0%,transparent 50%);pointer-events:none;z-index:0;}
+.wrap{max-width:740px;margin:0 auto;padding:115px 24px 80px;position:relative;z-index:1;}
+.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:32px;}
+.tag{background:rgba(91,79,255,0.15);border:1px solid rgba(91,79,255,0.3);color:#a99fff;padding:4px 12px;border-radius:100px;font-size:0.78rem;}
+.rt{color:var(--tm);font-size:0.85rem;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;line-height:1.2;letter-spacing:-0.5px;margin-bottom:24px;}
+.intro{font-size:1.05rem;color:var(--tm);margin-bottom:40px;line-height:1.8;border-left:3px solid var(--ac);padding-left:20px;}
+h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;margin:40px 0 14px;}
+h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin:18px 0 8px;}
+p{margin-bottom:14px;color:#d0d0e8;}ul,ol{margin:14px 0 20px 22px;}li{margin-bottom:9px;color:#d0d0e8;}
+.box{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:22px;margin:24px 0;}
+.box.warn{border-color:rgba(243,156,18,0.35);background:rgba(243,156,18,0.04);}
+.box.good{border-color:rgba(46,204,113,0.3);background:rgba(46,204,113,0.04);}
+.box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:10px;}
+.cta-box{background:linear-gradient(135deg,rgba(91,79,255,0.15),rgba(255,79,155,0.08));border:1px solid rgba(91,79,255,0.3);border-radius:16px;padding:28px;text-align:center;margin:36px 0;}
+.cta-box h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:8px;}
+.cta-box p{color:var(--tm);margin-bottom:20px;font-size:0.95rem;}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--ac),#7b6fff);color:white;padding:14px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem;transition:transform 0.2s;}
+.btn:hover{transform:translateY(-2px);}
+.steps{display:flex;flex-direction:column;gap:16px;margin:24px 0;}
+.step{display:flex;gap:16px;align-items:flex-start;background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px;}
+.step-num{background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+.step strong{display:block;font-size:0.95rem;margin-bottom:5px;}.step p{margin:0;font-size:0.88rem;color:var(--tm);}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:24px 0;}
+.related a{display:flex;flex-direction:column;gap:4px;background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:16px;text-decoration:none;transition:border-color 0.2s;}
+.related a:hover{border-color:var(--ac);}.related a strong{font-size:0.88rem;color:var(--tx);}.related a span{font-size:0.78rem;color:var(--tm);line-height:1.4;}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.88rem;}
+th{background:var(--sf);padding:10px 14px;text-align:left;font-family:'Syne',sans-serif;font-weight:700;border-bottom:1px solid var(--br);}
+td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-child td{border-bottom:none;}
+@media(max-width:640px){.step{flex-direction:column;gap:10px;}.step-num{margin-top:0;}}
+</style>
+</head>
+<body>
+<nav id="site-nav"></nav>
+<main id="main-content">
+<div class="wrap">
+
+  <div class="meta">
+    <span class="tag">🎓 大学申请</span>
+    <span class="tag">🇨🇳 简体中文</span>
+    <span class="rt">阅读时间约 5 分钟</span>
+  </div>
+
+  <h1>大学申请上传PDF<br>压缩到门户要求的大小</h1>
+
+  <p class="intro">UPU、马来西亚公立大学和 JPA 奖学金门户的 PDF 上传限制通常为每个文件 1–2MB。成绩单和证书扫描件很容易超过这个限制。本文教你如何快速处理，避免申请被耽误。</p>
+
+  <div class="cta-box">
+    <h3>🗜️ 立即压缩申请文件</h3>
+    <p>成绩单、证书、IC 扫描件一键压缩</p>
+    <a href="../index.html" class="btn">免费压缩PDF →</a>
+  </div>
+
+  <h2>各门户文件大小限制</h2>
+  <table>
+    <thead><tr><th>申请门户</th><th>文件大小限制</th><th>建议压缩级别</th></tr></thead>
+    <tbody>
+      <tr><td>UPU / MyGovUC</td><td>2 MB / 份</td><td>最大压缩</td></tr>
+      <tr><td>马来西亚公立大学（UM、UKM、UTM、USM、UPM）</td><td>1–2 MB / 份</td><td>最大压缩</td></tr>
+      <tr><td>JPA 奖学金</td><td>2 MB / 份</td><td>最大压缩</td></tr>
+      <tr><td>MARA / Yayasan Khazanah</td><td>2 MB / 份</td><td>最大压缩</td></tr>
+      <tr><td>私立大学（泰勒、英迪、城大等）</td><td>5–10 MB / 份</td><td>平衡压缩</td></tr>
+      <tr><td>研究生申请（研究计划书）</td><td>5–10 MB / 份</td><td>平衡压缩</td></tr>
+    </tbody>
+  </table>
+
+  <h2>不同文件类型的压缩建议</h2>
+  <div class="box">
+    <div class="box-title">按文件类型选择压缩级别</div>
+    <ul style="margin:0;">
+      <li><strong>SPM / STPM 成绩单</strong> — 最大压缩。150 DPI 黑白扫描后再压缩，通常能压到 200KB 以内。</li>
+      <li><strong>课外活动证书</strong> — 最大压缩。这类文件即使压缩较多，内容依然清晰。</li>
+      <li><strong>IC 扫描件</strong> — 最大压缩。IC 内容简单，高压缩不影响可读性。</li>
+      <li><strong>个人陈述 / 申请信</strong> — 平衡压缩，保留文字清晰度。</li>
+      <li><strong>研究计划书</strong> — 平衡压缩，避免图表和公式模糊。</li>
+    </ul>
+  </div>
+
+  <h2>重要：分开上传，不要合并</h2>
+  <div class="box warn">
+    <div class="box-title">⚠️ 不要把文件合并后再上传</div>
+    <p style="margin:0;font-size:0.9rem;">大多数马来西亚大学门户允许分别上传不同类别的文件。把多份文件合并成一个 PDF 后，总大小很容易超过限制，而且如果某份文件有问题，你需要重新压缩整个合并文件。建议分开压缩、分开上传，更灵活，也更不容易出错。</p>
+  </div>
+
+  <h2>分步操作</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <strong>列出所需文件并检查大小</strong>
+        <p>提前整理所有需要上传的文件，检查每个文件的当前大小（Windows：右键 → 属性；Mac：右键 → 显示简介；手机：长按文件）。只压缩超过限制的文件，不需要压缩所有文件。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <strong>逐一压缩每个文件</strong>
+        <p>打开 <a href="../index.html" style="color:#a99fff;">shrinkpdf.fyi</a>，一次处理一个文件，选择最大压缩，下载后保存到专门的文件夹。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <strong>检查清晰度</strong>
+        <p>打开每个压缩后的 PDF，在 100% 缩放下检查内容是否清晰可读。成绩的数字和等级必须清楚可见。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <strong>申请开放前准备好所有文件</strong>
+        <p>UPU 申请季（3–4 月和 9 月）门户服务器压力很大，速度很慢。建议提前几天准备好所有压缩文件，申请窗口打开后直接上传，不要在申请过程中才开始压缩。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box good">
+    <div class="box-title">✅ 文件安全说明</div>
+    <p style="margin:0;font-size:0.9rem;">你的成绩单和 IC 信息完全在你的设备里处理，不会上传到任何服务器。压缩完成后，文件不会被存储在任何地方。</p>
+  </div>
+
+  <h2>相关工具</h2>
+  <div class="related">
+    <a href="../index.html"><strong>🗜️ 压缩PDF</strong><span>把申请文件压缩到门户要求的大小</span></a>
+    <a href="../split.html"><strong>✂️ 拆分PDF</strong><span>从多页文件中提取需要的页码</span></a>
+    <a href="../merge.html"><strong>🔗 合并PDF</strong><span>需要合并时再使用这个工具</span></a>
+    <a href="zh-01-compress.html"><strong>📖 PDF压缩完整指南</strong><span>了解各种文件的压缩效果</span></a>
+  </div>
+
+</div>
+</main>
+<footer id="site-footer"></footer>
+</body>
+</html>
