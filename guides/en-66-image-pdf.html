@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../shared.css"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Compress Image-Heavy PDFs: Scans &amp; Design Files (2026)</title>
+<meta name="description" content="Scanned pages, photos, and design files compress differently from text PDFs. Here's why, with the exact settings to use.">
+<meta name="keywords" content="compress image pdf, compress pdf with images, image heavy pdf too large, compress scanned pdf, reduce pdf with photos size">
+<link rel="canonical" href="https://shrinkpdf.fyi/guides/en-66-image-pdf">
+<link rel="alternate" hreflang="x-default" href="https://shrinkpdf.fyi/guides/en-66-image-pdf">
+<link rel="alternate" hreflang="en" href="https://shrinkpdf.fyi/guides/en-66-image-pdf">
+<meta property="og:type" content="article"><meta property="og:url" content="https://shrinkpdf.fyi/guides/en-66-image-pdf">
+<meta property="og:title" content="Compress Image-Heavy PDFs: Scans &amp; Design Files (2026)">
+<meta property="og:description" content="Scanned pages, photos, and design files compress differently from text PDFs. Here's why, with the exact settings to use.">
+<meta property="og:image" content="https://shrinkpdf.fyi/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta name="twitter:title" content="Compress Image-Heavy PDFs: Scans &amp; Design Files (2026)">
+<meta name="twitter:description" content="Scanned pages, photos, and design files compress differently from text PDFs. Here's why, with the exact settings to use.">
+<meta property="og:site_name" content="ShrinkPDF">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to compress image-heavy PDFs","description":"How to compress PDFs containing scanned pages, photos, or design elements","tool":{"@type":"HowToTool","name":"ShrinkPDF","url":"https://shrinkpdf.fyi"},"step":[{"@type":"HowToStep","name":"Identify your PDF type","text":"Determine if your PDF is a scan, photo collection, or design export — each has different compression potential"},{"@type":"HowToStep","name":"Open ShrinkPDF","text":"Go to shrinkpdf.fyi — no upload, no size limit"},{"@type":"HowToStep","name":"Choose Maximum compression for scans","text":"Scanned documents and photo-based PDFs compress best at Maximum — typically 70-85% size reduction"},{"@type":"HowToStep","name":"Verify legibility","text":"Check that text and important details remain clearly readable after compression"}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap"></noscript>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
+<script src="../components.js" defer></script>
+<style>
+:root{--bg:#0a0a0f;--sf:#13131a;--br:#2a2a3a;--ac:#5b4fff;--ac2:#ff4f9b;--tx:#f0f0f8;--tm:#9898b8;--surface:#13131a;--border:#2a2a3a;--text:#f0f0f8;--text-muted:#9898b8;--accent:#5b4fff;--accent2:#ff4f9b;}
+html{scroll-padding-top:100px;}*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;line-height:1.8;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,0.07) 0%,transparent 50%);pointer-events:none;z-index:0;}
+.wrap{max-width:740px;margin:0 auto;padding:115px 24px 80px;position:relative;z-index:1;}
+.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:32px;}
+.tag{background:rgba(91,79,255,0.15);border:1px solid rgba(91,79,255,0.3);color:#a99fff;padding:4px 12px;border-radius:100px;font-size:0.78rem;}
+.rt{color:var(--tm);font-size:0.85rem;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;line-height:1.2;letter-spacing:-0.5px;margin-bottom:24px;}
+.intro{font-size:1.05rem;color:var(--tm);margin-bottom:40px;line-height:1.8;border-left:3px solid var(--ac);padding-left:20px;}
+h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;margin:40px 0 14px;}
+h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin:18px 0 8px;}
+p{margin-bottom:14px;color:#d0d0e8;}ul,ol{margin:14px 0 20px 22px;}li{margin-bottom:9px;color:#d0d0e8;}
+.box{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:22px;margin:24px 0;}
+.box.good{border-color:rgba(46,204,113,0.3);background:rgba(46,204,113,0.04);}
+.box.warn{border-color:rgba(255,179,0,0.3);background:rgba(255,179,0,0.04);}
+.bt{font-family:'Syne',sans-serif;font-weight:700;margin-bottom:10px;font-size:0.9rem;}
+.step{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start;}
+.sn{background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:3px;}
+.sc h3{margin-top:0;}
+.cta{background:linear-gradient(135deg,rgba(91,79,255,0.15),rgba(255,79,155,0.1));border:1px solid rgba(91,79,255,0.3);border-radius:16px;padding:32px;text-align:center;margin:40px 0;}
+.cta h3{font-family:'Syne',sans-serif;font-size:1.2rem;margin-bottom:8px;}.cta p{color:var(--tm);margin-bottom:20px;}
+.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;padding:14px 32px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1rem;box-shadow:0 4px 20px rgba(91,79,255,0.3);transition:all 0.2s;}
+.btn:hover{transform:translateY(-2px);}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.88rem;}
+th{background:var(--sf);padding:10px 14px;text-align:left;font-family:'Syne',sans-serif;font-weight:700;border-bottom:1px solid var(--br);}
+td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-child td{border-bottom:none;}
+.fi{border:1px solid var(--br);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.fq{padding:15px 18px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;font-size:0.95rem;}
+.fq:hover{color:#a99fff;}.fa{max-height:0;overflow:hidden;transition:max-height 0.3s;font-size:0.88rem;color:var(--tm);}
+.fi.open .fa{max-height:400px;}.fai{padding:0 18px 14px;}
+.related{margin-top:56px;border-top:1px solid var(--br);padding-top:36px;}
+.related h3{font-family:'Syne',sans-serif;font-weight:700;margin-bottom:18px;}
+.rls{display:grid;gap:10px;}
+.rl{background:var(--sf);border:1px solid var(--br);border-radius:12px;padding:14px 18px;text-decoration:none;color:var(--tx);transition:all 0.2s;display:flex;justify-content:space-between;align-items:center;font-size:0.9rem;}
+.rl:hover{border-color:#a99fff;}.rl span{color:var(--tm);font-size:0.82rem;}
+#read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+.toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;}
+.toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.toc-title::before{content:'📋';}
+.toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+.toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+.toc li a:hover{color:#a99fff;}
+@media(max-width:640px){.step{flex-direction:column;gap:10px;}.sn{margin-top:0;}}
+</style>
+</head>
+<body>
+<div id="read-progress"></div>
+<nav id="site-nav"></nav>
+<main id="main-content">
+<div class="wrap">
+
+<div class="meta">
+  <span class="tag">🖼️ Image PDFs</span>
+  <span class="tag">Scans &amp; Photos</span>
+  <span class="rt">5 min read</span>
+</div>
+
+<h1>How to Compress Image-Heavy PDFs<br>Scans, Photos &amp; Design Files</h1>
+
+<p class="intro">A PDF that's mostly images — scanned documents, photo albums, Canva designs, brochures — can be 10× larger than a text-only PDF of the same page count. The good news: image-based PDFs also compress far more dramatically. A 20MB scanned document can become 2MB without any visible quality loss.</p>
+
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc-title">In this article</div>
+  <ol>
+    <li><a href="#why-large">Why Image PDFs Are So Much Larger</a></li>
+    <li><a href="#types">Compression Results by PDF Type</a></li>
+    <li><a href="#scanned">Scanned Documents</a></li>
+    <li><a href="#photos">Photo Collections &amp; Albums</a></li>
+    <li><a href="#design">Design Files (Canva, InDesign)</a></li>
+    <li><a href="#mixed">Mixed Content (Text + Images)</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ol>
+</nav>
+
+<h2 id="why-large">Why Image PDFs Are So Much Larger</h2>
+<p>A text-only PDF stores content as character codes — a page of text is essentially a list of letter codes, font references, and coordinates. That's very efficient: a 50-page text document might be 200KB.</p>
+<p>An image-based PDF stores content as pixel data. Every pixel on every page needs a colour value. An A4 page at 300 DPI contains 4,961 × 7,016 = roughly 35 million pixels. At 3 bytes per pixel (RGB), that's 100MB of raw data per page before any compression. JPEG compression reduces that to 1–5MB per page — which is why a 10-page scanned document is easily 20–50MB.</p>
+
+<div class="box">
+  <div class="bt">Why image PDFs compress so well</div>
+  <p style="margin:0;font-size:0.9rem;">The same JPEG compression that makes image PDFs large is also what makes them compress so effectively. Reducing from 300 DPI to 150 DPI, or from 90% JPEG quality to 60% JPEG quality, produces files that look identical on screen but are 60–80% smaller. Text PDFs don't have this headroom — they're already very efficient.</p>
+</div>
+
+<h2 id="types">Compression Results by PDF Type</h2>
+<table>
+  <thead><tr><th>PDF Type</th><th>Typical Original Size</th><th>After Max Compression</th><th>Reduction</th></tr></thead>
+  <tbody>
+    <tr><td>Phone camera scan (1 page)</td><td>3–8 MB</td><td>0.3–0.8 MB</td><td>85–90%</td></tr>
+    <tr><td>Scanner output (300 DPI colour)</td><td>2–5 MB/page</td><td>0.2–0.5 MB/page</td><td>80–90%</td></tr>
+    <tr><td>Canva design (1 page, PDF Print)</td><td>8–20 MB</td><td>1–2.5 MB</td><td>80–88%</td></tr>
+    <tr><td>Photo album / picture book PDF</td><td>50–200 MB</td><td>5–20 MB</td><td>85–90%</td></tr>
+    <tr><td>Brochure / marketing PDF</td><td>10–50 MB</td><td>1–6 MB</td><td>85–90%</td></tr>
+    <tr><td>Mixed (text report + embedded images)</td><td>3–15 MB</td><td>1–4 MB</td><td>60–75%</td></tr>
+    <tr><td>Text-only Word/Docs export</td><td>0.2–2 MB</td><td>0.15–1.5 MB</td><td>15–30%</td></tr>
+  </tbody>
+</table>
+
+<div class="cta">
+  <h3>🗜️ Compress Your Image PDF Now</h3>
+  <p>No file size limit. Files never leave your device. Try Maximum compression first.</p>
+  <a href="../index.html" class="btn">Compress PDF Free →</a>
+</div>
+
+<h2 id="scanned">Scanned Documents</h2>
+<p>Scanned documents are the most common image PDF — IC copies, bank statements, receipts, medical reports, signed contracts. They're also the easiest to compress dramatically.</p>
+<ul>
+  <li><strong>Use Maximum compression.</strong> A scanned IC or bank statement at Maximum typically compresses from 3–8MB to under 500KB — a 90% reduction. The text remains clearly readable.</li>
+  <li><strong>For multi-page scans, check clarity page by page.</strong> Some pages scan better than others. After compressing, scroll through and verify every page is legible, not just the first.</li>
+  <li><strong>Grayscale scans compress better than colour.</strong> If you have control over the scanner, scan supporting documents in grayscale (not colour) — the files are 3× smaller before any compression, and compress even further afterwards.</li>
+  <li><strong>Re-scan at 150 DPI instead of 300 DPI.</strong> 150 DPI is sufficient for any document submission. 300 DPI is print-quality and unnecessary for digital upload. Re-scanning at 150 DPI reduces the starting file size by 75% before any compression.</li>
+</ul>
+
+<h2 id="photos">Photo Collections &amp; Albums</h2>
+<p>PDFs used as photo albums or picture collections are among the largest PDFs users encounter — 100MB+ files are common. They also compress dramatically.</p>
+<ul>
+  <li><strong>For sharing:</strong> Balanced compression is usually right. It preserves colour accuracy and photo detail at normal viewing size while typically cutting file size by 70–80%.</li>
+  <li><strong>For printing:</strong> Use Light compression only, or skip compression entirely. Print-quality PDFs need full resolution — compressing a print-bound photo PDF will produce noticeable quality loss when printed.</li>
+  <li><strong>For WhatsApp or email sharing:</strong> Maximum compression is fine. Screen resolution (72–96 DPI) is sufficient for viewing photos on phones and computers.</li>
+</ul>
+
+<div class="box warn">
+  <div class="bt">⚠️ Don't compress print-ready files</div>
+  <p style="margin:0;font-size:0.9rem;">If your image PDF will be sent to a printer (for professional printing, business cards, brochures), do not compress it with ShrinkPDF. Print production requires 300 DPI or higher. Compressing a print-ready file reduces it to screen resolution, which prints blurry. Only compress if you're sharing or submitting digitally.</p>
+</div>
+
+<h2 id="design">Design Files (Canva, InDesign, Illustrator)</h2>
+<p>PDFs exported from design tools are image-based even when they contain text — the design application rasterises everything to produce a consistent visual output. A 1-page Canva resume is a 1-page image, not a text document.</p>
+<ul>
+  <li><strong>Export at Standard quality, not Print quality.</strong> In Canva: PDF Standard instead of PDF Print. In InDesign: export for "Screen" instead of "Print" or "Press". This alone reduces file size by 50–70%.</li>
+  <li><strong>Compress with Balanced.</strong> For digital submission, Balanced preserves visual quality while cutting file size significantly. Use Maximum only if Balanced leaves you over the portal limit.</li>
+  <li><strong>Check fine text after compression.</strong> Very small text (under 8pt) in design PDFs can become slightly soft at Maximum compression. Zoom to 200% and check the smallest text in your design.</li>
+</ul>
+
+<h2 id="mixed">Mixed Content PDFs (Text + Embedded Images)</h2>
+<p>Reports, presentations, and academic papers often mix text content with embedded charts, photos, and diagrams. These compress less dramatically than pure image PDFs but still significantly.</p>
+<p>For mixed content, Balanced compression is almost always the right choice. It compresses the image portions of each page effectively while preserving the overall layout quality. Maximum may make text portions slightly soft in some documents.</p>
+<p>If your mixed PDF has a few very large images that are making the entire document oversized, consider: extracting only the image pages using the <a href="../split.html" style="color:#a99fff;">Split PDF tool</a>, then using a lower compression level on those pages specifically.</p>
+
+<h2 id="faq">FAQ</h2>
+<div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Will compressing a scanned document make it harder to read? <span>&#9660;</span></div><div class="fa"><div class="fai">At Balanced compression, no — for typical document scans at 150–300 DPI, the text remains clearly readable. At Maximum compression, very fine text (under 8pt) or handwriting may show slight softness when zoomed in closely. At normal viewing size (100% on screen), the document looks the same. For portal submissions, Maximum is almost always fine — reviewers look at the document content, not its compression level.</div></div></div>
+<div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">Why does my PDF with just a few photos compress by 85%, but my text PDF only compresses by 10%? <span>&#9660;</span></div><div class="fa"><div class="fai">Image data is inherently redundant — photos contain neighbouring pixels that are similar in colour, which compression exploits heavily. Text is already stored efficiently as character codes in a text PDF, so there's less redundancy to remove. This is normal and expected. The compression technique (re-rendering at lower DPI) is far more effective on image content than on text content.</div></div></div>
+<div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">My 80-page scanned report is 200MB. Can ShrinkPDF handle it? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes — there's no file size limit. Processing time will be longer (potentially 2–5 minutes for an 80-page document, depending on your device). Keep the browser tab open and in the foreground during compression. The result will typically be 20–30MB at Maximum compression — around 85–90% smaller.</div></div></div>
+<div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">After compression, the PDF images look the same. Did it actually compress? <span>&#9660;</span></div><div class="fa"><div class="fai">Yes. The compression algorithm targets resolution and JPEG quality settings that reduce file size while staying within the threshold where human vision can detect a difference. Screen resolution is 72–96 DPI, but most scans and design exports are 144–300 DPI — compressing to 96–120 DPI produces a file that looks identical on screen but is 70–85% smaller. Check the file size shown in the result card to confirm the reduction.</div></div></div>
+
+<div class="related">
+  <h3>Related guides</h3>
+  <div class="rls">
+    <a href="en-54-scanned-pdf-large.html" class="rl">Why Is My Scanned PDF So Large? <span>Scanner settings and DPI explained →</span></a>
+    <a href="en-26-dpi-explained.html" class="rl">DPI and PDF File Size Explained <span>Why resolution drives file size →</span></a>
+    <a href="en-60-canva-pdf-large.html" class="rl">Canva PDF Too Large <span>Design export compression guide →</span></a>
+    <a href="en-51-pdf-wont-compress.html" class="rl">PDF Won't Compress — Why &amp; Fixes <span>When compression doesn't reduce size →</span></a>
+  </div>
+</div>
+
+</div>
+</main>
+<footer id="site-footer"></footer>
+<script>const bar=document.getElementById('read-progress');window.addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';});</script>
+</body>
+</html>
