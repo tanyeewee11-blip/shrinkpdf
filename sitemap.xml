@@ -27,6 +27,9 @@
   <url><loc>https://shrinkpdf.fyi/guides/id-01-kompres-pdf-gratis</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/id-02-lpdp-beasiswa</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/id-03-snbt-pendaftaran-kuliah</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/id-04-gabungkan-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/id-05-pisahkan-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/id-06-jpg-ke-pdf</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
   <!-- Simplified Chinese guides -->
   <url><loc>https://shrinkpdf.fyi/guides/zh-01-compress</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -54,9 +57,14 @@
   <url><loc>https://shrinkpdf.fyi/guides/en-70-compress-pdf-100kb</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-71-pdf-quality-after-compression</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-72-spm-result-slip</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-79-upu-rayuan</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-73-multiple-pdf-one-file</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-74-pdf-for-printing-shop</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-75-reorder-pdf-pages</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-76-pdf-to-word-word-to-pdf</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-77-pdf-to-excel-powerpoint</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-78-sign-pdf</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-80-edit-pdf</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
 
   <url><loc>https://shrinkpdf.fyi/guides/en-09-mobile</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-10-whylarge</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
