@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="shared.css">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PDF to Images Free – Convert PDF Pages to JPG/PNG | ShrinkPDF</title>
 <meta name="description" content="Convert PDF pages to JPG or PNG images. Choose resolution, download all pages as a ZIP. Free, no login, processed locally in your browser.">
@@ -547,6 +550,14 @@
       document.getElementById('progressWrap').classList.remove('visible');
       document.getElementById('previewTitle').textContent = `${numPages} page${numPages > 1 ? 's' : ''} converted to ${ext.toUpperCase()}`;
       document.getElementById('previewSection').classList.add('visible');
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'tool_complete', {
+          tool_name: 'pdf_to_images',
+          page_count: numPages,
+          output_format: ext
+        });
+      }
     } catch(e) {
       const msg = e.message || '';
       if (msg.toLowerCase().includes('encrypt') || msg.toLowerCase().includes('password')) {

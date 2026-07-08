@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="shared.css">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -979,6 +982,16 @@ async function startCompress() {
 
     setProgress(100, 'Done!');
     showResult(currentFile.size, compressedBlob.size);
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'tool_complete', {
+        tool_name: 'compress',
+        original_size_kb: Math.round(currentFile.size / 1024),
+        compressed_size_kb: Math.round(compressedBlob.size / 1024),
+        size_reduction_pct: Math.round((1 - compressedBlob.size / currentFile.size) * 100),
+        compression_level: currentLevel
+      });
+    }
 
   } catch (err) {
     console.error(err);

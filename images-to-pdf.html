@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="shared.css">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Images to PDF Free – Convert JPG/PNG to PDF Online | ShrinkPDF</title>
 <meta name="description" content="Convert JPG, PNG, WebP images into a single PDF. Drag to reorder, choose paper size. Free, no login, processed locally in your browser.">
@@ -612,6 +615,14 @@
         `${images.length} image${images.length > 1 ? 's' : ''} → ${formatSize(blob.size)} PDF`;
       document.getElementById('resultWrap').classList.add('visible');
       document.getElementById('convertBtn').style.display = 'none';
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'tool_complete', {
+          tool_name: 'images_to_pdf',
+          image_count: images.length,
+          output_size_kb: Math.round(blob.size / 1024)
+        });
+      }
     } catch(e) {
       showToast('Something went wrong: ' + e.message, 'error');
     }

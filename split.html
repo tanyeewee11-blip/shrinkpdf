@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="shared.css">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Split PDF Free – Extract Pages Online | ShrinkPDF</title>
 <meta name="description" content="Split PDF into individual pages or extract a page range. Free, no login, no file size limit. Files processed locally.">
@@ -527,6 +530,15 @@
       document.getElementById('resultSub').textContent = `${results.length} file${results.length > 1 ? 's' : ''} created from ${pageCount} pages`;
       document.getElementById('progressWrap').classList.remove('visible');
       document.getElementById('resultCard').style.display = 'block';
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'tool_complete', {
+          tool_name: 'split',
+          split_mode: splitMode,
+          output_file_count: results.length,
+          source_page_count: pageCount
+        });
+      }
     } catch(e) { showToast('Something went wrong: ' + e.message, 'error'); }
     btn.disabled = false; btn.textContent = '✂️ Split PDF';
   }
