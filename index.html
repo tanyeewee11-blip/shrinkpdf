@@ -882,6 +882,8 @@ gtag('config', 'G-MY7DTD213P');
   <h2>More PDF Tools</h2>
   <p>Everything you need to work with PDFs — all free, no upload, no account required</p>
   <div class="tools-grid">
+    <a href="watermark.html" class="tool-link"><div class="tool-link-icon">💧</div><div class="tool-link-name">Add Watermark</div><div class="tool-link-desc">Stamp CONFIDENTIAL or DRAFT on your compressed PDF before sharing.</div></a>
+    <a href="page-numbers.html" class="tool-link"><div class="tool-link-icon">🔢</div><div class="tool-link-name">Add Page Numbers</div><div class="tool-link-desc">Number the pages of your compressed PDF before submission.</div></a>
     <a href="split.html" class="tool-link"><div class="tool-link-icon">✂️</div><div class="tool-link-name">Split PDF</div><div class="tool-link-desc">Extract specific pages or split by range — useful when a portal needs only certain pages from a larger document</div></a>
     <a href="merge.html" class="tool-link"><div class="tool-link-icon">🔗</div><div class="tool-link-name">Merge PDF</div><div class="tool-link-desc">Combine multiple PDFs into a single file — ideal for job applications, submissions, or bundling documents before sending</div></a>
     <a href="rotate.html" class="tool-link"><div class="tool-link-icon">🔄</div><div class="tool-link-name">Rotate PDF</div><div class="tool-link-desc">Fix pages that came out sideways or upside-down after scanning — rotate individual pages or the whole document</div></a>
@@ -1169,20 +1171,8 @@ function loadLibs() {
 }
 
 
-// ── NEW: share helpers ──
-function shareWhatsApp() {
-  const text = encodeURIComponent('Compress PDFs for free — no upload, no login, no file size limit. Files stay on your device: https://shrinkpdf.fyi');
-  window.open('https://wa.me/?text=' + text, '_blank');
-}
-
-function copyLink() {
-  navigator.clipboard.writeText('https://shrinkpdf.fyi').then(() => {
-    const btn = document.getElementById('copyLinkBtn');
-    const orig = btn.textContent;
-    btn.textContent = '✅ Copied!';
-    setTimeout(() => { btn.textContent = orig; }, 2000);
-  });
-}
+// shareWhatsApp() / copyLink() are now defined globally in components.js
+// (with UTM params) so they work consistently across every page.
 </script>
 
 <!-- pdf.js + pdf-lib loaded on demand via loadLibs() -->

@@ -15,6 +15,8 @@
   <url><loc>https://shrinkpdf.fyi/pdf-to-images</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://shrinkpdf.fyi/images-to-pdf</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://shrinkpdf.fyi/reorder</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://shrinkpdf.fyi/watermark</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://shrinkpdf.fyi/page-numbers</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
   <!-- English guides -->
   <url><loc>https://shrinkpdf.fyi/guides/en-01-below1mb</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -65,6 +67,8 @@
   <url><loc>https://shrinkpdf.fyi/guides/en-77-pdf-to-excel-powerpoint</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-78-sign-pdf</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-80-edit-pdf</loc><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-81-watermark-pdf</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/en-82-page-numbers-pdf</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
   <url><loc>https://shrinkpdf.fyi/guides/en-09-mobile</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-10-whylarge</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

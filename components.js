@@ -11,6 +11,8 @@
     'pdf-to-images.html': '🖼️ PDF→IMG',
     'images-to-pdf.html': '📷 IMG→PDF',
     'reorder.html':       '📋 Reorder',
+    'watermark.html':     '💧 Watermark',
+    'page-numbers.html':  '🔢 Page #',
   };
 
   const TOOLS = [
@@ -21,6 +23,8 @@
     { href: 'pdf-to-images.html', icon: '🖼️', label: '🖼️ PDF→IMG' },
     { href: 'images-to-pdf.html', icon: '📷', label: '📷 IMG→PDF' },
     { href: 'reorder.html',       icon: '📋', label: '📋 Reorder' },
+    { href: 'watermark.html',     icon: '💧', label: '💧 Watermark' },
+    { href: 'page-numbers.html',  icon: '🔢', label: '🔢 Page #' },
   ];
 
   // Detect root prefix for guides subdir
@@ -77,6 +81,8 @@
             <a href="${root}pdf-to-images.html">PDF to Images</a>
             <a href="${root}images-to-pdf.html">Images to PDF</a>
             <a href="${root}reorder.html">Reorder Pages</a>
+            <a href="${root}watermark.html">Add Watermark</a>
+            <a href="${root}page-numbers.html">Add Page Numbers</a>
           </div>
           <div class="footer-col">
             <div class="footer-col-title">Guides</div>
@@ -100,6 +106,39 @@
       </div>
     `;
   }
+
+  // ── shareWhatsApp() / copyLink() ──
+  // Global so every page (not just index.html) can use the "What's next?" share buttons.
+  // Appends UTM params so shared/copied links are attributable in GA4 instead of
+  // landing as unattributed Direct traffic.
+  // Builds the URL from the real site-absolute path (window.location.pathname),
+  // NOT from the 'root' relative-link prefix above — root is only correct for
+  // links pointing out of the current page, not for reconstructing this page's
+  // own canonical URL (which matters once /guides/ pages start using this too).
+  function canonicalPath() {
+    let path = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+    if (path === '') path = '/';
+    return path;
+  }
+
+  window.shareWhatsApp = function() {
+    const url = 'https://shrinkpdf.fyi' + canonicalPath() +
+      '?utm_source=whatsapp&utm_medium=share&utm_campaign=tool_share';
+    const text = encodeURIComponent('Free PDF tools — no upload, no login, no file size limit. Files stay on your device: ' + url);
+    window.open('https://wa.me/?text=' + text, '_blank');
+  };
+
+  window.copyLink = function() {
+    const url = 'https://shrinkpdf.fyi' + canonicalPath() +
+      '?utm_source=copy_link&utm_medium=share&utm_campaign=tool_share';
+    navigator.clipboard.writeText(url).then(() => {
+      const btn = document.getElementById('copyLinkBtn');
+      if (!btn) return;
+      const orig = btn.textContent;
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => { btn.textContent = orig; }, 2000);
+    });
+  };
 
   // Global toggleDrawer used by hamburger onclick
   window.toggleDrawer = function() {
@@ -135,4 +174,45 @@
       toast.addEventListener('animationend', function() { toast.remove(); }, { once: true });
     }, duration);
   };
+
+  // ── Keyboard accessibility for custom "pick one" cards ──
+  // .pos-card / .format-card / .angle-card / .color-swatch are plain <div>s with
+  // onclick handlers (rotate, watermark, page-numbers option pickers). Mouse users
+  // are fine; keyboard and screen-reader users previously couldn't reach them at
+  // all. This makes every matching element on every page focusable, activatable
+  // with Enter/Space, and announces selection state via aria-pressed — without
+  // needing to hand-edit each tool page's markup or JS.
+  (function() {
+    const SELECTOR = '.pos-card, .format-card, .angle-card, .color-swatch';
+
+    function enhance(el) {
+      if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+      if (!el.hasAttribute('role')) el.setAttribute('role', 'button');
+      el.setAttribute('aria-pressed', el.classList.contains('active') ? 'true' : 'false');
+      el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          el.click();
+        }
+      });
+    }
+
+    const cards = document.querySelectorAll(SELECTOR);
+    if (!cards.length) return;
+    cards.forEach(enhance);
+
+    // The pages' own selectPosition()/selectFormat()/selectAngle()/selectColor()
+    // functions toggle the .active class directly — observe that instead of
+    // requiring every page's JS to also manage aria-pressed.
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(m) {
+        if (m.type === 'attributes' && m.attributeName === 'class') {
+          m.target.setAttribute('aria-pressed', m.target.classList.contains('active') ? 'true' : 'false');
+        }
+      });
+    });
+    cards.forEach(function(el) {
+      observer.observe(el, { attributes: true, attributeFilter: ['class'] });
+    });
+  })();
 })();

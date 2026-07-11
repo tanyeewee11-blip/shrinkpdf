@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="shared.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Watermark to PDF Online Free | ShrinkPDF</title>
+<meta name="description" content="Add a text watermark to your PDF free. Choose position, opacity and colour. No login, no file size limit, processed locally in your browser.">
+<link rel="canonical" href="https://shrinkpdf.fyi/watermark">
+<meta property="og:title" content="Add Watermark to PDF Online Free | ShrinkPDF">
+<meta property="og:description" content="Add a text watermark to every page of your PDF. Free, no login, no file size limit. Processed locally.">
+<meta property="og:url" content="https://shrinkpdf.fyi/watermark">
+<meta property="og:image" content="https://shrinkpdf.fyi/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Add Watermark to PDF Free Online | ShrinkPDF">
+<meta name="twitter:description" content="Add a text watermark — 'CONFIDENTIAL', 'DRAFT', your name — to every page. Free, no upload, no login.">
+<meta name="twitter:image" content="https://shrinkpdf.fyi/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap"></noscript>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<style>
+:root{--bg:#0a0a0f;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--accent:#5b4fff;--accent2:#ff4f9b;--text:#f0f0f8;--text-muted:#7a7a9a;--success:#2ecc71}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 20% 20%,rgba(91,79,255,.12) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(255,79,155,.08) 0%,transparent 50%);pointer-events:none;z-index:0}
+.hero{position:relative;z-index:1;text-align:center;padding: 115px 24px 48px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(91,79,255,.15);border:1px solid rgba(91,79,255,.3);border-radius:100px;padding:6px 16px;font-size:.8rem;color:#a99fff;margin-bottom:24px}
+.badge-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:16px}
+h1 .highlight{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{font-size:1.05rem;color:var(--text-muted);max-width:500px;margin:0 auto 36px;line-height:1.7;font-weight:300}
+.trust-row{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.trust-item{font-size:.85rem;color:var(--text-muted)}
+.tool-card{position:relative;z-index:1;max-width:760px;margin:0 auto 32px;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:32px}
+.upload-zone{border:2px dashed var(--border);border-radius:16px;padding:48px 24px;text-align:center;cursor:pointer;transition:all .3s}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--accent);background:rgba(91,79,255,.05)}
+.upload-icon{font-size:2.5rem;display:block;margin-bottom:12px}
+.upload-zone h2{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.upload-zone p{color:var(--text-muted);font-size:.9rem;margin-bottom:20px}
+.btn-upload{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 24px;border-radius:10px;cursor:pointer;font-size:.9rem;font-family:'DM Sans',sans-serif;transition:all .2s}
+.btn-upload:hover{border-color:var(--accent)}
+input[type=file]{display:none}
+.file-info{display:none;align-items:center;gap:12px;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:20px}
+.file-info.visible{display:flex}
+.file-name{font-size:.9rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:300px}
+.file-meta{font-size:.75rem;color:var(--text-muted)}
+.file-pages{font-size:.8rem;color:#a99fff;margin-left:auto;white-space:nowrap}
+.file-remove{background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1rem;padding:4px 8px}
+.file-remove:hover{color:var(--accent2)}
+.options-panel{display:none;margin-bottom:4px}
+.options-panel.visible{display:block}
+.options-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:14px}
+
+.text-input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:12px 14px;border-radius:10px;font-size:1rem;font-family:'DM Sans',sans-serif;outline:none;margin-bottom:20px}
+.text-input:focus{border-color:var(--accent)}
+
+.position-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.pos-card{background:var(--surface2);border:2px solid var(--border);border-radius:12px;padding:14px 8px;cursor:pointer;transition:all .2s;text-align:center}
+.pos-card.active{border-color:var(--accent);background:rgba(91,79,255,.08)}
+.pos-card:hover{border-color:var(--accent)}
+.pos-emoji{font-size:1.3rem;display:block;margin-bottom:4px}
+.pos-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem}
+
+.color-row{display:flex;gap:10px;margin-bottom:20px}
+.color-swatch{width:36px;height:36px;border-radius:50%;cursor:pointer;border:2px solid var(--border);transition:all .2s}
+.color-swatch.active{border-color:var(--text);transform:scale(1.1)}
+
+.slider-row{margin-bottom:20px}
+.slider-label{display:flex;justify-content:space-between;font-size:.85rem;color:var(--text-muted);margin-bottom:10px}
+.slider-label span:last-child{color:var(--text);font-weight:600}
+input[type=range]{width:100%;accent-color:var(--accent);height:6px}
+
+.btn-action{display:block;width:100%;padding:16px;margin-top:8px;background:linear-gradient(135deg,var(--accent),#7c6fff);color:white;border:none;border-radius:14px;font-size:1.05rem;font-family:'Syne',sans-serif;font-weight:700;cursor:pointer;transition:all .3s;box-shadow:0 4px 24px rgba(91,79,255,.3)}
+.btn-action:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 40px rgba(91,79,255,.4)}
+.btn-action:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.progress-wrap{margin-top:20px;display:none}
+.progress-wrap.visible{display:block}
+.progress-bar-bg{background:var(--surface2);border-radius:100px;height:8px;overflow:hidden;margin-bottom:10px}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:100px;transition:width .4s ease;width:0%}
+.progress-text{font-size:.85rem;color:var(--text-muted);text-align:center}
+.result-card{display:none;margin-top:24px;text-align:center;padding:28px;background:var(--surface2);border:1px solid var(--border);border-radius:16px}
+.result-card.visible{display:block}
+.result-icon{font-size:2.5rem;display:block;margin-bottom:12px}
+.result-title{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:8px}
+.result-sub{color:var(--text-muted);font-size:.9rem;margin-bottom:20px}
+.btn-download{display:inline-block;background:var(--success);color:white;padding:14px 32px;border-radius:12px;font-weight:700;text-decoration:none;font-family:'Syne',sans-serif;font-size:1rem;transition:all .2s;margin-bottom:12px}
+.btn-download:hover{transform:translateY(-2px)}
+.btn-another{background:none;border:1px solid var(--border);color:var(--text-muted);padding:10px 24px;border-radius:10px;cursor:pointer;font-size:.9rem;font-family:'DM Sans',sans-serif;transition:all .2s;display:block;margin:0 auto}
+.btn-another:hover{border-color:var(--accent);color:var(--text)}
+.privacy-note{text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:16px}
+
+.preview-box{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px;display:flex;justify-content:center}
+.preview-page{position:relative;background:#f2f2f6;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);width:180px;height:254px;overflow:hidden;transition:width .2s,height .2s}
+.preview-line{position:absolute;left:10%;right:10%;height:5px;background:rgba(0,0,0,.07);border-radius:2px}
+#previewWmText{position:absolute;white-space:nowrap;font-weight:700;font-family:Arial,sans-serif;pointer-events:none;left:50%;bottom:50%}
+@media(max-width:640px){.tools-grid{grid-template-columns:repeat(2,1fr)}}
+
+.tool-info-section { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+.info-block { margin-bottom: 56px; }
+.info-block h2 { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.5px; }
+.info-intro { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.info-card { display: flex; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; align-items: flex-start; }
+.info-icon { font-size: 1.6rem; flex-shrink: 0; }
+.info-card strong { display: block; font-size: 0.92rem; margin-bottom: 4px; color: var(--text); }
+.info-card p { font-size: 0.84rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+.steps-list { display: flex; flex-direction: column; gap: 14px; }
+.step-item { display: flex; gap: 16px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+.step-num { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+.step-item strong { display: block; font-size: 0.92rem; margin-bottom: 4px; }
+.step-item p { font-size: 0.84rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+.faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; }
+.faq-q { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; color: var(--text); }
+.faq-a { font-size: 0.84rem; color: var(--text-muted); line-height: 1.6; }
+.related-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.related-tool { display: flex; flex-direction: column; gap: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; text-decoration: none; transition: border-color 0.2s; }
+.related-tool:hover { border-color: var(--accent); }
+.related-tool strong { font-size: 0.88rem; color: var(--text); }
+.related-tool span { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+@media(max-width:640px){.related-grid{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}}
+@media(max-width:640px){.nav-guides-link{display:none;}}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Add a Watermark to a PDF Online for Free",
+  "description": "Add a text watermark such as CONFIDENTIAL or DRAFT to every page of a PDF instantly in your browser.",
+  "totalTime": "PT2M",
+  "tool": {
+    "@type": "HowToTool",
+    "name": "ShrinkPDF",
+    "url": "https://shrinkpdf.fyi"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Upload Your PDF",
+      "text": "Click Choose PDF File or drag and drop the PDF you want to watermark.",
+      "url": "https://shrinkpdf.fyi/watermark.html#step1"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Type Your Watermark Text",
+      "text": "Enter the text you want stamped on every page, such as CONFIDENTIAL or DRAFT.",
+      "url": "https://shrinkpdf.fyi/watermark.html#step2"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Choose Position, Colour and Opacity",
+      "text": "Pick where the watermark appears, its colour, and how transparent it should be.",
+      "url": "https://shrinkpdf.fyi/watermark.html#step3"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Download the Watermarked PDF",
+      "text": "Download your PDF with the watermark applied to every page.",
+      "url": "https://shrinkpdf.fyi/watermark.html#step4"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I remove the watermark later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The watermark is added as permanent page content, so it cannot be removed without re-processing the original unwatermarked file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the watermark cover my document's text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Lower the opacity so the watermark sits faintly behind or across your content without blocking readability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my file uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Watermarking happens entirely in your browser and the file is never sent anywhere."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ShrinkPDF",
+  "url": "https://shrinkpdf.fyi",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Add a text watermark to PDF files free online. No upload, no login, no file size limit."
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MY7DTD213P');
+</script>
+<script src="components.js" defer></script>
+</head>
+<body>
+<nav id="site-nav"></nav>
+
+<main id="main-content">
+
+<section class="hero">
+  <div class="badge"><span class="badge-dot"></span> Free · No Login · No File Size Limit</div>
+  <h1>Add <span class="highlight">Watermark</span><br>to PDF</h1>
+  <p class="subtitle">Stamp CONFIDENTIAL, DRAFT, or your own text across every page. Choose position, colour and opacity. Processed entirely in your browser.</p>
+  <div class="trust-row">
+    <div class="trust-item">🔒 Files never stored</div>
+    <div class="trust-item">⚡ Instant watermark</div>
+    <div class="trust-item">♾️ No file size limit</div>
+    <div class="trust-item">🆓 Always free</div>
+  </div>
+</section>
+
+<div class="tool-card">
+  <div class="file-info" id="fileInfo">
+    <span style="font-size:1.4rem">📄</span>
+    <div style="min-width:0;flex:1">
+      <div class="file-name" id="fileName">document.pdf</div>
+      <div class="file-meta" id="fileSize"></div>
+    </div>
+    <span class="file-pages" id="filePages"></span>
+    <button class="file-remove" onclick="resetTool()" aria-label="Remove file">✕</button>
+  </div>
+
+  <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()" role="button" tabindex="0" aria-label="Drop PDF here or click to choose file" onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('fileInput').click()">
+    <span class="upload-icon">📂</span>
+    <h2>Drop your PDF here</h2>
+    <p>Drag & drop or click to browse</p>
+    <button class="btn-upload" onclick="event.stopPropagation();document.getElementById('fileInput').click()">📁 Choose PDF File</button>
+    <input type="file" id="fileInput" accept=".pdf" onchange="handleFile(this.files[0])" aria-label="Select PDF file">
+  </div>
+
+  <div class="options-panel" id="optionsPanel">
+    <div class="options-title">Preview</div>
+    <div class="preview-box">
+      <div class="preview-page" id="previewPage">
+        <div class="preview-line" style="top:14%"></div>
+        <div class="preview-line" style="top:22%"></div>
+        <div class="preview-line" style="top:30%;width:60%"></div>
+        <div id="previewWmText"></div>
+      </div>
+    </div>
+
+    <div class="options-title">Watermark Text</div>
+    <input type="text" class="text-input" id="wmText" placeholder="e.g. CONFIDENTIAL" maxlength="60" value="CONFIDENTIAL" oninput="updatePreview()">
+
+    <div class="options-title">Position</div>
+    <div class="position-grid">
+      <div class="pos-card active" id="posDiagonal" onclick="selectPosition('diagonal')">
+        <span class="pos-emoji">↗️</span>
+        <div class="pos-name">Diagonal</div>
+      </div>
+      <div class="pos-card" id="posCenter" onclick="selectPosition('center')">
+        <span class="pos-emoji">🎯</span>
+        <div class="pos-name">Center</div>
+      </div>
+      <div class="pos-card" id="posBottom" onclick="selectPosition('bottom')">
+        <span class="pos-emoji">⬇️</span>
+        <div class="pos-name">Bottom</div>
+      </div>
+    </div>
+
+    <div class="options-title">Colour</div>
+    <div class="color-row">
+      <div class="color-swatch active" id="colorGray" style="background:#9898b8" onclick="selectColor('gray')" role="button" aria-label="Gray"></div>
+      <div class="color-swatch" id="colorRed" style="background:#e74c3c" onclick="selectColor('red')" role="button" aria-label="Red"></div>
+      <div class="color-swatch" id="colorBlue" style="background:#5b4fff" onclick="selectColor('blue')" role="button" aria-label="Blue"></div>
+      <div class="color-swatch" id="colorBlack" style="background:#1a1a1a;border-color:#444" onclick="selectColor('black')" role="button" aria-label="Black"></div>
+    </div>
+
+    <div class="slider-row">
+      <div class="slider-label"><span>Opacity</span><span id="opacityVal">30%</span></div>
+      <input type="range" id="opacitySlider" min="10" max="70" value="30" oninput="document.getElementById('opacityVal').textContent=this.value+'%';updatePreview()">
+    </div>
+
+    <div class="slider-row">
+      <div class="slider-label"><span>Font Size</span><span id="sizeVal">48pt</span></div>
+      <input type="range" id="sizeSlider" min="16" max="96" value="48" oninput="document.getElementById('sizeVal').textContent=this.value+'pt';updatePreview()">
+    </div>
+  </div>
+
+  <button class="btn-action" id="wmBtn" style="display:none" onclick="startWatermark()" aria-label="Add watermark to PDF">💧 Add Watermark</button>
+
+  <div class="progress-wrap" id="progressWrap" aria-live="polite" aria-label="Processing progress">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBar"></div></div>
+    <div class="progress-text" id="progressText">Watermarking...</div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <span class="result-icon">🎉</span>
+    <div class="result-title">Watermark Added!</div>
+    <div class="result-sub" id="resultSub"></div>
+    <a id="downloadLink" class="btn-download" download="watermarked.pdf">⬇️ Download Watermarked PDF</a>
+    <button class="btn-another" onclick="resetTool()">Watermark another file</button>
+
+    <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:20px;text-align:left;">
+      <div style="font-size:0.72rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">What's next?</div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+        <a href="index.html" style="text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;display:block;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:1.1rem;margin-bottom:4px;">🗜️</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:3px;color:var(--text);">Compress PDF</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;">Reduce file size after watermarking for portal uploads</div>
+        </a>
+        <a href="page-numbers.html" style="text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;display:block;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:1.1rem;margin-bottom:4px;">🔢</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:3px;color:var(--text);">Add Page Numbers</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;">Number the pages of your watermarked document</div>
+        </a>
+        <a href="merge.html" style="text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;display:block;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:1.1rem;margin-bottom:4px;">🔗</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:3px;color:var(--text);">Merge PDF</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;">Combine the watermarked PDF with other documents</div>
+        </a>
+        <a href="split.html" style="text-decoration:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;display:block;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="font-size:1.1rem;margin-bottom:4px;">✂️</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:3px;color:var(--text);">Split PDF</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;">Extract only the pages you need after watermarking</div>
+        </a>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap;">
+        <span style="font-size:0.78rem;color:var(--text-muted);white-space:nowrap;">Found it useful?</span>
+        <button onclick="shareWhatsApp()" style="display:flex;align-items:center;gap:6px;background:none;border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:8px;font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">💬 Share on WhatsApp</button>
+        <button onclick="copyLink()" id="copyLinkBtn" style="display:flex;align-items:center;gap:6px;background:none;border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:8px;font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">🔗 Copy link</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="privacy-note">🔒 Your file is processed locally and never sent to any server</div>
+</div>
+
+<section class="tool-info-section">
+
+  <div class="info-block">
+    <h2>Who Needs to Watermark a PDF?</h2>
+    <p class="info-intro">Adding a watermark protects and labels a document before it's shared — here are the most common situations.</p>
+    <div class="info-grid">
+    <div class="info-card"><div class="info-icon">📝</div><div><strong>Draft Documents</strong><p>Mark a contract, report, or proposal as "DRAFT" so reviewers know it isn't final. Once approved, watermark a clean copy or send the original.</p></div></div>
+    <div class="info-card"><div class="info-icon">🔒</div><div><strong>Confidential Files</strong><p>Stamp "CONFIDENTIAL" across internal reports, financial statements, or HR documents before emailing them, so it's clear the file shouldn't be forwarded freely.</p></div></div>
+    <div class="info-card"><div class="info-icon">™️</div><div><strong>Protecting Sample Work</strong><p>Freelancers and agencies watermark portfolio samples or quotations with their business name so drafts aren't reused without payment.</p></div></div>
+    <div class="info-card"><div class="info-icon">📄</div><div><strong>Copy Identification</strong><p>Label a PDF "COPY" or "VOID" to distinguish it from the original — useful for invoices, receipts, or duplicate certificates.</p></div></div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h2>How to Add a Watermark — Step by Step</h2>
+    <div class="steps-list">
+    <div class="step-item"><div class="step-num">1</div><div><strong>Upload Your PDF</strong><p>Click "Choose PDF File" or drag and drop. The tool reads the page count so you know the watermark will apply to every page.</p></div></div>
+    <div class="step-item"><div class="step-num">2</div><div><strong>Type Your Watermark Text</strong><p>Enter any text — "CONFIDENTIAL", "DRAFT", your company name, or a custom label. There's no limit on what you can type.</p></div></div>
+    <div class="step-item"><div class="step-num">3</div><div><strong>Choose Position, Colour and Opacity</strong><p>Place the watermark diagonally across the page, centred, or along the bottom. Lower the opacity so it doesn't obscure your content, and pick a colour that stands out without overpowering the page.</p></div></div>
+    <div class="step-item"><div class="step-num">4</div><div><strong>Download the Watermarked PDF</strong><p>Everything is processed locally in your browser — no upload, no server. Download the finished file with the watermark applied to every page.</p></div></div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+    <div class="faq-item"><div class="faq-q">Can I remove the watermark later?</div><div class="faq-a">Once applied, the watermark becomes permanent page content, so it cannot be stripped back out. Keep a copy of your original file if you might need an unwatermarked version later.</div></div>
+    <div class="faq-item"><div class="faq-q">Will the watermark cover my document's text?</div><div class="faq-a">Not if you lower the opacity. A setting around 20–30% keeps the watermark visible while letting your document's text and images remain fully readable underneath.</div></div>
+    <div class="faq-item"><div class="faq-q">Does the watermark apply to every page?</div><div class="faq-a">Yes. The same text, position, colour and opacity are applied consistently across every page of your PDF in one pass.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I use my own text instead of "CONFIDENTIAL"?</div><div class="faq-a">Yes. The text field accepts any wording up to 60 characters — your company name, "DRAFT", "SAMPLE", "COPY", or a custom message.</div></div>
+    <div class="faq-item"><div class="faq-q">Is my file uploaded to a server?</div><div class="faq-a">No. The watermark is drawn onto the PDF entirely inside your browser using JavaScript. The file is never uploaded or sent to any server.</div></div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h2>Related PDF Tools</h2>
+    <div class="related-grid">
+    <a href="page-numbers.html" class="related-tool"><strong>Add Page Numbers</strong><span>Number the pages of your watermarked document before printing or submission.</span></a>
+    <a href="index.html" class="related-tool"><strong>Compress PDF</strong><span>Reduce the file size of your watermarked PDF before uploading to a portal with a size limit.</span></a>
+    <a href="merge.html" class="related-tool"><strong>Merge PDF</strong><span>Combine your watermarked file with other documents into a single submission file.</span></a>
+    </div>
+  </div>
+
+</section>
+<section class="tools-section">
+  <h2>More PDF Tools</h2>
+  <p>Everything you need to work with PDFs — all free, all in your browser</p>
+  <div class="tools-grid">
+    <a href="index.html" class="tool-link"><div class="tool-link-icon">🗜️</div><div class="tool-link-name">Compress PDF</div><div class="tool-link-desc">Need to upload the watermarked file? Compress it first to meet portal size limits.</div></a>
+    <a href="page-numbers.html" class="tool-link"><div class="tool-link-icon">🔢</div><div class="tool-link-name">Add Page Numbers</div><div class="tool-link-desc">Number every page of your document alongside the watermark.</div></a>
+    <a href="merge.html" class="tool-link"><div class="tool-link-icon">🔗</div><div class="tool-link-name">Merge PDF</div><div class="tool-link-desc">Combine the watermarked PDF with other documents into one submission file.</div></a>
+    <a href="split.html" class="tool-link"><div class="tool-link-icon">✂️</div><div class="tool-link-name">Split PDF</div><div class="tool-link-desc">Only need certain pages? Extract them after watermarking for a cleaner submission.</div></a>
+    <a href="rotate.html" class="tool-link"><div class="tool-link-icon">🔄</div><div class="tool-link-name">Rotate PDF</div><div class="tool-link-desc">Fix page orientation before or after adding your watermark.</div></a>
+    <a href="reorder.html" class="tool-link"><div class="tool-link-icon">📋</div><div class="tool-link-name">Reorder Pages</div><div class="tool-link-desc">Rearrange page order before applying a watermark across the document.</div></a>
+  </div>
+</section>
+
+</main>
+
+<footer id="site-footer"></footer>
+
+<script>
+  let currentFile = null;
+  let totalPages = 0;
+  let wmPosition = 'diagonal';
+  let wmColor = 'gray';
+  let pdfPageWidth = 595, pdfPageHeight = 842; // default to A4 portrait in points until a file is loaded
+  const COLOR_HEX = { gray: '#9898b8', red: '#e74c3c', blue: '#5b4fff', black: '#1a1a1a' };
+  const COLOR_MAP = {
+    gray:  { r: 0.6, g: 0.6, b: 0.72 },
+    red:   { r: 0.906, g: 0.298, b: 0.235 },
+    blue:  { r: 0.357, g: 0.310, b: 1.0 },
+    black: { r: 0.1, g: 0.1, b: 0.1 }
+  };
+  const previewCtx = document.createElement('canvas').getContext('2d');
+
+  const uploadZone = document.getElementById('uploadZone');
+  uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', e => {
+    e.preventDefault(); uploadZone.classList.remove('drag-over');
+    const f = e.dataTransfer.files[0];
+    if (f && f.type === 'application/pdf') handleFile(f);
+  });
+
+  async function handleFile(file) {
+    if (!file || file.type !== 'application/pdf') return;
+    currentFile = file;
+    try {
+      const buf = await file.arrayBuffer();
+      const doc = await PDFLib.PDFDocument.load(buf, { ignoreEncryption: true });
+      totalPages = doc.getPageCount();
+      const firstPage = doc.getPage(0);
+      const size = firstPage.getSize();
+      pdfPageWidth = size.width;
+      pdfPageHeight = size.height;
+    } catch(e) { totalPages = 0; }
+    document.getElementById('fileName').textContent = file.name;
+    document.getElementById('fileSize').textContent = formatSize(file.size);
+    document.getElementById('filePages').textContent = totalPages + ' pages';
+    document.getElementById('fileInfo').classList.add('visible');
+    document.getElementById('uploadZone').style.display = 'none';
+    document.getElementById('optionsPanel').classList.add('visible');
+    document.getElementById('wmBtn').style.display = 'block';
+    resizePreviewPage();
+    updatePreview();
+  }
+
+  // Sizes the on-screen preview page to the real PDF's aspect ratio,
+  // capped at a max width so it stays compact in the options panel.
+  function resizePreviewPage() {
+    const maxW = 180;
+    const ratio = pdfPageHeight / pdfPageWidth;
+    const el = document.getElementById('previewPage');
+    el.style.width = maxW + 'px';
+    el.style.height = Math.round(maxW * ratio) + 'px';
+  }
+
+  // Mirrors startWatermark()'s centering math exactly (same dx/dy rotation-offset
+  // formula) but in preview-pixel space, so what you see here is what you get.
+  function updatePreview() {
+    const previewEl = document.getElementById('previewPage');
+    const textEl = document.getElementById('previewWmText');
+    if (!previewEl || !textEl) return;
+
+    const text = (document.getElementById('wmText').value || 'CONFIDENTIAL').trim() || 'CONFIDENTIAL';
+    const opacity = parseInt(document.getElementById('opacitySlider').value) / 100;
+    const fontSizePt = parseInt(document.getElementById('sizeSlider').value);
+
+    const pageW = previewEl.clientWidth;
+    const pageH = previewEl.clientHeight;
+    const scale = pageW / pdfPageWidth;
+    const fontSize = Math.max(fontSizePt * scale, 6);
+
+    previewCtx.font = '700 ' + fontSize + 'px Arial';
+    const textWidth = previewCtx.measureText(text).width;
+    const angleDeg = wmPosition === 'diagonal' ? 45 : 0;
+    const angleRad = angleDeg * Math.PI / 180;
+    const dx = textWidth / 2;
+    const dy = fontSize * 0.35;
+    const rotOffsetX = dx * Math.cos(angleRad) - dy * Math.sin(angleRad);
+    const rotOffsetY = dx * Math.sin(angleRad) + dy * Math.cos(angleRad);
+
+    let originX, originY;
+    if (wmPosition === 'bottom') {
+      originX = (pageW - textWidth) / 2;
+      originY = 10 * scale + 4;
+    } else {
+      originX = pageW / 2 - rotOffsetX;
+      originY = pageH / 2 - rotOffsetY;
+    }
+
+    textEl.textContent = text;
+    textEl.style.left = originX + 'px';
+    textEl.style.bottom = originY + 'px';
+    textEl.style.transform = 'rotate(' + (-angleDeg) + 'deg)';
+    textEl.style.transformOrigin = 'left bottom';
+    textEl.style.fontSize = fontSize + 'px';
+    textEl.style.color = COLOR_HEX[wmColor];
+    textEl.style.opacity = opacity;
+  }
+
+  function selectPosition(pos) {
+    wmPosition = pos;
+    ['Diagonal','Center','Bottom'].forEach(p => document.getElementById('pos'+p).classList.toggle('active', p.toLowerCase() === pos));
+    updatePreview();
+  }
+
+  function selectColor(color) {
+    wmColor = color;
+    ['Gray','Red','Blue','Black'].forEach(c => document.getElementById('color'+c).classList.toggle('active', c.toLowerCase() === color));
+    updatePreview();
+  }
+
+  async function startWatermark() {
+    if (!currentFile) return;
+    const text = document.getElementById('wmText').value.trim();
+    if (!text) { showToast('Please enter watermark text.', 'warning'); return; }
+    const opacity = parseInt(document.getElementById('opacitySlider').value) / 100;
+    const fontSize = parseInt(document.getElementById('sizeSlider').value);
+    const col = COLOR_MAP[wmColor];
+
+    const btn = document.getElementById('wmBtn');
+    btn.disabled = true; btn.textContent = '⏳ Adding watermark...';
+    document.getElementById('progressWrap').classList.add('visible');
+    document.getElementById('resultCard').style.display = 'none';
+
+    try {
+      setProgress(20, 'Loading PDF...');
+      const buf = await currentFile.arrayBuffer();
+      const doc = await PDFLib.PDFDocument.load(buf, { ignoreEncryption: true });
+      const font = await doc.embedFont(PDFLib.StandardFonts.HelveticaBold);
+      const pages = doc.getPages();
+
+      setProgress(50, `Watermarking ${pages.length} page${pages.length > 1 ? 's' : ''}...`);
+      const margin = 32;
+      pages.forEach(page => {
+        const { width, height } = page.getSize();
+        const angleDeg = wmPosition === 'diagonal' ? 45 : 0;
+        const angleRad = angleDeg * Math.PI / 180;
+
+        // Shrink font size (down to a floor of 8pt) until the rotated
+        // bounding box fits within the page with margin, so long watermark
+        // text can never overflow off the edge of narrow/small pages.
+        let effSize = fontSize;
+        let textWidth = font.widthOfTextAtSize(text, effSize);
+        while (effSize > 8) {
+          textWidth = font.widthOfTextAtSize(text, effSize);
+          const rotatedW = Math.abs(textWidth * Math.cos(angleRad)) + Math.abs(effSize * Math.sin(angleRad));
+          const rotatedH = Math.abs(textWidth * Math.sin(angleRad)) + Math.abs(effSize * Math.cos(angleRad));
+          if (rotatedW <= width - margin * 2 && rotatedH <= height - margin * 2) break;
+          effSize -= 2;
+        }
+        textWidth = font.widthOfTextAtSize(text, effSize);
+
+        // drawText rotates around the text's baseline-start point, not its
+        // visual center — so to keep a diagonal/centered watermark actually
+        // centered on the page, offset the origin backwards by the text's
+        // half-width/half-height rotated by the same angle.
+        const dx = textWidth / 2;
+        const dy = effSize * 0.35; // approximate half cap-height above baseline
+        const rotOffsetX = dx * Math.cos(angleRad) - dy * Math.sin(angleRad);
+        const rotOffsetY = dx * Math.sin(angleRad) + dy * Math.cos(angleRad);
+
+        let x, y;
+        if (wmPosition === 'diagonal' || wmPosition === 'center') {
+          x = width / 2 - rotOffsetX;
+          y = height / 2 - rotOffsetY;
+        } else {
+          x = (width - textWidth) / 2;
+          y = margin - 4;
+        }
+
+        page.drawText(text, {
+          x, y, size: effSize, font,
+          color: PDFLib.rgb(col.r, col.g, col.b),
+          opacity, rotate: PDFLib.degrees(angleDeg)
+        });
+      });
+
+      setProgress(85, 'Saving PDF...');
+      const bytes = await doc.save({ useObjectStreams: true });
+      const blob = new Blob([bytes], { type: 'application/pdf' });
+      const dlLink = document.getElementById('downloadLink');
+      if (dlLink.href && dlLink.href.startsWith('blob:')) URL.revokeObjectURL(dlLink.href);
+      const url = URL.createObjectURL(blob);
+
+      setProgress(100, 'Done!');
+      await sleep(300);
+
+      document.getElementById('downloadLink').href = url;
+      document.getElementById('downloadLink').download = 'watermarked_' + currentFile.name;
+      document.getElementById('resultSub').textContent = `${pages.length} page${pages.length > 1 ? 's' : ''} watermarked · ${formatSize(blob.size)}`;
+      document.getElementById('progressWrap').classList.remove('visible');
+      document.getElementById('resultCard').style.display = 'block';
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'tool_complete', {
+          tool_name: 'watermark',
+          wm_position: wmPosition,
+          wm_color: wmColor,
+          page_count: pages.length
+        });
+      }
+    } catch(e) {
+      const msg = e.message || '';
+      if (msg.toLowerCase().includes('encrypt') || msg.toLowerCase().includes('password')) {
+        showToast('This PDF is password-protected. Please remove the password first.', 'warning');
+      } else {
+        showToast('Something went wrong: ' + e.message, 'error');
+      }
+    }
+    btn.disabled = false; btn.textContent = '💧 Add Watermark';
+  }
+
+  function setProgress(pct, msg) {
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressText').textContent = msg;
+  }
+  function resetTool() {
+    currentFile = null; totalPages = 0;
+    pdfPageWidth = 595; pdfPageHeight = 842;
+    document.getElementById('fileInput').value = '';
+    document.getElementById('fileInfo').classList.remove('visible');
+    document.getElementById('uploadZone').style.display = '';
+    document.getElementById('optionsPanel').classList.remove('visible');
+    document.getElementById('wmBtn').style.display = 'none';
+    document.getElementById('progressWrap').classList.remove('visible');
+    document.getElementById('resultCard').style.display = 'none';
+    document.getElementById('wmText').value = 'CONFIDENTIAL';
+    document.getElementById('opacitySlider').value = 30;
+    document.getElementById('opacityVal').textContent = '30%';
+    document.getElementById('sizeSlider').value = 48;
+    document.getElementById('sizeVal').textContent = '48pt';
+    resizePreviewPage();
+    selectPosition('diagonal'); selectColor('gray');
+  }
+  function formatSize(b) { return b >= 1048576 ? (b/1048576).toFixed(1)+' MB' : (b/1024).toFixed(0)+' KB'; }
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+</script>
+<script>
+document.addEventListener('click',function(e){
+    var btn=document.getElementById('hamburgerBtn');
+    var drawer=document.getElementById('mobileDrawer');
+    if(btn&&drawer&&!btn.contains(e.target)&&!drawer.contains(e.target)){
+      btn.classList.remove('open');drawer.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>
