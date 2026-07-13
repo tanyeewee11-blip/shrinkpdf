@@ -47,8 +47,8 @@
     navEl.insertAdjacentHTML('beforebegin', '<a href="#main-content" class="skip-link">Skip to main content</a>');
     navEl.innerHTML = `
       <div class="nav-top">
-        <a href="${root}index.html" class="logo"><span>Shrink</span>PDF</a>
-        <a href="${root}guides.html" class="nav-guides-link">📚 Guides</a>
+        <a href="/" class="logo"><span>Shrink</span>PDF</a>
+        <a href="${root}guides" class="nav-guides-link">📚 Guides</a>
         <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
@@ -74,30 +74,30 @@
         <div class="footer-links">
           <div class="footer-col">
             <div class="footer-col-title">Tools</div>
-            <a href="${root}index.html">Compress PDF</a>
-            <a href="${root}merge.html">Merge PDF</a>
-            <a href="${root}split.html">Split PDF</a>
-            <a href="${root}rotate.html">Rotate PDF</a>
-            <a href="${root}pdf-to-images.html">PDF to Images</a>
-            <a href="${root}images-to-pdf.html">Images to PDF</a>
-            <a href="${root}reorder.html">Reorder Pages</a>
-            <a href="${root}watermark.html">Add Watermark</a>
-            <a href="${root}page-numbers.html">Add Page Numbers</a>
+            <a href="/">Compress PDF</a>
+            <a href="${root}merge">Merge PDF</a>
+            <a href="${root}split">Split PDF</a>
+            <a href="${root}rotate">Rotate PDF</a>
+            <a href="${root}pdf-to-images">PDF to Images</a>
+            <a href="${root}images-to-pdf">Images to PDF</a>
+            <a href="${root}reorder">Reorder Pages</a>
+            <a href="${root}watermark">Add Watermark</a>
+            <a href="${root}page-numbers">Add Page Numbers</a>
           </div>
           <div class="footer-col">
             <div class="footer-col-title">Guides</div>
-            <a href="${root}guides.html">All Guides</a>
-            <a href="${root}guides/en-01-below1mb.html">Compress Below 1MB</a>
-            <a href="${root}guides/en-34-send-large-pdf-email.html">Send Large PDF by Email</a>
-            <a href="${root}guides/en-06-malaysia.html">LHDN e-Filing PDF</a>
-            <a href="${root}guides/en-09-mobile.html">Compress on Mobile</a>
-            <a href="${root}guides/en-12-university.html">University Submission</a>
+            <a href="${root}guides">All Guides</a>
+            <a href="${root}guides/en-01-below1mb">Compress Below 1MB</a>
+            <a href="${root}guides/en-34-send-large-pdf-email">Send Large PDF by Email</a>
+            <a href="${root}guides/en-06-malaysia">LHDN e-Filing PDF</a>
+            <a href="${root}guides/en-09-mobile">Compress on Mobile</a>
+            <a href="${root}guides/en-12-university">University Submission</a>
           </div>
           <div class="footer-col">
             <div class="footer-col-title">Company</div>
-            <a href="${root}about.html">About</a>
-            <a href="${root}contact.html">Contact</a>
-            <a href="${root}privacy.html">Privacy Policy</a>
+            <a href="${root}about">About</a>
+            <a href="${root}contact">Contact</a>
+            <a href="${root}privacy">Privacy Policy</a>
           </div>
         </div>
       </div>

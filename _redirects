@@ -22,12 +22,12 @@ https://shrinkpdf.pages.dev/* https://shrinkpdf.fyi/:splat 301
 /index.html / 301
 
 # Merged/consolidated guides -> redirect to merged target (avoids stub pages with conflicting canonical/hreflang)
-/guides/en-02-email.html /guides/en-01-below1mb.html 301
-/guides/en-03-quality.html /guides/en-01-below1mb.html 301
-/guides/en-07-toolarge.html /guides/en-01-below1mb.html 301
-/guides/en-42-compress-without-losing-quality.html /guides/en-15-quality.html 301
-/guides/en-25-make-pdf-smaller.html /guides/en-15-quality.html 301
-/guides/en-08-scanned.html /guides/en-54-scanned-pdf-large.html 301
+/guides/en-02-email.html /guides/en-01-below1mb 301
+/guides/en-03-quality.html /guides/en-01-below1mb 301
+/guides/en-07-toolarge.html /guides/en-01-below1mb 301
+/guides/en-42-compress-without-losing-quality.html /guides/en-15-quality 301
+/guides/en-25-make-pdf-smaller.html /guides/en-15-quality 301
+/guides/en-08-scanned.html /guides/en-54-scanned-pdf-large 301
 /guides/en-39-hr-onboarding.html /guides/en-56-forms-applications.html 301
 /guides/en-38-scholarship-application.html /guides/en-56-forms-applications.html 301
 /guides/en-36-rental-agreement.html /guides/en-56-forms-applications.html 301
