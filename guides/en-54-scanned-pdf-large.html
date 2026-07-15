@@ -72,6 +72,7 @@ tr:last-child td{border-bottom:none;}
 <body>
 <div id="read-progress"></div>
 <nav id="site-nav"></nav>
+<main id="main-content">
 <div class="wrap">
   <div class="meta"><span class="tag">Scanned PDF</span><span class="tag">Troubleshooting</span><span class="tag">How-To</span><span class="rt">&#9201; 8 min read</span><time datetime="2026-04-12" class="rt">Updated 2026-04-12</time></div>
   <h1>Why Is My Scanned PDF So Large? Causes and Fixes (2026)</h1>
@@ -205,6 +206,7 @@ tr:last-child td{border-bottom:none;}
     </div>
   </div>
 </div>
+</main>
 <footer id="site-footer"></footer>
 <script>
 (function(){var nav=document.querySelector('nav');if(nav){var h=function(){document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';};h();window.addEventListener('resize',h);}var el=document.getElementById('read-progress');if(el){window.addEventListener('scroll',function(){var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';});}var links=document.querySelectorAll('.toc a');var heads=[];links.forEach(function(l){var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({el:e,a:l});});window.addEventListener('scroll',function(){var y=window.scrollY+130;var cur=null;heads.forEach(function(h){if(h.el.offsetTop<=y)cur=h;});links.forEach(function(l){l.classList.remove('active');});if(cur)cur.a.classList.add('active');});})();

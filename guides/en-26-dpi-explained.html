@@ -71,6 +71,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <body>
 <div id="read-progress"></div>
 <nav id="site-nav"></nav>
+<main id="main-content">
 <div class="wrap">
   <div class="meta"><span class="tag">Deep Dive</span><span class="tag">DPI</span><span class="tag">Compression</span><span class="rt">&#9201; 12 min read</span><time datetime="2026-02-15" class="updated">Updated February 15, 2026</time></div>
   <h1>DPI and PDF File Size Explained — What Actually Happens When You Compress a PDF</h1>
@@ -214,6 +215,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
     </div>
   </div>
 </div>
+</main>
 <footer id="site-footer"></footer>
 <script>
 (function(){var nav=document.querySelector('nav');if(nav){var h=function(){document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';};h();window.addEventListener('resize',h);}var el=document.getElementById('read-progress');if(el){window.addEventListener('scroll',function(){var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';});}var links=document.querySelectorAll('.toc a');var heads=[];links.forEach(function(l){var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({el:e,a:l});});window.addEventListener('scroll',function(){var y=window.scrollY+130;var cur=null;heads.forEach(function(h){if(h.el.offsetTop<=y)cur=h;});links.forEach(function(l){l.classList.remove('active');});if(cur)cur.a.classList.add('active');});})();

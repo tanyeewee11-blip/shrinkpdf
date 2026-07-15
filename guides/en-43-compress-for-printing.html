@@ -72,6 +72,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <body>
 <div id="read-progress"></div>
 <nav id="site-nav"></nav>
+<main id="main-content">
 <div class="wrap">
   <div class="meta"><span class="tag">Printing</span><span class="tag">DPI</span><span class="tag">Quality</span><time datetime="2026-05-01" class="rt">Updated May 1, 2026</time></div>
   <h1>Compress PDF for Printing — What DPI You Actually Need</h1>
@@ -153,6 +154,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
     </div>
   </div>
 </div>
+</main>
 <footer id="site-footer"></footer>
 <script>
 (function(){var nav=document.querySelector('nav');if(nav){var h=function(){document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';};h();window.addEventListener('resize',h);}var el=document.getElementById('read-progress');if(el){window.addEventListener('scroll',function(){var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';});}var links=document.querySelectorAll('.toc a');var heads=[];links.forEach(function(l){var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({el:e,a:l});});window.addEventListener('scroll',function(){var y=window.scrollY+130;var cur=null;heads.forEach(function(h){if(h.el.offsetTop<=y)cur=h;});links.forEach(function(l){l.classList.remove('active');});if(cur)cur.a.classList.add('active');});})();
