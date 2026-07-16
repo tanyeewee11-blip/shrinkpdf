@@ -71,6 +71,8 @@
   <url><loc>https://shrinkpdf.fyi/guides/en-82-page-numbers-pdf</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/ms-04-watermark-pdf</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/zh-07-watermark-pdf</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/id-07-watermark-pdf</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://shrinkpdf.fyi/guides/zh-08-page-numbers-pdf</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
   <url><loc>https://shrinkpdf.fyi/guides/en-09-mobile</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://shrinkpdf.fyi/guides/en-10-whylarge</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
