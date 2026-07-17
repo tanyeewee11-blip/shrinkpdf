@@ -70,6 +70,25 @@ tr:last-child td{border-bottom:none;}
 @media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}.wrap{padding:80px 18px 60px;}}
 </style>
 <script src="../components.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Reduce a PDF to 50KB, 100KB, or 300KB — Free (2026)",
+  "description": "Need your PDF under 100KB or 300KB for a strict upload limit? This guide shows exactly how to hit specific file size targets — free, step by step.",
+  "author": {
+    "@type": "Organization",
+    "name": "ShrinkPDF"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShrinkPDF",
+    "url": "https://shrinkpdf.fyi"
+  },
+  "dateModified": "2026-04-10"
+}
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it possible to compress a PDF to exactly a specific size?", "acceptedAnswer": {"@type": "Answer", "text": "No — compression tools reduce file size by a percentage, not to a specific byte count. You can get close to a target through multiple methods (compression + re-scanning + page extraction), but you cannot specify '300KB exactly' as an output target. The closest approach is to compress at maximum settings and check whether the result meets your limit, then adjust scan settings if needed."}}, {"@type": "Question", "name": "What's the minimum size a scanned PDF page can be?", "acceptedAnswer": {"@type": "Answer", "text": "At 72 DPI grayscale (the absolute minimum for text legibility), a single A4 page is typically 30–80KB. At 96 DPI grayscale, it's 50–120KB. Below these sizes, text becomes difficult to read — fine print, small fonts, and handwriting may not be legible. For official submissions, 150 DPI grayscale (50–200KB per page) is the recommended minimum."}}, {"@type": "Question", "name": "My portal requires PDF under 100KB for a 3-page document. Is that achievable?", "acceptedAnswer": {"@type": "Answer", "text": "That means under 33KB per page, which is only achievable at very low quality (72 DPI or below). Text will be technically legible but images, logos, and fine print may be degraded. Before trying to hit this target, contact the portal — a 100KB limit for a multi-page document is unusually strict and may be a mistake or may have been updated. Most portals with 100KB limits are intended for single-page documents."}}, {"@type": "Question", "name": "Does converting to black and white help reach a small file size target?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, significantly. Colour images store three data values per pixel; grayscale stores one. Converting a colour scanned document to grayscale typically reduces file size by 60–70% compared to the colour version at the same DPI. For most government and official document submissions, colour is not required — grayscale is equally acceptable and dramatically smaller."}}, {"@type": "Question", "name": "What tool gives the smallest possible PDF file size?", "acceptedAnswer": {"@type": "Answer", "text": "Ghostscript with the /screen setting produces the smallest output of any widely-available free tool. It's a command-line tool (not a GUI), but it's free and runs locally on Windows, Mac, and Linux. The /screen preset targets 72 DPI and applies the most aggressive compression algorithms available in the open-source PDF ecosystem."}}]}</script>
 </head>
 <body>
 <div id="read-progress"></div>

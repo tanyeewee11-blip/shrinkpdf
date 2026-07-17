@@ -100,6 +100,24 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
 <meta property="article:modified_time" content="2026-06-17">
 <script src="../components.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Compress PDF Without Losing Quality — Free Guide (2026)",
+  "description": "How ShrinkPDF's compression works: it rasterizes each page, shrinking any file but removing selectable text and links — when that trade-off is fine.",
+  "author": {
+    "@type": "Organization",
+    "name": "ShrinkPDF"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShrinkPDF",
+    "url": "https://shrinkpdf.fyi"
+  },
+  "dateModified": "2026-06-17"
+}
+</script>
 </head>
 <body>
 <div id="read-progress"></div>
@@ -222,15 +240,14 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 </main>
 <footer id="site-footer"></footer>
 <script>
-(function(){{
+(function(){
   var nav=document.querySelector('nav');
-  if(nav){{var h=function(){{document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';}};h();window.addEventListener('resize',h);}}
+  if(nav){var h=function(){document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';};h();window.addEventListener('resize',h);}
   var el=document.getElementById('read-progress');
-  if(el){{window.addEventListener('scroll',function(){{var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';}});}}
+  if(el){window.addEventListener('scroll',function(){var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';});}
   var links=document.querySelectorAll('.toc a');var heads=[];
-  links.forEach(function(l){{var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({{el:e,a:l}});}});
-  window.addEventListener('scroll',function(){{var y=window.scrollY+130;var cur=null;heads.forEach(function(h){{if(h.el.offsetTop<=y)cur=h;}});links.forEach(function(l){{l.classList.remove('active');}});if(cur)cur.a.classList.add('active');}});
-}})();
-}
+  links.forEach(function(l){var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({el:e,a:l});});
+  window.addEventListener('scroll',function(){var y=window.scrollY+130;var cur=null;heads.forEach(function(h){if(h.el.offsetTop<=y)cur=h;});links.forEach(function(l){l.classList.remove('active');});if(cur)cur.a.classList.add('active');});
+})();
 </script>
 </body></html>

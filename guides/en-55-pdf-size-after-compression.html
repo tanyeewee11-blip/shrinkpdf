@@ -70,6 +70,25 @@ tr:last-child td{border-bottom:none;}
 @media(max-width:640px){.footer-inner{flex-direction:column;gap:32px;}.footer-links{gap:24px;}.wrap{padding:80px 18px 60px;}}
 </style>
 <script src="../components.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "PDF Size Not Reduced After Compression — Why & Fixes (2026)",
+  "description": "Compressed your PDF but the file size barely changed? Here's why compression sometimes doesn't work — and the right alternative approach for each situation.",
+  "author": {
+    "@type": "Organization",
+    "name": "ShrinkPDF"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShrinkPDF",
+    "url": "https://shrinkpdf.fyi"
+  },
+  "dateModified": "2026-04-15"
+}
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why did my PDF get larger after compression?", "acceptedAnswer": {"@type": "Answer", "text": "This happens when the compression algorithm adds overhead that exceeds the data it removes. It's most common with very small PDFs (under 200KB), PDFs with almost no image content, or PDFs where the images are already at minimum quality. If compression increases your file size, use the original uncompressed version — it's already as small as it can reasonably be."}}, {"@type": "Question", "name": "My PDF only compressed by 5%. Is that normal?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for certain file types. Text-only PDFs, already-compressed scans, and digitally-created documents often compress by less than 10% because there's minimal image data to reduce. A 5% reduction on a text-heavy Word export is typical and expected. For image-heavy scanned documents, 5% reduction after Maximum compression is a sign the file was already compressed by the scanner app."}}, {"@type": "Question", "name": "Does the compression tool matter? Are some better than others?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, significantly. Ghostscript (used by PDF24 and many server-side tools) achieves better compression ratios than browser-based JavaScript tools, especially for image-heavy PDFs. Mac Preview's Reduce File Size is consistently the worst option — it often produces larger files. For most everyday documents, ShrinkPDF and ILovePDF produce good results. When they don't, Ghostscript command line is the next step."}}, {"@type": "Question", "name": "My PDF is already small but the portal still rejects it for size. What's happening?", "acceptedAnswer": {"@type": "Answer", "text": "Check the exact file size in bytes, not megabytes. A file displayed as '1.9MB' might actually be 1.98MB — which exceeds a 2.0MB limit. Also check whether the portal's limit applies per-file or per-submission-total. Some portals count all uploaded files combined. Compress to give yourself a clear margin — if the limit is 2MB, aim for under 1.7MB."}}, {"@type": "Question", "name": "Will switching from PDF to JPG make the file smaller?", "acceptedAnswer": {"@type": "Answer", "text": "Sometimes, but with significant trade-offs. A JPG of a document page at 72 DPI might be 30–80KB — smaller than an equivalent PDF page. However, JPGs are single images with no text layer, no multi-page support, no selectable text, and potentially reduced legibility. Most government portals specifically require PDF format. Only convert to JPG if the portal explicitly accepts image files and JPG produces a file within the required size limit."}}]}</script>
 </head>
 <body>
 <div id="read-progress"></div>
