@@ -3,7 +3,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com pagead2.googlesyndication.com www.googletagmanager.com www.google-analytics.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com data:; connect-src 'self' blob: https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net; worker-src blob:; img-src 'self' data: blob: https://www.google.com https://www.gstatic.com; object-src 'none'; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com pagead2.googlesyndication.com www.googletagmanager.com www.google-analytics.com static.cloudflareinsights.com fundingchoicesmessages.google.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com data:; connect-src 'self' blob: https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://cloudflareinsights.com; worker-src blob:; img-src 'self' data: blob: https://www.google.com https://www.gstatic.com https://launchbuff.com; object-src 'none'; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com
 
 /manifest.json
   Content-Type: application/manifest+json
