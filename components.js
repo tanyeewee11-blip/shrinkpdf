@@ -98,6 +98,8 @@
             <a href="${root}about">About</a>
             <a href="${root}contact">Contact</a>
             <a href="${root}privacy">Privacy Policy</a>
+            <a href="${root}terms">Terms of Service</a>
+            <a href="${root}affiliate-disclosure">Affiliate Disclosure</a>
           </div>
         </div>
       </div>
