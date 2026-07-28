@@ -41,6 +41,7 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
 h1{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;line-height:1.2;letter-spacing:-0.5px;margin-bottom:24px;}
 .intro{font-size:1.05rem;color:var(--tm);margin-bottom:40px;line-height:1.8;border-left:3px solid var(--ac);padding-left:20px;}
 h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;margin:40px 0 14px;}
+h2[id],h3[id]{scroll-margin-top:110px;}
 h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin:18px 0 8px;}
 p{margin-bottom:14px;color:#d0d0e8;}
 ul,ol{margin:14px 0 20px 22px;}
@@ -60,15 +61,31 @@ li{margin-bottom:9px;color:#d0d0e8;}
 .step-num{background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
 .step strong{display:block;font-size:0.95rem;margin-bottom:5px;}
 .step p{margin:0;font-size:0.88rem;color:var(--tm);}
-.os-tabs{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--br);border-radius:12px;overflow:hidden;margin-bottom:24px;}
-.os-tab{padding:12px;text-align:center;font-size:0.9rem;font-weight:500;cursor:pointer;background:var(--surface2);transition:background 0.2s;}
-.os-tab.active{background:rgba(91,79,255,0.2);color:#a99fff;}
 .related{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:24px 0;}
 .related a{display:flex;flex-direction:column;gap:4px;background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:16px;text-decoration:none;transition:border-color 0.2s;}
 .related a:hover{border-color:var(--ac);}
 .related a strong{font-size:0.88rem;color:var(--tx);}
 .related a span{font-size:0.78rem;color:var(--tm);line-height:1.4;}
-@media(max-width:640px){.step{flex-direction:column;gap:10px;}.step-num{margin-top:0;}}
+#read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+.toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;position:relative;z-index:0;}
+.toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.toc-title::before{content:'📋';font-size:1rem;}
+.toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+.toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+.toc li a:hover{color:var(--ac);}
+.toc li a.active{color:var(--ac);font-weight:500;}
+.fi{border:1px solid var(--br);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.fq{padding:15px 18px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;font-size:0.95rem;}
+.fq:hover{color:var(--ac);}
+.fa{max-height:0;overflow:hidden;transition:max-height 0.3s;font-size:0.88rem;color:var(--tm);}
+.fi.open .fa{max-height:400px;}
+.fai{padding:0 18px 14px;}
+.related a{display:flex;flex-direction:column;gap:4px;}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.88rem;}
+th{background:var(--sf);padding:10px 14px;text-align:left;font-family:'Syne',sans-serif;font-weight:700;border-bottom:1px solid var(--br);}
+td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}
+tr:last-child td{border-bottom:none;}
+@media(max-width:640px){.step{flex-direction:column;gap:10px;}.step-num{margin-top:0;}.wrap{padding:80px 18px 60px;}}
 </style>
 <script type="application/ld+json">
 {
@@ -84,11 +101,26 @@ li{margin-bottom:9px;color:#d0d0e8;}
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "手机压缩PDF安全吗？会不会上传到不知名的服务器？", "acceptedAnswer": {"@type": "Answer", "text": "安全。压缩全程在手机浏览器本地运行，文件不会上传到任何服务器。你可以打开飞行模式再压缩，依然能正常工作，这就证明整个过程不需要联网。"}},
+    {"@type": "Question", "name": "为什么压缩到一半突然失败或没反应？", "acceptedAnswer": {"@type": "Answer", "text": "最常见的原因是压缩期间切换到了其他App或锁屏，导致浏览器标签被系统暂停。请保持浏览器在前台，直到看到\"压缩完成\"提示；如果文件特别大（超过100MB），也建议先接上电源再压缩，避免手机进入省电模式影响处理速度。"}},
+    {"@type": "Question", "name": "iPad可以用同样的方法吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以。iPad上的Safari操作方式和iPhone完全一样，屏幕更大，文件选择和下载会更方便。"}},
+    {"@type": "Question", "name": "手机浏览器压缩，效果和电脑上一样吗？", "acceptedAnswer": {"@type": "Answer", "text": "完全一样，压缩逻辑不因设备而改变，同一份文件、同一个压缩级别，手机和电脑压缩出来的文件大小基本相同，只是手机处理器较弱，大文件可能需要多等几秒到十几秒。"}},
+    {"@type": "Question", "name": "华为手机（没有Google服务）能用吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以。ShrinkPDF是纯网页工具，只需要一个浏览器（华为自带浏览器或华为版Chrome都可以），不依赖Google Play服务，华为、荣耀等HarmonyOS设备都能正常使用。"}},
+    {"@type": "Question", "name": "压缩后的文件找不到怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "Android上一般在\"文件\"App的\"下载\"文件夹；iPhone在\"文件\"App里的\"我的iPhone → 下载\"。如果设置过默认下载路径为其他文件夹或云盘，也可以在浏览器的下载记录里直接点开确认保存位置。"}}
+  ]
+}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
 <script src="../components.js" defer></script>
 </head>
 <body>
+<div id="read-progress"></div>
 <nav id="site-nav"></nav>
 <main id="main-content">
 <div class="wrap">
@@ -96,12 +128,24 @@ li{margin-bottom:9px;color:#d0d0e8;}
   <div class="meta">
     <span class="tag">📱 手机教程</span>
     <span class="tag">🇨🇳 简体中文</span>
-    <span class="rt">阅读时间约 4 分钟</span>
+    <span class="rt">阅读时间约 6 分钟</span>
   </div>
 
   <h1>如何在手机上压缩PDF<br>（无需安装任何App）</h1>
 
   <p class="intro">不需要下载任何 App，用手机浏览器就能直接压缩 PDF。本文分别介绍 Android 和 iPhone 的操作步骤，全程在手机本地处理，文件不会上传到任何服务器。</p>
+
+  <nav class="toc" aria-label="文章目录">
+    <div class="toc-title">本文内容</div>
+    <ol>
+      <li><a href="#why-not-app">为什么不建议用App压缩PDF？</a></li>
+      <li><a href="#android">Android 手机操作步骤</a></li>
+      <li><a href="#iphone">iPhone 操作步骤</a></li>
+      <li><a href="#location">手机压缩后文件在哪里？</a></li>
+      <li><a href="#troubleshoot">手机压缩常见问题排查</a></li>
+      <li><a href="#faq">常见问题</a></li>
+    </ol>
+  </nav>
 
   <div class="cta-box">
     <h3>🗜️ 直接在手机上压缩</h3>
@@ -109,17 +153,18 @@ li{margin-bottom:9px;color:#d0d0e8;}
     <a href="../" class="btn">免费压缩PDF →</a>
   </div>
 
-  <h2>为什么不建议用App压缩PDF？</h2>
+  <h2 id="why-not-app">为什么不建议用App压缩PDF？</h2>
   <p>App 商店里有很多"PDF压缩"类 App，但大多数都有以下问题：</p>
   <ul>
     <li>需要下载安装，占用手机空间</li>
     <li>大部分免费版有文件大小限制或每日次数限制</li>
     <li>文件会上传到他们的服务器——你的薪资单、身份证扫描件并不安全</li>
     <li>很多 App 会在压缩后的文件上加水印</li>
+    <li>部分App需要注册账号，甚至要求订阅才能解锁完整功能</li>
   </ul>
-  <p>用浏览器直接打开 ShrinkPDF，这些问题全部不存在。</p>
+  <p>用浏览器直接打开 ShrinkPDF，这些问题全部不存在——不用下载、不用注册、没有次数限制、文件不上传。</p>
 
-  <h2>Android 手机操作步骤</h2>
+  <h2 id="android">Android 手机操作步骤</h2>
   <p>推荐使用 Chrome 浏览器（90 以上版本）。三星自带浏览器和 Firefox 也可以。</p>
 
   <div class="steps">
@@ -160,7 +205,7 @@ li{margin-bottom:9px;color:#d0d0e8;}
     </div>
   </div>
 
-  <h2>iPhone 操作步骤</h2>
+  <h2 id="iphone">iPhone 操作步骤</h2>
   <p>推荐使用 Safari（iOS 14 以上）。iOS 版 Chrome 也可以。</p>
 
   <div class="steps">
@@ -206,20 +251,40 @@ li{margin-bottom:9px;color:#d0d0e8;}
     <p style="margin:0;font-size:0.9rem;">压缩是在浏览器里运行的，如果切换到其他 App，iOS Safari 可能会暂停压缩进程。建议保持浏览器在前台，直到看到"压缩完成"提示再离开。</p>
   </div>
 
-  <h2>手机压缩后文件在哪里？</h2>
-  <table style="width:100%;border-collapse:collapse;margin:20px 0;font-size:0.88rem;">
-    <thead><tr style="background:var(--surface);"><th style="padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);">系统</th><th style="padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);">文件位置</th><th style="padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);">查看方式</th></tr></thead>
+  <h2 id="location">手机压缩后文件在哪里？</h2>
+  <table>
+    <thead><tr><th>系统</th><th>文件位置</th><th>查看方式</th></tr></thead>
     <tbody>
-      <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:#d0d0e8;">Android</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:#d0d0e8;">下载文件夹</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:#d0d0e8;">文件 App → 下载</td></tr>
-      <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:#d0d0e8;">iPhone</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:#d0d0e8;">文件 App 下载</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:#d0d0e8;">文件 → 浏览 → 下载</td></tr>
-      <tr><td style="padding:10px 14px;color:#d0d0e8;">华为（HarmonyOS）</td><td style="padding:10px 14px;color:#d0d0e8;">下载文件夹</td><td style="padding:10px 14px;color:#d0d0e8;">文件管理 → 下载</td></tr>
+      <tr><td>Android（原生）</td><td>下载文件夹</td><td>文件 App → 下载</td></tr>
+      <tr><td>三星（One UI）</td><td>下载文件夹</td><td>我的文件 → 下载</td></tr>
+      <tr><td>iPhone</td><td>文件 App 下载</td><td>文件 → 浏览 → 下载</td></tr>
+      <tr><td>华为（HarmonyOS）</td><td>下载文件夹</td><td>文件管理 → 下载</td></tr>
     </tbody>
   </table>
 
-  <div class="box good">
-    <div class="box-title">✅ 隐私说明</div>
-    <p style="margin:0;font-size:0.9rem;">压缩完全在手机本地运行。你的文件不会发送到任何服务器。你可以在页面加载完成后关闭 WiFi，压缩依然能正常工作——因为整个过程不需要网络。</p>
+  <h2 id="troubleshoot">手机压缩常见问题排查</h2>
+  <div class="box">
+    <div class="box-title">压缩速度很慢或长时间没反应</div>
+    <p style="margin:0;font-size:0.9rem;">手机处理器比电脑弱，遇到几十MB以上的大文件，压缩可能需要十几秒到一分钟，请耐心等待，不要重复点击"压缩"按钮或刷新页面，否则会重新开始处理。</p>
   </div>
+  <div class="box">
+    <div class="box-title">手机存储空间不足导致下载失败</div>
+    <p style="margin:0;font-size:0.9rem;">压缩过程本身几乎不占用额外存储，但下载压缩后的文件需要一点空间。如果手机存储已经快满了，建议先清理一些空间，或者把文件直接分享到云盘而不是下载到本机。</p>
+  </div>
+
+  <div class="cta-box">
+    <h3>✓ 无需App，浏览器直接压缩</h3>
+    <p>Android、iPhone、华为设备均可使用</p>
+    <a href="../" class="btn">🗜️ 立即压缩PDF</a>
+  </div>
+
+  <h2 id="faq">常见问题</h2>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">手机压缩PDF安全吗？会不会上传到不知名的服务器？ <span>&#9660;</span></div><div class="fa"><div class="fai">安全。压缩全程在手机浏览器本地运行，文件不会上传到任何服务器。你可以打开飞行模式再压缩，依然能正常工作，这就证明整个过程不需要联网。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">为什么压缩到一半突然失败或没反应？ <span>&#9660;</span></div><div class="fa"><div class="fai">最常见的原因是压缩期间切换到了其他App或锁屏，导致浏览器标签被系统暂停。请保持浏览器在前台，直到看到"压缩完成"提示；如果文件特别大（超过100MB），也建议先接上电源再压缩，避免手机进入省电模式影响处理速度。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">iPad可以用同样的方法吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">可以。iPad上的Safari操作方式和iPhone完全一样，屏幕更大，文件选择和下载会更方便。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">手机浏览器压缩，效果和电脑上一样吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">完全一样，压缩逻辑不因设备而改变，同一份文件、同一个压缩级别，手机和电脑压缩出来的文件大小基本相同，只是手机处理器较弱，大文件可能需要多等几秒到十几秒。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">华为手机（没有Google服务）能用吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">可以。ShrinkPDF是纯网页工具，只需要一个浏览器（华为自带浏览器或华为版Chrome都可以），不依赖Google Play服务，华为、荣耀等HarmonyOS设备都能正常使用。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">压缩后的文件找不到怎么办？ <span>&#9660;</span></div><div class="fa"><div class="fai">Android上一般在"文件"App的"下载"文件夹；iPhone在"文件"App里的"我的iPhone → 下载"。如果设置过默认下载路径为其他文件夹或云盘，也可以在浏览器的下载记录里直接点开确认保存位置。</div></div></div>
 
   <h2>相关工具</h2>
   <div class="related">
@@ -227,10 +292,15 @@ li{margin-bottom:9px;color:#d0d0e8;}
     <a href="../pdf-to-images"><strong>🖼️ PDF转图片</strong><span>转成JPG直接发WhatsApp</span></a>
     <a href="../split"><strong>✂️ 拆分PDF</strong><span>只提取需要的页码</span></a>
     <a href="zh-05-whatsapp"><strong>💬 WhatsApp发送PDF</strong><span>手机发送PDF的正确方式</span></a>
+    <a href="zh-01-compress"><strong>📖 PDF压缩完整指南</strong><span>各类文件的压缩效果和级别选择</span></a>
+    <a href="zh-03-lhdn"><strong>🧾 LHDN报税上传PDF</strong><span>税务文件压缩到2MB以内</span></a>
   </div>
 
 </div>
 </main>
 <footer id="site-footer"></footer>
+<script>
+(function(){var nav=document.querySelector('nav');if(nav){var h=function(){document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';};h();window.addEventListener('resize',h);}var el=document.getElementById('read-progress');if(el){window.addEventListener('scroll',function(){var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';});}var links=document.querySelectorAll('.toc a');var heads=[];links.forEach(function(l){var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({el:e,a:l});});window.addEventListener('scroll',function(){var y=window.scrollY+130;var cur=null;heads.forEach(function(h){if(h.el.offsetTop<=y)cur=h;});links.forEach(function(l){l.classList.remove('active');});if(cur)cur.a.classList.add('active');});})();
+</script>
 </body>
 </html>

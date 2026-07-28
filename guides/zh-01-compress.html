@@ -41,6 +41,7 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
 h1{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;line-height:1.2;letter-spacing:-0.5px;margin-bottom:24px;}
 .intro{font-size:1.05rem;color:var(--tm);margin-bottom:40px;line-height:1.8;border-left:3px solid var(--ac);padding-left:20px;}
 h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;margin:40px 0 14px;}
+h2[id],h3[id]{scroll-margin-top:110px;}
 h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin:18px 0 8px;}
 p{margin-bottom:14px;color:#d0d0e8;}
 ul,ol{margin:14px 0 20px 22px;}
@@ -69,7 +70,21 @@ tr:last-child td{border-bottom:none;}
 .related a:hover{border-color:var(--ac);}
 .related a strong{font-size:0.88rem;color:var(--tx);}
 .related a span{font-size:0.78rem;color:var(--tm);line-height:1.4;}
-@media(max-width:640px){.step{flex-direction:column;gap:10px;}.step-num{margin-top:0;}}
+#read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+.toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;position:relative;z-index:0;}
+.toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.toc-title::before{content:'📋';font-size:1rem;}
+.toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+.toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+.toc li a:hover{color:var(--ac);}
+.toc li a.active{color:var(--ac);font-weight:500;}
+.fi{border:1px solid var(--br);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.fq{padding:15px 18px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;font-size:0.95rem;}
+.fq:hover{color:var(--ac);}
+.fa{max-height:0;overflow:hidden;transition:max-height 0.3s;font-size:0.88rem;color:var(--tm);}
+.fi.open .fa{max-height:400px;}
+.fai{padding:0 18px 14px;}
+@media(max-width:640px){.step{flex-direction:column;gap:10px;}.step-num{margin-top:0;}.wrap{padding:80px 18px 60px;}}
 </style>
 <script type="application/ld+json">
 {
@@ -85,12 +100,27 @@ tr:last-child td{border-bottom:none;}
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "压缩后文件还能编辑或复制文字吗？", "acceptedAnswer": {"@type": "Answer", "text": "不能。ShrinkPDF的压缩方式是把每一页重新渲染成图片再打包，压缩后的PDF文字无法选取或复制，超链接和数字签名也会失效。如果之后还需要可编辑或可搜索的版本，请保留原始文件。"}},
+    {"@type": "Question", "name": "ShrinkPDF对文件大小有限制吗？", "acceptedAnswer": {"@type": "Answer", "text": "没有。很多免费工具限制在10-20MB以内，ShrinkPDF没有文件大小上限，几百MB的PDF也能处理，只是文件越大，浏览器本地处理需要的时间越长。"}},
+    {"@type": "Question", "name": "我的文件会被上传或保存吗？", "acceptedAnswer": {"@type": "Answer", "text": "不会。压缩完全在你的浏览器里用JavaScript本地运行，文件不会经过任何服务器。你可以在页面加载完成后断开网络，压缩依然能正常进行，这本身就说明没有任何数据被传输出去。"}},
+    {"@type": "Question", "name": "轻度、平衡、最大压缩该怎么选？", "acceptedAnswer": {"@type": "Answer", "text": "轻度压缩画质最好，体积减少约20-30%，适合需要保留清晰度的简历、合同。平衡压缩兼顾画质和体积，减少约40-60%，适合大多数日常场景。最大压缩体积最小，减少约70-80%，适合LHDN、大学门户这类有严格上传限制的场景。"}},
+    {"@type": "Question", "name": "为什么纯文字PDF压缩效果不明显？", "acceptedAnswer": {"@type": "Answer", "text": "纯文字PDF本身体积就很小，压缩空间有限；但因为压缩会把每一页重新渲染成图片，即使是纯文字文件通常也能再减少40-70%左右。真正压缩效果最明显的是高分辨率扫描件和包含大量图片的文件。"}},
+    {"@type": "Question", "name": "可以对同一个文件反复压缩吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以，但收益会递减。对已经压缩过的文件再压一次，画质损失会比对原始文件直接使用同样级别压缩更明显。建议尽量从未压缩的原始文件开始，一次性选好合适的压缩级别。"}}
+  ]
+}
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
 <script src="../components.js" defer></script>
 </head>
 <body>
+<div id="read-progress"></div>
 <nav id="site-nav"></nav>
 <main id="main-content">
 
@@ -99,12 +129,26 @@ tr:last-child td{border-bottom:none;}
   <div class="meta">
     <span class="tag">📖 使用指南</span>
     <span class="tag">🇨🇳 简体中文</span>
-    <span class="rt">阅读时间约 4 分钟</span>
+    <span class="rt">阅读时间约 8 分钟</span>
   </div>
 
   <h1>如何免费压缩PDF文件<br>（无需上传，文件不离开设备）</h1>
 
   <p class="intro">PDF文件太大无法上传？邮件附件超过限制？这篇指南教你用最简单的方法把PDF压缩到你需要的大小——完全免费，不需要注册账号，文件全程在你的设备里处理。</p>
+
+  <nav class="toc" aria-label="文章目录">
+    <div class="toc-title">本文内容</div>
+    <ol>
+      <li><a href="#why-large">为什么PDF文件会很大？</a></li>
+      <li><a href="#limits">常见上传限制对照表</a></li>
+      <li><a href="#steps">三步压缩PDF</a></li>
+      <li><a href="#levels">压缩级别怎么选？</a></li>
+      <li><a href="#results">各种常见文件能压缩到多小？</a></li>
+      <li><a href="#email-vs-portal">发邮件和上传门户网站，策略不一样</a></li>
+      <li><a href="#still-large">如果压缩后还是太大怎么办？</a></li>
+      <li><a href="#faq">常见问题</a></li>
+    </ol>
+  </nav>
 
   <div class="cta-box">
     <h3>🗜️ 直接开始压缩</h3>
@@ -112,16 +156,35 @@ tr:last-child td{border-bottom:none;}
     <a href="../" class="btn">免费压缩PDF →</a>
   </div>
 
-  <h2>为什么PDF文件会很大？</h2>
+  <h2 id="why-large">为什么PDF文件会很大？</h2>
   <p>PDF体积大，通常有以下几个原因：</p>
   <ul>
     <li><strong>高分辨率图片</strong> — Canva、设计软件导出的PDF往往包含300DPI以上的图片，一张A4就可能超过1MB</li>
     <li><strong>扫描文件</strong> — 手机或扫描仪拍出来的文件，每页都是一张未压缩的图片</li>
     <li><strong>内嵌字体</strong> — PDF会把字体文件打包进去，增加几百KB到几MB不等</li>
     <li><strong>多个合并文件</strong> — 把几份PDF合并成一份后，大小直接叠加</li>
+    <li><strong>彩色扫描</strong> — 同一份文件用彩色扫描比黑白扫描大得多，很多场景其实只需要黑白</li>
   </ul>
 
-  <h2>三步压缩PDF</h2>
+  <h2 id="limits">常见上传限制对照表</h2>
+  <table>
+    <thead>
+      <tr><th>平台 / 系统</th><th>文件大小限制</th><th>建议压缩级别</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>LHDN（马来西亚税务局）</td><td>2 MB</td><td>最大压缩</td></tr>
+      <tr><td>大学申请系统</td><td>1–5 MB</td><td>最大压缩</td></tr>
+      <tr><td>求职门户（LinkedIn、Workday、JobStreet）</td><td>5–10 MB</td><td>平衡压缩</td></tr>
+      <tr><td>Gmail 附件</td><td>25 MB（每封邮件总计）</td><td>平衡压缩</td></tr>
+      <tr><td>Outlook.com 附件</td><td>20 MB（每封邮件总计）</td><td>平衡压缩</td></tr>
+      <tr><td>WhatsApp 文件</td><td>100 MB</td><td>轻度压缩</td></tr>
+      <tr><td>政府门户网站（一般）</td><td>2–5 MB</td><td>最大压缩</td></tr>
+      <tr><td>企业邮箱服务器</td><td>通常 5–10 MB，比个人邮箱更严格</td><td>最大压缩</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.82rem;color:var(--tm);">注：以上限制大多是单个文件的限制，如果一次提交多份文件，实际限制可能按总大小计算，请以对方系统的说明为准。</p>
+
+  <h2 id="steps">三步压缩PDF</h2>
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
@@ -151,51 +214,71 @@ tr:last-child td{border-bottom:none;}
     </div>
   </div>
 
-  <h2>各种常见文件能压缩到多小？</h2>
+  <h2 id="levels">压缩级别怎么选？</h2>
+  <p>三个级别的核心区别在于"画质 vs 体积"的取舍，选错级别是压缩效果不理想最常见的原因：</p>
+  <div class="box">
+    <div class="box-title">按用途选择压缩级别</div>
+    <ul style="margin:0;">
+      <li><strong>需要打印或有人会放大细看</strong>（合同签字页、设计稿）— 用轻度压缩，尽量保留细节</li>
+      <li><strong>日常发送、内部审阅</strong>（周报、邮件附件）— 用平衡压缩，肉眼看不出明显差别</li>
+      <li><strong>只需要上传给系统读取</strong>（政府门户、大学申请、银行开户）— 直接用最大压缩，审核人员只是在屏幕上查看，压缩带来的轻微画质损失完全不影响判断</li>
+    </ul>
+  </div>
+  <p>如果不确定选哪个，从"平衡压缩"开始是最安全的默认选项——大多数情况下既能明显减小体积，画质也几乎看不出变化。</p>
+
+  <h2 id="results">各种常见文件能压缩到多小？</h2>
   <table>
     <thead>
       <tr><th>文件类型</th><th>原始大小</th><th>压缩后（最大）</th><th>压缩率</th></tr>
     </thead>
     <tbody>
       <tr><td>Canva 简历</td><td>14 MB</td><td>~2.8 MB</td><td>约 80%</td></tr>
-      <tr><td>扫描文件（8页）</td><td>9.4 MB</td><td>~3.6 MB</td><td>约 62%</td></tr>
+      <tr><td>扫描文件（8页，彩色）</td><td>9.4 MB</td><td>~3.6 MB</td><td>约 62%</td></tr>
+      <tr><td>扫描文件（8页，黑白）</td><td>5.1 MB</td><td>~1.3 MB</td><td>约 75%</td></tr>
       <tr><td>银行月结单</td><td>4.1 MB</td><td>~1.1 MB</td><td>约 73%</td></tr>
       <tr><td>Word转PDF（纯文字）</td><td>1.2 MB</td><td>~0.9 MB</td><td>约 25%</td></tr>
+      <tr><td>已压缩过一次的PDF</td><td>1.5 MB</td><td>~1.3 MB</td><td>约 5–15%</td></tr>
     </tbody>
   </table>
-  <p style="font-size:0.82rem;color:var(--tm);">注：图片越多、分辨率越高，压缩效果越明显。纯文字PDF压缩空间较小。</p>
+  <p style="font-size:0.82rem;color:var(--tm);">注：图片越多、分辨率越高，压缩效果越明显。纯文字或已经压缩过的PDF，压缩空间较小。</p>
 
-  <h2>常见上传限制对照表</h2>
-  <table>
-    <thead>
-      <tr><th>平台 / 系统</th><th>文件大小限制</th><th>建议压缩级别</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>LHDN（马来西亚税务局）</td><td>2 MB</td><td>最大压缩</td></tr>
-      <tr><td>大学申请系统</td><td>1–5 MB</td><td>最大压缩</td></tr>
-      <tr><td>Gmail 附件</td><td>25 MB</td><td>平衡压缩</td></tr>
-      <tr><td>WhatsApp 文件</td><td>100 MB</td><td>轻度压缩</td></tr>
-      <tr><td>政府门户网站（一般）</td><td>2–5 MB</td><td>最大压缩</td></tr>
-    </tbody>
-  </table>
+  <h2 id="email-vs-portal">发邮件和上传门户网站，策略不一样</h2>
+  <p><strong>发邮件（Gmail、Outlook、Yahoo）：</strong> 20–25MB的附件限制对大多数文档来说很宽松，用平衡压缩就够了，能在保留更多画质的前提下有效减小体积。只有文件本身确实很大（比如两百页的报告），压缩后依然超限时，才考虑改用Google Drive或OneDrive分享链接。</p>
+  <p><strong>上传政府或大学门户：</strong> 直接用最大压缩，不用犹豫。1–2MB的限制很严格，而且审核人员大多是在屏幕上查看文字类文件，画质上的轻微取舍完全不影响审核结果。</p>
+  <p><strong>企业内部邮箱：</strong> 各公司服务器限制不一样，如果压缩后的文件依然被退回，先确认限制是"单个附件"还是"整封邮件所有附件加起来"——比如限制5MB、要发三个附件，意味着每个文件压缩后最好控制在1.5MB左右，留出邮件本身的开销空间。</p>
+
+  <h2 id="still-large">如果压缩后还是太大怎么办？</h2>
+  <p>如果用最大压缩后文件依然超过上传限制，可以试试以下方法：</p>
+  <ul>
+    <li><strong>只提交需要的页面</strong> — 用 <a href="../split" style="color:var(--ac);">拆分PDF</a> 拆出所需页码，再压缩，体积通常会小很多</li>
+    <li><strong>先拆再压</strong> — 每10页拆成一份，分别压缩后再合并，最终大小会更可控</li>
+    <li><strong>检查是否有不必要的页面</strong> — 封面、空白页、附录都可以删掉</li>
+    <li><strong>如果是扫描件，重新用较低分辨率扫描</strong> — 用200 DPI黑白重新扫描，往往比反复压缩同一份高分辨率文件效果更好</li>
+  </ul>
 
   <div class="box warn">
     <div class="box-title">⚠️ 需要注意：压缩后文字不可选取</div>
     <p style="margin:0;font-size:0.9rem;">ShrinkPDF 的压缩方式是将每一页重新渲染为图片后重新打包。这意味着压缩后的PDF，文字无法被选取或复制，超链接也会失效。如果你需要保留可搜索的文字或有效的数字签名，请同时保留原始文件。</p>
   </div>
 
-  <h2>如果压缩后还是太大怎么办？</h2>
-  <p>如果用最大压缩后文件依然超过上传限制，可以试试以下方法：</p>
-  <ul>
-    <li><strong>只提交需要的页面</strong> — 用 <a href="../split" style="color:var(--ac);">Split PDF</a> 拆出所需页码，再压缩，体积通常会小很多</li>
-    <li><strong>先拆再压</strong> — 每10页拆成一份，分别压缩后再合并，最终大小会更可控</li>
-    <li><strong>检查是否有不必要的页面</strong> — 封面、空白页、附录都可以删掉</li>
-  </ul>
-
   <div class="box good">
     <div class="box-title">✅ 隐私说明</div>
-    <p style="margin:0;font-size:0.9rem;">ShrinkPDF 的压缩完全在你的浏览器里运行。文件不会上传到任何服务器，Anthropic 或 ShrinkPDF 都不会看到你的文件内容。你可以在浏览器的开发者工具 → Network 标签里验证这一点——压缩过程中没有任何文件上传请求。</p>
+    <p style="margin:0;font-size:0.9rem;">ShrinkPDF 的压缩完全在你的浏览器里运行。文件不会上传到任何服务器，ShrinkPDF不会看到你的文件内容。你可以在浏览器的开发者工具 → Network 标签里验证这一点——压缩过程中没有任何文件上传请求。</p>
   </div>
+
+  <div class="cta-box">
+    <h3>✓ 免费压缩PDF — 无需登录，无使用次数限制</h3>
+    <p>文件不离开设备，几秒钟压缩到目标大小</p>
+    <a href="../" class="btn">🗜️ 立即压缩PDF</a>
+  </div>
+
+  <h2 id="faq">常见问题</h2>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">压缩后文件还能编辑或复制文字吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">不能。ShrinkPDF的压缩方式是把每一页重新渲染成图片再打包，压缩后的PDF文字无法选取或复制，超链接和数字签名也会失效。如果之后还需要可编辑或可搜索的版本，请保留原始文件。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">ShrinkPDF对文件大小有限制吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">没有。很多免费工具限制在10-20MB以内，ShrinkPDF没有文件大小上限，几百MB的PDF也能处理，只是文件越大，浏览器本地处理需要的时间越长。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">我的文件会被上传或保存吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">不会。压缩完全在你的浏览器里用JavaScript本地运行，文件不会经过任何服务器。你可以在页面加载完成后断开网络，压缩依然能正常进行，这本身就说明没有任何数据被传输出去。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">轻度、平衡、最大压缩该怎么选？ <span>&#9660;</span></div><div class="fa"><div class="fai">轻度压缩画质最好，体积减少约20-30%，适合需要保留清晰度的简历、合同。平衡压缩兼顾画质和体积，减少约40-60%，适合大多数日常场景。最大压缩体积最小，减少约70-80%，适合LHDN、大学门户这类有严格上传限制的场景。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">为什么纯文字PDF压缩效果不明显？ <span>&#9660;</span></div><div class="fa"><div class="fai">纯文字PDF本身体积就很小，压缩空间有限；但因为压缩会把每一页重新渲染成图片，即使是纯文字文件通常也能再减少40-70%左右。真正压缩效果最明显的是高分辨率扫描件和包含大量图片的文件。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">可以对同一个文件反复压缩吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">可以，但收益会递减。对已经压缩过的文件再压一次，画质损失会比对原始文件直接使用同样级别压缩更明显。建议尽量从未压缩的原始文件开始，一次性选好合适的压缩级别。</div></div></div>
 
   <h2>相关工具</h2>
   <div class="related">
@@ -215,11 +298,22 @@ tr:last-child td{border-bottom:none;}
       <strong>📋 调整页面顺序</strong>
       <span>拖拽调整页面顺序，适合扫描后顺序错乱的文件</span>
     </a>
+    <a href="zh-03-lhdn">
+      <strong>🧾 LHDN报税上传PDF</strong>
+      <span>税务文件压缩到2MB以内的专门教程</span>
+    </a>
+    <a href="zh-02-mobile">
+      <strong>📱 手机压缩PDF</strong>
+      <span>Android和iPhone无需App的操作方法</span>
+    </a>
   </div>
 
 </div>
 
 </main>
 <footer id="site-footer"></footer>
+<script>
+(function(){var nav=document.querySelector('nav');if(nav){var h=function(){document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';};h();window.addEventListener('resize',h);}var el=document.getElementById('read-progress');if(el){window.addEventListener('scroll',function(){var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';});}var links=document.querySelectorAll('.toc a');var heads=[];links.forEach(function(l){var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({el:e,a:l});});window.addEventListener('scroll',function(){var y=window.scrollY+130;var cur=null;heads.forEach(function(h){if(h.el.offsetTop<=y)cur=h;});links.forEach(function(l){l.classList.remove('active');});if(cur)cur.a.classList.add('active');});})();
+</script>
 </body>
 </html>

@@ -40,12 +40,14 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
 h1{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;line-height:1.2;letter-spacing:-0.5px;margin-bottom:24px;}
 .intro{font-size:1.05rem;color:var(--tm);margin-bottom:40px;line-height:1.8;border-left:3px solid var(--ac);padding-left:20px;}
 h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;margin:40px 0 14px;}
+h2[id],h3[id]{scroll-margin-top:110px;}
 h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin:18px 0 8px;}
 p{margin-bottom:14px;color:#d0d0e8;}
 ul,ol{margin:14px 0 20px 22px;}li{margin-bottom:9px;color:#d0d0e8;}
 .box{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:22px;margin:24px 0;}
 .box.warn{border-color:rgba(243,156,18,0.35);background:rgba(243,156,18,0.04);}
 .box.good{border-color:rgba(46,204,113,0.3);background:rgba(46,204,113,0.04);}
+.box.info{border-color:rgba(91,79,255,0.3);background:rgba(91,79,255,0.04);}
 .box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:10px;}
 .cta-box{background:linear-gradient(135deg,rgba(91,79,255,0.15),rgba(255,79,155,0.08));border:1px solid rgba(91,79,255,0.3);border-radius:16px;padding:28px;text-align:center;margin:36px 0;}
 .cta-box h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:8px;}
@@ -55,18 +57,25 @@ ul,ol{margin:14px 0 20px 22px;}li{margin-bottom:9px;color:#d0d0e8;}
 .steps{display:flex;flex-direction:column;gap:16px;margin:24px 0;}
 .step{display:flex;gap:16px;align-items:flex-start;background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px;}
 .step-num{background:linear-gradient(135deg,var(--ac),var(--ac2));color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
-.step strong{display:block;font-size:0.95rem;margin-bottom:5px;}
-.step p{margin:0;font-size:0.88rem;color:var(--tm);}
+.step strong{display:block;font-size:0.95rem;margin-bottom:5px;}.step p{margin:0;font-size:0.88rem;color:var(--tm);}
 .related{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:24px 0;}
 .related a{display:flex;flex-direction:column;gap:4px;background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:16px;text-decoration:none;transition:border-color 0.2s;}
-.related a:hover{border-color:var(--ac);}
-.related a strong{font-size:0.88rem;color:var(--tx);}
-.related a span{font-size:0.78rem;color:var(--tm);line-height:1.4;}
+.related a:hover{border-color:var(--ac);}.related a strong{font-size:0.88rem;color:var(--tx);}.related a span{font-size:0.78rem;color:var(--tm);line-height:1.4;}
 table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.88rem;}
 th{background:var(--sf);padding:10px 14px;text-align:left;font-family:'Syne',sans-serif;font-weight:700;border-bottom:1px solid var(--br);}
-td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}
-tr:last-child td{border-bottom:none;}
-@media(max-width:640px){.step{flex-direction:column;gap:10px;}.step-num{margin-top:0;}}
+td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-child td{border-bottom:none;}
+#read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+.toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;position:relative;z-index:0;}
+.toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.toc-title::before{content:'📋';font-size:1rem;}
+.toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+.toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+.toc li a:hover{color:var(--ac);}.toc li a.active{color:var(--ac);font-weight:500;}
+.fi{border:1px solid var(--br);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.fq{padding:15px 18px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;font-size:0.95rem;}
+.fq:hover{color:var(--ac);}.fa{max-height:0;overflow:hidden;transition:max-height 0.3s;font-size:0.88rem;color:var(--tm);}
+.fi.open .fa{max-height:400px;}.fai{padding:0 18px 14px;}
+@media(max-width:640px){.step{flex-direction:column;gap:10px;}.step-num{margin-top:0;}.wrap{padding:80px 18px 60px;}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
@@ -116,8 +125,23 @@ tr:last-child td{border-bottom:none;}
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "压缩后还是超过2MB怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "先检查扫描分辨率是否过高（用200 DPI而不是300或600 DPI重新扫描），再检查是否是彩色扫描（改成黑白能减少60%以上），最后检查文件页数是否包含不必要的页面（用拆分工具只保留LHDN需要的部分）。"}},
+    {"@type": "Question", "name": "自雇人士的B/BE表格附件也需要压缩吗？", "acceptedAnswer": {"@type": "Answer", "text": "如果是营业记录、进货单、收据这类扫描件附件，同样受2MB单文件限制，处理方式和薪资单一致：营业记录用平衡压缩保持数字清晰，大量收据扫描件用最大压缩。建议按月份或类别分开压缩上传，而不是合并成一个大文件。"}},
+    {"@type": "Question", "name": "报税截止日期前系统很慢，是不是文件太大导致的？", "acceptedAnswer": {"@type": "Answer", "text": "不完全是。截止日期前（通常4月30日或5月15日电子报税）MyTax系统访问量大，会普遍变慢，这和文件大小无关。但文件越小，上传耗时越短，出错重试的成本也越低，所以提前几天压缩好文件、避开最后一天高峰期上传，是更稳妥的做法。"}},
+    {"@type": "Question", "name": "压缩后的税务文件，LHDN会不会因为看起来\"像图片\"而拒收？", "acceptedAnswer": {"@type": "Answer", "text": "不会。LHDN对上传的PDF附件只要求内容清晰可读，并不要求文字可复制或可搜索。ShrinkPDF压缩后的文件在视觉上和原文件一样，只要金额、日期、参考编号等关键信息清楚，就符合上传要求。"}},
+    {"@type": "Question", "name": "可以把多份收据合并成一个PDF再压缩上传吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以，但要注意合并后的总大小同样受2MB限制。如果收据数量多，建议先分批合并（比如每5-8张收据合并一份），再分别压缩，比把所有收据合并成一个大文件后再压缩效果更容易控制。"}},
+    {"@type": "Question", "name": "税务文件包含IC号码和银行账号，压缩过程安全吗？", "acceptedAnswer": {"@type": "Answer", "text": "安全。压缩完全在你的浏览器本地运行，文件不会经过任何服务器，包括ShrinkPDF自己的服务器。你可以在页面加载完成后断开网络测试，压缩依然能正常工作。"}}
+  ]
+}
+</script>
 </head>
 <body>
+<div id="read-progress"></div>
 <nav id="site-nav"></nav>
 <main id="main-content">
 <div class="wrap">
@@ -125,12 +149,25 @@ tr:last-child td{border-bottom:none;}
   <div class="meta">
     <span class="tag">🧾 税务申报</span>
     <span class="tag">🇨🇳 简体中文</span>
-    <span class="rt">阅读时间约 4 分钟</span>
+    <span class="rt">阅读时间约 7 分钟</span>
   </div>
 
   <h1>LHDN报税上传PDF<br>如何压缩到2MB以内</h1>
 
   <p class="intro">LHDN e-Filing 每个文件上传限制为 2MB。薪资单、银行月结单、收据扫描件很容易超过这个限制。本文教你如何快速压缩，全程文件不离开设备。</p>
+
+  <nav class="toc" aria-label="文章目录">
+    <div class="toc-title">本文内容</div>
+    <ol>
+      <li><a href="#limits">LHDN e-Filing 文件大小限制</a></li>
+      <li><a href="#levels">哪个压缩级别适合税务文件？</a></li>
+      <li><a href="#steps">分步操作：压缩并提交税务文件</a></li>
+      <li><a href="#self-employed">自雇人士和商业文件的特殊情况</a></li>
+      <li><a href="#mistakes">报税季常见错误</a></li>
+      <li><a href="#still-large">压缩后还是超过2MB怎么办？</a></li>
+      <li><a href="#faq">常见问题</a></li>
+    </ol>
+  </nav>
 
   <div class="cta-box">
     <h3>🗜️ 立即压缩税务文件</h3>
@@ -138,7 +175,7 @@ tr:last-child td{border-bottom:none;}
     <a href="../" class="btn">免费压缩PDF →</a>
   </div>
 
-  <h2>LHDN e-Filing 文件大小限制</h2>
+  <h2 id="limits">LHDN e-Filing 文件大小限制</h2>
   <table>
     <thead><tr><th>文件类型</th><th>上传限制</th><th>建议压缩级别</th></tr></thead>
     <tbody>
@@ -147,10 +184,11 @@ tr:last-child td{border-bottom:none;}
       <tr><td>收据 / 发票扫描件</td><td>2 MB / 份</td><td>最大压缩</td></tr>
       <tr><td>捐款证明</td><td>2 MB / 份</td><td>最大压缩</td></tr>
       <tr><td>医疗收据</td><td>2 MB / 份</td><td>最大压缩</td></tr>
+      <tr><td>营业记录 / 进货单（自雇人士）</td><td>2 MB / 份</td><td>最大压缩</td></tr>
     </tbody>
   </table>
 
-  <h2>哪个压缩级别适合税务文件？</h2>
+  <h2 id="levels">哪个压缩级别适合税务文件？</h2>
   <div class="box">
     <div class="box-title">压缩级别选择指南</div>
     <ul style="margin:0;">
@@ -160,7 +198,7 @@ tr:last-child td{border-bottom:none;}
     </ul>
   </div>
 
-  <h2>分步操作：压缩并提交税务文件</h2>
+  <h2 id="steps">分步操作：压缩并提交税务文件</h2>
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
@@ -192,7 +230,26 @@ tr:last-child td{border-bottom:none;}
     </div>
   </div>
 
-  <h2>常见问题：压缩后还是超过2MB怎么办？</h2>
+  <h2 id="self-employed">自雇人士和商业文件的特殊情况</h2>
+  <p>相比受薪人士，自雇人士（申报B或BE表格）通常需要额外上传更多支持文件，处理起来也更繁琐：</p>
+  <ul>
+    <li><strong>营业记录 / 账本</strong> — 建议按月份分开压缩，而不是把全年记录合并成一个大文件</li>
+    <li><strong>进货单 / 销售收据</strong> — 数量多时，先分批合并（每批5–8张），再分别用最大压缩处理</li>
+    <li><strong>业务相关开支收据</strong> — 大多是小票，最大压缩不会影响可读性，建议直接使用</li>
+  </ul>
+  <p>无论哪种情况，核心原则不变：<strong>分开压缩、分开上传</strong>比合并成一份超大文件再压缩更容易控制大小，也更容易在某一份文件出问题时单独重新处理。</p>
+
+  <h2 id="mistakes">报税季常见错误</h2>
+  <div class="box warn">
+    <div class="box-title">⚠️ 最后一天才开始准备文件</div>
+    <p style="margin:0;font-size:0.9rem;">4月30日或5月15日截止日前，MyTax系统访问量激增，页面加载和上传都会变慢。建议提前至少几天把所有文件压缩、检查好，避免在网络繁忙时手忙脚乱。</p>
+  </div>
+  <div class="box warn">
+    <div class="box-title">⚠️ 把所有收据合并成一个巨大文件</div>
+    <p style="margin:0;font-size:0.9rem;">合并后的文件同样受2MB限制，而且一旦某一页扫描不清晰，需要重新处理整个合并文件。分开压缩、分开上传更灵活。</p>
+  </div>
+
+  <h2 id="still-large">压缩后还是超过2MB怎么办？</h2>
   <p>如果用最大压缩后文件还是超过 2MB，通常是以下原因：</p>
   <ul>
     <li><strong>扫描分辨率太高</strong> — 用 200 DPI 重新扫描（而不是 300 或 600 DPI），再压缩</li>
@@ -210,16 +267,35 @@ tr:last-child td{border-bottom:none;}
     <p style="margin:0;font-size:0.9rem;">税务文件包含薪资、账号、雇主信息等敏感内容。ShrinkPDF 的压缩完全在浏览器本地运行，文件不会发送到任何服务器。你可以在页面加载后断开网络，压缩依然可以正常工作。</p>
   </div>
 
+  <div class="cta-box">
+    <h3>✓ 免费压缩税务文件 — 无需登录</h3>
+    <p>薪资单、月结单、收据全程本地处理，不上传</p>
+    <a href="../" class="btn">🗜️ 立即压缩PDF</a>
+  </div>
+
+  <h2 id="faq">常见问题</h2>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">压缩后还是超过2MB怎么办？ <span>&#9660;</span></div><div class="fa"><div class="fai">先检查扫描分辨率是否过高（用200 DPI而不是300或600 DPI重新扫描），再检查是否是彩色扫描（改成黑白能减少60%以上），最后检查文件页数是否包含不必要的页面（用拆分工具只保留LHDN需要的部分）。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">自雇人士的B/BE表格附件也需要压缩吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">如果是营业记录、进货单、收据这类扫描件附件，同样受2MB单文件限制，处理方式和薪资单一致：营业记录用平衡压缩保持数字清晰，大量收据扫描件用最大压缩。建议按月份或类别分开压缩上传，而不是合并成一个大文件。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">报税截止日期前系统很慢，是不是文件太大导致的？ <span>&#9660;</span></div><div class="fa"><div class="fai">不完全是。截止日期前（通常4月30日或5月15日电子报税）MyTax系统访问量大，会普遍变慢，这和文件大小无关。但文件越小，上传耗时越短，出错重试的成本也越低，所以提前几天压缩好文件、避开最后一天高峰期上传，是更稳妥的做法。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">压缩后的税务文件，LHDN会不会因为看起来"像图片"而拒收？ <span>&#9660;</span></div><div class="fa"><div class="fai">不会。LHDN对上传的PDF附件只要求内容清晰可读，并不要求文字可复制或可搜索。ShrinkPDF压缩后的文件在视觉上和原文件一样，只要金额、日期、参考编号等关键信息清楚，就符合上传要求。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">可以把多份收据合并成一个PDF再压缩上传吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">可以，但要注意合并后的总大小同样受2MB限制。如果收据数量多，建议先分批合并（比如每5-8张收据合并一份），再分别压缩，比把所有收据合并成一个大文件后再压缩效果更容易控制。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">税务文件包含IC号码和银行账号，压缩过程安全吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">安全。压缩完全在你的浏览器本地运行，文件不会经过任何服务器，包括ShrinkPDF自己的服务器。你可以在页面加载完成后断开网络测试，压缩依然能正常工作。</div></div></div>
+
   <h2>相关工具</h2>
   <div class="related">
     <a href="../"><strong>🗜️ 压缩PDF</strong><span>把文件压缩到2MB以内</span></a>
     <a href="../merge"><strong>🔗 合并PDF</strong><span>把多份收据合并成一个文件提交</span></a>
     <a href="../split"><strong>✂️ 拆分PDF</strong><span>只提取LHDN需要的页码</span></a>
     <a href="zh-01-compress"><strong>📖 PDF压缩完整指南</strong><span>了解更多压缩方法和技巧</span></a>
+    <a href="zh-06-bank-statement"><strong>🏦 银行月结单PDF压缩</strong><span>开户贷款文件压缩教程</span></a>
+    <a href="zh-02-mobile"><strong>📱 手机压缩PDF</strong><span>Android和iPhone操作方法</span></a>
   </div>
 
 </div>
 </main>
 <footer id="site-footer"></footer>
+<script>
+(function(){var nav=document.querySelector('nav');if(nav){var h=function(){document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';};h();window.addEventListener('resize',h);}var el=document.getElementById('read-progress');if(el){window.addEventListener('scroll',function(){var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';});}var links=document.querySelectorAll('.toc a');var heads=[];links.forEach(function(l){var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({el:e,a:l});});window.addEventListener('scroll',function(){var y=window.scrollY+130;var cur=null;heads.forEach(function(h){if(h.el.offsetTop<=y)cur=h;});links.forEach(function(l){l.classList.remove('active');});if(cur)cur.a.classList.add('active');});})();
+</script>
 </body>
 </html>

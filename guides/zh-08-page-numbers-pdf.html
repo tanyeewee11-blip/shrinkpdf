@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"如何给PDF添加页码","totalTime":"PT2M","tool":{"@type":"HowToTool","name":"ShrinkPDF","url":"https://shrinkpdf.fyi"},"step":[{"@type":"HowToStep","position":1,"name":"打开页码工具","text":"在浏览器里打开 shrinkpdf.fyi/page-numbers.html。"},{"@type":"HowToStep","position":2,"name":"上传PDF文件","text":"点击选择PDF文件，或者直接把文件拖进去。"},{"@type":"HowToStep","position":3,"name":"选择位置、格式和起始数字","text":"选择页码显示位置、数字格式，以及从第几页、第几个数字开始计数。"},{"@type":"HowToStep","position":4,"name":"添加页码并下载","text":"点击添加页码，加好页码的PDF立刻生成并下载，不用上传等待。"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"能不能不从第1页开始编号？","acceptedAnswer":{"@type":"Answer","text":"可以。起始数字可以设成任意值，比如这份文件是接着上一份文件继续编号的附录，就可以从上一份的最后一页往后接着编。"}},{"@type":"Question","name":"封面能不能不加页码？","acceptedAnswer":{"@type":"Answer","text":"可以。工具支持跳过开头指定的页数不编号，比如封面或者目录页留空，从正文那一页才开始正常显示页码。"}},{"@type":"Question","name":"正式文档的页码一般放在哪里？","acceptedAnswer":{"@type":"Answer","text":"报告、论文、合同这类正式文档最常见、最保险的位置是页面底部居中；底部靠右也很常见，打印出来一叠纸快速翻页时更容易看到页码。"}},{"@type":"Question","name":"给机密文件加页码安全吗？","acceptedAnswer":{"@type":"Answer","text":"安全。加页码的整个过程都在你的浏览器里用JavaScript完成，文件不会上传到任何服务器，这对合同、论文、内部报告这类文件来说很重要。"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"能不能不从第1页开始编号？","acceptedAnswer":{"@type":"Answer","text":"可以。起始数字可以设成任意值，比如这份文件是接着上一份文件继续编号的附录，就可以从上一份的最后一页往后接着编。"}},{"@type":"Question","name":"封面能不能不加页码？","acceptedAnswer":{"@type":"Answer","text":"可以。工具支持跳过开头指定的页数不编号，比如封面或者目录页留空，从正文那一页才开始正常显示页码。"}},{"@type":"Question","name":"正式文档的页码一般放在哪里？","acceptedAnswer":{"@type":"Answer","text":"报告、论文、合同这类正式文档最常见、最保险的位置是页面底部居中；底部靠右也很常见，打印出来一叠纸快速翻页时更容易看到页码。"}},{"@type":"Question","name":"给机密文件加页码安全吗？","acceptedAnswer":{"@type":"Answer","text":"安全。加页码的整个过程都在你的浏览器里用JavaScript完成，文件不会上传到任何服务器，这对合同、论文、内部报告这类文件来说很重要。"}},{"@type":"Question","name":"论文要求目录页用罗马数字、正文用阿拉伯数字，可以做到吗？","acceptedAnswer":{"@type":"Answer","text":"目前工具只支持连续的阿拉伯数字编号，不直接支持罗马数字。如果学校要求前置页面（目录、摘要）用罗马数字，正文另起阿拉伯数字，可以把文件拆成两部分分别加页码，再用合并工具拼回一份完整文件。"}},{"@type":"Question","name":"原文件已经有页码了，再用工具加一次会怎样？","acceptedAnswer":{"@type":"Answer","text":"会导致同一页出现两个页码重叠在一起。建议先确认原文件是否已经包含页码，如果有，最好回到Word或原始设计文件里去掉，再重新导出PDF加页码，而不是在已有页码的PDF上再叠加一次。"}}]}</script>
 <script>window.addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770';s.async=true;s.crossOrigin='anonymous';document.head.appendChild(s);},2000);});</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
@@ -87,6 +87,8 @@ td{padding:8px 0;border-bottom:1px solid var(--br);}
       <li><a href="#buzhou">添加页码的步骤</a></li>
       <li><a href="#geshi">怎么选位置、格式和起始数字</a></li>
       <li><a href="#changjing">常见的加页码场景</a></li>
+      <li><a href="#academic">论文和学术报告的页码规范</a></li>
+      <li><a href="#pitfalls">加页码常见踩坑</a></li>
       <li><a href="#numbers-vs-other">页码可以和水印、压缩一起用</a></li>
       <li><a href="#faq">常见问题</a></li>
     </ol>
@@ -118,6 +120,28 @@ td{padding:8px 0;border-bottom:1px solid var(--br);}
   <div class="box"><div class="bt">打印的资料手册</div>
   <p>多页文档打印出来分发时，页码可以在纸张被打乱或掉落时快速恢复正确顺序。</p></div>
 
+  <h2 id="academic">论文和学术报告的页码规范</h2>
+  <p>不同学校对论文页码的具体要求不完全一样，但几个常见惯例值得留意：</p>
+  <ul>
+    <li><strong>封面通常不编号</strong> — 大多数学校要求封面页不显示页码，但仍然算作第1页，正文从第2页开始显示"2"</li>
+    <li><strong>目录页有时用罗马数字</strong> — 部分学术格式（尤其是英文写作规范）要求目录、摘要等前置页面用"i、ii、iii"编号，正文再切换回阿拉伯数字重新从1开始。ShrinkPDF目前只支持阿拉伯数字连续编号，如果学校要求罗马数字前置页，需要分两次处理：前置部分和正文部分分别加页码，再合并成一份文件</li>
+    <li><strong>附录页码通常延续正文</strong> — 不需要重新从1开始，直接接着正文的最后一页往下编</li>
+  </ul>
+  <div class="box">
+    <div class="bt">💡 提交前建议再检查一遍</div>
+    <p style="margin:0;">加完页码后，打开PDF从头到尾翻一遍，确认页码位置没有被表格、图片或页脚遮挡，尤其是横向排版的图表页，页码位置容易和纵向页面不一致，需要额外留意。</p>
+  </div>
+
+  <h2 id="pitfalls">加页码常见踩坑</h2>
+  <div class="box warn">
+    <div class="bt">⚠️ 先合并文件，却忘记调整起始页码</div>
+    <p style="margin:0;">如果是把几份文件合并成一份后再加页码，容易忘记检查合并后总页数是否正确、目录页码是否需要对应更新。建议先合并、再加页码，页码工具会基于合并后的最终页数计算，避免中途重新调整。</p>
+  </div>
+  <div class="box warn">
+    <div class="bt">⚠️ 对已经有页码的文件重复添加</div>
+    <p style="margin:0;">如果原文件本身已经手动画好了页码（比如用 Word 导出时已经加过），再用工具加一次会导致同一页出现两个页码重叠。加页码前先确认原文件是否已经有页码，如果有，建议先用原始的Word或设计源文件去掉，再导出成PDF加页码，而不是在PDF上二次叠加。</p>
+  </div>
+
   <h2 id="numbers-vs-other">页码可以和水印、压缩一起用</h2>
   <p>页码和水印画在页面的不同位置，两者叠加使用不会互相冲突。如果文档还需要标注"机密"或"草稿"，可以在加页码前后用<a href="../watermark">水印工具</a>处理。</p>
   <p>加页码几乎不会改变文件大小，不能替代压缩。如果加完页码的文件还是超过某个平台的上传限制，可以再用<a href="../">ShrinkPDF的压缩工具</a>处理一遍，具体压缩到多少可以参考<a href="zh-01-compress">完整的PDF压缩教程</a>。</p>
@@ -134,14 +158,15 @@ td{padding:8px 0;border-bottom:1px solid var(--br);}
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">正式文档的页码一般放在哪里？ <span>&#9660;</span></div><div class="fa"><div class="fai">报告、论文、合同这类正式文档最常见、最保险的位置是页面底部居中；底部靠右也很常见，打印出来一叠纸快速翻页时更容易看到页码。</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">"1/10"这种格式是什么意思？ <span>&#9660;</span></div><div class="fa"><div class="fai">同时显示当前页码和总页数，比如"3/10"，方便读者知道文档还剩多少页。</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">给机密文件加页码安全吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">安全。加页码的整个过程都在你的浏览器里用JavaScript完成，文件不会上传到任何服务器，这对合同、论文、内部报告这类文件来说很重要。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">论文要求目录页用罗马数字、正文用阿拉伯数字，可以做到吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">目前工具只支持连续的阿拉伯数字编号，不直接支持罗马数字。如果学校要求前置页面（目录、摘要）用罗马数字，正文另起阿拉伯数字，可以把文件拆成两部分分别加页码，再用合并工具拼回一份完整文件。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">原文件已经有页码了，再用工具加一次会怎样？ <span>&#9660;</span></div><div class="fa"><div class="fai">会导致同一页出现两个页码重叠在一起。建议先确认原文件是否已经包含页码，如果有，最好回到Word或原始设计文件里去掉，再重新导出PDF加页码，而不是在已有页码的PDF上再叠加一次。</div></div></div>
 
   <div class="related">
     <h3>相关文章</h3>
     <div class="rls">
       <a href="zh-07-watermark-pdf" class="rl">如何给PDF添加水印 <span>&rarr;</span></a>
       <a href="zh-01-compress" class="rl">如何压缩PDF文件 <span>&rarr;</span></a>
-      <a href="en-57-merge-pdf" class="rl">How to Merge PDF Files Into One <span>&rarr;</span></a>
-      <a href="en-75-reorder-pdf-pages" class="rl">How to Reorder PDF Pages — Drag and Drop <span>&rarr;</span></a>
+      <a href="zh-04-university" class="rl">大学申请上传PDF压缩教程 <span>&rarr;</span></a>
       <a href="zh-03-lhdn" class="rl">LHDN报税上传PDF如何压缩到2MB以内 <span>&rarr;</span></a>
     </div>
   </div>

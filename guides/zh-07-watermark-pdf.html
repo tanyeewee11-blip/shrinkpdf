@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"如何给PDF添加水印","totalTime":"PT2M","tool":{"@type":"HowToTool","name":"ShrinkPDF","url":"https://shrinkpdf.fyi"},"step":[{"@type":"HowToStep","position":1,"name":"打开水印工具","text":"在浏览器里打开 shrinkpdf.fyi/watermark.html。"},{"@type":"HowToStep","position":2,"name":"上传PDF文件","text":"点击\u201c选择PDF文件\u201d或者直接把文件拖进去。"},{"@type":"HowToStep","position":3,"name":"输入水印文字并设置样式","text":"输入\u201c机密\u201d之类的文字，选择位置、颜色和透明度。"},{"@type":"HowToStep","position":4,"name":"添加水印并下载","text":"点击添加水印，加好水印的PDF立刻下载，不用上传等待。"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"加了水印之后能去掉吗？","acceptedAnswer":{"@type":"Answer","text":"不能。水印一旦添加就变成页面内容的一部分，没办法通过这个工具再去掉。建议保留一份没加水印的原始文件，以备后用。"}},{"@type":"Question","name":"加水印会不会影响文档阅读？","acceptedAnswer":{"@type":"Answer","text":"只要把透明度调低就不会。一般设置在20%-30%之间，水印看得见，但不会挡住下面的文字和图片。透明度调高（50%以上）适合你就是想让水印特别显眼的情况，比如标记一份样稿不能拿去用。"}},{"@type":"Question","name":"水印是不是每一页都会自动加上？","acceptedAnswer":{"@type":"Answer","text":"是的。同样的文字、位置、颜色和透明度会一次性应用到PDF的每一页，不用一页一页重复操作。"}},{"@type":"Question","name":"给机密文件加水印安全吗？","acceptedAnswer":{"@type":"Answer","text":"安全。加水印的整个过程都在你的浏览器里用JavaScript完成，文件不会上传到任何服务器——这对合同、财务报表、证件扫描件这类敏感文件来说很关键。"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"加了水印之后能去掉吗？","acceptedAnswer":{"@type":"Answer","text":"不能。水印一旦添加就变成页面内容的一部分，没办法通过这个工具再去掉。建议保留一份没加水印的原始文件，以备后用。"}},{"@type":"Question","name":"加水印会不会影响文档阅读？","acceptedAnswer":{"@type":"Answer","text":"只要把透明度调低就不会。一般设置在20%-30%之间，水印看得见，但不会挡住下面的文字和图片。透明度调高（50%以上）适合你就是想让水印特别显眼的情况，比如标记一份样稿不能拿去用。"}},{"@type":"Question","name":"水印是不是每一页都会自动加上？","acceptedAnswer":{"@type":"Answer","text":"是的。同样的文字、位置、颜色和透明度会一次性应用到PDF的每一页，不用一页一页重复操作。"}},{"@type":"Question","name":"给机密文件加水印安全吗？","acceptedAnswer":{"@type":"Answer","text":"安全。加水印的整个过程都在你的浏览器里用JavaScript完成，文件不会上传到任何服务器——这对合同、财务报表、证件扫描件这类敏感文件来说很关键。"}},{"@type":"Question","name":"可以只给部分页面加水印，而不是全部吗？","acceptedAnswer":{"@type":"Answer","text":"目前的设计是同一份文件的每一页都会加上相同的水印，暂不支持只选择部分页面。如果只想给特定几页加水印，可以先用拆分工具把这几页单独拆出来，加完水印后再用合并工具拼回原文件。"}},{"@type":"Question","name":"水印会不会影响文件之后的压缩效果？","acceptedAnswer":{"@type":"Answer","text":"基本不会。水印只是往每一页叠加了少量文字内容，对压缩率的影响可以忽略不计。如果加完水印的文件还需要压缩到特定大小，可以按照正常流程继续压缩，顺序不影响最终效果。"}}]}</script>
 <script>window.addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723301737736770';s.async=true;s.crossOrigin='anonymous';document.head.appendChild(s);},2000);});</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
@@ -89,6 +89,8 @@ td{padding:8px 0;border-bottom:1px solid var(--br);}
       <li><a href="#buzhou">添加水印的步骤</a></li>
       <li><a href="#shezhi">怎么选位置、颜色和透明度</a></li>
       <li><a href="#changjing">常见的加水印场景</a></li>
+      <li><a href="#wenzi">水印文字怎么写更专业？</a></li>
+      <li><a href="#pitfalls">加水印常见踩坑</a></li>
       <li><a href="#watermark-vs-compress">加完水印，再压缩或加页码</a></li>
       <li><a href="#faq">常见问题</a></li>
     </ol>
@@ -120,6 +122,33 @@ td{padding:8px 0;border-bottom:1px solid var(--br);}
   <div class="box"><div class="bt">自由职业者/工作室的样稿</div>
   <p>给作品集样图、设计稿或报价单加上公司名或"样稿"水印，防止对方拿着草稿去用却不付款。</p></div>
 
+  <h2 id="wenzi">水印文字怎么写更专业？</h2>
+  <p>水印文字本身也有讲究，不是随便写两个字就行：</p>
+  <table>
+    <tbody>
+      <tr><td><strong>"机密" / "内部资料"</strong></td><td>用于人事、财务、战略文件，提醒接收者不要外传</td></tr>
+      <tr><td><strong>"草稿" / "初稿"</strong></td><td>用于还在修改中的合同、报告，避免被误当成正式版本</td></tr>
+      <tr><td><strong>"样稿" / "仅供预览"</strong></td><td>用于自由职业者的设计稿、报价单，防止对方拿去直接使用</td></tr>
+      <tr><td><strong>公司全名或英文缩写</strong></td><td>用于对外发送的资料，比单纯写"机密"更有辨识度，也更专业</td></tr>
+      <tr><td><strong>"已过期" / "作废"</strong></td><td>用于失效合同或旧版本文件，建议搭配红色、较高透明度使用</td></tr>
+    </tbody>
+  </table>
+  <p>文字尽量简短——2到6个字最清晰，太长的句子在斜角排列时容易显得拥挤，反而影响页面整体观感。</p>
+
+  <h2 id="pitfalls">加水印常见踩坑</h2>
+  <div class="box warn">
+    <div class="bt">⚠️ 透明度设置过高，挡住了关键内容</div>
+    <p style="margin:0;">如果水印颜色深、透明度又设得低（也就是不透明度高），叠在文字或图表上可能会导致原文内容难以辨认，尤其是打印出来之后。加完水印后，务必打开PDF在100%缩放下检查一遍，确认原本的文字、图表、签名区域依然清晰。</p>
+  </div>
+  <div class="box warn">
+    <div class="bt">⚠️ 忘记保留没加水印的原始文件</div>
+    <p style="margin:0;">水印一旦加上就无法用这个工具去掉，如果之后需要发送"干净"版本（比如合同最终签署版），却只剩下带水印的文件，就得重新找回原件。建议养成习惯：加水印前先把原始文件另存一份，命名清楚区分"原始版"和"水印版"。</p>
+  </div>
+  <div class="box warn">
+    <div class="bt">⚠️ 对扫描件或已经压缩过的PDF加水印</div>
+    <p style="margin:0;">如果原文件已经是扫描件或者压缩后的图片型PDF，水印依然可以正常添加，但整体清晰度取决于原文件本身的画质——加水印不会让模糊的扫描件变得更清楚。如果原件本身就不够清晰，建议先确认这一点是否影响水印的辨识度。</p>
+  </div>
+
   <h2 id="watermark-vs-compress">加完水印，再压缩或加页码</h2>
   <p>加水印只是往页面里加了一点点内容，文件大小基本不会变——它不能替代压缩。如果加完水印的文件还是超过某个网站上传的大小限制，可以再用<a href="../">ShrinkPDF的压缩工具</a>处理一遍（可以参考<a href="zh-01-compress">完整的PDF压缩教程</a>）。</p>
   <p>如果文件还需要加页码——合同和报告经常需要——可以在加水印前或者加水印后用<a href="../page-numbers">页码工具</a>，两者互不影响，因为它们画在页面的不同位置。</p>
@@ -136,15 +165,16 @@ td{padding:8px 0;border-bottom:1px solid var(--br);}
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">水印是不是每一页都会自动加上？ <span>&#9660;</span></div><div class="fa"><div class="fai">是的。同样的文字、位置、颜色和透明度会一次性应用到PDF的每一页，不用一页一页重复操作。</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">能不能不用"机密"，改用自己的文字？ <span>&#9660;</span></div><div class="fa"><div class="fai">可以。文字框最多支持60个字符，你可以填公司名、"草稿"、"样稿"、"副本"，或者任何自定义内容。</div></div></div>
   <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">给机密文件加水印安全吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">安全。加水印的整个过程都在你的浏览器里用JavaScript完成，文件不会上传到任何服务器——这对合同、财务报表、证件扫描件这类敏感文件来说很关键。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">可以只给部分页面加水印，而不是全部吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">目前的设计是同一份文件的每一页都会加上相同的水印，暂不支持只选择部分页面。如果只想给特定几页加水印，可以先用拆分工具把这几页单独拆出来，加完水印后再用合并工具拼回原文件。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">水印会不会影响文件之后的压缩效果？ <span>&#9660;</span></div><div class="fa"><div class="fai">基本不会。水印只是往每一页叠加了少量文字内容，对压缩率的影响可以忽略不计。如果加完水印的文件还需要压缩到特定大小，可以按照正常流程继续压缩，顺序不影响最终效果。</div></div></div>
 
   <div class="related">
     <h3>相关文章</h3>
     <div class="rls">
       <a href="zh-01-compress" class="rl">如何压缩PDF文件 <span>&rarr;</span></a>
-      <a href="en-82-page-numbers-pdf" class="rl">How to Add Page Numbers to a PDF <span>&rarr;</span></a>
-      <a href="en-57-merge-pdf" class="rl">How to Merge PDF Files Into One <span>&rarr;</span></a>
-      <a href="en-58-split-pdf" class="rl">How to Split a PDF Into Separate Files <span>&rarr;</span></a>
+      <a href="zh-08-page-numbers-pdf" class="rl">如何给PDF添加页码 <span>&rarr;</span></a>
       <a href="zh-03-lhdn" class="rl">LHDN报税上传PDF如何压缩到2MB以内 <span>&rarr;</span></a>
+      <a href="zh-06-bank-statement" class="rl">银行月结单PDF压缩教程 <span>&rarr;</span></a>
     </div>
   </div>
 </div>

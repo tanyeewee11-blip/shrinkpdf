@@ -48,6 +48,20 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "房贷、车贷、个人贷款需要的文件一样吗？", "acceptedAnswer": {"@type": "Answer", "text": "核心文件类似（月结单、薪资单、IC），但房贷通常还需要买卖协议、地契或估价报告，车贷需要车辆报价单，这些补充文件如果是扫描件，同样可以用平衡压缩处理，保持金额和条款清晰。"}},
+    {"@type": "Question", "name": "银行会不会因为文件是压缩过的而拒绝？", "acceptedAnswer": {"@type": "Answer", "text": "一般不会，只要压缩后内容依然清晰可辨。银行审核人员关注的是文件上的数字和信息是否可读，而不是文件是否经过压缩。如果对文件格式有特殊要求（例如需要可搜索的文字版本），银行通常会在申请须知里明确说明，遇到这种情况请直接联系银行确认。"}},
+    {"@type": "Question", "name": "银行月结单需要盖章的原件扫描件吗？", "acceptedAnswer": {"@type": "Answer", "text": "多数银行接受从网上银行或银行App直接下载的电子月结单，不需要额外盖章，这类电子版通常体积很小，也不需要压缩。只有部分特殊贷款或需要“银行证明信”时才要求原件盖章扫描，这种情况下再按扫描件的方式压缩即可。"}},
+    {"@type": "Question", "name": "三个月的月结单要合并成一个文件吗？", "acceptedAnswer": {"@type": "Answer", "text": "看银行的具体要求，多数银行门户支持分开上传三份月结单，这样更灵活；如果系统只允许上传一个文件，可以用合并工具把三份合并成一份后再整体压缩一次。"}},
+    {"@type": "Question", "name": "自雇人士申请贷款，月结单要求会不一样吗？", "acceptedAnswer": {"@type": "Answer", "text": "通常需要提供更长时间跨度的月结单（部分银行要求6-12个月）和公司银行账户流水，文件数量更多，建议逐份压缩、按月份清楚命名文件，方便自己核对，也方便银行审核人员查阅。"}},
+    {"@type": "Question", "name": "压缩月结单会不会让银行看不清楚具体交易记录？", "acceptedAnswer": {"@type": "Answer", "text": "只要选择平衡压缩而不是最大压缩，交易记录、金额、日期这些细节文字通常都能保持清晰。如果不确定，压缩后先自己在100%缩放下检查一遍最容易看不清的小字体交易明细，确认没问题再上传。"}}
+  ]
+}
+</script>
 <style>
 :root{--bg:#0a0a0f;--sf:#13131a;--br:#2a2a3a;--ac:#5b4fff;--ac2:#ff4f9b;--tx:#f0f0f8;--tm:#9898b8;--ok:#2ecc71;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--text:#f0f0f8;--text-muted:#9898b8;--accent:#5b4fff;--accent2:#ff4f9b;}
 html{scroll-padding-top:100px;}*{margin:0;padding:0;box-sizing:border-box;}
@@ -60,10 +74,12 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
 h1{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;line-height:1.2;letter-spacing:-0.5px;margin-bottom:24px;}
 .intro{font-size:1.05rem;color:var(--tm);margin-bottom:40px;line-height:1.8;border-left:3px solid var(--ac);padding-left:20px;}
 h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:700;margin:40px 0 14px;}
+h2[id],h3[id]{scroll-margin-top:110px;}
 p{margin-bottom:14px;color:#d0d0e8;}ul,ol{margin:14px 0 20px 22px;}li{margin-bottom:9px;color:#d0d0e8;}
 .box{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:22px;margin:24px 0;}
 .box.warn{border-color:rgba(243,156,18,0.35);background:rgba(243,156,18,0.04);}
 .box.good{border-color:rgba(46,204,113,0.3);background:rgba(46,204,113,0.04);}
+.box.info{border-color:rgba(91,79,255,0.3);background:rgba(91,79,255,0.04);}
 .box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:10px;}
 .cta-box{background:linear-gradient(135deg,rgba(91,79,255,0.15),rgba(255,79,155,0.08));border:1px solid rgba(91,79,255,0.3);border-radius:16px;padding:28px;text-align:center;margin:36px 0;}
 .cta-box h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:8px;}
@@ -80,10 +96,22 @@ p{margin-bottom:14px;color:#d0d0e8;}ul,ol{margin:14px 0 20px 22px;}li{margin-bot
 table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.88rem;}
 th{background:var(--sf);padding:10px 14px;text-align:left;font-family:'Syne',sans-serif;font-weight:700;border-bottom:1px solid var(--br);}
 td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-child td{border-bottom:none;}
-@media(max-width:640px){.step{flex-direction:column;gap:10px;}.step-num{margin-top:0;}}
+#read-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:9999;transition:width 0.1s linear;}
+.toc{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:20px 24px;margin:0 0 36px;font-size:0.88rem;position:relative;z-index:0;}
+.toc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.toc-title::before{content:'📋';font-size:1rem;}
+.toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;}
+.toc li a{color:var(--tm);text-decoration:none;transition:color 0.2s;line-height:1.4;}
+.toc li a:hover{color:var(--ac);}.toc li a.active{color:var(--ac);font-weight:500;}
+.fi{border:1px solid var(--br);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.fq{padding:15px 18px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;font-size:0.95rem;}
+.fq:hover{color:var(--ac);}.fa{max-height:0;overflow:hidden;transition:max-height 0.3s;font-size:0.88rem;color:var(--tm);}
+.fi.open .fa{max-height:400px;}.fai{padding:0 18px 14px;}
+@media(max-width:640px){.step{flex-direction:column;gap:10px;}.step-num{margin-top:0;}.wrap{padding:80px 18px 60px;}}
 </style>
 </head>
 <body>
+<div id="read-progress"></div>
 <nav id="site-nav"></nav>
 <main id="main-content">
 <div class="wrap">
@@ -91,12 +119,24 @@ td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-ch
   <div class="meta">
     <span class="tag">🏦 银行开户/贷款</span>
     <span class="tag">🇨🇳 简体中文</span>
-    <span class="rt">阅读时间约 4 分钟</span>
+    <span class="rt">阅读时间约 6 分钟</span>
   </div>
 
   <h1>银行月结单PDF压缩<br>开户和贷款上传文件教程</h1>
 
   <p class="intro">马来西亚银行在线开户和贷款申请通常需要上传最近 3 个月的银行月结单和薪资单，每份文件限制在 2–5MB。本文教你快速压缩，全程文件不离开设备。</p>
+
+  <nav class="toc" aria-label="文章目录">
+    <div class="toc-title">本文内容</div>
+    <ol>
+      <li><a href="#limits">马来西亚各银行上传限制</a></li>
+      <li><a href="#files">哪些文件需要压缩？</a></li>
+      <li><a href="#steps">分步操作：压缩并上传银行文件</a></li>
+      <li><a href="#loan-types">房贷、车贷、个人贷款的文件差异</a></li>
+      <li><a href="#self-employed">自雇人士的贷款申请</a></li>
+      <li><a href="#faq">常见问题</a></li>
+    </ol>
+  </nav>
 
   <div class="cta-box">
     <h3>🗜️ 安全压缩银行文件</h3>
@@ -104,7 +144,7 @@ td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-ch
     <a href="../" class="btn">免费压缩PDF →</a>
   </div>
 
-  <h2>马来西亚各银行上传限制</h2>
+  <h2 id="limits">马来西亚各银行上传限制</h2>
   <table>
     <thead><tr><th>银行</th><th>文件大小限制</th><th>备注</th></tr></thead>
     <tbody>
@@ -117,7 +157,7 @@ td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-ch
     </tbody>
   </table>
 
-  <h2>哪些文件需要压缩？</h2>
+  <h2 id="files">哪些文件需要压缩？</h2>
   <ul>
     <li><strong>银行月结单</strong>（最近 3 个月）— 银行 App 下载的电子版通常已经很小；扫描件可能需要压缩</li>
     <li><strong>薪资单 / EA 表格</strong> — 扫描件一般需要压缩</li>
@@ -130,7 +170,7 @@ td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-ch
     <p style="margin:0;font-size:0.9rem;">从银行 App 直接下载的电子月结单 PDF 通常只有 100–300KB，不需要压缩。只有手机拍照或扫描仪扫描的文件才容易超过大小限制。尽量用电子版，省时省力。</p>
   </div>
 
-  <h2>分步操作：压缩并上传银行文件</h2>
+  <h2 id="steps">分步操作：压缩并上传银行文件</h2>
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
@@ -162,6 +202,22 @@ td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-ch
     </div>
   </div>
 
+  <h2 id="loan-types">房贷、车贷、个人贷款的文件差异</h2>
+  <p>不同贷款类型除了共同需要的月结单和薪资单外，还各自有额外文件要求：</p>
+  <ul>
+    <li><strong>房贷</strong> — 通常额外需要买卖协议、地契副本或估价报告，这些文件页数较多、图表较多，建议用平衡压缩保留条款文字清晰</li>
+    <li><strong>车贷</strong> — 通常额外需要车辆报价单或订购协议，一般是纯文字文件，最大压缩即可</li>
+    <li><strong>个人贷款</strong> — 通常只需要月结单、薪资单和IC，文件要求相对简单</li>
+  </ul>
+
+  <h2 id="self-employed">自雇人士的贷款申请</h2>
+  <p>自雇人士申请贷款，银行通常要求提供更长时间跨度的月结单（部分银行要求6–12个月）以及公司银行账户流水，文件数量比受薪人士多不少。建议：</p>
+  <ul>
+    <li>逐份压缩，不要图省事合并成一个巨大文件再压缩</li>
+    <li>按月份清楚命名文件（例如"月结单_2025年10月"），方便自己核对，也方便银行审核人员查阅</li>
+    <li>公司流水如果涉及较多交易明细，优先用平衡压缩，确保金额和日期清晰可辨</li>
+  </ul>
+
   <div class="box warn">
     <div class="box-title">⚠️ 压缩后文字不可复制</div>
     <p style="margin:0;font-size:0.9rem;">压缩后的 PDF 视觉上看起来正常，但文字无法复制。对于银行上传用途这没有影响——银行只需要看到文件内容清晰即可。如果银行需要可搜索的文件，请联系银行确认接受格式。</p>
@@ -172,16 +228,35 @@ td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-ch
     <p style="margin:0;font-size:0.9rem;">银行文件包含 IC 号码、薪资、账号等极度敏感的信息。ShrinkPDF 的压缩完全在浏览器本地运行，文件不会发送到任何服务器。你可以在 ShrinkPDF 页面加载后断开 WiFi，压缩依然可以正常工作——因为整个过程不需要网络。</p>
   </div>
 
+  <div class="cta-box">
+    <h3>✓ 免费压缩银行文件 — 无需登录</h3>
+    <p>月结单、薪资单、IC扫描件，全程本地处理不上传</p>
+    <a href="../" class="btn">🗜️ 立即压缩PDF</a>
+  </div>
+
+  <h2 id="faq">常见问题</h2>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">房贷、车贷、个人贷款需要的文件一样吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">核心文件类似（月结单、薪资单、IC），但房贷通常还需要买卖协议、地契或估价报告，车贷需要车辆报价单，这些补充文件如果是扫描件，同样可以用平衡压缩处理，保持金额和条款清晰。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">银行会不会因为文件是压缩过的而拒绝？ <span>&#9660;</span></div><div class="fa"><div class="fai">一般不会，只要压缩后内容依然清晰可辨。银行审核人员关注的是文件上的数字和信息是否可读，而不是文件是否经过压缩。如果对文件格式有特殊要求（例如需要可搜索的文字版本），银行通常会在申请须知里明确说明，遇到这种情况请直接联系银行确认。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">银行月结单需要盖章的原件扫描件吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">多数银行接受从网上银行或银行App直接下载的电子月结单，不需要额外盖章，这类电子版通常体积很小，也不需要压缩。只有部分特殊贷款或需要“银行证明信”时才要求原件盖章扫描，这种情况下再按扫描件的方式压缩即可。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">三个月的月结单要合并成一个文件吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">看银行的具体要求，多数银行门户支持分开上传三份月结单，这样更灵活；如果系统只允许上传一个文件，可以用合并工具把三份合并成一份后再整体压缩一次。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">自雇人士申请贷款，月结单要求会不一样吗？ <span>&#9660;</span></div><div class="fa"><div class="fai">通常需要提供更长时间跨度的月结单（部分银行要求6-12个月）和公司银行账户流水，文件数量更多，建议逐份压缩、按月份清楚命名文件，方便自己核对，也方便银行审核人员查阅。</div></div></div>
+  <div class="fi"><div class="fq" onclick="this.parentElement.classList.toggle('open')">压缩月结单会不会让银行看不清楚具体交易记录？ <span>&#9660;</span></div><div class="fa"><div class="fai">只要选择平衡压缩而不是最大压缩，交易记录、金额、日期这些细节文字通常都能保持清晰。如果不确定，压缩后先自己在100%缩放下检查一遍最容易看不清的小字体交易明细，确认没问题再上传。</div></div></div>
+
   <h2>相关工具</h2>
   <div class="related">
     <a href="../"><strong>🗜️ 压缩PDF</strong><span>把月结单压缩到银行要求的大小</span></a>
     <a href="../merge"><strong>🔗 合并PDF</strong><span>把3个月的月结单合并成一个文件</span></a>
     <a href="../pdf-to-images"><strong>🖼️ PDF转图片</strong><span>银行只接受JPG时使用</span></a>
     <a href="zh-03-lhdn"><strong>🧾 LHDN报税上传</strong><span>税务文件压缩教程</span></a>
+    <a href="zh-01-compress"><strong>📖 PDF压缩完整指南</strong><span>了解各种文件的压缩效果</span></a>
+    <a href="zh-02-mobile"><strong>📱 手机压缩PDF</strong><span>Android和iPhone操作方法</span></a>
   </div>
 
 </div>
 </main>
 <footer id="site-footer"></footer>
+<script>
+(function(){var nav=document.querySelector('nav');if(nav){var h=function(){document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';};h();window.addEventListener('resize',h);}var el=document.getElementById('read-progress');if(el){window.addEventListener('scroll',function(){var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';});}var links=document.querySelectorAll('.toc a');var heads=[];links.forEach(function(l){var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({el:e,a:l});});window.addEventListener('scroll',function(){var y=window.scrollY+130;var cur=null;heads.forEach(function(h){if(h.el.offsetTop<=y)cur=h;});links.forEach(function(l){l.classList.remove('active');});if(cur)cur.a.classList.add('active');});})();
+</script>
 </body>
 </html>
