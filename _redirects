@@ -229,3 +229,24 @@ https://shrinkpdf.pages.dev/* https://shrinkpdf.fyi/:splat 301
 /guides/zh-06-bank-statement.html /guides/zh-06-bank-statement 301
 /guides/zh-07-watermark-pdf.html /guides/zh-07-watermark-pdf 301
 /guides/zh-08-page-numbers-pdf.html /guides/zh-08-page-numbers-pdf 301
+
+# Explicit .html -> clean URL redirects for top-level pages
+/about.html /about 301
+/affiliate-disclosure.html /affiliate-disclosure 301
+/contact.html /contact 301
+/guides.html /guides 301
+/images-to-pdf.html /images-to-pdf 301
+/merge.html /merge 301
+/page-numbers.html /page-numbers 301
+/pdf-to-images.html /pdf-to-images 301
+/privacy.html /privacy 301
+/reorder.html /reorder 301
+/rotate.html /rotate 301
+/split.html /split 301
+/terms.html /terms 301
+/watermark.html /watermark 301
+
+# Canonicalize protocol/www variants to https://shrinkpdf.fyi
+http://shrinkpdf.fyi/* https://shrinkpdf.fyi/:splat 301
+http://www.shrinkpdf.fyi/* https://shrinkpdf.fyi/:splat 301
+https://www.shrinkpdf.fyi/* https://shrinkpdf.fyi/:splat 301
