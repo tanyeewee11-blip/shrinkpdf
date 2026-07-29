@@ -250,3 +250,5 @@ https://shrinkpdf.pages.dev/* https://shrinkpdf.fyi/:splat 301
 http://shrinkpdf.fyi/* https://shrinkpdf.fyi/:splat 301
 http://www.shrinkpdf.fyi/* https://shrinkpdf.fyi/:splat 301
 https://www.shrinkpdf.fyi/* https://shrinkpdf.fyi/:splat 301
+
+/guides/id-08-nomor-halaman-pdf.html /guides/id-08-nomor-halaman-pdf 301
