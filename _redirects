@@ -23,18 +23,26 @@ https://shrinkpdf.pages.dev/* https://shrinkpdf.fyi/:splat 301
 
 # Merged/consolidated guides -> redirect to merged target (avoids stub pages with conflicting canonical/hreflang)
 /guides/en-02-email.html /guides/en-01-below1mb 301
+/guides/en-02-email /guides/en-01-below1mb 301
 /guides/en-03-quality.html /guides/en-01-below1mb 301
+/guides/en-03-quality /guides/en-01-below1mb 301
 /guides/en-07-toolarge.html /guides/en-01-below1mb 301
 /guides/en-42-compress-without-losing-quality.html /guides/en-15-quality 301
+/guides/en-42-compress-without-losing-quality /guides/en-15-quality 301
 /guides/en-25-make-pdf-smaller.html /guides/en-15-quality 301
+/guides/en-25-make-pdf-smaller /guides/en-15-quality 301
 /guides/en-08-scanned.html /guides/en-54-scanned-pdf-large 301
+/guides/en-08-scanned /guides/en-54-scanned-pdf-large 301
 /guides/en-39-hr-onboarding.html /guides/en-56-forms-applications 301
 /guides/en-38-scholarship-application.html /guides/en-56-forms-applications 301
 /guides/en-36-rental-agreement.html /guides/en-56-forms-applications 301
 /guides/en-33-microsoft-edge.html /guides/en-41-google-chrome 301
+/guides/en-33-microsoft-edge /guides/en-41-google-chrome 301
 /guides/en-44-firefox.html /guides/en-41-google-chrome 301
+/guides/en-44-firefox /guides/en-41-google-chrome 301
 /guides/en-23-telegram.html /guides/en-18-whatsapp 301
 /guides/en-40-samsung.html /guides/en-30-android-no-app 301
+/guides/en-40-samsung /guides/en-30-android-no-app 301
 
 # Guide URL restructure redirects (old root URLs -> new /guides/ URLs)
 /en-01-below1mb.html /guides/en-01-below1mb 301
