@@ -1,3 +1,53 @@
+# Specific id/ms/zh guide redirects (old root URLs -> new /guides/ URLs)
+# MUST appear before the /zh-*, /ms-*, /id-* catch-all block below, since
+# Cloudflare Pages _redirects matches top-to-bottom and stops at first match.
+/id-01-kompres-pdf-gratis.html /guides/id-01-kompres-pdf-gratis 301
+/id-02-lpdp-beasiswa.html /guides/id-02-lpdp-beasiswa 301
+/id-03-snbt-pendaftaran-kuliah.html /guides/id-03-snbt-pendaftaran-kuliah 301
+/id-04-gabungkan-pdf.html /guides/id-04-gabungkan-pdf 301
+/id-05-pisahkan-pdf.html /guides/id-05-pisahkan-pdf 301
+/id-06-jpg-ke-pdf.html /guides/id-06-jpg-ke-pdf 301
+/id-07-watermark-pdf.html /guides/id-07-watermark-pdf 301
+/id-08-nomor-halaman-pdf.html /guides/id-08-nomor-halaman-pdf 301
+/ms-01-kecilkan-saiz-pdf.html /guides/ms-01-kecilkan-saiz-pdf 301
+/ms-02-lhdn-efiling.html /guides/ms-02-lhdn-efiling 301
+/ms-03-myeg-portal.html /guides/ms-03-myeg-portal 301
+/ms-04-watermark-pdf.html /guides/ms-04-watermark-pdf 301
+/zh-01-compress.html /guides/zh-01-compress 301
+/zh-02-mobile.html /guides/zh-02-mobile 301
+/zh-03-lhdn.html /guides/zh-03-lhdn 301
+/zh-04-university.html /guides/zh-04-university 301
+/zh-05-whatsapp.html /guides/zh-05-whatsapp 301
+/zh-06-bank-statement.html /guides/zh-06-bank-statement 301
+/zh-07-watermark-pdf.html /guides/zh-07-watermark-pdf 301
+/zh-08-page-numbers-pdf.html /guides/zh-08-page-numbers-pdf 301
+/id-01-kompres-pdf-gratis /guides/id-01-kompres-pdf-gratis 301
+/id-02-lpdp-beasiswa /guides/id-02-lpdp-beasiswa 301
+/id-03-snbt-pendaftaran-kuliah /guides/id-03-snbt-pendaftaran-kuliah 301
+/id-04-gabungkan-pdf /guides/id-04-gabungkan-pdf 301
+/id-05-pisahkan-pdf /guides/id-05-pisahkan-pdf 301
+/id-06-jpg-ke-pdf /guides/id-06-jpg-ke-pdf 301
+/id-07-watermark-pdf /guides/id-07-watermark-pdf 301
+/id-08-nomor-halaman-pdf /guides/id-08-nomor-halaman-pdf 301
+/ms-01-kecilkan-saiz-pdf /guides/ms-01-kecilkan-saiz-pdf 301
+/ms-02-lhdn-efiling /guides/ms-02-lhdn-efiling 301
+/ms-03-myeg-portal /guides/ms-03-myeg-portal 301
+/ms-04-watermark-pdf /guides/ms-04-watermark-pdf 301
+/zh-01-compress /guides/zh-01-compress 301
+/zh-02-mobile /guides/zh-02-mobile 301
+/zh-03-lhdn /guides/zh-03-lhdn 301
+/zh-04-university /guides/zh-04-university 301
+/zh-05-whatsapp /guides/zh-05-whatsapp 301
+/zh-06-bank-statement /guides/zh-06-bank-statement 301
+/zh-07-watermark-pdf /guides/zh-07-watermark-pdf 301
+/zh-08-page-numbers-pdf /guides/zh-08-page-numbers-pdf 301
+
+# Orphaned legacy URLs still receiving search impressions but with no current
+# 1:1 equivalent guide -> send to the guides index instead of the homepage
+/id-06-mobile /guides 301
+/id-09-whatsapp.html /guides 301
+/zh-10-comparison /guides 301
+
 # Legacy multilang pages (old /zh, /ms, /id flat files and nested paths) -> homepage
 # Numeric prefixes didn't reliably map to equivalent en-XX guides, so send all to homepage instead
 /zh.html / 301
