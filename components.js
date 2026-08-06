@@ -105,6 +105,9 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 ShrinkPDF · No login · No storage · Always free</span>
+        <a href="https://startupbase.io/products/shrinkpdf?utm_source=startupbase&utm_medium=badge&utm_campaign=launch-badge-neutral" target="_blank" rel="noopener noreferrer" style="margin-left:16px;display:inline-block;vertical-align:middle;">
+          <img src="https://statics.startupbase.io/site/badges/launched-on-sb-neutral.svg" alt="Launched on StartupBase" height="40" style="height:40px;width:auto;" />
+        </a>
       </div>
     `;
   }
