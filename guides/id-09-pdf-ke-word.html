@@ -33,7 +33,51 @@
   "dateModified": "2026-08-06"
 }
 </script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Kenapa ShrinkPDF tidak bisa convert PDF ke Word?","acceptedAnswer":{"@type":"Answer","text":"Semua tools ShrinkPDF (kompres, gabung, pisah, urutkan halaman) berjalan sepenuhnya di browser tanpa upload ke server, karena prosesnya tidak perlu 'memahami' isi PDF — cuma menyusun ulang atau membuang data halaman yang sudah ada. Convert PDF ke Word itu beda: harus merekonstruksi paragraf, font, dan struktur dari nol, yang butuh mesin konversi khusus, bukan script kecil yang jalan lokal di browser."}},{"@type":"Question","name":"Apakah Google Docs bisa dipakai gratis untuk convert PDF ke Word?","acceptedAnswer":{"@type":"Answer","text":"Untuk PDF berbasis teks (bukan hasil scan), Google Docs cukup lumayan: upload PDF ke Google Drive, buka pakai Google Docs, lalu download sebagai file .docx. Untuk dokumen dengan layout kompleks, tabel, atau multi-kolom biasanya berantakan, tapi dokumen teks polos umumnya rapi hasilnya."}},{"@type":"Question","name":"Apakah format tulisan akan tetap sama setelah PDF diubah ke Word?","acceptedAnswer":{"@type":"Answer","text":"Tergantung dokumen aslinya. Teks satu kolom biasanya tetap rapi di kebanyakan converter. Layout multi-kolom, tabel, text box, dan halaman hasil scan jauh lebih rawan berantakan atau kehilangan format, apa pun tools yang dipakai."}},{"@type":"Question","name":"Cara terbaik convert PDF hasil scan ke Word itu apa?","acceptedAnswer":{"@type":"Answer","text":"PDF hasil scan itu gambar, bukan teks, jadi untuk diubah jadi dokumen Word yang bisa diedit perlu OCR (pengenalan karakter optis) dulu, bukan sekadar convert format biasa. Software OCR khusus jauh lebih akurat dibanding converter gratis biasa, apalagi untuk hasil scan yang padat atau kualitasnya kurang bagus."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kenapa ShrinkPDF tidak bisa convert PDF ke Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Semua tools ShrinkPDF (kompres, gabung, pisah, urutkan halaman) berjalan sepenuhnya di browser tanpa upload ke server, karena prosesnya tidak perlu 'memahami' isi PDF — cuma menyusun ulang atau membuang data halaman yang sudah ada. Convert PDF ke Word itu beda: harus merekonstruksi paragraf, font, dan struktur dari nol, yang butuh mesin konversi khusus, bukan script kecil yang jalan lokal di browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah Google Docs bisa dipakai gratis untuk convert PDF ke Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Untuk PDF berbasis teks (bukan hasil scan), Google Docs cukup lumayan: upload PDF ke Google Drive, buka pakai Google Docs, lalu download sebagai file .docx. Untuk dokumen dengan layout kompleks, tabel, atau multi-kolom biasanya berantakan, tapi dokumen teks polos umumnya rapi hasilnya."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah format tulisan akan tetap sama setelah PDF diubah ke Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tergantung dokumen aslinya. Teks satu kolom biasanya tetap rapi di kebanyakan converter. Layout multi-kolom, tabel, text box, dan halaman hasil scan jauh lebih rawan berantakan atau kehilangan format, apa pun tools yang dipakai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cara terbaik convert PDF hasil scan ke Word itu apa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PDF hasil scan itu gambar, bukan teks, jadi untuk diubah jadi dokumen Word yang bisa diedit perlu OCR (pengenalan karakter optis) dulu, bukan sekadar convert format biasa. Software OCR khusus jauh lebih akurat dibanding converter gratis biasa, apalagi untuk hasil scan yang padat atau kualitasnya kurang bagus."
+      }
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
+}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
 <meta property="article:modified_time" content="2026-08-06">
@@ -91,7 +135,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <nav id="site-nav"></nav>
 <main id="main-content">
 <div class="wrap">
-  <div class="meta"><span class="tag">Perbandingan</span><span class="tag">PDF ke Word</span><span class="tag">Opsi Gratis</span><time datetime="2026-08-06" class="rt">Diperbarui 6 Agustus 2026</time></div>
+  <div class="meta"><span class="tag">Perbandingan</span><span class="tag">PDF ke Word</span><span class="tag">Opsi Gratis</span><time datetime="2026-08-06" class="rt">Diperbarui 6 Agustus 2026</time><span class="byline">oleh <a href="/about">Yee Wee</a></span></div>
   <h1>Cara Ubah PDF ke Word Gratis — Tanpa Install, Tanpa Upload Sembarangan</h1>
   <p class="intro">ShrinkPDF memang tidak punya fitur convert PDF ke Word atau Word ke PDF, dan itu bukan karena lupa dibuat — memang sengaja. Di artikel ini dijelaskan kenapa, lalu dibahas tools gratis dan berbayar murah yang benar-benar bisa diandalkan, tergantung jenis dokumen yang mau kamu ubah.</p>
 

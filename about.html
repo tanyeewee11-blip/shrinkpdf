@@ -57,6 +57,18 @@
     "@type": "WebSite",
     "name": "ShrinkPDF",
     "url": "https://shrinkpdf.fyi"
+  },
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "jobTitle": "Founder",
+    "email": "hello@shrinkpdf.fyi",
+    "image": "https://shrinkpdf.fyi/founder-yee-wee.jpg",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "ShrinkPDF",
+      "url": "https://shrinkpdf.fyi"
+    }
   }
 }
 </script>
@@ -95,8 +107,15 @@
 
   <div class="card">
     <h2>👋 Who Made This</h2>
-    <p>ShrinkPDF was built by a small independent team who got tired of the same problems everyone faces with PDF tools: file size caps on the free tier, mandatory account registration, watermarks on the output, and tools that upload your sensitive documents to servers you know nothing about.</p>
-    <p>We're not a large company. ShrinkPDF is a focused utility — 7 free tools, maintained actively, built with privacy as a non-negotiable. If something's broken or you have feedback, we actually read the emails at <a href="mailto:hello@shrinkpdf.fyi" style="color:var(--accent);">hello@shrinkpdf.fyi</a>.</p>
+    <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;margin-bottom:16px;">
+      <img src="/founder-yee-wee.jpg" alt="Yee Wee, founder of ShrinkPDF" width="96" height="96" style="width:96px;height:96px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--border);">
+      <div>
+        <p style="margin-top:0;"><strong>Hi, I'm Yee Wee</strong> — I built ShrinkPDF.</p>
+        <p>I ran into this problem myself while filing taxes: LHDN's e-Filing portal kept rejecting a scanned document for being over the 2MB limit, and every "free" compressor I tried either capped the file size, forced an account signup, or — worse — wanted me to upload the file to their server first. For something with my IC and bank details on it, that wasn't something I was comfortable doing.</p>
+      </div>
+    </div>
+    <p>So I built ShrinkPDF myself: a compressor that runs entirely in your browser using WebAssembly, so nothing you upload ever leaves your device. What started as a fix for my own tax filing turned into a proper tool once I realised how many people — students submitting to UPU, job seekers uploading a résumé, anyone dealing with a government portal — run into the exact same wall.</p>
+    <p>I maintain ShrinkPDF on my own. If something's broken or you've got feedback, I actually read every email at <a href="mailto:hello@shrinkpdf.fyi" style="color:var(--accent);">hello@shrinkpdf.fyi</a>.</p>
   </div>
 
   <div class="card">

@@ -93,11 +93,32 @@ tr:last-child td{border-bottom:none;}
   "name": "如何免费压缩PDF文件",
   "description": "使用ShrinkPDF在线免费压缩PDF，文件不离开设备，支持任意大小",
   "step": [
-    {"@type": "HowToStep", "name": "打开ShrinkPDF", "text": "访问 shrinkpdf.fyi，点击\u201c选择PDF文件\u201d或直接拖放文件"},
-    {"@type": "HowToStep", "name": "选择压缩级别", "text": "根据需求选择轻度（保留画质）、平衡或最大压缩"},
-    {"@type": "HowToStep", "name": "开始压缩", "text": "点击\u201c立即压缩\u201d，几秒内完成处理"},
-    {"@type": "HowToStep", "name": "下载文件", "text": "点击下载，压缩后的PDF保存到设备"}
-  ]
+    {
+      "@type": "HowToStep",
+      "name": "打开ShrinkPDF",
+      "text": "访问 shrinkpdf.fyi，点击“选择PDF文件”或直接拖放文件"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "选择压缩级别",
+      "text": "根据需求选择轻度（保留画质）、平衡或最大压缩"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "开始压缩",
+      "text": "点击“立即压缩”，几秒内完成处理"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "下载文件",
+      "text": "点击下载，压缩后的PDF保存到设备"
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -105,13 +126,60 @@ tr:last-child td{border-bottom:none;}
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "压缩后文件还能编辑或复制文字吗？", "acceptedAnswer": {"@type": "Answer", "text": "不能。ShrinkPDF的压缩方式是把每一页重新渲染成图片再打包，压缩后的PDF文字无法选取或复制，超链接和数字签名也会失效。如果之后还需要可编辑或可搜索的版本，请保留原始文件。"}},
-    {"@type": "Question", "name": "ShrinkPDF对文件大小有限制吗？", "acceptedAnswer": {"@type": "Answer", "text": "没有。很多免费工具限制在10-20MB以内，ShrinkPDF没有文件大小上限，几百MB的PDF也能处理，只是文件越大，浏览器本地处理需要的时间越长。"}},
-    {"@type": "Question", "name": "我的文件会被上传或保存吗？", "acceptedAnswer": {"@type": "Answer", "text": "不会。压缩完全在你的浏览器里用JavaScript本地运行，文件不会经过任何服务器。你可以在页面加载完成后断开网络，压缩依然能正常进行，这本身就说明没有任何数据被传输出去。"}},
-    {"@type": "Question", "name": "轻度、平衡、最大压缩该怎么选？", "acceptedAnswer": {"@type": "Answer", "text": "轻度压缩画质最好，体积减少约20-30%，适合需要保留清晰度的简历、合同。平衡压缩兼顾画质和体积，减少约40-60%，适合大多数日常场景。最大压缩体积最小，减少约70-80%，适合LHDN、大学门户这类有严格上传限制的场景。"}},
-    {"@type": "Question", "name": "为什么纯文字PDF压缩效果不明显？", "acceptedAnswer": {"@type": "Answer", "text": "纯文字PDF本身体积就很小，压缩空间有限；但因为压缩会把每一页重新渲染成图片，即使是纯文字文件通常也能再减少40-70%左右。真正压缩效果最明显的是高分辨率扫描件和包含大量图片的文件。"}},
-    {"@type": "Question", "name": "可以对同一个文件反复压缩吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以，但收益会递减。对已经压缩过的文件再压一次，画质损失会比对原始文件直接使用同样级别压缩更明显。建议尽量从未压缩的原始文件开始，一次性选好合适的压缩级别。"}}
-  ]
+    {
+      "@type": "Question",
+      "name": "压缩后文件还能编辑或复制文字吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不能。ShrinkPDF的压缩方式是把每一页重新渲染成图片再打包，压缩后的PDF文字无法选取或复制，超链接和数字签名也会失效。如果之后还需要可编辑或可搜索的版本，请保留原始文件。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ShrinkPDF对文件大小有限制吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "没有。很多免费工具限制在10-20MB以内，ShrinkPDF没有文件大小上限，几百MB的PDF也能处理，只是文件越大，浏览器本地处理需要的时间越长。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我的文件会被上传或保存吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。压缩完全在你的浏览器里用JavaScript本地运行，文件不会经过任何服务器。你可以在页面加载完成后断开网络，压缩依然能正常进行，这本身就说明没有任何数据被传输出去。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "轻度、平衡、最大压缩该怎么选？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "轻度压缩画质最好，体积减少约20-30%，适合需要保留清晰度的简历、合同。平衡压缩兼顾画质和体积，减少约40-60%，适合大多数日常场景。最大压缩体积最小，减少约70-80%，适合LHDN、大学门户这类有严格上传限制的场景。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么纯文字PDF压缩效果不明显？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "纯文字PDF本身体积就很小，压缩空间有限；但因为压缩会把每一页重新渲染成图片，即使是纯文字文件通常也能再减少40-70%左右。真正压缩效果最明显的是高分辨率扫描件和包含大量图片的文件。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "可以对同一个文件反复压缩吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以，但收益会递减。对已经压缩过的文件再压一次，画质损失会比对原始文件直接使用同样级别压缩更明显。建议尽量从未压缩的原始文件开始，一次性选好合适的压缩级别。"
+      }
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
 }
 </script>
 <!-- Google tag (gtag.js) -->
@@ -130,7 +198,7 @@ tr:last-child td{border-bottom:none;}
     <span class="tag">📖 使用指南</span>
     <span class="tag">🇨🇳 简体中文</span>
     <span class="rt">阅读时间约 8 分钟</span>
-  </div>
+  <span class="byline">作者：<a href="/about">Yee Wee</a></span></div>
 
   <h1>如何免费压缩PDF文件<br>（无需上传，文件不离开设备）</h1>
 

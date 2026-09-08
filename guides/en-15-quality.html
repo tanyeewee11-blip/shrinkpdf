@@ -90,10 +90,36 @@ h2[id],h3[id]{scroll-margin-top:110px;}
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Does compressing a PDF with ShrinkPDF reduce quality?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, visually, to some degree at every level. ShrinkPDF re-renders each page as an image and re-encodes it, so file size drops a lot for both text-heavy and image-heavy PDFs. At Light and Balanced, the visual difference is hard to spot at normal zoom. At Maximum, softness becomes visible if you zoom in. The bigger change for text-heavy documents is that the text is no longer real, selectable text after compression."}},
-    {"@type": "Question", "name": "Will my PDF still be searchable and copy-pasteable after compression?", "acceptedAnswer": {"@type": "Answer", "text": "No. ShrinkPDF's compression converts every page into a flattened image, so the output PDF will not have selectable or searchable text, even if the original did. If you need to keep a searchable, editable, or accessible text layer, compress a copy and keep the original for that purpose."}},
-    {"@type": "Question", "name": "Are hyperlinks and digital signatures preserved after compression?", "acceptedAnswer": {"@type": "Answer", "text": "No. Because each page becomes a flattened image, clickable hyperlinks, fillable form fields, bookmarks, and digital signatures are not carried over to the compressed file. For a resume or document where clickable links matter, share the original alongside (or instead of) the compressed version. For a digitally signed document, compress before signing, not after, or check with the recipient whether a visual copy is acceptable."}}
-  ]
+    {
+      "@type": "Question",
+      "name": "Does compressing a PDF with ShrinkPDF reduce quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, visually, to some degree at every level. ShrinkPDF re-renders each page as an image and re-encodes it, so file size drops a lot for both text-heavy and image-heavy PDFs. At Light and Balanced, the visual difference is hard to spot at normal zoom. At Maximum, softness becomes visible if you zoom in. The bigger change for text-heavy documents is that the text is no longer real, selectable text after compression."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my PDF still be searchable and copy-pasteable after compression?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. ShrinkPDF's compression converts every page into a flattened image, so the output PDF will not have selectable or searchable text, even if the original did. If you need to keep a searchable, editable, or accessible text layer, compress a copy and keep the original for that purpose."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are hyperlinks and digital signatures preserved after compression?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Because each page becomes a flattened image, clickable hyperlinks, fillable form fields, bookmarks, and digital signatures are not carried over to the compressed file. For a resume or document where clickable links matter, share the original alongside (or instead of) the compressed version. For a digitally signed document, compress before signing, not after, or check with the recipient whether a visual copy is acceptable."
+      }
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
 }
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
@@ -124,7 +150,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <nav id="site-nav"></nav>
 <main id="main-content">
 <div class="wrap">
-  <div class="meta"><span class="tag">Quality</span><span class="tag">How-To</span><span class="tag">Free</span><time datetime="2026-06-17" class="updated rt">Updated June 17, 2026</time></div>
+  <div class="meta"><span class="tag">Quality</span><span class="tag">How-To</span><span class="tag">Free</span><time datetime="2026-06-17" class="updated rt">Updated June 17, 2026</time><span class="byline">by <a href="/about">Yee Wee</a></span></div>
   <h1>How to Compress PDF Without Losing Quality (2026)</h1>
   <p class="intro">"Compress without losing quality" is the question everyone asks, and the honest answer is more nuanced than yes or no. ShrinkPDF's compression re-renders every page as an image, which is why it shrinks text-heavy documents as effectively as photo-heavy ones — but it also means the output is no longer a "real" text PDF. This guide explains exactly what changes, which level to use, and the situations where you should think twice before relying on the compressed copy alone.</p>
 

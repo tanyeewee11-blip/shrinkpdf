@@ -28,14 +28,79 @@
   "name": "Cara Memutar Halaman PDF",
   "description": "Cara memutar halaman PDF yang terbalik atau senget terus dalam browser tanpa install perisian.",
   "step": [
-    {"@type": "HowToStep", "name": "Buka tools Rotate PDF", "text": "Buka shrinkpdf.fyi/rotate dalam mana-mana browser, tidak perlu install apa-apa."},
-    {"@type": "HowToStep", "name": "Upload fail PDF", "text": "Seret fail PDF ke halaman atau klik untuk pilih dari peranti. Fail diproses terus dalam browser, tidak diupload ke server."},
-    {"@type": "HowToStep", "name": "Pilih arah putaran", "text": "Pilih putar 90°, 180°, atau 270°, untuk semua halaman sekali gus atau halaman tertentu sahaja."},
-    {"@type": "HowToStep", "name": "Download hasilnya", "text": "Klik download untuk simpan PDF yang sudah diputar ke peranti anda."}
-  ]
+    {
+      "@type": "HowToStep",
+      "name": "Buka tools Rotate PDF",
+      "text": "Buka shrinkpdf.fyi/rotate dalam mana-mana browser, tidak perlu install apa-apa."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Upload fail PDF",
+      "text": "Seret fail PDF ke halaman atau klik untuk pilih dari peranti. Fail diproses terus dalam browser, tidak diupload ke server."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Pilih arah putaran",
+      "text": "Pilih putar 90°, 180°, atau 270°, untuk semua halaman sekali gus atau halaman tertentu sahaja."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Download hasilnya",
+      "text": "Klik download untuk simpan PDF yang sudah diputar ke peranti anda."
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
 }
 </script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Kenapa halaman PDF saya terbalik atau senget?","acceptedAnswer":{"@type":"Answer","text":"Ini selalu berlaku sebab hasil scan — kalau kertas dimasukkan terbalik atau senget ke mesin pengimbas atau semasa diambil gambar dengan orientasi salah, halaman PDF hasilnya akan ikut terbalik atau senget, walaupun dokumen asal normal je."}},{"@type":"Question","name":"Boleh ke putar hanya sebahagian halaman sahaja, bukan semuanya?","acceptedAnswer":{"@type":"Answer","text":"Boleh. Tools Rotate PDF ShrinkPDF membolehkan anda pilih halaman tertentu untuk diputar sementara halaman lain dibiarkan seperti asal — berguna kalau cuma satu atau dua halaman hasil scan yang orientasinya salah."}},{"@type":"Question","name":"Adakah rotate PDF menjejaskan kualiti halaman?","acceptedAnswer":{"@type":"Answer","text":"Tidak. Memutar halaman PDF hanya mengubah metadata orientasi halaman, bukan lukis semula kandungannya, jadi kualiti teks dan gambar di dalamnya kekal sama persis seperti sebelum diputar."}},{"@type":"Question","name":"Adakah fail PDF saya diupload ke server semasa diputar?","acceptedAnswer":{"@type":"Answer","text":"Tidak. Keseluruhan proses rotate PDF dalam ShrinkPDF berjalan terus dalam browser anda menggunakan WebAssembly, jadi fail tidak pernah tinggalkan peranti anda atau diupload ke mana-mana server."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kenapa halaman PDF saya terbalik atau senget?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ini selalu berlaku sebab hasil scan — kalau kertas dimasukkan terbalik atau senget ke mesin pengimbas atau semasa diambil gambar dengan orientasi salah, halaman PDF hasilnya akan ikut terbalik atau senget, walaupun dokumen asal normal je."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Boleh ke putar hanya sebahagian halaman sahaja, bukan semuanya?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Boleh. Tools Rotate PDF ShrinkPDF membolehkan anda pilih halaman tertentu untuk diputar sementara halaman lain dibiarkan seperti asal — berguna kalau cuma satu atau dua halaman hasil scan yang orientasinya salah."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Adakah rotate PDF menjejaskan kualiti halaman?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tidak. Memutar halaman PDF hanya mengubah metadata orientasi halaman, bukan lukis semula kandungannya, jadi kualiti teks dan gambar di dalamnya kekal sama persis seperti sebelum diputar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Adakah fail PDF saya diupload ke server semasa diputar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tidak. Keseluruhan proses rotate PDF dalam ShrinkPDF berjalan terus dalam browser anda menggunakan WebAssembly, jadi fail tidak pernah tinggalkan peranti anda atau diupload ke mana-mana server."
+      }
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
+}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
 <meta property="article:modified_time" content="2026-08-08">
@@ -87,7 +152,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <nav id="site-nav"></nav>
 <main id="main-content">
 <div class="wrap">
-  <div class="meta"><span class="tag">Panduan</span><span class="tag">Rotate PDF</span><time datetime="2026-08-08" class="rt">Dikemas kini 8 Ogos 2026</time></div>
+  <div class="meta"><span class="tag">Panduan</span><span class="tag">Rotate PDF</span><time datetime="2026-08-08" class="rt">Dikemas kini 8 Ogos 2026</time><span class="byline">oleh <a href="/about">Yee Wee</a></span></div>
   <h1>Cara Putar (Rotate) PDF Percuma — Semua Halaman atau Sebahagian</h1>
   <p class="intro">Halaman PDF yang terbalik atau senget biasanya berlaku sebab hasil scan yang orientasinya salah. Ini cara untuk putarkannya balik ke kedudukan normal, terus dalam browser, tanpa install sebarang perisian.</p>
 

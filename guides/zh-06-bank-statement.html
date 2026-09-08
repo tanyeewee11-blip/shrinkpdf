@@ -41,11 +41,40 @@
     "url": "https://shrinkpdf.fyi"
   },
   "step": [
-    {"@type": "HowToStep", "position": 1, "name": "扫描文件（如果需要）", "text": "用手机扫描App扫描文件，目标分辨率200 DPI，黑白模式。iPhone用备忘录相机功能，Android用Google Drive扫描功能。", "url": "https://shrinkpdf.fyi/guides/zh-06-bank-statement#step1"},
-    {"@type": "HowToStep", "position": 2, "name": "打开ShrinkPDF压缩", "text": "访问shrinkpdf.fyi，一次上传一份文件。薪资单和月结单选平衡压缩，IC扫描件选最大压缩。", "url": "https://shrinkpdf.fyi/guides/zh-06-bank-statement#step2"},
-    {"@type": "HowToStep", "position": 3, "name": "检查可读性", "text": "打开压缩后的PDF，确认IC号码、薪资金额、雇主名称清晰可读。", "url": "https://shrinkpdf.fyi/guides/zh-06-bank-statement#step3"},
-    {"@type": "HowToStep", "position": 4, "name": "上传到银行门户", "text": "登录银行的网上开户或贷款申请页面，按要求上传每份文件。", "url": "https://shrinkpdf.fyi/guides/zh-06-bank-statement#step4"}
-  ]
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "扫描文件（如果需要）",
+      "text": "用手机扫描App扫描文件，目标分辨率200 DPI，黑白模式。iPhone用备忘录相机功能，Android用Google Drive扫描功能。",
+      "url": "https://shrinkpdf.fyi/guides/zh-06-bank-statement#step1"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "打开ShrinkPDF压缩",
+      "text": "访问shrinkpdf.fyi，一次上传一份文件。薪资单和月结单选平衡压缩，IC扫描件选最大压缩。",
+      "url": "https://shrinkpdf.fyi/guides/zh-06-bank-statement#step2"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "检查可读性",
+      "text": "打开压缩后的PDF，确认IC号码、薪资金额、雇主名称清晰可读。",
+      "url": "https://shrinkpdf.fyi/guides/zh-06-bank-statement#step3"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "上传到银行门户",
+      "text": "登录银行的网上开户或贷款申请页面，按要求上传每份文件。",
+      "url": "https://shrinkpdf.fyi/guides/zh-06-bank-statement#step4"
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -53,13 +82,60 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "房贷、车贷、个人贷款需要的文件一样吗？", "acceptedAnswer": {"@type": "Answer", "text": "核心文件类似（月结单、薪资单、IC），但房贷通常还需要买卖协议、地契或估价报告，车贷需要车辆报价单，这些补充文件如果是扫描件，同样可以用平衡压缩处理，保持金额和条款清晰。"}},
-    {"@type": "Question", "name": "银行会不会因为文件是压缩过的而拒绝？", "acceptedAnswer": {"@type": "Answer", "text": "一般不会，只要压缩后内容依然清晰可辨。银行审核人员关注的是文件上的数字和信息是否可读，而不是文件是否经过压缩。如果对文件格式有特殊要求（例如需要可搜索的文字版本），银行通常会在申请须知里明确说明，遇到这种情况请直接联系银行确认。"}},
-    {"@type": "Question", "name": "银行月结单需要盖章的原件扫描件吗？", "acceptedAnswer": {"@type": "Answer", "text": "多数银行接受从网上银行或银行App直接下载的电子月结单，不需要额外盖章，这类电子版通常体积很小，也不需要压缩。只有部分特殊贷款或需要“银行证明信”时才要求原件盖章扫描，这种情况下再按扫描件的方式压缩即可。"}},
-    {"@type": "Question", "name": "三个月的月结单要合并成一个文件吗？", "acceptedAnswer": {"@type": "Answer", "text": "看银行的具体要求，多数银行门户支持分开上传三份月结单，这样更灵活；如果系统只允许上传一个文件，可以用合并工具把三份合并成一份后再整体压缩一次。"}},
-    {"@type": "Question", "name": "自雇人士申请贷款，月结单要求会不一样吗？", "acceptedAnswer": {"@type": "Answer", "text": "通常需要提供更长时间跨度的月结单（部分银行要求6-12个月）和公司银行账户流水，文件数量更多，建议逐份压缩、按月份清楚命名文件，方便自己核对，也方便银行审核人员查阅。"}},
-    {"@type": "Question", "name": "压缩月结单会不会让银行看不清楚具体交易记录？", "acceptedAnswer": {"@type": "Answer", "text": "只要选择平衡压缩而不是最大压缩，交易记录、金额、日期这些细节文字通常都能保持清晰。如果不确定，压缩后先自己在100%缩放下检查一遍最容易看不清的小字体交易明细，确认没问题再上传。"}}
-  ]
+    {
+      "@type": "Question",
+      "name": "房贷、车贷、个人贷款需要的文件一样吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "核心文件类似（月结单、薪资单、IC），但房贷通常还需要买卖协议、地契或估价报告，车贷需要车辆报价单，这些补充文件如果是扫描件，同样可以用平衡压缩处理，保持金额和条款清晰。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "银行会不会因为文件是压缩过的而拒绝？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "一般不会，只要压缩后内容依然清晰可辨。银行审核人员关注的是文件上的数字和信息是否可读，而不是文件是否经过压缩。如果对文件格式有特殊要求（例如需要可搜索的文字版本），银行通常会在申请须知里明确说明，遇到这种情况请直接联系银行确认。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "银行月结单需要盖章的原件扫描件吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "多数银行接受从网上银行或银行App直接下载的电子月结单，不需要额外盖章，这类电子版通常体积很小，也不需要压缩。只有部分特殊贷款或需要“银行证明信”时才要求原件盖章扫描，这种情况下再按扫描件的方式压缩即可。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "三个月的月结单要合并成一个文件吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "看银行的具体要求，多数银行门户支持分开上传三份月结单，这样更灵活；如果系统只允许上传一个文件，可以用合并工具把三份合并成一份后再整体压缩一次。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "自雇人士申请贷款，月结单要求会不一样吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "通常需要提供更长时间跨度的月结单（部分银行要求6-12个月）和公司银行账户流水，文件数量更多，建议逐份压缩、按月份清楚命名文件，方便自己核对，也方便银行审核人员查阅。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "压缩月结单会不会让银行看不清楚具体交易记录？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "只要选择平衡压缩而不是最大压缩，交易记录、金额、日期这些细节文字通常都能保持清晰。如果不确定，压缩后先自己在100%缩放下检查一遍最容易看不清的小字体交易明细，确认没问题再上传。"
+      }
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
 }
 </script>
 <style>
@@ -120,7 +196,7 @@ td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-ch
     <span class="tag">🏦 银行开户/贷款</span>
     <span class="tag">🇨🇳 简体中文</span>
     <span class="rt">阅读时间约 6 分钟</span>
-  </div>
+  <span class="byline">作者：<a href="/about">Yee Wee</a></span></div>
 
   <h1>银行月结单PDF压缩<br>开户和贷款上传文件教程</h1>
 

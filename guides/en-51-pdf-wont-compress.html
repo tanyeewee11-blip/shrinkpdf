@@ -88,14 +88,74 @@ tr:last-child td{border-bottom:none;}
   "dateModified": "2026-04-05"
 }
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is my compressed PDF the same size as the original?", "acceptedAnswer": {"@type": "Answer", "text": "The most likely reason is that the images inside the PDF are already compressed to a low resolution — there's no more data to reduce. This happens when the PDF was previously compressed by another tool, or when the scanner app applied its own compression at export time. The fix is to go back to the source: re-scan at lower DPI settings, or re-export from the original application with size-optimised settings."}}, {"@type": "Question", "name": "Why did compression make my PDF larger?", "acceptedAnswer": {"@type": "Answer", "text": "This happens when the compression algorithm adds overhead that exceeds the savings. It's most common with very small PDFs (under 100KB), PDFs that are already optimised, or PDFs with content types the tool handles poorly. If compression increases your file size, use the original uncompressed version."}}, {"@type": "Question", "name": "Can I compress a PDF that says 'already optimised'?", "acceptedAnswer": {"@type": "Answer", "text": "Adobe Acrobat sometimes shows this message when it can't find anything obvious to compress. It doesn't mean the file is at its minimum possible size — it means Acrobat's quick analysis didn't find standard compression targets. Try Ghostscript with the /screen setting, which uses a different algorithm and often achieves further reduction even on files Acrobat considers optimised."}}, {"@type": "Question", "name": "My PDF is mostly text but it's 20MB. Why?", "acceptedAnswer": {"@type": "Answer", "text": "A text-heavy PDF that is unexpectedly large usually contains embedded images you might not have noticed. Common culprits: a scanned signature page at the end, a high-resolution logo or letterhead image on every page, or embedded background graphics. Open the PDF and check if any pages look different from the others — scan-quality pages are usually obviously different from digitally-typed pages."}}, {"@type": "Question", "name": "Does compressing the same PDF twice help?", "acceptedAnswer": {"@type": "Answer", "text": "Rarely. A second pass of compression on an already-compressed file typically yields 5% or less additional reduction, and may slightly degrade image quality. If the first compression didn't achieve your target size, use a different approach: re-scan at lower settings, re-export from source, or use Ghostscript rather than compressing again."}}, {"@type": "Question", "name": "What's the minimum file size a PDF can be compressed to?", "acceptedAnswer": {"@type": "Answer", "text": "There's no fixed minimum — it depends entirely on the content. A single page of plain text can be under 10KB. A single scanned page at Maximum compression is typically 50–150KB. A heavily designed page with complex graphics may not go below 500KB without visible quality degradation. If you need to reach a specific target (like 100KB or 300KB), re-scanning at very low DPI is usually more effective than any compression tool."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is my compressed PDF the same size as the original?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most likely reason is that the images inside the PDF are already compressed to a low resolution — there's no more data to reduce. This happens when the PDF was previously compressed by another tool, or when the scanner app applied its own compression at export time. The fix is to go back to the source: re-scan at lower DPI settings, or re-export from the original application with size-optimised settings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did compression make my PDF larger?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This happens when the compression algorithm adds overhead that exceeds the savings. It's most common with very small PDFs (under 100KB), PDFs that are already optimised, or PDFs with content types the tool handles poorly. If compression increases your file size, use the original uncompressed version."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I compress a PDF that says 'already optimised'?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Adobe Acrobat sometimes shows this message when it can't find anything obvious to compress. It doesn't mean the file is at its minimum possible size — it means Acrobat's quick analysis didn't find standard compression targets. Try Ghostscript with the /screen setting, which uses a different algorithm and often achieves further reduction even on files Acrobat considers optimised."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My PDF is mostly text but it's 20MB. Why?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A text-heavy PDF that is unexpectedly large usually contains embedded images you might not have noticed. Common culprits: a scanned signature page at the end, a high-resolution logo or letterhead image on every page, or embedded background graphics. Open the PDF and check if any pages look different from the others — scan-quality pages are usually obviously different from digitally-typed pages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does compressing the same PDF twice help?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rarely. A second pass of compression on an already-compressed file typically yields 5% or less additional reduction, and may slightly degrade image quality. If the first compression didn't achieve your target size, use a different approach: re-scan at lower settings, re-export from source, or use Ghostscript rather than compressing again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the minimum file size a PDF can be compressed to?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There's no fixed minimum — it depends entirely on the content. A single page of plain text can be under 10KB. A single scanned page at Maximum compression is typically 50–150KB. A heavily designed page with complex graphics may not go below 500KB without visible quality degradation. If you need to reach a specific target (like 100KB or 300KB), re-scanning at very low DPI is usually more effective than any compression tool."
+      }
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
+}
+</script>
 </head>
 <body>
 <div id="read-progress"></div>
 <nav id="site-nav"></nav>
 <main id="main-content">
 <div class="wrap">
-  <div class="meta"><span class="tag">Troubleshooting</span><span class="tag">How-To</span><span class="rt">&#9201; 8 min read</span><time datetime="2026-04-05" class="rt">Updated 2026-04-05</time></div>
+  <div class="meta"><span class="tag">Troubleshooting</span><span class="tag">How-To</span><span class="rt">&#9201; 8 min read</span><time datetime="2026-04-05" class="rt">Updated 2026-04-05</time><span class="byline">by <a href="/about">Yee Wee</a></span></div>
   <h1>PDF Won't Compress — Why It Happens and How to Fix It (2026)</h1>
   <p class="intro">You ran your PDF through a compression tool and the output is the same size — or even larger — than the original. This is one of the most frustrating PDF problems, and it has specific causes with specific fixes. This guide explains exactly why compression sometimes fails and what to do about it.</p>
   <nav class="toc" aria-label="Table of contents">

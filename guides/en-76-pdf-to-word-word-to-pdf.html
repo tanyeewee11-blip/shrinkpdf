@@ -33,7 +33,51 @@
   "dateModified": "2026-07-05"
 }
 </script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why doesn't ShrinkPDF convert PDF to Word?","acceptedAnswer":{"@type":"Answer","text":"ShrinkPDF's tools work entirely in your browser with no server upload, which works well for compressing, merging, splitting, and reordering pages — operations that don't need to change the file's underlying structure. Reliable PDF-to-Word conversion generally requires reconstructing paragraphs, fonts, and layout from scratch, which is a different technical problem best handled by dedicated conversion engines."}},{"@type":"Question","name":"Is Google Docs a good free way to convert PDF to Word?","acceptedAnswer":{"@type":"Answer","text":"For text-based PDFs (not scanned images), Google Docs does a reasonable job: upload the PDF to Google Drive, open it with Google Docs, then download it as a .docx file. Complex layouts, tables, and multi-column documents often shift around, but plain text documents usually convert cleanly."}},{"@type":"Question","name":"Will my formatting stay the same after converting PDF to Word?","acceptedAnswer":{"@type":"Answer","text":"It depends on the original document. Simple single-column text keeps its formatting well in most converters. Multi-column layouts, tables, text boxes, and scanned pages are much more likely to shift, merge, or lose formatting, regardless of which tool you use."}},{"@type":"Question","name":"What's the best way to convert a scanned PDF to Word?","acceptedAnswer":{"@type":"Answer","text":"Scanned PDFs are images, not text, so converting them to an editable Word document requires OCR (optical character recognition) rather than a simple format conversion. Dedicated OCR software handles this far more accurately than general-purpose free converters, especially for dense or lower-quality scans."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why doesn't ShrinkPDF convert PDF to Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ShrinkPDF's tools work entirely in your browser with no server upload, which works well for compressing, merging, splitting, and reordering pages — operations that don't need to change the file's underlying structure. Reliable PDF-to-Word conversion generally requires reconstructing paragraphs, fonts, and layout from scratch, which is a different technical problem best handled by dedicated conversion engines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Google Docs a good free way to convert PDF to Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For text-based PDFs (not scanned images), Google Docs does a reasonable job: upload the PDF to Google Drive, open it with Google Docs, then download it as a .docx file. Complex layouts, tables, and multi-column documents often shift around, but plain text documents usually convert cleanly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my formatting stay the same after converting PDF to Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the original document. Simple single-column text keeps its formatting well in most converters. Multi-column layouts, tables, text boxes, and scanned pages are much more likely to shift, merge, or lose formatting, regardless of which tool you use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best way to convert a scanned PDF to Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Scanned PDFs are images, not text, so converting them to an editable Word document requires OCR (optical character recognition) rather than a simple format conversion. Dedicated OCR software handles this far more accurately than general-purpose free converters, especially for dense or lower-quality scans."
+      }
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
+}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
 <meta property="article:modified_time" content="2026-07-05">
@@ -91,7 +135,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <nav id="site-nav"></nav>
 <main id="main-content">
 <div class="wrap">
-  <div class="meta"><span class="tag">Comparison</span><span class="tag">PDF to Word</span><span class="tag">Free Options</span><time datetime="2026-07-05" class="rt">Updated July 5, 2026</time></div>
+  <div class="meta"><span class="tag">Comparison</span><span class="tag">PDF to Word</span><span class="tag">Free Options</span><time datetime="2026-07-05" class="rt">Updated July 5, 2026</time><span class="byline">by <a href="/about">Yee Wee</a></span></div>
   <h1>PDF to Word & Word to PDF — Best Free Ways to Convert</h1>
   <p class="intro">ShrinkPDF doesn't have a PDF-to-Word or Word-to-PDF converter, and honestly, that's on purpose rather than an oversight. This guide explains why, then walks through the free and low-cost tools that actually do this conversion well, depending on what kind of document you're starting with.</p>
 

@@ -88,14 +88,66 @@ tr:last-child td{border-bottom:none;}
   "dateModified": "2026-04-12"
 }
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is my scanned PDF larger than the original printed document?", "acceptedAnswer": {"@type": "Answer", "text": "The PDF file size has no relationship to the physical page count or density of the original document. What determines the PDF size is how many pixels were captured during scanning and how much compression was applied. A 300 DPI colour scan of a single typed A4 page stores millions of pixels — far more than the equivalent digital text document. The printed document 'contains' the same information in ink, which has no file size."}}, {"@type": "Question", "name": "My scanner app doesn't let me change DPI. What can I do?", "acceptedAnswer": {"@type": "Answer", "text": "Many phone scanner apps don't expose DPI settings directly. Look for quality settings labelled 'Standard/Normal/High/Ultra' — Standard or Normal is typically 150–200 DPI. If the app only has one quality level, try Microsoft Lens (free) which produces well-compressed output by default. Alternatively, compress the scan afterwards using ShrinkPDF's Maximum compression setting."}}, {"@type": "Question", "name": "How much can I reduce a scanned PDF without making it unreadable?", "acceptedAnswer": {"@type": "Answer", "text": "For text documents (payslips, letters, transcripts), Maximum compression in ShrinkPDF reduces file size by 70–85% while keeping text fully legible at normal screen zoom. This typically means going from 300 DPI colour to approximately 72–96 DPI, which looks sharp at 100% zoom. Text only starts to look degraded when zoomed in to 200%+ — which is not how official reviewers read submitted documents."}}, {"@type": "Question", "name": "Is a heavily compressed scan acceptable for government submissions?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for the vast majority of submissions. Government portal reviewers read documents on screen at standard zoom — they need to verify names, numbers, dates, and amounts, not inspect pixel quality. A Maximum-compressed scan remains perfectly legible for these purposes. The only cases where higher quality matters are signatures with very fine detail and certificates with intricate official seals that need to be examined closely."}}, {"@type": "Question", "name": "Why is a phone camera photo larger than a scanner app scan?", "acceptedAnswer": {"@type": "Answer", "text": "Phone camera photos are captured at the camera's native resolution (8–50 megapixels) without applying document-optimised compression. A scanner app like Microsoft Lens applies perspective correction, contrast enhancement, and targeted JPEG compression — producing a file specifically optimised for document readability at a much smaller size. Never embed raw phone camera photos in PDFs for submissions; always use a scanner app."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is my scanned PDF larger than the original printed document?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The PDF file size has no relationship to the physical page count or density of the original document. What determines the PDF size is how many pixels were captured during scanning and how much compression was applied. A 300 DPI colour scan of a single typed A4 page stores millions of pixels — far more than the equivalent digital text document. The printed document 'contains' the same information in ink, which has no file size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My scanner app doesn't let me change DPI. What can I do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many phone scanner apps don't expose DPI settings directly. Look for quality settings labelled 'Standard/Normal/High/Ultra' — Standard or Normal is typically 150–200 DPI. If the app only has one quality level, try Microsoft Lens (free) which produces well-compressed output by default. Alternatively, compress the scan afterwards using ShrinkPDF's Maximum compression setting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much can I reduce a scanned PDF without making it unreadable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For text documents (payslips, letters, transcripts), Maximum compression in ShrinkPDF reduces file size by 70–85% while keeping text fully legible at normal screen zoom. This typically means going from 300 DPI colour to approximately 72–96 DPI, which looks sharp at 100% zoom. Text only starts to look degraded when zoomed in to 200%+ — which is not how official reviewers read submitted documents."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a heavily compressed scan acceptable for government submissions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for the vast majority of submissions. Government portal reviewers read documents on screen at standard zoom — they need to verify names, numbers, dates, and amounts, not inspect pixel quality. A Maximum-compressed scan remains perfectly legible for these purposes. The only cases where higher quality matters are signatures with very fine detail and certificates with intricate official seals that need to be examined closely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is a phone camera photo larger than a scanner app scan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Phone camera photos are captured at the camera's native resolution (8–50 megapixels) without applying document-optimised compression. A scanner app like Microsoft Lens applies perspective correction, contrast enhancement, and targeted JPEG compression — producing a file specifically optimised for document readability at a much smaller size. Never embed raw phone camera photos in PDFs for submissions; always use a scanner app."
+      }
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
+}
+</script>
 </head>
 <body>
 <div id="read-progress"></div>
 <nav id="site-nav"></nav>
 <main id="main-content">
 <div class="wrap">
-  <div class="meta"><span class="tag">Scanned PDF</span><span class="tag">Troubleshooting</span><span class="tag">How-To</span><span class="rt">&#9201; 8 min read</span><time datetime="2026-04-12" class="rt">Updated 2026-04-12</time></div>
+  <div class="meta"><span class="tag">Scanned PDF</span><span class="tag">Troubleshooting</span><span class="tag">How-To</span><span class="rt">&#9201; 8 min read</span><time datetime="2026-04-12" class="rt">Updated 2026-04-12</time><span class="byline">by <a href="/about">Yee Wee</a></span></div>
   <h1>Why Is My Scanned PDF So Large? Causes and Fixes (2026)</h1>
   <p class="intro">You scanned a 3-page payslip and the PDF is 15MB. Your transcript scan is 25MB. A single IC copy is 4MB. Scanned PDFs are almost always larger than they need to be — sometimes by a factor of 10. This guide explains exactly why, and how to fix it without re-scanning.</p>
   <nav class="toc" aria-label="Table of contents">

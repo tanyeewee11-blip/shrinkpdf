@@ -94,11 +94,32 @@ tr:last-child td{border-bottom:none;}
   "name": "如何在手机上压缩PDF文件",
   "description": "无需安装App，用Android或iPhone浏览器免费压缩PDF",
   "step": [
-    {"@type": "HowToStep", "name": "打开浏览器", "text": "Android用Chrome，iPhone用Safari，访问 shrinkpdf.fyi"},
-    {"@type": "HowToStep", "name": "选择PDF文件", "text": "点击\u201c选择PDF文件\u201d，从手机文件管理器选取"},
-    {"@type": "HowToStep", "name": "选择压缩级别", "text": "选择轻度、平衡或最大压缩"},
-    {"@type": "HowToStep", "name": "下载压缩文件", "text": "点击下载，文件保存到手机下载文件夹"}
-  ]
+    {
+      "@type": "HowToStep",
+      "name": "打开浏览器",
+      "text": "Android用Chrome，iPhone用Safari，访问 shrinkpdf.fyi"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "选择PDF文件",
+      "text": "点击“选择PDF文件”，从手机文件管理器选取"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "选择压缩级别",
+      "text": "选择轻度、平衡或最大压缩"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "下载压缩文件",
+      "text": "点击下载，文件保存到手机下载文件夹"
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -106,13 +127,60 @@ tr:last-child td{border-bottom:none;}
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "手机压缩PDF安全吗？会不会上传到不知名的服务器？", "acceptedAnswer": {"@type": "Answer", "text": "安全。压缩全程在手机浏览器本地运行，文件不会上传到任何服务器。你可以打开飞行模式再压缩，依然能正常工作，这就证明整个过程不需要联网。"}},
-    {"@type": "Question", "name": "为什么压缩到一半突然失败或没反应？", "acceptedAnswer": {"@type": "Answer", "text": "最常见的原因是压缩期间切换到了其他App或锁屏，导致浏览器标签被系统暂停。请保持浏览器在前台，直到看到\"压缩完成\"提示；如果文件特别大（超过100MB），也建议先接上电源再压缩，避免手机进入省电模式影响处理速度。"}},
-    {"@type": "Question", "name": "iPad可以用同样的方法吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以。iPad上的Safari操作方式和iPhone完全一样，屏幕更大，文件选择和下载会更方便。"}},
-    {"@type": "Question", "name": "手机浏览器压缩，效果和电脑上一样吗？", "acceptedAnswer": {"@type": "Answer", "text": "完全一样，压缩逻辑不因设备而改变，同一份文件、同一个压缩级别，手机和电脑压缩出来的文件大小基本相同，只是手机处理器较弱，大文件可能需要多等几秒到十几秒。"}},
-    {"@type": "Question", "name": "华为手机（没有Google服务）能用吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以。ShrinkPDF是纯网页工具，只需要一个浏览器（华为自带浏览器或华为版Chrome都可以），不依赖Google Play服务，华为、荣耀等HarmonyOS设备都能正常使用。"}},
-    {"@type": "Question", "name": "压缩后的文件找不到怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "Android上一般在\"文件\"App的\"下载\"文件夹；iPhone在\"文件\"App里的\"我的iPhone → 下载\"。如果设置过默认下载路径为其他文件夹或云盘，也可以在浏览器的下载记录里直接点开确认保存位置。"}}
-  ]
+    {
+      "@type": "Question",
+      "name": "手机压缩PDF安全吗？会不会上传到不知名的服务器？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "安全。压缩全程在手机浏览器本地运行，文件不会上传到任何服务器。你可以打开飞行模式再压缩，依然能正常工作，这就证明整个过程不需要联网。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么压缩到一半突然失败或没反应？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "最常见的原因是压缩期间切换到了其他App或锁屏，导致浏览器标签被系统暂停。请保持浏览器在前台，直到看到\"压缩完成\"提示；如果文件特别大（超过100MB），也建议先接上电源再压缩，避免手机进入省电模式影响处理速度。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "iPad可以用同样的方法吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。iPad上的Safari操作方式和iPhone完全一样，屏幕更大，文件选择和下载会更方便。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "手机浏览器压缩，效果和电脑上一样吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "完全一样，压缩逻辑不因设备而改变，同一份文件、同一个压缩级别，手机和电脑压缩出来的文件大小基本相同，只是手机处理器较弱，大文件可能需要多等几秒到十几秒。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "华为手机（没有Google服务）能用吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。ShrinkPDF是纯网页工具，只需要一个浏览器（华为自带浏览器或华为版Chrome都可以），不依赖Google Play服务，华为、荣耀等HarmonyOS设备都能正常使用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "压缩后的文件找不到怎么办？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Android上一般在\"文件\"App的\"下载\"文件夹；iPhone在\"文件\"App里的\"我的iPhone → 下载\"。如果设置过默认下载路径为其他文件夹或云盘，也可以在浏览器的下载记录里直接点开确认保存位置。"
+      }
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
 }
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
@@ -129,7 +197,7 @@ tr:last-child td{border-bottom:none;}
     <span class="tag">📱 手机教程</span>
     <span class="tag">🇨🇳 简体中文</span>
     <span class="rt">阅读时间约 6 分钟</span>
-  </div>
+  <span class="byline">作者：<a href="/about">Yee Wee</a></span></div>
 
   <h1>如何在手机上压缩PDF<br>（无需安装任何App）</h1>
 

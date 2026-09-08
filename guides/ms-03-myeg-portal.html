@@ -84,13 +84,42 @@ li{margin-bottom:9px;color:#d0d0e8;}
   "description": "Panduan langkah demi langkah untuk mengecilkan dokumen sebelum dimuat naik ke MyEG, JPJ, atau portal kerajaan Malaysia yang lain.",
   "inLanguage": "ms",
   "totalTime": "PT2M",
-  "tool": {"@type":"HowToTool","name":"ShrinkPDF","url":"https://shrinkpdf.fyi"},
+  "tool": {
+    "@type": "HowToTool",
+    "name": "ShrinkPDF",
+    "url": "https://shrinkpdf.fyi"
+  },
   "step": [
-    {"@type":"HowToStep","position":1,"name":"Buka ShrinkPDF","text":"Pergi ke ShrinkPDF.fyi dalam browser anda."},
-    {"@type":"HowToStep","position":2,"name":"Muat naik dokumen","text":"Muat naik fail PDF yang ditolak oleh portal."},
-    {"@type":"HowToStep","position":3,"name":"Pilih Maksimum","text":"Pilih tahap pemampatan Maksimum untuk pengurangan saiz terbesar."},
-    {"@type":"HowToStep","position":4,"name":"Muat turun dan cuba semula","text":"Muat turun fail dan muat naik semula ke portal."}
-  ]
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Buka ShrinkPDF",
+      "text": "Pergi ke ShrinkPDF.fyi dalam browser anda."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Muat naik dokumen",
+      "text": "Muat naik fail PDF yang ditolak oleh portal."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Pilih Maksimum",
+      "text": "Pilih tahap pemampatan Maksimum untuk pengurangan saiz terbesar."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Muat turun dan cuba semula",
+      "text": "Muat turun fail dan muat naik semula ke portal."
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -98,10 +127,36 @@ li{margin-bottom:9px;color:#d0d0e8;}
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type":"Question","name":"Berapa had saiz fail untuk muat naik ke MyEG?","acceptedAnswer":{"@type":"Answer","text":"MyEG biasanya menetapkan had 2MB bagi setiap dokumen sokongan, contohnya untuk pembaharuan cukai jalan, lesen memandu, atau permit. Had ini boleh berbeza mengikut jenis transaksi."}},
-    {"@type":"Question","name":"Kenapa muat naik saya gagal walaupun fail kelihatan kecil?","acceptedAnswer":{"@type":"Answer","text":"Kadang-kadang saiz fail yang dipaparkan pada peranti berbeza dari saiz sebenar selepas pemampatan dalaman PDF. Sahkan saiz sebenar dengan klik kanan fail dan semak Properties atau Get Info, bukan hanya anggaran."}},
-    {"@type":"Question","name":"Adakah selamat untuk kecilkan dokumen seperti geran kereta atau lesen memandu?","acceptedAnswer":{"@type":"Answer","text":"Ya. ShrinkPDF memproses semua fail dalam browser anda sahaja — dokumen kenderaan dan pengenalan diri anda tidak dihantar ke mana-mana server."}}
-  ]
+    {
+      "@type": "Question",
+      "name": "Berapa had saiz fail untuk muat naik ke MyEG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MyEG biasanya menetapkan had 2MB bagi setiap dokumen sokongan, contohnya untuk pembaharuan cukai jalan, lesen memandu, atau permit. Had ini boleh berbeza mengikut jenis transaksi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kenapa muat naik saya gagal walaupun fail kelihatan kecil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kadang-kadang saiz fail yang dipaparkan pada peranti berbeza dari saiz sebenar selepas pemampatan dalaman PDF. Sahkan saiz sebenar dengan klik kanan fail dan semak Properties atau Get Info, bukan hanya anggaran."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Adakah selamat untuk kecilkan dokumen seperti geran kereta atau lesen memandu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ya. ShrinkPDF memproses semua fail dalam browser anda sahaja — dokumen kenderaan dan pengenalan diri anda tidak dihantar ke mana-mana server."
+      }
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
 }
 </script>
 <!-- Google tag (gtag.js) -->
@@ -121,7 +176,7 @@ li{margin-bottom:9px;color:#d0d0e8;}
     <span class="tag">JPJ</span>
     <span class="rt">⏱ 5 min baca</span>
     <time datetime="2026-06-12" class="rt">Dikemaskini Jun 2026</time>
-  </div>
+  <span class="byline">oleh <a href="/about">Yee Wee</a></span></div>
 
   <h1>PDF Terlalu Besar untuk Upload MyEG — Cara Kecilkan (2026)</h1>
   <p class="intro">Cuba muat naik dokumen ke MyEG untuk pembaharuan cukai jalan, lesen memandu, atau permit — tapi sistem menolak sebab fail "terlalu besar"? Ini masalah biasa apabila dokumen diimbas menggunakan kamera telefon pada kualiti tinggi. Berikut cara selesaikannya dalam masa kurang dari seminit, percuma.</p>

@@ -32,7 +32,51 @@
   "dateModified": "2026-07-06"
 }
 </script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Excel have a built-in way to import PDF data?","acceptedAnswer":{"@type":"Answer","text":"Yes. Excel for Microsoft 365 and Excel 2019 or later (Windows, and Mac 365 2021+) has a Data > Get Data > From File > From PDF option that uses Power Query to detect tables in a PDF and load them into a worksheet. It's not available in Excel for the Web or older standalone Mac versions, and it works best on native (not scanned) PDFs with clean, simple tables."}},{"@type":"Question","name":"Does PowerPoint have a built-in way to convert PDF to editable slides?","acceptedAnswer":{"@type":"Answer","text":"No. PowerPoint can insert a PDF as a static image or embed it as a clickable object you open separately, but neither produces editable slide content. Google Slides has no PDF import at all. Getting an actually editable PPTX from a PDF requires a dedicated converter."}},{"@type":"Question","name":"Will formulas survive converting a PDF back to Excel?","acceptedAnswer":{"@type":"Answer","text":"No. A PDF only stores the final calculated numbers a spreadsheet produced, not the underlying formulas. After converting, you'll have the correct values but will need to rebuild any formulas yourself."}},{"@type":"Question","name":"Why is PDF to PowerPoint harder than PDF to Word?","acceptedAnswer":{"@type":"Answer","text":"Word documents and PDFs both fundamentally describe flowing text and paragraphs, so converting between them is a comparatively contained problem. Slides are a spatial, object-based canvas with no equivalent flow — a converter has to guess where slide breaks belong and how to turn dense paragraphs into slide-appropriate bullets, which is a much harder structural translation."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Excel have a built-in way to import PDF data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Excel for Microsoft 365 and Excel 2019 or later (Windows, and Mac 365 2021+) has a Data > Get Data > From File > From PDF option that uses Power Query to detect tables in a PDF and load them into a worksheet. It's not available in Excel for the Web or older standalone Mac versions, and it works best on native (not scanned) PDFs with clean, simple tables."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does PowerPoint have a built-in way to convert PDF to editable slides?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. PowerPoint can insert a PDF as a static image or embed it as a clickable object you open separately, but neither produces editable slide content. Google Slides has no PDF import at all. Getting an actually editable PPTX from a PDF requires a dedicated converter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will formulas survive converting a PDF back to Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A PDF only stores the final calculated numbers a spreadsheet produced, not the underlying formulas. After converting, you'll have the correct values but will need to rebuild any formulas yourself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is PDF to PowerPoint harder than PDF to Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Word documents and PDFs both fundamentally describe flowing text and paragraphs, so converting between them is a comparatively contained problem. Slides are a spatial, object-based canvas with no equivalent flow — a converter has to guess where slide breaks belong and how to turn dense paragraphs into slide-appropriate bullets, which is a much harder structural translation."
+      }
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
+}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
 <meta property="article:modified_time" content="2026-07-06">
@@ -90,7 +134,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <nav id="site-nav"></nav>
 <main id="main-content">
 <div class="wrap">
-  <div class="meta"><span class="tag">Comparison</span><span class="tag">PDF to Excel</span><span class="tag">PDF to PowerPoint</span><time datetime="2026-07-06" class="rt">Updated July 6, 2026</time></div>
+  <div class="meta"><span class="tag">Comparison</span><span class="tag">PDF to Excel</span><span class="tag">PDF to PowerPoint</span><time datetime="2026-07-06" class="rt">Updated July 6, 2026</time><span class="byline">by <a href="/about">Yee Wee</a></span></div>
   <h1>PDF to Excel & PDF to PowerPoint — What Actually Works</h1>
   <p class="intro">These two get lumped together with "PDF to Word," but they're not the same problem. Excel actually has a real, built-in way to pull data out of a PDF. PowerPoint doesn't have anything close. Here's what each one can genuinely do for free, and where you actually need a dedicated tool.</p>
 

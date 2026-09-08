@@ -29,14 +29,79 @@
   "name": "Cara Gabungkan Fail PDF",
   "description": "Cara menggabungkan beberapa fail PDF jadi satu dokumen terus dalam browser tanpa install perisian.",
   "step": [
-    {"@type": "HowToStep", "name": "Buka tools Gabung PDF", "text": "Buka shrinkpdf.fyi/merge dalam mana-mana browser, tidak perlu install apa-apa."},
-    {"@type": "HowToStep", "name": "Upload semua fail PDF", "text": "Pilih atau seret semua fail PDF yang nak digabungkan sekali gus."},
-    {"@type": "HowToStep", "name": "Susun urutan fail", "text": "Seret setiap fail ke kedudukan yang anda mahu — urutan pada skrin akan jadi urutan halaman dalam dokumen gabungan."},
-    {"@type": "HowToStep", "name": "Download fail gabungan", "text": "Klik download untuk simpan satu fail PDF berisi semua dokumen yang digabungkan tadi."}
-  ]
+    {
+      "@type": "HowToStep",
+      "name": "Buka tools Gabung PDF",
+      "text": "Buka shrinkpdf.fyi/merge dalam mana-mana browser, tidak perlu install apa-apa."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Upload semua fail PDF",
+      "text": "Pilih atau seret semua fail PDF yang nak digabungkan sekali gus."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Susun urutan fail",
+      "text": "Seret setiap fail ke kedudukan yang anda mahu — urutan pada skrin akan jadi urutan halaman dalam dokumen gabungan."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Download fail gabungan",
+      "text": "Klik download untuk simpan satu fail PDF berisi semua dokumen yang digabungkan tadi."
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
 }
 </script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Adakah kualiti PDF berkurang selepas digabungkan?","acceptedAnswer":{"@type":"Answer","text":"Tidak. Gabung PDF berbeza daripada kompres — tools ni menyalin kandungan asal setiap halaman (teks, fon, gambar) terus ke fail gabungan tanpa merender semula apa-apa, jadi kualiti kekal sama persis seperti fail asal."}},{"@type":"Question","name":"Berapa banyak fail PDF boleh digabungkan sekali gus?","acceptedAnswer":{"@type":"Answer","text":"Tiada had bilangan fail yang ditetapkan sebab semua proses berjalan dalam browser anda sendiri, bukan pada server dengan kuota terhad. Had sebenar bergantung pada memori peranti anda, tapi untuk kegunaan biasa (5-20 fail) tiada masalah langsung."}},{"@type":"Question","name":"Bolehkah saya susun semula urutan fail sebelum gabung?","acceptedAnswer":{"@type":"Answer","text":"Boleh. Selepas upload semua fail, anda boleh seret dan susun semula kedudukan setiap fail sebelum digabungkan — urutan yang anda tetapkan pada skrin akan jadi urutan halaman dalam dokumen akhir."}},{"@type":"Question","name":"Adakah fail saya diupload ke server semasa digabungkan?","acceptedAnswer":{"@type":"Answer","text":"Tidak. Keseluruhan proses gabung PDF dalam ShrinkPDF berjalan terus dalam browser anda menggunakan WebAssembly, jadi fail tidak pernah tinggalkan peranti anda."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Adakah kualiti PDF berkurang selepas digabungkan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tidak. Gabung PDF berbeza daripada kompres — tools ni menyalin kandungan asal setiap halaman (teks, fon, gambar) terus ke fail gabungan tanpa merender semula apa-apa, jadi kualiti kekal sama persis seperti fail asal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Berapa banyak fail PDF boleh digabungkan sekali gus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tiada had bilangan fail yang ditetapkan sebab semua proses berjalan dalam browser anda sendiri, bukan pada server dengan kuota terhad. Had sebenar bergantung pada memori peranti anda, tapi untuk kegunaan biasa (5-20 fail) tiada masalah langsung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bolehkah saya susun semula urutan fail sebelum gabung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Boleh. Selepas upload semua fail, anda boleh seret dan susun semula kedudukan setiap fail sebelum digabungkan — urutan yang anda tetapkan pada skrin akan jadi urutan halaman dalam dokumen akhir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Adakah fail saya diupload ke server semasa digabungkan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tidak. Keseluruhan proses gabung PDF dalam ShrinkPDF berjalan terus dalam browser anda menggunakan WebAssembly, jadi fail tidak pernah tinggalkan peranti anda."
+      }
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Yee Wee",
+    "url": "https://shrinkpdf.fyi/about"
+  }
+}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7DTD213P"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MY7DTD213P');</script>
 <meta property="article:modified_time" content="2026-08-08">
@@ -91,7 +156,7 @@ h2[id],h3[id]{scroll-margin-top:110px;}
 <nav id="site-nav"></nav>
 <main id="main-content">
 <div class="wrap">
-  <div class="meta"><span class="tag">Panduan</span><span class="tag">Gabung PDF</span><time datetime="2026-08-08" class="rt">Dikemas kini 8 Ogos 2026</time></div>
+  <div class="meta"><span class="tag">Panduan</span><span class="tag">Gabung PDF</span><time datetime="2026-08-08" class="rt">Dikemas kini 8 Ogos 2026</time><span class="byline">oleh <a href="/about">Yee Wee</a></span></div>
   <h1>Cara Gabung PDF Percuma — Tiada Upload ke Server</h1>
   <p class="intro">Ada beberapa fail PDF berasingan yang perlu jadi satu dokumen — untuk permohonan kerja, pinjaman bank, atau borang kerajaan? Anda boleh gabungkan dalam masa kurang seminit, percuma, tiada install apa-apa, dan fail anda tidak pernah dihantar ke mana-mana server.</p>
 
