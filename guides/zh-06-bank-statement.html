@@ -8,9 +8,9 @@
 <meta name="description" content="马来西亚银行开户和贷款申请需要上传银行月结单，文件大小通常限制在2-5MB。本文教你压缩月结单和薪资单，文件不离开设备。">
 <meta name="keywords" content="银行月结单PDF压缩, 银行开户上传文件, 贷款申请PDF, 马来西亚银行文件上传, 薪资单压缩">
 <link rel="canonical" href="https://shrinkpdf.fyi/guides/zh-06-bank-statement">
-<link rel="alternate" hreflang="x-default" href="https://shrinkpdf.fyi/guides/en-29-bank-account">
 <link rel="alternate" hreflang="en" href="https://shrinkpdf.fyi/guides/en-29-bank-account">
 <link rel="alternate" hreflang="zh-Hans" href="https://shrinkpdf.fyi/guides/zh-06-bank-statement">
+<link rel="alternate" hreflang="x-default" href="https://shrinkpdf.fyi/guides/en-29-bank-account">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shrinkpdf.fyi/guides/zh-06-bank-statement">
 <meta property="og:title" content="银行月结单PDF压缩 — 开户、贷款上传文件教程（2026）">
@@ -188,7 +188,29 @@ td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-ch
 </head>
 <body>
 <div id="read-progress"></div>
-<nav id="site-nav"></nav>
+<nav id="site-nav">
+      <div class="nav-top">
+        <a href="/" class="logo"><span>Shrink</span>PDF</a>
+        <a href="/guides" class="nav-guides-link">📚 Guides</a>
+        <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav-bottom">
+        <a href="/" class="nav-tool-btn">🗜️ Compress</a>
+        <a href="/merge" class="nav-tool-btn">🔗 Merge</a>
+        <a href="/split" class="nav-tool-btn">✂️ Split</a>
+        <a href="/rotate" class="nav-tool-btn">🔄 Rotate</a>
+        <a href="/pdf-to-images" class="nav-tool-btn">🖼️ PDF→IMG</a>
+        <a href="/images-to-pdf" class="nav-tool-btn">📷 IMG→PDF</a>
+        <a href="/reorder" class="nav-tool-btn">📋 Reorder</a>
+        <a href="/watermark" class="nav-tool-btn">💧 Watermark</a>
+        <a href="/page-numbers" class="nav-tool-btn">🔢 Page #</a>
+      </div>
+      <div class="mobile-drawer" id="mobileDrawer">
+        <a href="/" class="nav-tool-btn">🗜️ Compress</a><a href="/merge" class="nav-tool-btn">🔗 Merge</a><a href="/split" class="nav-tool-btn">✂️ Split</a><a href="/rotate" class="nav-tool-btn">🔄 Rotate</a><a href="/pdf-to-images" class="nav-tool-btn">🖼️ PDF→IMG</a><a href="/images-to-pdf" class="nav-tool-btn">📷 IMG→PDF</a><a href="/reorder" class="nav-tool-btn">📋 Reorder</a><a href="/watermark" class="nav-tool-btn">💧 Watermark</a><a href="/page-numbers" class="nav-tool-btn">🔢 Page #</a>
+      </div>
+    </nav>
 <main id="main-content">
 <div class="wrap">
 
@@ -330,7 +352,51 @@ td{padding:10px 14px;border-bottom:1px solid var(--br);color:#d0d0e8;}tr:last-ch
 
 </div>
 </main>
-<footer id="site-footer"></footer>
+<footer id="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo"><span>Shrink</span>PDF</div>
+          <p class="footer-tagline">Free PDF tools. No login. No limits. No watermarks.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <div class="footer-col-title">Tools</div>
+            <a href="/">Compress PDF</a>
+            <a href="/merge">Merge PDF</a>
+            <a href="/split">Split PDF</a>
+            <a href="/rotate">Rotate PDF</a>
+            <a href="/pdf-to-images">PDF to Images</a>
+            <a href="/images-to-pdf">Images to PDF</a>
+            <a href="/reorder">Reorder Pages</a>
+            <a href="/watermark">Add Watermark</a>
+            <a href="/page-numbers">Add Page Numbers</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Guides</div>
+            <a href="/guides">All Guides</a>
+            <a href="/guides/en-01-below1mb">Compress Below 1MB</a>
+            <a href="/guides/en-34-send-large-pdf-email">Send Large PDF by Email</a>
+            <a href="/guides/en-06-malaysia">LHDN e-Filing PDF</a>
+            <a href="/guides/en-09-mobile">Compress on Mobile</a>
+            <a href="/guides/en-12-university">University Submission</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Company</div>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/affiliate-disclosure">Affiliate Disclosure</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ShrinkPDF · No login · No storage · Always free</span>
+        <a href="https://startupbase.io/products/shrinkpdf?utm_source=startupbase&utm_medium=badge&utm_campaign=launch-badge-neutral" target="_blank" rel="noopener noreferrer" style="margin-left:16px;display:inline-block;vertical-align:middle;">
+          <img src="https://statics.startupbase.io/site/badges/launched-on-sb-neutral.svg" alt="Launched on StartupBase" height="40" style="height:40px;width:auto;" />
+        </a>
+      </div>
+    </footer>
 <script>
 (function(){var nav=document.querySelector('nav');if(nav){var h=function(){document.body.style.paddingTop=nav.getBoundingClientRect().height+'px';};h();window.addEventListener('resize',h);}var el=document.getElementById('read-progress');if(el){window.addEventListener('scroll',function(){var s=document.documentElement,b=document.body;var top=s.scrollTop||b.scrollTop;var height=s.scrollHeight-s.clientHeight;el.style.width=(height>0?(top/height*100):0)+'%';});}var links=document.querySelectorAll('.toc a');var heads=[];links.forEach(function(l){var id=l.getAttribute('href').slice(1);var e=document.getElementById(id);if(e)heads.push({el:e,a:l});});window.addEventListener('scroll',function(){var y=window.scrollY+130;var cur=null;heads.forEach(function(h){if(h.el.offsetTop<=y)cur=h;});links.forEach(function(l){l.classList.remove('active');});if(cur)cur.a.classList.add('active');});})();
 </script>

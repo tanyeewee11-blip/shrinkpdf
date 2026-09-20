@@ -16,20 +16,16 @@
   };
 
   const TOOLS = [
-    { href: 'index.html',         icon: '🗜️', label: '🗜️ Compress' },
-    { href: 'merge.html',         icon: '🔗', label: '🔗 Merge' },
-    { href: 'split.html',         icon: '✂️', label: '✂️ Split' },
-    { href: 'rotate.html',        icon: '🔄', label: '🔄 Rotate' },
-    { href: 'pdf-to-images.html', icon: '🖼️', label: '🖼️ PDF→IMG' },
-    { href: 'images-to-pdf.html', icon: '📷', label: '📷 IMG→PDF' },
-    { href: 'reorder.html',       icon: '📋', label: '📋 Reorder' },
-    { href: 'watermark.html',     icon: '💧', label: '💧 Watermark' },
-    { href: 'page-numbers.html',  icon: '🔢', label: '🔢 Page #' },
+    { href: '/',         icon: '🗜️', label: '🗜️ Compress' },
+    { href: '/merge',         icon: '🔗', label: '🔗 Merge' },
+    { href: '/split',         icon: '✂️', label: '✂️ Split' },
+    { href: '/rotate',        icon: '🔄', label: '🔄 Rotate' },
+    { href: '/pdf-to-images', icon: '🖼️', label: '🖼️ PDF→IMG' },
+    { href: '/images-to-pdf', icon: '📷', label: '📷 IMG→PDF' },
+    { href: '/reorder',       icon: '📋', label: '📋 Reorder' },
+    { href: '/watermark',     icon: '💧', label: '💧 Watermark' },
+    { href: '/page-numbers',  icon: '🔢', label: '🔢 Page #' },
   ];
-
-  // Detect root prefix for guides subdir
-  const isInGuides = window.location.pathname.includes('/guides/');
-  const root = isInGuides ? '../' : '';
 
   const rawPage = window.location.pathname.split('/').pop() || '';
   // Normalise: add .html if missing so /merge and merge.html both match
@@ -38,7 +34,7 @@
 
   function navBtn(tool) {
     const active = tool.label === activePage ? ' active' : '';
-    return `<a href="${root}${tool.href}" class="nav-tool-btn${active}">${tool.label}</a>`;
+    return `<a href="${tool.href}" class="nav-tool-btn${active}">${tool.label}</a>`;
   }
 
   // Inject NAV
@@ -48,7 +44,7 @@
     navEl.innerHTML = `
       <div class="nav-top">
         <a href="/" class="logo"><span>Shrink</span>PDF</a>
-        <a href="${root}guides" class="nav-guides-link">📚 Guides</a>
+        <a href="/guides" class="nav-guides-link">📚 Guides</a>
         <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
@@ -75,31 +71,31 @@
           <div class="footer-col">
             <div class="footer-col-title">Tools</div>
             <a href="/">Compress PDF</a>
-            <a href="${root}merge">Merge PDF</a>
-            <a href="${root}split">Split PDF</a>
-            <a href="${root}rotate">Rotate PDF</a>
-            <a href="${root}pdf-to-images">PDF to Images</a>
-            <a href="${root}images-to-pdf">Images to PDF</a>
-            <a href="${root}reorder">Reorder Pages</a>
-            <a href="${root}watermark">Add Watermark</a>
-            <a href="${root}page-numbers">Add Page Numbers</a>
+            <a href="/merge">Merge PDF</a>
+            <a href="/split">Split PDF</a>
+            <a href="/rotate">Rotate PDF</a>
+            <a href="/pdf-to-images">PDF to Images</a>
+            <a href="/images-to-pdf">Images to PDF</a>
+            <a href="/reorder">Reorder Pages</a>
+            <a href="/watermark">Add Watermark</a>
+            <a href="/page-numbers">Add Page Numbers</a>
           </div>
           <div class="footer-col">
             <div class="footer-col-title">Guides</div>
-            <a href="${root}guides">All Guides</a>
-            <a href="${root}guides/en-01-below1mb">Compress Below 1MB</a>
-            <a href="${root}guides/en-34-send-large-pdf-email">Send Large PDF by Email</a>
-            <a href="${root}guides/en-06-malaysia">LHDN e-Filing PDF</a>
-            <a href="${root}guides/en-09-mobile">Compress on Mobile</a>
-            <a href="${root}guides/en-12-university">University Submission</a>
+            <a href="/guides">All Guides</a>
+            <a href="/guides/en-01-below1mb">Compress Below 1MB</a>
+            <a href="/guides/en-34-send-large-pdf-email">Send Large PDF by Email</a>
+            <a href="/guides/en-06-malaysia">LHDN e-Filing PDF</a>
+            <a href="/guides/en-09-mobile">Compress on Mobile</a>
+            <a href="/guides/en-12-university">University Submission</a>
           </div>
           <div class="footer-col">
             <div class="footer-col-title">Company</div>
-            <a href="${root}about">About</a>
-            <a href="${root}contact">Contact</a>
-            <a href="${root}privacy">Privacy Policy</a>
-            <a href="${root}terms">Terms of Service</a>
-            <a href="${root}affiliate-disclosure">Affiliate Disclosure</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/affiliate-disclosure">Affiliate Disclosure</a>
           </div>
         </div>
       </div>
@@ -117,9 +113,8 @@
   // Appends UTM params so shared/copied links are attributable in GA4 instead of
   // landing as unattributed Direct traffic.
   // Builds the URL from the real site-absolute path (window.location.pathname),
-  // NOT from the 'root' relative-link prefix above — root is only correct for
-  // links pointing out of the current page, not for reconstructing this page's
-  // own canonical URL (which matters once /guides/ pages start using this too).
+  // Internal links in the nav/footer are absolute (e.g. /merge, /guides/en-01-below1mb),
+  // so no relative 'root' prefix is needed.
   function canonicalPath() {
     let path = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
     if (path === '') path = '/';
